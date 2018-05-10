@@ -8,7 +8,4 @@ Feature: Contacts feature
   Scenario: Create a new contact with only obligatory fields filled
     Given Go to contacts section
     When I press new contacts button
-    Then new contacts form is displayed
-    Then I fill the contacts name field
-    And press the save contact button
-    Then a new contact is created
+

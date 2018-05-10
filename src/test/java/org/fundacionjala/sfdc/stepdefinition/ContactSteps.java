@@ -5,14 +5,13 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.SalesForceAccounts;
-import org.fundacionjala.sfdc.pageobjects.SalesForceMainTab;
+import org.fundacionjala.sfdc.pageobjects.SalesForceContacts;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
-import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabLight;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import java.util.Properties;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * ContactSteps.java
@@ -20,21 +19,22 @@ import java.util.Properties;
  */
 public class ContactSteps {
     private WebDriver webDriver;
+    private SalesForceContacts salesForceContacts;
 
-    private SalesForceAccounts salesForceAccounts;
-    private Properties propertiesManager;
 
     /**
      * Given step.
      */
     @Given("^Go to contacts section$")
     public void goToContactsSection() {
-        System.out.println("This Step goes to accounts section");
+        System.out.println("This Step goes to contacts section");
         webDriver = DriverManager.getInstance().getNavigator();
-        SalesForceMainTab salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabLight(webDriver, "/one/one.app#/sObject/Contact/home");
+        SalesForceMainTabClassic salesForceMainTab;
+        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "a[title='Contacts']", "button.salesforceIdentityAppLauncherHeader");
         salesForceMainTab.displayOptions();
+
         salesForceMainTab.goToAccounts();
+
     }
 
     /**
@@ -43,8 +43,9 @@ public class ContactSteps {
     @When("^I press new contacts button$")
     public void iPressNewContactsButton() {
         System.out.println("This Step presses new account button");
-       // webDriver = DriverManager.getInstance().getNavigator();
-       // salesForceAccounts = new SalesForceAccounts(webDriver);
+        webDriver = DriverManager.getInstance().getNavigator();
+        salesForceContacts = new SalesForceContacts(webDriver);
+        salesForceContacts.clickNewButton(salesForceContacts.getNewButton());
     }
 
     /**
