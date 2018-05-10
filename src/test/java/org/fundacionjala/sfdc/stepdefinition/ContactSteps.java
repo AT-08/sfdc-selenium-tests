@@ -7,11 +7,7 @@ import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceContacts;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * ContactSteps.java

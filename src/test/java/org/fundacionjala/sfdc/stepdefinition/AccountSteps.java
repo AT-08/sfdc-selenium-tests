@@ -1,6 +1,5 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -8,12 +7,8 @@ import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceAccounts;
-import org.fundacionjala.sfdc.pageobjects.SalesForceMainTab;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.util.Properties;
 
@@ -34,8 +29,8 @@ public class AccountSteps {
     public void goToAccountsSection() {
         System.out.println("This Step goes to accounts section");
         webDriver = DriverManager.getInstance().getNavigator();
-        SalesForceMainTab salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "Accounts");
+        SalesForceMainTabClassic salesForceMainTab;
+        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "Accounts", "li[id='AllTab_tab']");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
     }
@@ -97,15 +92,6 @@ public class AccountSteps {
 
     }
 
-    /**
-     * After, to close browser after the tests are executed.
-     */
-    /*@After
-    public void closeBrowser() {
-        System.out.println("This Step closes browser");
-        webDriver = DriverManager.getInstance().getNavigator();
-        webDriver.close();
-    }*/
 
     /**
      * When step.
