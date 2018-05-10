@@ -65,8 +65,8 @@ public class CreateContacts {
     public void creation(final String firstName, final String lastName) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
-        WebElement saveButton = getSaveButton();
-        clickSaveButton(saveButton);
+        WebElement button = getSaveButton();
+        clickSaveButton(button);
     }
 }
 
