@@ -1,11 +1,11 @@
-package org.fundacionJala.sfdc.stepDefinition;
+package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionJala.sfdc.commons.DriverManager;
-import org.fundacionJala.sfdc.commons.PropertiesManager;
-import org.fundacionJala.sfdc.pageObjects.SalesForceLogIn;
+import org.fundacionjala.sfdc.commons.DriverManager;
+import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.pageobjects.SalesForceLogIn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

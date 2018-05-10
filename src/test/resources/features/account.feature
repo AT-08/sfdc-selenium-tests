@@ -13,4 +13,14 @@ Feature: Accounts feature
     And press the save button
     Then a new account is created
 
+  Scenario: Modify an existing account
+    Given Go to accounts section
+    When I choose all accounts
+    And click on Go
+    Then A list of accounts is displayed
+    And I click on edit link
+    Then All data is displayed to edit
+    And I change its name
+    And I press the save button
+    Then the account is modified
 

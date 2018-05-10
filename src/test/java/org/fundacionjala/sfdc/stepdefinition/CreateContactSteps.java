@@ -1,4 +1,4 @@
-package org.fundacionJala.sfdc.stepDefinition;
+package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

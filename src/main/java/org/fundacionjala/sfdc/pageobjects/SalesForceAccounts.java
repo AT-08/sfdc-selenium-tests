@@ -1,4 +1,4 @@
-package org.fundacionJala.sfdc.pageObjects;
+package org.fundacionjala.sfdc.pageobjects;
 
 
 import org.openqa.selenium.By;

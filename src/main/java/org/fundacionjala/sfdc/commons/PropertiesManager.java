@@ -1,4 +1,4 @@
-package org.fundacionJala.sfdc.commons;
+package org.fundacionjala.sfdc.commons;
 
 import java.io.FileInputStream;
 import java.io.IOException;
