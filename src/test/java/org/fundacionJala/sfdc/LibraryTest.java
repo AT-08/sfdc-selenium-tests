@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc;
+package org.fundacionJala.sfdc;
 
 import org.testng.annotations.Test;
 

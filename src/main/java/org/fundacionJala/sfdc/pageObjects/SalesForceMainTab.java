@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageObjects;
+package org.fundacionJala.sfdc.pageObjects;
 
 
 import org.openqa.selenium.By;
@@ -60,16 +60,16 @@ public class SalesForceMainTab {
      * Method to display all the options in Salesforce.
      */
     public void displayOptions() {
-        WebElement tabButton = getTabButton();
-        clickTabButton(tabButton);
+        WebElement button = getTabButton();
+        clickTabButton(button);
     }
 
     /**
      * Method to click on Accounts.
      */
     public void goToAccounts() {
-        WebElement accountsLink = getAccountsLink();
-        clickAccountsLink(accountsLink);
+        WebElement link = getAccountsLink();
+        clickAccountsLink(link);
         closeMessageLighting();
     }
 

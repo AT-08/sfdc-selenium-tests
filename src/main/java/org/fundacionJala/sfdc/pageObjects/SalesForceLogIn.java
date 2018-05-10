@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageObjects;
+package org.fundacionJala.sfdc.pageObjects;
 
 
 import org.openqa.selenium.By;
@@ -77,8 +77,8 @@ public class SalesForceLogIn {
         setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
-        WebElement logInButton = getLogInButton();
-        clickLogInButton(logInButton);
+        WebElement button = getLogInButton();
+        clickLogInButton(button);
     }
 }
 

@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionJala.sfdc.commons;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

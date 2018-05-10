@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionJala.sfdc.commons;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.Properties;
 public final class PropertiesManager {
     private static PropertiesManager propertiesManager;
     private Properties prop;
-    private InputStream input = null;
+
 
     /**
      * Constructor, private to apply singleton pattern.
@@ -38,7 +38,7 @@ public final class PropertiesManager {
     private void init() {
         prop = new Properties();
         try {
-            input = new FileInputStream("config.properties");
+            InputStream input = new FileInputStream("config.properties");
             prop.load(input);
         } catch (IOException e) {
             System.out.println(e.getMessage());

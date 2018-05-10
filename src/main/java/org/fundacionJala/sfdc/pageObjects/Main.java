@@ -1,9 +1,9 @@
-package org.fundacionjala.sfdc.pageObjects;
+package org.fundacionJala.sfdc.pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import java.util.Properties;
-import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionJala.sfdc.commons.DriverManager;
+import org.fundacionJala.sfdc.commons.PropertiesManager;
 
 /**
  * Main.java

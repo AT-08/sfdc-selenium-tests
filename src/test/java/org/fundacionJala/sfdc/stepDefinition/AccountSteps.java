@@ -1,14 +1,14 @@
-package org.fundacionjala.sfdc.stepDefinition;
+package org.fundacionJala.sfdc.stepDefinition;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageObjects.SalesForceAccounts;
-import org.fundacionjala.sfdc.pageObjects.SalesForceMainTab;
+import org.fundacionJala.sfdc.commons.DriverManager;
+import org.fundacionJala.sfdc.commons.PropertiesManager;
+import org.fundacionJala.sfdc.pageObjects.SalesForceAccounts;
+import org.fundacionJala.sfdc.pageObjects.SalesForceMainTab;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import java.util.Properties;
@@ -19,7 +19,7 @@ import java.util.Properties;
  */
 public class AccountSteps {
     private WebDriver webDriver;
-    private SalesForceMainTab salesForceMainTab;
+
     private SalesForceAccounts salesForceAccounts;
     private Properties propertiesManager;
 
@@ -30,6 +30,7 @@ public class AccountSteps {
     public void goToAccountsSection() {
         System.out.println("This Step goes to accounts section");
         webDriver = DriverManager.getInstance().getNavigator();
+        SalesForceMainTab salesForceMainTab;
         salesForceMainTab = new SalesForceMainTab(webDriver);
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();

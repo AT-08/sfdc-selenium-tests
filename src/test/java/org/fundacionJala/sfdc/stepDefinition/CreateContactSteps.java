@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.stepDefinition;
+package org.fundacionJala.sfdc.stepDefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -10,7 +10,6 @@ import cucumber.api.java.en.When;
  * Class for steps createContact.feature.
  */
 public class CreateContactSteps {
-
 
     /**
      * Given step.
@@ -28,10 +27,6 @@ public class CreateContactSteps {
     @Given("^I am on the new contact page$")
     public void iAmOnTheNewContactPage() {
         System.out.println("This Step open the Firefox and go to login page of the application.");
-
-       /* contact = new CreateContacts(web);
-        contact.creation("naranja", "mandarina");*/
-
     }
 
     /**
@@ -40,7 +35,6 @@ public class CreateContactSteps {
     @When("^I fill in First name with Ariel$")
     public void iFillInFirstNameWithAriel() {
         System.out.println("This step enter the Username and Password on the login page.");
-
     }
 
     /**
@@ -48,8 +42,7 @@ public class CreateContactSteps {
      */
     @And("^I fill in Last Name with Gonzales$")
     public void iFillInLastNameWithGonzales() {
-        System.out.println("Click login.");
-
+        System.out.println("Fill in laste name");
     }
 
     /**
@@ -57,8 +50,7 @@ public class CreateContactSteps {
      */
     @And("^I press Save$")
     public void iPressSave() {
-        System.out.println("Click login.");
-
+        System.out.println("Click save button");
     }
 
     /**
@@ -66,7 +58,7 @@ public class CreateContactSteps {
      */
     @Then("^I should see a contact called Ariel Gonzales$")
     public void iShouldSeeAContactCalledArielGonzales() {
-        System.out.println("Click login.");
+        System.out.println("Verify it was saved");
 
     }
 }

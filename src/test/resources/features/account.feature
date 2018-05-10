@@ -12,3 +12,5 @@ Feature: Accounts feature
     Then I fill the account name field
     And press the save button
     Then a new account is created
+
+

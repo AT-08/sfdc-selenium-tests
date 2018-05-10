@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.testRunner;
+package org.fundacionJala.sfdc.testRunner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
@@ -8,7 +8,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"org.fundacionjala.sfdc"},
+        glue = {"org.fundacionJala.sfdc"},
         tags = {"~@Ignore"},
         format = {
                 "pretty",
