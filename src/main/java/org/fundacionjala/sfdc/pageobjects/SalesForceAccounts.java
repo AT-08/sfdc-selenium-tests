@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import org.fundacionjala.sfdc.commons.DriverManager;
 import java.util.Iterator;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class SalesForceAccounts {
         this.newAccountButton = By.cssSelector(".pbButton > input[title='New']");
         this.accountNameTextField = By.cssSelector(".requiredInput > input[name='acc2']");
         this.saveNewAccountButton = By.cssSelector(".pbButton > input[name='save']");
-        this.newAccountLabel = By.cssSelector(".topName");
+        this.newAccountLabel = By.className("topName");
         this.accountsViewList = By.id("fcf");
         this.goButton = By.cssSelector(".fBody > input[class='btn']");
     }
@@ -120,7 +121,7 @@ public class SalesForceAccounts {
      */
     public void chooseAccounts(final String accountView, final WebElement button) {
         final int waitSeconds = 90;
-        WebDriverWait wait = new WebDriverWait(this.webDriver, waitSeconds);
+        WebDriverWait wait = DriverManager.getInstance().getWaiter();
         WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(this.accountsViewList));
         Select select = new Select(searchOnDashboard);
         if ("All Accounts".equalsIgnoreCase(select.getFirstSelectedOption().getText().toString())) {
@@ -153,7 +154,7 @@ public class SalesForceAccounts {
      */
     public String isAllAccountsSelected(final String accountView) {
         final int waitSeconds = 90;
-        WebDriverWait wait = new WebDriverWait(this.webDriver, waitSeconds);
+        WebDriverWait wait = DriverManager.getInstance().getWaiter();
         WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
         Select select = new Select(searchOnDashboard);
         return select.getFirstSelectedOption().getText().toString();
