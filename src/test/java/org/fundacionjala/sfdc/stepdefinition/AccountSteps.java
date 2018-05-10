@@ -8,6 +8,7 @@ import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceAccounts;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTab;
+import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import java.util.Properties;
@@ -30,7 +31,7 @@ public class AccountSteps {
         System.out.println("This Step goes to accounts section");
         webDriver = DriverManager.getInstance().getNavigator();
         SalesForceMainTab salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTab(webDriver);
+        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "Accounts");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
     }
