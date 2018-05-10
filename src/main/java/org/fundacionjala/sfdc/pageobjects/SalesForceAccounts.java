@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,9 @@ public class SalesForceAccounts {
     private By newAccountLabel;
     private By accountsViewList;
     private By goButton;
+    private By lastAccountLink;
+    private By deleteButton;
+    private By editButton;
 
     /**
      * Constructor.
@@ -37,6 +41,9 @@ public class SalesForceAccounts {
         this.newAccountLabel = By.className("topName");
         this.accountsViewList = By.id("fcf");
         this.goButton = By.cssSelector(".fBody > input[class='btn']");
+        this.lastAccountLink = By.cssSelector("tr.dataRow.even.first.dataRow >th[scope='row'] > a");
+        this.deleteButton = By.cssSelector("#topButtonRow.pbButton > input[name='delete']");
+        this.editButton = By.cssSelector("#topButtonRow.pbButton > input[name='edit']");
     }
 
     /**
@@ -153,7 +160,6 @@ public class SalesForceAccounts {
      * @return list value.
      */
     public String isAllAccountsSelected(final String accountView) {
-        final int waitSeconds = 90;
         WebDriverWait wait = DriverManager.getInstance().getWaiter();
         WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
         Select select = new Select(searchOnDashboard);
@@ -163,21 +169,38 @@ public class SalesForceAccounts {
     /**
      * Method to click edit link.
      */
-    public void editAccount() {
-        WebElement editCustTable = webDriver.findElement(By.className("x-grid3-scroller"));
-        List<WebElement> tableRows = editCustTable.findElements(By.className("x-grid3-row-table"));
-        for (Iterator iterator = tableRows.iterator(); iterator.hasNext();) {
-            System.out.println("4");
-            WebElement row = (WebElement) iterator.next();
-            String x = ".x-grid3-row-table > tbody > tr > td >div[id='001f400000MSHJ7_ACTION_COLUMN']";
-            System.out.println("elements:" + row.findElement(By.cssSelector(x)).getText());
-            /*
-            if(row.getAttribute("id").contains("1010294")){
-                List<WebElement> tds = row.findElements(By.tagName("td"));
-                tds.get(8).click();
-                break;
-            }*/
-        }
+    public void editAccount(String accountName) {
+        setAccountNameTextField(accountName);
+    }
+
+    public WebElement getAccountNameLink() {
+        return this.webDriver.findElement(this.lastAccountLink);
+    }
+
+    public void clickAccountNameLink() {
+        getAccountNameLink().click();
+    }
+
+    public WebElement getDeleteButton() {
+        return this.webDriver.findElement(this.deleteButton);
+    }
+
+    public void clickDeleteAccount() {
+        getDeleteButton().click();
+    }
+
+    public void clickDeleteAlert() {
+        WebDriverWait wait = DriverManager.getInstance().getWaiter();
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
+    }
+
+    public WebElement getEditButton() {
+        return this.webDriver.findElement(this.editButton);
+    }
+
+    public void clickEditAccount() {
+        getEditButton().click();
     }
 }
 

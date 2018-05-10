@@ -15,8 +15,18 @@ Feature: Accounts feature
 
   Scenario: Modify an existing account
     Given Go to accounts section
-    When I choose all accounts
-    Then A list of accounts is displayed
+    When I choose an account from recent accounts
+    Then I click on Edit account
+    Then I edit the account name field
+    And press the save button
+    Then a new account is created
+
+  Scenario: Delete an existing account
+    Given Go to accounts section
+    When I choose an account from recent accounts
+    Then I click on Delete account
+    And I click on OK
+
 
 
 
