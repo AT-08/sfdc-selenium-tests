@@ -1,7 +1,11 @@
 package org.fundacionjala.sfdc.commons;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * DriverManager.java.
@@ -10,12 +14,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public final class DriverManager {
     private static DriverManager driverManager;
     private static WebDriver driver;
+    private static WebDriverWait wait;
+    private static final int SECONDS_WAIT = 90;
 
     /**
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        init();
+        initWebDriver();
+        initWebDriverWaiter();
     }
 
     /**
@@ -32,9 +39,16 @@ public final class DriverManager {
     /**
      * Initialize WebDriver object.
      */
-    private void init() {
+    private void initWebDriver() {
         System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
         driver = new FirefoxDriver();
+    }
+
+    /**
+     * Initialize WebDriverWaiter object.
+     */
+    private void initWebDriverWaiter() {
+        wait = new WebDriverWait(this.driver, SECONDS_WAIT);
     }
 
     /**
@@ -43,6 +57,10 @@ public final class DriverManager {
      */
     public WebDriver getNavigator() {
         return driver;
+    }
+
+    public WebDriverWait getWaiter() {
+        return wait;
     }
 
 }
