@@ -18,13 +18,8 @@ import java.util.List;
  */
 public class SalesForceContacts {
     private WebDriver webDriver;
-    private By newAccountButton;
     private By contactNameTextField;
-    private By saveNewAccountButton;
-    private By newAccountLabel;
     private By newContactButton;
-    private By accountsViewList;
-    private By goButton;
     private WebDriverWait wait;
 
     /**
@@ -33,12 +28,7 @@ public class SalesForceContacts {
      */
     public SalesForceContacts(final WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.newAccountButton = By.cssSelector(".pbButton > input[title='New']");
         this.contactNameTextField = By.cssSelector("input[placeholder='First Name']");
-        this.saveNewAccountButton = By.cssSelector(".pbButton > input[name='save']");
-        this.newAccountLabel = By.className("topName");
-        this.accountsViewList = By.id("fcf");
-        this.goButton = By.cssSelector(".fBody > input[class='btn']");
         this.newContactButton = By.cssSelector("a[title='New']");
     }
 
