@@ -1,7 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,7 +85,10 @@ public class SalesForceLogIn {
         WebElement button = getLogInButton();
         clickLogInButton(button);
     }
-
+    /**
+     * Method to lget icon cloud.
+     * @return if the icon is displayed
+     */
     public boolean getCloudIcon() {
         wait = DriverManager.getInstance().getWaiter();
         WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(this.cloudIcon));
