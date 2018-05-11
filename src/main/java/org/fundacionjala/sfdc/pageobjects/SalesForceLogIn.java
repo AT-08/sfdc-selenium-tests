@@ -1,8 +1,12 @@
 package org.fundacionjala.sfdc.pageobjects;
 
+import org.fundacionjala.sfdc.commons.DriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SalesForceLogIn.java
@@ -14,6 +18,8 @@ public class SalesForceLogIn {
     private By userName;
     private By userPassword;
     private By logInButton;
+    private By cloudIcon;
+    private WebDriverWait wait;
 
     /**
      * Constructor.
@@ -26,6 +32,7 @@ public class SalesForceLogIn {
         this.userName = By.id("username");
         this.userPassword = By.id("password");
         this.logInButton = By.id("Login");
+        this.cloudIcon = By.cssSelector("img#phHeaderLogoImage");
     }
 
     /**
@@ -78,6 +85,12 @@ public class SalesForceLogIn {
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
         clickLogInButton(button);
+    }
+
+    public boolean getCloudIcon() {
+        wait = DriverManager.getInstance().getWaiter();
+        WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(this.cloudIcon));
+        return searchOnDashboard.isDisplayed();
     }
 }
 

@@ -25,11 +25,11 @@ public class SalesForceMainTabClassic {
     public SalesForceMainTabClassic(final WebDriver webDriver, String url, String actionButton) {
 
         this.webDriver = webDriver;
-        //this.tabButton = By.cssSelector(actionButton);
-        //this.accountsLink = By.cssSelector(url);
+        this.tabButton = By.cssSelector(actionButton);
+        this.accountsLink = By.cssSelector(url);
 
-        this.tabButton = By.id("AllTab_Tab");
-        this.accountsLink = By.linkText(url);
+        //this.tabButton = By.id("AllTab_Tab");
+       // this.accountsLink = By.linkText(url);
     }
 
     /**

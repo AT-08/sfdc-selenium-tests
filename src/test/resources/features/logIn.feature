@@ -1,5 +1,4 @@
 Feature: login page of Application
   Scenario: Verification of Reset button
-    Given Open the Firefox and launch the application
-    When Enter the Username and Password
-    Then login to the system
+    Given Open the Firefox and launch the application enter the Username and Password and press login
+    Then login to the application
