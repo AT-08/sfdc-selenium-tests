@@ -152,6 +152,7 @@ public class ContactSteps {
     }
 
 
+
     /**
      * After, to close browser after the tests are executed.
      */

@@ -25,12 +25,15 @@ public class SalesForceAccounts {
     private By lastAccountLink;
     private By deleteButton;
     private By editButton;
+    private By homeContact;
+    private WebDriverWait wait;
 
     /**
      * Constructor.
      * @param webDriver instance.
      */
     public SalesForceAccounts(final WebDriver webDriver) {
+        this.homeContact = By.cssSelector("h2.pageDescription");
         this.webDriver = webDriver;
         this.newAccountButton = By.cssSelector(".pbButton > input[title='New']");
         this.accountNameTextField = By.cssSelector(".requiredInput > input[name='acc2']");
@@ -198,6 +201,12 @@ public class SalesForceAccounts {
 
     public void clickEditAccount() {
         getEditButton().click();
+    }
+    public String accountHomePage() {
+        wait = DriverManager.getInstance().getWaiter();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(this.homeContact));
+
+        return this.webDriver.findElement(this.homeContact).getText();
     }
 
 

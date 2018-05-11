@@ -102,7 +102,7 @@ public class AccountSteps {
     /**
      * Then step.
      */
-    @Then("^I click on OK$")
+    @And("^I click on OK$")
     public void iClickOnOK() {
         webDriver = DriverManager.getInstance().getNavigator();
         salesForceAccounts = new SalesForceAccounts(webDriver);
@@ -120,5 +120,17 @@ public class AccountSteps {
         salesForceAccounts = new SalesForceAccounts(webDriver);
         salesForceAccounts.editAccount(propertiesManager.getProperty("accountName"));
         salesForceAccounts.clickSaveNewAccountButton(salesForceAccounts.getSaveNewAccountButton());
+    }
+
+    /**
+     * Then step.
+     */
+    @Then("^the system delete the account$")
+    public void theSystemDeleteTheAccount() {
+        webDriver = DriverManager.getInstance().getNavigator();
+        propertiesManager = PropertiesManager.getInstance().getConfig();
+        salesForceAccounts = new SalesForceAccounts(webDriver);
+        System.out.println("This Step tests verified id the account:");
+        Assert.assertEquals(salesForceAccounts.accountHomePage(), "Home");
     }
 }

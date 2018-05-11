@@ -19,8 +19,8 @@ Feature: Accounts feature
   Scenario: Delete an existing account
     Given Go to accounts section
     When I choose an account from recent accounts and I click on Delete account
-    And I click on Delete account
-    Then I click on OK
+    And I click on OK
+    Then the system delete the account
 
 
 
