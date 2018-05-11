@@ -1,25 +1,33 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 
+import org.fundacionjala.sfdc.commons.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SalesForceMainTabClassic.java
  * Class of Salesforce main tab that contains all the options.
  */
-public class SalesForceMainTabClassic implements SalesForceMainTab {
+public class SalesForceMainTabClassic {
     private WebDriver webDriver;
     private By tabButton;
     private By accountsLink;
+    private WebDriverWait wait;
 
     /**
      * Constructor.
      * @param webDriver instance.
      */
-    public SalesForceMainTabClassic(final WebDriver webDriver, String url) {
+    public SalesForceMainTabClassic(final WebDriver webDriver, String url, String actionButton) {
+
         this.webDriver = webDriver;
+        //this.tabButton = By.cssSelector(actionButton);
+        //this.accountsLink = By.cssSelector(url);
+
         this.tabButton = By.id("AllTab_Tab");
         this.accountsLink = By.linkText(url);
     }
@@ -62,6 +70,9 @@ public class SalesForceMainTabClassic implements SalesForceMainTab {
     public void displayOptions() {
         WebElement button = getTabButton();
         clickTabButton(button);
+        wait = DriverManager.getInstance().getWaiter();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(this.accountsLink));
+
     }
 
     /**
@@ -82,4 +93,6 @@ public class SalesForceMainTabClassic implements SalesForceMainTab {
             webDriver.findElement(By.id("tryLexDialogX")).click();
         }
     }
+
+
 }

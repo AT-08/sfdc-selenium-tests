@@ -7,7 +7,6 @@ import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceAccounts;
-import org.fundacionjala.sfdc.pageobjects.SalesForceMainTab;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -30,8 +29,8 @@ public class AccountSteps {
     public void goToAccountsSection() {
         System.out.println("This Step goes to accounts section");
         webDriver = DriverManager.getInstance().getNavigator();
-        SalesForceMainTab salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "Accounts");
+        SalesForceMainTabClassic salesForceMainTab;
+        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "Accounts", "li[id='AllTab_tab']");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
     }
@@ -90,17 +89,9 @@ public class AccountSteps {
         salesForceAccounts = new SalesForceAccounts(webDriver);
         System.out.println("This Step tests new account creation:" + salesForceAccounts.newAccountSavedName());
         Assert.assertEquals(salesForceAccounts.newAccountSavedName(), propertiesManager.getProperty("accountName"));
+
     }
 
-    /**
-     * After, to close browser after the tests are executed.
-     */
-    /*@After
-    public void closeBrowser() {
-        System.out.println("This Step closes browser");
-        webDriver = DriverManager.getInstance().getNavigator();
-        webDriver.close();
-    }*/
 
     /**
      * When step.
@@ -129,14 +120,43 @@ public class AccountSteps {
 
     }
 
-    /**
-     * And step.
-     */
-    @And("^I click on edit link$")
-    public void iClickOnEditLink() {
-        System.out.println("Choose and edit an account");
+    @When("^I choose an account from recent accounts$")
+    public void iChooseAnAccountFromRecentAccounts() throws Throwable {
+        System.out.println("Choose last account");
         webDriver = DriverManager.getInstance().getNavigator();
         salesForceAccounts = new SalesForceAccounts(webDriver);
-        salesForceAccounts.editAccount();
+        salesForceAccounts.clickAccountNameLink();
+    }
+
+    @Then("^I click on Delete account$")
+    public void iClickOnDeleteAccount() throws Throwable {
+        System.out.println("Choose delete button");
+        webDriver = DriverManager.getInstance().getNavigator();
+        salesForceAccounts = new SalesForceAccounts(webDriver);
+        salesForceAccounts.clickDeleteAccount();
+    }
+
+    @And("^I click on OK$")
+    public void iClickOnOK() throws Throwable {
+        webDriver = DriverManager.getInstance().getNavigator();
+        salesForceAccounts = new SalesForceAccounts(webDriver);
+        salesForceAccounts.clickDeleteAlert();
+    }
+
+    @Then("^I click on Edit account$")
+    public void iClickOnEditAccount() throws Throwable {
+        System.out.println("Choose edit button");
+        webDriver = DriverManager.getInstance().getNavigator();
+        salesForceAccounts = new SalesForceAccounts(webDriver);
+        salesForceAccounts.clickEditAccount();
+    }
+
+    @Then("^I edit the account name field$")
+    public void iEditTheAccountNameField() throws Throwable {
+        System.out.println("This Step edits account name field");
+        webDriver = DriverManager.getInstance().getNavigator();
+        propertiesManager = PropertiesManager.getInstance().getConfig();
+        salesForceAccounts = new SalesForceAccounts(webDriver);
+        salesForceAccounts.editAccount(propertiesManager.getProperty("accountName"));
     }
 }
