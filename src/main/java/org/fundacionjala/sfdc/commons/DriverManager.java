@@ -54,6 +54,9 @@ public final class DriverManager {
      * @return WebDriver instance.
      */
     public WebDriver getNavigator() {
+        if (driver == null || driver.toString().contains("null")) {
+            driver = new FirefoxDriver();
+        }
         return driver;
     }
     /**
@@ -64,4 +67,7 @@ public final class DriverManager {
         return wait;
     }
 
+    public static void quitWebDriver() {
+        driver.quit();
+    }
 }
