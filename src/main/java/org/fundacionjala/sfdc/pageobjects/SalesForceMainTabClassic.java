@@ -21,15 +21,17 @@ public class SalesForceMainTabClassic {
     /**
      * Constructor.
      * @param webDriver instance.
+     * @param url web page.
+     * @param actionButton menu button.
      */
-    public SalesForceMainTabClassic(final WebDriver webDriver, String url, String actionButton) {
+    public SalesForceMainTabClassic(final WebDriver webDriver, final String url, final String actionButton) {
 
         this.webDriver = webDriver;
-        //this.tabButton = By.cssSelector(actionButton);
-        //this.accountsLink = By.cssSelector(url);
+        this.tabButton = By.cssSelector(actionButton);
+        this.accountsLink = By.cssSelector(url);
 
-        this.tabButton = By.id("AllTab_Tab");
-        this.accountsLink = By.linkText(url);
+        //this.tabButton = By.id("AllTab_Tab");
+       // this.accountsLink = By.linkText(url);
     }
 
     /**

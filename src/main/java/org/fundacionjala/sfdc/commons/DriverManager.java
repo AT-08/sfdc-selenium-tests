@@ -56,7 +56,10 @@ public final class DriverManager {
     public WebDriver getNavigator() {
         return driver;
     }
-
+    /**
+     * Getter of WebDriverWait object.
+     * @return WebDriverWait instance.
+     */
     public WebDriverWait getWaiter() {
         return wait;
     }
