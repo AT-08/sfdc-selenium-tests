@@ -4,28 +4,31 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.SalesForceOpportunitiesHome;
-import org.fundacionjala.sfdc.pageobjects.SalesForceOpportunityPage;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOpportunitiesHome;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOpportunityPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.util.Properties;
 
+/**
+ * Class for steps of deleteOpportunity.feature.
+ */
 public class DeleteOpportunitySteps {
     private WebDriver webDriver;
-    private SalesForceOpportunitiesHome salesForceOpportunitiesHome;
+    private SFOpportunitiesHome SFOpportunitiesHome;
     private Properties propertiesManager;
-    private SalesForceOpportunityPage salesForceOpportunityPage;
+    private SFOpportunityPage SFOpportunityPage;
 
     /**
-     * Given step.
+     * When step.
      */
     @When("^I delete the opportunity created$")
     public void iDeleteTheOpportunityCreated() {
         webDriver = DriverManager.getInstance().getNavigator();
-        salesForceOpportunitiesHome = new SalesForceOpportunitiesHome(webDriver);
-        salesForceOpportunityPage = salesForceOpportunitiesHome.deleteLastOpportunity();
-        salesForceOpportunityPage.deleteOpportunity();
+        SFOpportunitiesHome = new SFOpportunitiesHome(webDriver);
+        SFOpportunityPage = SFOpportunitiesHome.deleteLastOpportunity();
+        SFOpportunityPage.deleteOpportunity();
     }
 
     /**
@@ -34,6 +37,6 @@ public class DeleteOpportunitySteps {
     @Then("^the opportunity is deleted$")
     public void theOpportunityIsDeleted() {
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        Assert.assertNotEquals(salesForceOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
+        Assert.assertNotEquals(SFOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
     }
 }

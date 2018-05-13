@@ -5,8 +5,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.SalesForceEditOpportunity;
-import org.fundacionjala.sfdc.pageobjects.SalesForceOpportunitiesHome;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFEditOpportunity;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOpportunitiesHome;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,14 +14,13 @@ import org.testng.Assert;
 import java.util.Properties;
 
 /**
- * AccountSteps.java
- * Class for steps of account.feature.
+ * Class for steps of createOpportunity.feature.
  */
 public class CreateOpportunitySteps {
     private WebDriver webDriver;
-    private SalesForceOpportunitiesHome salesForceOpportunitiesHome;
+    private SFOpportunitiesHome SFOpportunitiesHome;
     private Properties propertiesManager;
-    private SalesForceEditOpportunity newOpportunity;
+    private SFEditOpportunity newOpportunity;
 
     /**
      * Given step.
@@ -41,18 +40,18 @@ public class CreateOpportunitySteps {
     @When("^I fill the required fields in the new opportunity form$")
     public void iFillTheRequiredFieldsInTheNewOpportunityForm() {
         webDriver = DriverManager.getInstance().getNavigator();
-        salesForceOpportunitiesHome = new SalesForceOpportunitiesHome(webDriver);
+        SFOpportunitiesHome = new SFOpportunitiesHome(webDriver);
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        newOpportunity = salesForceOpportunitiesHome.clickNewOpportunity();
+        newOpportunity = SFOpportunitiesHome.clickNewOpportunity();
         newOpportunity.editOpportunity(propertiesManager.getProperty("opportunityName"), propertiesManager.getProperty("opportunityCloseDate"), propertiesManager.getProperty("opportunityStage"));
     }
 
     /**
-     * And step.
+     * Then step.
      */
     @Then("^a new opportunity is created$")
     public void aNewOpportunityIsCreated() {
-        salesForceOpportunitiesHome = newOpportunity.goToOpportunitiesPage();
-        Assert.assertEquals(salesForceOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
+        SFOpportunitiesHome = newOpportunity.goToOpportunitiesPage();
+        Assert.assertEquals(SFOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
     }
 }

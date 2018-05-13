@@ -5,19 +5,21 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.SalesForceEditOpportunity;
-import org.fundacionjala.sfdc.pageobjects.SalesForceOpportunitiesHome;
-import org.fundacionjala.sfdc.pageobjects.SalesForceOpportunityPage;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFEditOpportunity;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOpportunitiesHome;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.util.Properties;
 
+/**
+ * Class for steps of editOpportunity.feature.
+ */
 public class EditOpportunitySteps {
     private WebDriver webDriver;
-    private SalesForceOpportunitiesHome salesForceOpportunitiesHome;
+    private SFOpportunitiesHome SFOpportunitiesHome;
     private Properties propertiesManager;
-    private SalesForceEditOpportunity editOpportunity;
+    private SFEditOpportunity editOpportunity;
 
     /**
      * Given step.
@@ -25,8 +27,8 @@ public class EditOpportunitySteps {
     @Given("^Select the opportunity created$")
     public void selectTheOpportunityCreated() {
         webDriver = DriverManager.getInstance().getNavigator();
-        salesForceOpportunitiesHome = new SalesForceOpportunitiesHome(webDriver);
-        editOpportunity = salesForceOpportunitiesHome.editLastOpportunity().editOpportunity();
+        SFOpportunitiesHome = new SFOpportunitiesHome(webDriver);
+        editOpportunity = SFOpportunitiesHome.editLastOpportunity().editOpportunity();
     }
 
     /**
@@ -39,11 +41,11 @@ public class EditOpportunitySteps {
     }
 
     /**
-     * And step.
+     * Then step.
      */
     @Then("^the opportunity is modified$")
     public void theOpportunityIsModified() {
-        salesForceOpportunitiesHome = editOpportunity.goToOpportunitiesPage();
-        Assert.assertEquals(salesForceOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("editOpportunityName"));
+        SFOpportunitiesHome = editOpportunity.goToOpportunitiesPage();
+        Assert.assertEquals(SFOpportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("editOpportunityName"));
     }
 }

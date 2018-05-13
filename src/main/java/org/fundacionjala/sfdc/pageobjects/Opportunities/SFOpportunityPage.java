@@ -1,5 +1,6 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.Opportunities;
 
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFEditOpportunity;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,17 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertTrue;
 
-public class SalesForceOpportunityPage {
+public class SFOpportunityPage {
     private WebDriver driver;
     private boolean acceptNextAlert = true;
 
-    public SalesForceOpportunityPage(WebDriver driver) {
+    public SFOpportunityPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public SalesForceEditOpportunity editOpportunity() {
+    public SFEditOpportunity editOpportunity() {
         driver.findElement(By.name("edit")).click();
-        return new SalesForceEditOpportunity(driver);
+        return new SFEditOpportunity(driver);
     }
 
     public void deleteOpportunity() {
