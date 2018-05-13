@@ -3,6 +3,7 @@ package org.fundacionjala.sfdc.pageobjects;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,8 +21,9 @@ public class SalesForceMainTabClassic {
 
     /**
      * Constructor.
-     * @param webDriver instance.
-     * @param url web page.
+     *
+     * @param webDriver    instance.
+     * @param url          web page.
      * @param actionButton menu button.
      */
     public SalesForceMainTabClassic(final WebDriver webDriver, final String url, final String actionButton) {
@@ -31,11 +33,12 @@ public class SalesForceMainTabClassic {
         this.accountsLink = By.cssSelector(url);
 
         //this.tabButton = By.id("AllTab_Tab");
-       // this.accountsLink = By.linkText(url);
+        // this.accountsLink = By.linkText(url);
     }
 
     /**
      * Getter of tabButton.
+     *
      * @return the button.
      */
     public WebElement getTabButton() {
@@ -44,6 +47,7 @@ public class SalesForceMainTabClassic {
 
     /**
      * Getter of accountsLink.
+     *
      * @return the link.
      */
     public WebElement getAccountsLink() {
@@ -52,6 +56,7 @@ public class SalesForceMainTabClassic {
 
     /**
      * Method to click tabButton.
+     *
      * @param button to click.
      */
     public void clickTabButton(final WebElement button) {
@@ -60,6 +65,7 @@ public class SalesForceMainTabClassic {
 
     /**
      * Method to click accountsLink.
+     *
      * @param link to click.
      */
     public void clickAccountsLink(final WebElement link) {
@@ -90,11 +96,14 @@ public class SalesForceMainTabClassic {
      * Method to close message displayed.
      */
     public void closeMessageLighting() {
-        if (webDriver.findElement(By.id("lexNoThanks")).isDisplayed()) {
-            webDriver.findElement(By.id("lexNoThanks")).click();
-            webDriver.findElement(By.id("tryLexDialogX")).click();
+        try {
+            if (webDriver.findElement(By.id("lexNoThanks")).isDisplayed()) {
+                webDriver.findElement(By.id("lexNoThanks")).click();
+                webDriver.findElement(By.id("tryLexDialogX")).click();
+            }
+
+        } catch (NoSuchElementException e) {
+            e.getMessage();
         }
     }
-
-
 }
