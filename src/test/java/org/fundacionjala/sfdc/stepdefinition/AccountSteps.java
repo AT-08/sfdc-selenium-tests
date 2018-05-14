@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -29,7 +30,6 @@ public class AccountSteps {
      */
     @Given("^Go to accounts section$")
     public void goToAccountsSection() {
-        webDriver = DriverManager.getInstance().getNavigator();
         SalesForceMainTabClassic salesForceMainTab;
         salesForceMainTab = new SalesForceMainTabClassic("a.accountBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
@@ -78,10 +78,9 @@ public class AccountSteps {
      * And step.
      */
     @And("^I edit the account name field and I press the save button$")
-    public void iEditTheAccountNameFieldAndIPressTheSaveButton() {
-        propertiesManager = PropertiesManager.getInstance().getConfig();
+    public void iEditTheAccountNameFieldAndIPressTheSaveButton(Map<String, String> values) {
         SFANewModifyPage modifyPage = new SFANewModifyPage();
-        modifyPage.setAccountNameTextField(propertiesManager.getProperty("accountName"));
+        CommonActions.setValues(values, modifyPage.fillMethodsToFields());
         CommonActions.clickElement(modifyPage.getSaveNewAccountButton());
     }
 
@@ -128,5 +127,13 @@ public class AccountSteps {
         SFANewModifyPage newAccountPage = new SFANewModifyPage();
         CommonActions.setValues(values, newAccountPage.fillMethodsToFields());
         CommonActions.clickElement(newAccountPage.getSaveNewAccountButton());
+    }
+
+    @And("^I create a new account$")
+    public void iCreateANewAccount(Map<String, String> values) {
+        goToAccountsSection();
+        iPressNewAccountButtonANewAccountFormIsDisplayed();
+        iFillTheFieldsAndPressTheSaveButton(values);
+        aNewAccountIsCreated(values);
     }
 }

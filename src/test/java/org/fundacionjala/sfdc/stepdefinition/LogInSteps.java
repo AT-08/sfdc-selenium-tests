@@ -14,7 +14,6 @@ import java.util.Properties;
  * Class for steps logIn.feature.
  */
 public class LogInSteps {
-    private WebDriver web;
     private Properties prop;
     private SalesForceLogIn login;
 
@@ -24,8 +23,7 @@ public class LogInSteps {
     @Given("^Open the Firefox and launch the application enter the Username and Password and press login$")
     public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
         System.out.println("Open Browser and go to login page of the SalesForce and fill the username and password.");
-        web = DriverManager.getInstance().getNavigator();
-        login = new SalesForceLogIn(web, "https://login.salesforce.com/");
+        login = new SalesForceLogIn("https://login.salesforce.com/");
         prop = PropertiesManager.getInstance().getConfig();
         login.logIn(prop.getProperty("user"), prop.getProperty("password"));
     }
@@ -33,10 +31,9 @@ public class LogInSteps {
     /**
      * Then step.
      */
-    @Then("^login to the application$")
-    public void loginToTheApplication() {
+    @Then("^I login to the application$")
+    public void iLoginToTheApplication() {
         System.out.println("Click login.");
-        login = new SalesForceLogIn(web, "https://login.salesforce.com/");
         Assert.assertTrue(login.getCloudIcon());
     }
 

@@ -1,9 +1,13 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,27 +15,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * SalesForceLogIn.java
  * Class to log in Salesforce.
  */
-public class SalesForceLogIn {
-    private WebDriver webDriver;
+public class SalesForceLogIn extends SalesForceConnection{
     private String url;
-    private By userName;
-    private By userPassword;
-    private By logInButton;
-    private By cloudIcon;
-    private WebDriverWait wait;
+
+    @FindBy(how = How.ID, using = "username")
+    private WebElement userName;
+
+    @FindBy(how = How.ID, using = "password")
+    private WebElement userPassword;
+
+    @FindBy(how = How.ID, using = "Login")
+    private WebElement logInButton;
+
+    @FindBy(how = How.CSS, using = "img#phHeaderLogoImage")
+    private WebElement cloudIcon;
 
     /**
      * Constructor.
-     * @param webDriver instance.
      * @param url the page.
      */
-    public SalesForceLogIn(final WebDriver webDriver, final String url) {
-        this.webDriver = webDriver;
+    public SalesForceLogIn(final String url) {
+        super();
         this.url = url;
-        this.userName = By.id("username");
-        this.userPassword = By.id("password");
-        this.logInButton = By.id("Login");
-        this.cloudIcon = By.cssSelector("img#phHeaderLogoImage");
+        PageFactory.initElements(this.webDriver, this);
     }
 
     /**
@@ -46,7 +52,7 @@ public class SalesForceLogIn {
      * @param userName string value.
      */
     public void setUserName(final String userName) {
-        webDriver.findElement(this.userName).sendKeys(userName);
+        CommonActions.getElement(this.userName).sendKeys(userName);
     }
 
     /**
@@ -54,7 +60,7 @@ public class SalesForceLogIn {
      * @param userPassword string value.
      */
     public void setUserPassword(final String userPassword) {
-        webDriver.findElement(this.userPassword).sendKeys(userPassword);
+        CommonActions.getElement(this.userPassword).sendKeys(userPassword);
     }
 
     /**
@@ -62,7 +68,7 @@ public class SalesForceLogIn {
      * @return the button.
      */
     public WebElement getLogInButton() {
-        return webDriver.findElement(logInButton);
+        return CommonActions.getElement(this.logInButton);
     }
 
     /**
@@ -90,9 +96,7 @@ public class SalesForceLogIn {
      * @return if the icon is displayed
      */
     public boolean getCloudIcon() {
-        wait = DriverManager.getInstance().getWaiter();
-        WebElement searchOnDashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(this.cloudIcon));
-        return searchOnDashboard.isDisplayed();
+        return CommonActions.getElement(this.cloudIcon).isDisplayed();
     }
 }
 
