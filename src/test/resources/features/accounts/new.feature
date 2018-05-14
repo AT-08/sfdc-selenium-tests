@@ -9,3 +9,16 @@ Feature: Create a new account
     When I press new account button a new account form is displayed
     And I fill the account name field and press the save button
     Then a new account is created
+
+  Scenario: Create a new account with all fields filled
+    Given Go to accounts section
+    When I press new account button a new account form is displayed
+    And I fill the fields and press the save button
+      | accountName     | test1           |
+      | parentAccount   | Account 88      |
+      | accountNumber   | 1               |
+      | accountSite     | 2               |
+      | type            | Prospect        |
+      | industry        | Agriculture     |
+      | anuualRevenue   | 200             |
+    Then a new account is created

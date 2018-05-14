@@ -3,8 +3,10 @@ package org.fundacionjala.sfdc.pageobjects.Accounts;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,18 +16,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SFADetailsPage extends SalesForceConnection {
     private WebDriverWait wait;
-    private By editButton;
-    private By deleteButton;
-    private By newAccountLabel;
+
+    @FindBy(how = How.CSS, using = "#topButtonRow.pbButton > input[name='edit']")
+    private WebElement editButton;
+
+    @FindBy(how = How.CSS, using = "#topButtonRow.pbButton > input[name='delete']")
+    private WebElement deleteButton;
+
+    @FindBy(how = How.CLASS_NAME, using = "topName")
+    private WebElement newAccountLabel;
 
     /**
      * Constructor.
      */
     public SFADetailsPage() {
         super();
-        this.editButton = By.cssSelector("#topButtonRow.pbButton > input[name='edit']");
-        this.deleteButton = By.cssSelector("#topButtonRow.pbButton > input[name='delete']");
-        this.newAccountLabel = By.className("topName");
+        PageFactory.initElements(this.webDriver, this);
     }
 
     /**
@@ -33,7 +39,7 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return the edit button as WebElement.
      */
     public WebElement getEditButton() {
-        return this.webDriver.findElement(this.editButton);
+        return this.editButton;
     }
 
     /**
@@ -41,7 +47,7 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return delete button as WebElement.
      */
     public WebElement getDeleteButton() {
-        return this.webDriver.findElement(this.deleteButton);
+        return this.deleteButton;
     }
 
     /**
@@ -73,7 +79,7 @@ public class SFADetailsPage extends SalesForceConnection {
      */
     public String getNewAccountSavedName() {
         WebDriverWait wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(this.newAccountLabel));
-        return this.webDriver.findElement(this.newAccountLabel).getText();
+        wait.until(ExpectedConditions.visibilityOf(this.newAccountLabel));
+        return this.newAccountLabel.getText();
     }
 }

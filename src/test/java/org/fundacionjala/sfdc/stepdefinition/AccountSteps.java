@@ -12,6 +12,7 @@ import org.fundacionjala.sfdc.pageobjects.Accounts.SFANewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -29,7 +30,7 @@ public class AccountSteps {
     public void goToAccountsSection() {
         webDriver = DriverManager.getInstance().getNavigator();
         SalesForceMainTabClassic salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "a.accountBlock", "li#AllTab_Tab");
+        salesForceMainTab = new SalesForceMainTabClassic("a.accountBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
     }
@@ -115,4 +116,12 @@ public class AccountSteps {
         Assert.assertEquals(accountsMainPage.accountHomePage(), "Home");
     }
 
+    @And("^I fill the fields and press the save button$")
+    public void iFillTheFieldsAndPressTheSaveButton(Map<String, String> values) {
+
+        propertiesManager = PropertiesManager.getInstance().getConfig();
+        SFANewModifyPage newAccountPage = new SFANewModifyPage();
+        newAccountPage.setAccountNameTextField(propertiesManager.getProperty("accountName"));
+        newAccountPage.clickSaveNewAccountButton();
+    }
 }
