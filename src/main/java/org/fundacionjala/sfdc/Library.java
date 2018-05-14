@@ -19,12 +19,4 @@ public class Library {
         return true;
     }
 
-    public static void getValues(Map<String, String> values, SFANewModifyPage newModifyPage) {
-        Map<String, Value> valuesToFill = new HashMap<>();
-        for (String value : values.keySet()) {
-            valuesToFill.put(value, () -> {newModifyPage.setAccountNameTextField(values.get(value));});
-        }
-
-        valuesToFill.forEach((s, value) -> value.fillField());
-    }
 }
