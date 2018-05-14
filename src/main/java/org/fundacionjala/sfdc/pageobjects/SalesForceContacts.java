@@ -33,12 +33,16 @@ public class SalesForceContacts {
     public SalesForceContacts(final WebDriver webDriver) {
         this.webDriver = webDriver;
         this.contactNameTextField = By.id("name_firstcon2");
-        this.contactLastNameTextField = By.id("name_lastcon2");
-        this.newContactButton = By.cssSelector("input[name='new']");
         this.saveContactButton = By.cssSelector("#topButtonRow> input[name='save']");
+        this.contactLastNameTextField = By.id("name_lastcon2");
+
+
         this.editContactButton = By.cssSelector("#topButtonRow > input[name='edit']");
         this.deleteContactButton = By.cssSelector("#topButtonRow > input[name='del']");
         this.newContactLabel = By.className("topName");
+
+
+        this.newContactButton = By.cssSelector("input[name='new']");
         this.homeContact = By.cssSelector("h2.pageDescription");
         this.lastContactLink = By.cssSelector("tr.dataRow.even.first.dataRow >th[scope='row'] > a");
     }

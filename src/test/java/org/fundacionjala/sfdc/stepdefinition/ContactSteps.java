@@ -6,6 +6,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.pageobjects.Contacts.SFCDetailsPage;
+import org.fundacionjala.sfdc.pageobjects.Contacts.SFCMainPage;
+import org.fundacionjala.sfdc.pageobjects.Contacts.SFCNewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceContacts;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +25,9 @@ public class ContactSteps {
     private WebDriver webDriver;
     private SalesForceContacts salesForceContacts;
     private Properties propertiesManager;
+    private SFCDetailsPage contactsDetailPage;
+    private SFCMainPage contactsMainPage;
+    private SFCNewModifyPage contactsNewModifyPage;
 
 
     /**
@@ -30,11 +36,9 @@ public class ContactSteps {
     @Given("^Go to contacts section$")
     public void goToContactsSection() {
         System.out.println("This Step goes to contacts section");
-        webDriver = DriverManager.getInstance().getNavigator();
         SalesForceMainTabClassic salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "a.contactBlock", "li#AllTab_Tab");
+        salesForceMainTab = new SalesForceMainTabClassic("a.contactBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
-
         salesForceMainTab.goToAccounts();
 
     }
@@ -45,9 +49,8 @@ public class ContactSteps {
     @When("^I press new contacts button a new form is displayed$")
     public void IPressNewContactsButtonANewFormIsDisplayed() {
         System.out.println("This Step presses new account button");
-        webDriver = DriverManager.getInstance().getNavigator();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.clickNewButton(salesForceContacts.getNewButton());
+        contactsMainPage = new SFCMainPage();
+        contactsMainPage.clickNewButton();
     }
 
 
@@ -57,25 +60,23 @@ public class ContactSteps {
     @And("^I fill the required information and I press Save$")
     public void IFillTheRequiredInformationAndIPressSave() {
         System.out.println("This Step fills account name field");
-        webDriver = DriverManager.getInstance().getNavigator();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.fillInfoNewContact(propertiesManager.getProperty("contactName"), propertiesManager.getProperty("contactLastName"));
-        salesForceContacts.clickSaveContactButton(salesForceContacts.getSaveContactButton());
+        contactsNewModifyPage = new SFCNewModifyPage();
+        contactsNewModifyPage.fillInfoNewContact(propertiesManager.getProperty("contactName"), propertiesManager.getProperty("contactLastName"));
+        contactsNewModifyPage.clickSaveContactButton();
     }
     /**
      * Then step.
      */
     @Then("^The system shows the new contact$")
     public void TheSystemShowsTheNewContact() {
-        webDriver = DriverManager.getInstance().getNavigator();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        System.out.println("This Step tests new account creation:" + salesForceContacts.newContactSavedName());
+        contactsDetailPage = new SFCDetailsPage();
+        System.out.println("This Step tests new account creation:" + contactsDetailPage.newContactSavedName());
         StringJoiner name = new StringJoiner(" ");
         name.add(propertiesManager.getProperty("contactName"));
         name.add(propertiesManager.getProperty("contactLastName"));
-        Assert.assertEquals(salesForceContacts.newContactSavedName(), name.toString());
+        Assert.assertEquals(contactsDetailPage.newContactSavedName(), name.toString());
     }
     /**
      * When step.
@@ -83,10 +84,10 @@ public class ContactSteps {
     @When("^I choose a contact from recent contacts and I click on edit contact")
     public void IChooseAContactFromRecentContactsAndIClickOnEditContact() {
         System.out.println("Choose last contact");
-        webDriver = DriverManager.getInstance().getNavigator();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.clickContactNameLink();
-        salesForceContacts.clickEditContact();
+        contactsMainPage = new SFCMainPage();
+        contactsMainPage.clickContactNameLink();
+        contactsDetailPage = new SFCDetailsPage();
+        contactsDetailPage.clickEditContact();
 
     }
     /**
@@ -95,12 +96,10 @@ public class ContactSteps {
     @And("^I edit the contact name field and I press the save button")
     public void IEditTheContactNameFieldAndIPressTheSaveButton() {
         System.out.println("This Step edits contact name field");
-        webDriver = DriverManager.getInstance().getNavigator();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.editContact(propertiesManager.getProperty("contactEditName"));
-        salesForceContacts.clickSaveContactButton(salesForceContacts.getSaveContactButton());
-
+        contactsNewModifyPage = new SFCNewModifyPage();
+        contactsNewModifyPage.editContact(propertiesManager.getProperty("contactEditName"));
+        contactsNewModifyPage.clickSaveContactButton();
     }
 
     /**
@@ -108,14 +107,13 @@ public class ContactSteps {
      */
     @Then("^The system shows the modified contact$")
     public void TheSystemShowsTheModifiedContact() {
-        webDriver = DriverManager.getInstance().getNavigator();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        System.out.println("This Step tests modified contact:" + salesForceContacts.newContactSavedName());
+        contactsDetailPage = new SFCDetailsPage();
+        System.out.println("This Step tests modified contact:" + contactsDetailPage.newContactSavedName());
         StringJoiner name = new StringJoiner(" ");
         name.add(propertiesManager.getProperty("contactEditName"));
         name.add(propertiesManager.getProperty("contactLastName"));
-        Assert.assertEquals(salesForceContacts.newContactSavedName(), name.toString());
+        Assert.assertEquals(contactsDetailPage.newContactSavedName(), name.toString());
     }
     /**
      * When step.
@@ -123,10 +121,10 @@ public class ContactSteps {
     @When("^I choose a contact from recent contacts and I click on delete contact")
     public void IChooseAContactFromRecentContactsAndIClickOnDeleteContact() {
         System.out.println("Choose last contact");
-        webDriver = DriverManager.getInstance().getNavigator();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.clickContactNameLink();
-        salesForceContacts.clickDeleteContact();
+        contactsMainPage = new SFCMainPage();
+        contactsMainPage.clickContactNameLink();
+        contactsDetailPage = new SFCDetailsPage();
+        contactsDetailPage.clickDeleteContact();
     }
     /**
      * And step.
@@ -134,9 +132,9 @@ public class ContactSteps {
     @And("^I click on ok button")
     public void IClickOnOkButton() {
         System.out.println("Delete contact");
-        webDriver = DriverManager.getInstance().getNavigator();
-        salesForceContacts = new SalesForceContacts(webDriver);
-        salesForceContacts.clickDeleteAlert();
+
+        contactsDetailPage = new SFCDetailsPage();
+        contactsDetailPage.clickDeleteAlert();
 
     }
     /**
@@ -144,14 +142,12 @@ public class ContactSteps {
      */
     @Then("^The system deletes the selected contact$")
     public void TheSystemDeletesTheSelectedContact() {
-        webDriver = DriverManager.getInstance().getNavigator();
+
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        salesForceContacts = new SalesForceContacts(webDriver);
+        contactsMainPage = new SFCMainPage();
         System.out.println("This Step tests verified id the contact:");
-        Assert.assertEquals(salesForceContacts.contactHomePage(), "Home");
+        Assert.assertEquals(contactsMainPage.contactHomePage(), "Home");
     }
-
-
 
     /**
      * After, to close browser after the tests are executed.

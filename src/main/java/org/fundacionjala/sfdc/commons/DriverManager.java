@@ -53,7 +53,7 @@ public final class DriverManager {
      * Getter of WebDriver object.
      * @return WebDriver instance.
      */
-    public WebDriver getNavigator() {
+    public static WebDriver getNavigator() {
         return driver;
     }
     /**

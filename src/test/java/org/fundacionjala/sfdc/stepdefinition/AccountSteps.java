@@ -30,7 +30,7 @@ public class AccountSteps {
     public void goToAccountsSection() {
         webDriver = DriverManager.getInstance().getNavigator();
         SalesForceMainTabClassic salesForceMainTab;
-        salesForceMainTab = new SalesForceMainTabClassic(webDriver, "a.accountBlock", "li#AllTab_Tab");
+        salesForceMainTab = new SalesForceMainTabClassic("a.accountBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
     }

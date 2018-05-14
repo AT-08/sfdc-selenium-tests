@@ -24,9 +24,9 @@ public class SalesForceMainTabClassic {
      * @param url web page.
      * @param actionButton menu button.
      */
-    public SalesForceMainTabClassic(final WebDriver webDriver, final String url, final String actionButton) {
+    public SalesForceMainTabClassic(final String url, final String actionButton) {
 
-        this.webDriver = webDriver;
+        this.webDriver = DriverManager.getNavigator();
         this.tabButton = By.cssSelector(actionButton);
         this.accountsLink = By.cssSelector(url);
 
