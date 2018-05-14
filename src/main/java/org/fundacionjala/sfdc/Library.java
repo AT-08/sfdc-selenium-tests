@@ -25,6 +25,6 @@ public class Library {
             valuesToFill.put(value, () -> {newModifyPage.setAccountNameTextField(values.get(value));});
         }
 
-
+        valuesToFill.forEach((s, value) -> value.fillField());
     }
 }
