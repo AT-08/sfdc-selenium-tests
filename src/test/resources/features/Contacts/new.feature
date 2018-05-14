@@ -1,26 +1,29 @@
-Feature: Create a new account
+Feature: Contacts feature
 
   Background: User is logged in the application
     Given Open the Firefox and launch the application enter the Username and Password and press login
     Then login to the application
 
-  Scenario: Create a new account with only obligatory fields filled
-    Given Go to accounts section
-    When I press new account button a new account form is displayed
-    And I fill the account name field and press the save button
-    Then a new account is created
+  Scenario: Create a new contact with only obligatory fields filled
+    Given Go to contacts section
+    When I press new contacts button a new form is displayed
+    And I fill the required information and I press Save
+      | contactLastName   | capibara        |
+    Then The system shows the new contact
+      | contactLastName   | capibara        |
 
-  Scenario: Create a new account with all fields filled
-    Given Go to accounts section
-    When I press new account button a new account form is displayed
-    And I fill the fields and press the save button
-      | accountName     | test1           |
-      | parentAccount   | Account 88      |
-      | accountNumber   | 1               |
-      | accountSite     | 2               |
-      | type            | Prospect        |
-      | industry        | Agriculture     |
-      | anuualRevenue   | 200             |
-    Then a new account is created
-      | accountName     | test1           |
-
+  Scenario: Create a new contact with with all fields filled
+    Given Go to contacts section
+    When I press new contacts button a new form is displayed
+    And I fill the required information and I press Save
+      | contactName       | kiwi            |
+      | contactLastName   | capibara        |
+      | contactTitle      | ing             |
+      | contactDepartment | Sales           |
+      | contactBirthday   | 15/05/2018      |
+      | contactLeadSource | Web             |
+      | contactPhone      | 78787878        |
+      | contactHomePhone  | 969969675       |
+    Then The system shows the new contact
+      | contactName       | kiwi            |
+      | contactLastName   | capibara        |
