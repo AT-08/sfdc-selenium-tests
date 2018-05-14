@@ -10,6 +10,7 @@ import org.fundacionjala.sfdc.pageobjects.Accounts.SFADetailsPage;
 import org.fundacionjala.sfdc.pageobjects.Accounts.SFAMainPage;
 import org.fundacionjala.sfdc.pageobjects.Accounts.SFANewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import java.util.Map;
@@ -58,11 +59,10 @@ public class AccountSteps {
      * Then step.
      */
     @Then("^a new account is created$")
-    public void aNewAccountIsCreated() {
+    public void aNewAccountIsCreated(Map<String, String> values) {
         propertiesManager = PropertiesManager.getInstance().getConfig();
         SFADetailsPage accountDetail = new SFADetailsPage();
-        System.out.println("This Step tests new account creation:" + accountDetail.getNewAccountSavedName());
-        Assert.assertEquals(accountDetail.getNewAccountSavedName(), propertiesManager.getProperty("accountName"));
+        Assert.assertEquals(accountDetail.getNewAccountSavedName(), values.get("accountName"));
     }
 
     /**
@@ -118,10 +118,8 @@ public class AccountSteps {
 
     @And("^I fill the fields and press the save button$")
     public void iFillTheFieldsAndPressTheSaveButton(Map<String, String> values) {
-
-        propertiesManager = PropertiesManager.getInstance().getConfig();
         SFANewModifyPage newAccountPage = new SFANewModifyPage();
-        newAccountPage.setAccountNameTextField(propertiesManager.getProperty("accountName"));
+        CommonActions.setValues(values, newAccountPage.fillMethodsToFields());
         newAccountPage.clickSaveNewAccountButton();
     }
 }

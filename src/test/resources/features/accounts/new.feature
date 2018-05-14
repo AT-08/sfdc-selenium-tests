@@ -22,3 +22,4 @@ Feature: Create a new account
       | industry        | Agriculture     |
       | anuualRevenue   | 200             |
     Then a new account is created
+      | accountName     | test1           |
