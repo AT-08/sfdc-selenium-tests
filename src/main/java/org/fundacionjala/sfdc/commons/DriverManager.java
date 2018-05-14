@@ -60,7 +60,7 @@ public final class DriverManager {
      * Getter of WebDriverWait object.
      * @return WebDriverWait instance.
      */
-    public WebDriverWait getWaiter() {
+    public static WebDriverWait getWaiter() {
         return wait;
     }
 
@@ -68,6 +68,6 @@ public final class DriverManager {
      * Method to quit WebDriver instance.
      */
     public static void quitWebDriver() {
-        driver.quit();
+        //driver.quit();
     }
 }

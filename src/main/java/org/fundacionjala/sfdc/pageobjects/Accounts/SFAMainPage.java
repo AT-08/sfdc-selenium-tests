@@ -2,6 +2,7 @@ package org.fundacionjala.sfdc.pageobjects.Accounts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -38,7 +39,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return button.
      */
     public WebElement getNewAccountButton() {
-        return this.newAccountButton;
+        return CommonActions.getElement(this.newAccountButton);
     }
 
     /**
@@ -46,7 +47,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return the link of the last account.
      */
     public WebElement getAccountNameLink() {
-        return this.lastAccountLink;
+        return CommonActions.getElement(this.lastAccountLink);
     }
 
     /**
@@ -54,7 +55,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return true or false.
      */
     public boolean isNewAccountButtonDisplayed() {
-        return this.newAccountButton.isDisplayed();
+        return CommonActions.getElement(this.newAccountButton).isDisplayed();
     }
 
     /**
@@ -75,9 +76,7 @@ public class SFAMainPage extends SalesForceConnection{
      * Method to get Home menu option text. It is used to verify an account was deleted.
      * @return the first menu option text.
      */
-    public String accountHomePage() {
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.homeContact));
-        return this.homeContact.getText();
+    public String getAccountHomePage() {
+        return CommonActions.getElement(this.homeContact).getText();
     }
 }

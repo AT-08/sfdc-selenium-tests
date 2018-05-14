@@ -21,11 +21,9 @@ public final class Main {
      * @param args from cmd execution.
      */
     public static void main(final String[] args) {
-        WebDriver driver;
         Properties prop;
 
-        driver = DriverManager.getInstance().getNavigator();
-        SalesForceLogIn salesForceLogIn = new SalesForceLogIn(driver, "https://login.salesforce.com/");
+        SalesForceLogIn salesForceLogIn = new SalesForceLogIn("https://login.salesforce.com/");
 
         prop = PropertiesManager.getInstance().getConfig();
         salesForceLogIn.logIn(prop.getProperty("user"), prop.getProperty("password"));
