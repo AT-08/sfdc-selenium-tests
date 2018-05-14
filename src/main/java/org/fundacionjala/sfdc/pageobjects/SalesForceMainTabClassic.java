@@ -30,6 +30,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
 
     /**
      * Getter of tabButton.
+     *
      * @return the button.
      */
     public WebElement getTabButton() {
@@ -38,6 +39,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
 
     /**
      * Getter of accountsLink.
+     *
      * @return the link.
      */
     public WebElement getAccountsLink() {
@@ -46,6 +48,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
 
     /**
      * Method to click tabButton.
+     *
      * @param button to click.
      */
     public void clickTabButton(final WebElement button) {
@@ -54,6 +57,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
 
     /**
      * Method to click accountsLink.
+     *
      * @param link to click.
      */
     public void clickAccountsLink(final WebElement link) {
@@ -93,6 +97,4 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
         }
 
     }
-
-
 }
