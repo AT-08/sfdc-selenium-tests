@@ -2,7 +2,9 @@ package org.fundacionjala.sfdc.pageobjects.Accounts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -39,7 +41,8 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return the edit button as WebElement.
      */
     public WebElement getEditButton() {
-        return this.editButton;
+        CommonActions.scrollPage(this.webDriver, this.editButton);
+        return CommonActions.getElement(this.editButton);
     }
 
     /**
@@ -47,21 +50,8 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return delete button as WebElement.
      */
     public WebElement getDeleteButton() {
-        return this.deleteButton;
-    }
-
-    /**
-     * Method to click on edit button.
-     */
-    public void clickEditAccount() {
-        getEditButton().click();
-    }
-
-    /**
-     * Method to click on delete button.
-     */
-    public void clickDeleteAccount() {
-        getDeleteButton().click();
+        CommonActions.scrollPage(this.webDriver, this.deleteButton);
+        return CommonActions.getElement(this.deleteButton);
     }
 
     /**
@@ -78,8 +68,6 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return the new account name displayed in label.
      */
     public String getNewAccountSavedName() {
-        WebDriverWait wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.newAccountLabel));
-        return this.newAccountLabel.getText();
+        return CommonActions.getElement(this.newAccountLabel).getText();
     }
 }

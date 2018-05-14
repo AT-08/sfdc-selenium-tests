@@ -42,25 +42,23 @@ public class AccountSteps {
     @When("^I press new account button a new account form is displayed$")
     public void iPressNewAccountButtonANewAccountFormIsDisplayed() {
         SFAMainPage accountsMainPage = new SFAMainPage();
-        accountsMainPage.clickNewAccountButton();
+        CommonActions.clickElement(accountsMainPage.getNewAccountButton());
     }
 
     /**
      * And step.
      */
     @And("^I fill the account name field and press the save button$")
-    public void iFillTheAccountNameFieldAndPressTheSaveButton() {
-        propertiesManager = PropertiesManager.getInstance().getConfig();
+    public void iFillTheAccountNameFieldAndPressTheSaveButton(Map<String, String> values) {
         SFANewModifyPage newAccountPage = new SFANewModifyPage();
-        newAccountPage.setAccountNameTextField(propertiesManager.getProperty("accountName"));
-        newAccountPage.clickSaveNewAccountButton();
+        CommonActions.setValues(values, newAccountPage.fillMethodsToFields());
+        CommonActions.clickElement(newAccountPage.getSaveNewAccountButton());
     }
     /**
      * Then step.
      */
     @Then("^a new account is created$")
     public void aNewAccountIsCreated(Map<String, String> values) {
-        propertiesManager = PropertiesManager.getInstance().getConfig();
         SFADetailsPage accountDetail = new SFADetailsPage();
         Assert.assertEquals(accountDetail.getNewAccountSavedName(), values.get("accountName"));
     }
@@ -71,9 +69,9 @@ public class AccountSteps {
     @When("^I choose an account from recent accounts and I click on Edit account$")
     public void iChooseAnAccountFromRecentAccountsAndIClickOnEditAccount() {
         SFAMainPage accountsMainPage = new SFAMainPage();
-        accountsMainPage.clickAccountNameLink();
+        CommonActions.clickElement(accountsMainPage.getAccountNameLink());
         SFADetailsPage accountsDetailPage = new SFADetailsPage();
-        accountsDetailPage.clickEditAccount();
+        CommonActions.clickElement(accountsDetailPage.getEditButton());
     }
 
     /**
@@ -84,7 +82,16 @@ public class AccountSteps {
         propertiesManager = PropertiesManager.getInstance().getConfig();
         SFANewModifyPage modifyPage = new SFANewModifyPage();
         modifyPage.setAccountNameTextField(propertiesManager.getProperty("accountName"));
-        modifyPage.clickSaveNewAccountButton();
+        CommonActions.clickElement(modifyPage.getSaveNewAccountButton());
+    }
+
+    /**
+     * Then step.
+     */
+    @Then("^an account is modified")
+    public void anAccountIsModified(Map<String, String> values) {
+        SFADetailsPage accountDetail = new SFADetailsPage();
+        Assert.assertEquals(accountDetail.getNewAccountSavedName(), values.get("accountName"));
     }
 
     /**
@@ -93,9 +100,9 @@ public class AccountSteps {
     @When("^I choose last account from recent accounts and I click on Delete account$")
     public void iChooseLastAccountFromRecentAccountsAndIClickOnDeleteAccount() {
         SFAMainPage accountsMainPage = new SFAMainPage();
-        accountsMainPage.clickAccountNameLink();
+        CommonActions.clickElement(accountsMainPage.getAccountNameLink());
         SFADetailsPage accountsDetailsPage = new SFADetailsPage();
-        accountsDetailsPage.clickDeleteAccount();
+        CommonActions.clickElement(accountsDetailsPage.getDeleteButton());
     }
 
     /**
@@ -110,16 +117,16 @@ public class AccountSteps {
     /**
      * Then step.
      */
-    @Then("^the system delete the account$")
-    public void theSystemDeleteTheAccount() {
+    @Then("^the system deletes the account$")
+    public void theSystemDeletesTheAccount() {
         SFAMainPage accountsMainPage = new SFAMainPage();
-        Assert.assertEquals(accountsMainPage.accountHomePage(), "Home");
+        Assert.assertEquals(accountsMainPage.getAccountHomePage(), "Home");
     }
 
     @And("^I fill the fields and press the save button$")
     public void iFillTheFieldsAndPressTheSaveButton(Map<String, String> values) {
         SFANewModifyPage newAccountPage = new SFANewModifyPage();
         CommonActions.setValues(values, newAccountPage.fillMethodsToFields());
-        newAccountPage.clickSaveNewAccountButton();
+        CommonActions.clickElement(newAccountPage.getSaveNewAccountButton());
     }
 }

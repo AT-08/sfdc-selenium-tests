@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.Accounts;
 
-import org.fundacionjala.sfdc.Value;
+import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.Value;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,7 +66,6 @@ public class SFANewModifyPage extends SalesForceConnection{
     @FindBy(how = How.CSS, using = ".pbButton > input[name='save']")
     private WebElement saveNewAccountButton;
 
-
     /**
      * Constructor.
      */
@@ -79,7 +79,7 @@ public class SFANewModifyPage extends SalesForceConnection{
      * @return button.
      */
     public WebElement getSaveNewAccountButton() {
-        return this.saveNewAccountButton;
+        return CommonActions.getElement(this.saveNewAccountButton);
     }
 
     /**
@@ -107,7 +107,6 @@ public class SFANewModifyPage extends SalesForceConnection{
     public void setAnnualRevenueTextField(final String annualRevenue) {
         this.annualRevenueTextField.sendKeys(annualRevenue);
     }
-
 
     /**
      * Method to click button.

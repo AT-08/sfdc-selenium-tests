@@ -8,7 +8,9 @@ Feature: Create a new account
     Given Go to accounts section
     When I press new account button a new account form is displayed
     And I fill the account name field and press the save button
+      | accountName     | test1           |
     Then a new account is created
+      | accountName     | test1           |
 
   Scenario: Create a new account with all fields filled
     Given Go to accounts section
