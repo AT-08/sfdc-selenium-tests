@@ -1,26 +1,49 @@
 package org.fundacionjala.sfdc.pageobjects.Contacts;
 
-import org.fundacionjala.sfdc.commons.DriverManager;
+
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
+import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.HashMap;
+import java.util.Map;
+/**
+ * SFCNewModifyPage.java
+ * Class that represents the form where you fill fields in order to create or modify a contact.
+ */
 public class SFCNewModifyPage extends SalesForceConnection {
-    private WebDriverWait wait;
     @FindBy(how = How.ID, using = "name_firstcon2")
     private WebElement contactNameTextField;
 
     @FindBy(how = How.ID, using = "name_lastcon2")
     private WebElement contactLastNameTextField;
 
+    @FindBy(how = How.ID, using = "con5")
+    private WebElement contactTitleTextField;
+
+    @FindBy(how = How.ID, using = "con6")
+    private WebElement contactDepartmentTextField;
+
+    @FindBy(how = How.ID, using = "con7")
+    private WebElement contactBirthdateTextField;
+
+    @FindBy(how = How.ID, using = "con9")
+    private WebElement contactLeadSourceTextField;
+
+    @FindBy(how = How.ID, using = "con10")
+    private WebElement contactPhoneTextField;
+
+    @FindBy(how = How.ID, using = "con13")
+    private WebElement contactHomePhoneTextField;
+
     @FindBy(how = How.CSS, using = "#topButtonRow> input[name='save']")
     private WebElement saveContactButton;
+
+    private Map<String, Value> newContactsFields = new HashMap<>();
 
     /**
      * Constructor.
@@ -35,17 +58,15 @@ public class SFCNewModifyPage extends SalesForceConnection {
      * @return web element save button.
      */
     public WebElement getSaveContactButton() {
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.saveContactButton));
-        return this.saveContactButton;
+        return CommonActions.getElement(this.saveContactButton);
     }
-
 
     /**
      * Method to set contactName attribute.
      * @param contactName string value.
      */
     public void setContactNameTextField(final String contactName) {
+        this.contactNameTextField.clear();
         this.contactNameTextField.sendKeys(contactName);
     }
 
@@ -54,35 +75,98 @@ public class SFCNewModifyPage extends SalesForceConnection {
      * @param contactLastName string value.
      */
     public void setContactLastNameTextField(final String contactLastName) {
+        this.contactLastNameTextField.clear();
         this.contactLastNameTextField.sendKeys(contactLastName);
     }
 
     /**
-     * Method to edit contact fields.
-     * @param contactName the contact name.
+     * Method to set contact las Name attribute.
+     * @param contactTitleTextField string value.
      */
-    public void editContact(final String contactName) {
-        setContactNameTextField(contactName);
+    public void setContactTitleTextField(final String contactTitleTextField) {
+        this.contactTitleTextField.clear();
+        this.contactTitleTextField.sendKeys(contactTitleTextField);
     }
 
     /**
-     * Method to create a new contact.
-     * @param contactName the contact name.
-     * @param contactLastName the contact name.
+     * Method to set contact las Name attribute.
+     * @param contactDepartmentTextField string value.
      */
-    public void fillInfoNewContact(final String contactName, final String contactLastName) {
-        setContactNameTextField(contactName);
-        setContactLastNameTextField(contactLastName);
+    public void setContactDepartmentTextField(final String contactDepartmentTextField) {
+        this.contactDepartmentTextField.clear();
+        this.contactDepartmentTextField.sendKeys(contactDepartmentTextField);
     }
 
+    /**
+     * Method to set contact las Name attribute.
+     * @param contactBirthdateTextField string value.
+     */
+    public void setContactBirthdateTextField(final String contactBirthdateTextField) {
+        this.contactBirthdateTextField.clear();
+        this.contactBirthdateTextField.sendKeys(contactBirthdateTextField);
+    }
+
+    /**
+     * Method to set contact las Name attribute.
+     * @param contactLeadSourceTextField string value.
+     */
+    public void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
+        this.contactLeadSourceTextField.sendKeys(contactLeadSourceTextField);
+    }
+
+    /**
+     * Method to set contact las Name attribute.
+     * @param contactPhoneTextField string value.
+     */
+    public void setContactPhoneTextField(final String contactPhoneTextField) {
+        this.contactPhoneTextField.clear();
+        this.contactPhoneTextField.sendKeys(contactPhoneTextField);
+    }
+
+    /**
+     * Method to set contact las Name attribute.
+     * @param contactHomePhoneTextField string value.
+     */
+    public void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
+        this.contactHomePhoneTextField.clear();
+        this.contactHomePhoneTextField.sendKeys(contactHomePhoneTextField);
+    }
     /**
      * Method to do click "save" button.
      */
     public void clickSaveContactButton() {
         getSaveContactButton().click();
-
     }
-
-
+    /**
+     * Method to do click "fillMethodsToFields" to map.
+     * @return map of contact fields.
+     */
+    public Map<String, Value> fillMethodsToFields() {
+        newContactsFields.put("contactName", (String v) -> {
+            setContactNameTextField(v);
+        });
+        newContactsFields.put("contactLastName", (String v) -> {
+            setContactLastNameTextField(v);
+        });
+        newContactsFields.put("contactTitle", (String v) -> {
+            setContactTitleTextField(v);
+        });
+        newContactsFields.put("contactDepartment", (String v) -> {
+            setContactDepartmentTextField(v);
+        });
+        newContactsFields.put("contactBirthday", (String v) -> {
+            setContactBirthdateTextField(v);
+        });
+        newContactsFields.put("contactLeadSource", (String v) -> {
+            setContactLeadSourceTextField(v);
+        });
+        newContactsFields.put("contactPhone", (String v) -> {
+            setContactPhoneTextField(v);
+        });
+        newContactsFields.put("contactHomePhone", (String v) -> {
+            setContactHomePhoneTextField(v);
+        });
+        return newContactsFields;
+    }
 
 }

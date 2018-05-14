@@ -1,17 +1,16 @@
 package org.fundacionjala.sfdc.pageobjects.Contacts;
 
-import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
-import org.openqa.selenium.By;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+/**
+ * SFCMainPage.java
+ * Class that represents the main page of contacts section.
+ */
 public class SFCMainPage extends SalesForceConnection {
-    private WebDriverWait wait;
 
     @FindBy(how = How.CSS, using = "input[name='new']")
     private WebElement newContactButton;
@@ -21,7 +20,6 @@ public class SFCMainPage extends SalesForceConnection {
 
     @FindBy(how = How.CSS, using = "h2.pageDescription")
     private WebElement homeContact;
-
 
     /**
      * Constructor.
@@ -36,9 +34,8 @@ public class SFCMainPage extends SalesForceConnection {
      * @return a new contact button element.
      */
     public WebElement getNewButton() {
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.newContactButton));
-        return this.newContactButton;
+
+        return CommonActions.getElement(this.newContactButton);
     }
     /**
      * Method to get the last concat name link.
@@ -46,7 +43,7 @@ public class SFCMainPage extends SalesForceConnection {
      */
     public WebElement getContactNameLink() {
 
-        return this.lastContactLink;
+        return CommonActions.getElement(this.lastContactLink);
     }
 
     /**
@@ -54,9 +51,7 @@ public class SFCMainPage extends SalesForceConnection {
      * @return the contact home page.
      */
     public String contactHomePage() {
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.homeContact));
-        return this.homeContact.getText();
+        return CommonActions.getElement(this.homeContact).getText();
     }
 
     /**
