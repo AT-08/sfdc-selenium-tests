@@ -2,8 +2,10 @@ package org.fundacionjala.sfdc.pageobjects.Accounts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,18 +15,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SFAMainPage extends SalesForceConnection{
     private WebDriverWait wait;
-    private By newAccountButton;
-    private By lastAccountLink;
-    private By homeContact;
+
+    @FindBy(how = How.CSS, using = ".pbButton > input[title='New']")
+    private WebElement newAccountButton;
+
+    @FindBy(how = How.CSS, using = "tr.dataRow.even.first.dataRow >th[scope='row'] > a")
+    private WebElement lastAccountLink;
+
+    @FindBy(how = How.CSS, using = "h2.pageDescription")
+    private WebElement homeContact;
 
     /**
      * Constructor.
      */
     public SFAMainPage() {
         super();
-        this.newAccountButton = By.cssSelector(".pbButton > input[title='New']");
-        this.lastAccountLink = By.cssSelector("tr.dataRow.even.first.dataRow >th[scope='row'] > a");
-        this.homeContact = By.cssSelector("h2.pageDescription");
+        PageFactory.initElements(this.webDriver, this);
     }
 
     /**
@@ -32,7 +38,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return button.
      */
     public WebElement getNewAccountButton() {
-        return this.webDriver.findElement(this.newAccountButton);
+        return this.newAccountButton;
     }
 
     /**
@@ -40,7 +46,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return the link of the last account.
      */
     public WebElement getAccountNameLink() {
-        return this.webDriver.findElement(this.lastAccountLink);
+        return this.lastAccountLink;
     }
 
     /**
@@ -48,7 +54,7 @@ public class SFAMainPage extends SalesForceConnection{
      * @return true or false.
      */
     public boolean isNewAccountButtonDisplayed() {
-        return this.webDriver.findElement(this.newAccountButton).isDisplayed();
+        return this.newAccountButton.isDisplayed();
     }
 
     /**
@@ -71,7 +77,7 @@ public class SFAMainPage extends SalesForceConnection{
      */
     public String accountHomePage() {
         wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(this.homeContact));
-        return this.webDriver.findElement(this.homeContact).getText();
+        wait.until(ExpectedConditions.visibilityOf(this.homeContact));
+        return this.homeContact.getText();
     }
 }
