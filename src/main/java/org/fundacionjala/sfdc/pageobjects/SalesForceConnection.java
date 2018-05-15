@@ -14,9 +14,8 @@ public class SalesForceConnection {
     /**
      * Constructor.
      */
-    public SalesForceConnection() {
+    public  SalesForceConnection() {
         this.webDriver = DriverManager.getInstance().getNavigator();
-
         PageFactory.initElements(this.webDriver, this);
     }
 }
