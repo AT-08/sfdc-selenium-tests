@@ -75,5 +75,4 @@ public class SFCDetailsPage extends SalesForceConnection {
     public void clickEditContact() {
         getEditButton().click();
     }
-
 }

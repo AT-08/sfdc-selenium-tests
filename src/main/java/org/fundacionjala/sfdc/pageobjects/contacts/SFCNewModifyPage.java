@@ -168,5 +168,4 @@ public class SFCNewModifyPage extends SalesForceConnection {
         });
         return newContactsFields;
     }
-
 }

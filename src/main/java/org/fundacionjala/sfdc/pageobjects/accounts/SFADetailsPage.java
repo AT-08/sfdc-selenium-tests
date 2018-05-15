@@ -16,7 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Class that represents the page where details of an account are displayed.
  */
 public class SFADetailsPage extends SalesForceConnection {
-    private WebDriverWait wait;
 
     @FindBy(how = How.CSS, using = "#topButtonRow.pbButton > input[name='edit']")
     private WebElement editButton;

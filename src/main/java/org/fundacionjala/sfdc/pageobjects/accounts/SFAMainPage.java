@@ -6,14 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SFAMainPage.java
  * Class that represents the main page of accounts section.
  */
-public class SFAMainPage extends SalesForceConnection{
-    private WebDriverWait wait;
+public class SFAMainPage extends SalesForceConnection {
 
     @FindBy(how = How.CSS, using = ".pbButton > input[title='New']")
     private WebElement newAccountButton;

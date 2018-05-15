@@ -15,8 +15,8 @@ import java.util.Map;
  * SFANewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify an account.
  */
-public class SFANewModifyPage extends SalesForceConnection{
-    private Map<String, Value> NEW_ACCOUNTS_FIELDS = new HashMap<>();
+public class SFANewModifyPage extends SalesForceConnection {
+    private Map<String, Value> newAccountsFields = new HashMap<>();
 
     @FindBy(how = How.CSS, using = ".requiredInput > input[name='acc2']")
     private WebElement accountNameTextField;
@@ -89,21 +89,51 @@ public class SFANewModifyPage extends SalesForceConnection{
     public void setAccountNameTextField(final String accountName) {
         this.accountNameTextField.sendKeys(accountName);
     }
+
+    /**
+     * Method to set parentAccount attribute.
+     * @param parentAccount the value.
+     */
     public void setParentAccountTextField(final String parentAccount) {
         this.parentAccountTextField.sendKeys(parentAccount);
     }
+
+    /**
+     * Method to set accountNumber attribute.
+     * @param accountNumber the value.
+     */
     public void setAccountNumberTextField(final String accountNumber) {
         this.accountNumberTextField.sendKeys(accountNumber);
     }
+
+    /**
+     * Method to set accountSite attribute.
+     * @param accountSite the value.
+     */
     public void setAccountSiteTextField(final String accountSite) {
         this.accountSiteTextField.sendKeys(accountSite);
     }
+
+    /**
+     * Method to set type attribute.
+     * @param type the value.
+     */
     public void setAccountTypeList(final String type) {
         this.typeList.sendKeys(type);
     }
+
+    /**
+     * Method to set industry attribute.
+     * @param industry the value.
+     */
     public void setIndustryList(final String industry) {
         this.industryList.sendKeys(industry);
     }
+
+    /**
+     * Method to set annualRevenue attribute.
+     * @param annualRevenue the value.
+     */
     public void setAnnualRevenueTextField(final String annualRevenue) {
         this.annualRevenueTextField.sendKeys(annualRevenue);
     }
@@ -115,14 +145,32 @@ public class SFANewModifyPage extends SalesForceConnection{
         getSaveNewAccountButton().click();
     }
 
+    /**
+     * Method to fill map with field name and method to set it.
+     * @return the map.
+     */
     public Map<String, Value> fillMethodsToFields() {
-        NEW_ACCOUNTS_FIELDS.put("accountName", (String v) -> {setAccountNameTextField(v);});
-        NEW_ACCOUNTS_FIELDS.put("parentAccount", (String v) -> {setParentAccountTextField(v);});
-        NEW_ACCOUNTS_FIELDS.put("accountNumber", (String v) -> {setAccountNumberTextField(v);});
-        NEW_ACCOUNTS_FIELDS.put("accountSite", (String v) -> {setAccountSiteTextField(v);});
-        NEW_ACCOUNTS_FIELDS.put("type", (String v) -> {setAccountTypeList(v);});
-        NEW_ACCOUNTS_FIELDS.put("industry", (String v) -> {setIndustryList(v);});
-        NEW_ACCOUNTS_FIELDS.put("anuualRevenue", (String v) -> {setAnnualRevenueTextField(v);});
-        return NEW_ACCOUNTS_FIELDS;
+        newAccountsFields.put("accountName", (String v) -> {
+            setAccountNameTextField(v);
+        });
+        newAccountsFields.put("parentAccount", (String v) -> {
+            setParentAccountTextField(v);
+        });
+        newAccountsFields.put("accountNumber", (String v) -> {
+            setAccountNumberTextField(v);
+        });
+        newAccountsFields.put("accountSite", (String v) -> {
+            setAccountSiteTextField(v);
+        });
+        newAccountsFields.put("type", (String v) -> {
+            setAccountTypeList(v);
+        });
+        newAccountsFields.put("industry", (String v) -> {
+            setIndustryList(v);
+        });
+        newAccountsFields.put("anuualRevenue", (String v) -> {
+            setAnnualRevenueTextField(v);
+        });
+        return newAccountsFields;
     }
 }

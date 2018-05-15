@@ -35,7 +35,7 @@ public class SFOEdit extends SalesForceConnection {
     @FindBy(how = How.ID, using = "AllTab_Tab")
     private WebElement pagesButton;
 
-    @FindBy(how = How.LINK_TEXT, using = "opportunities")
+    @FindBy(how = How.CSS, using = "a.opportunityBlock")
     private WebElement opportunitiesPage;
 
     /**
@@ -87,9 +87,10 @@ public class SFOEdit extends SalesForceConnection {
         Select dropdown = new Select(this.opportunityStage);
         List<WebElement> stageOptions = dropdown.getOptions();
         WebElement opportunitySelected = null;
-        for(WebElement element: stageOptions) {
-            if (element.getText().matches(opportunityStage))
+        for (WebElement element: stageOptions) {
+            if (element.getText().matches(opportunityStage)) {
                 opportunitySelected = element;
+            }
         }
         opportunitySelected.click();
     }
@@ -99,13 +100,14 @@ public class SFOEdit extends SalesForceConnection {
     /**
      * Method to create or edit an opportunity.
      *
-     * @param opportunityName      the opportunity name.
-     * @param opportunityCloseDate the opportunity close date.
+     * @param opName      the opportunity name.
+     * @param opCloseDate the opportunity close date.
+     * @param opStage     the opportunity stage.
      */
-    public void editOpportunity(final String opportunityName, final String opportunityCloseDate, final String opportunityStage) {
-        setOpportunity(opportunityName);
-        setOpportunityCloseDate(opportunityCloseDate);
-        setOpportunityStage(opportunityStage);
+    public void editOpportunity(final String opName, final String opCloseDate, final String opStage) {
+        setOpportunity(opName);
+        setOpportunityCloseDate(opCloseDate);
+        setOpportunityStage(opStage);
     }
 
     /**
@@ -118,7 +120,7 @@ public class SFOEdit extends SalesForceConnection {
     /**
      * This method leads to an Opportunity Home Page.
      */
-    public void goToOpportunitiesPage(){
+    public void goToOpportunitiesPage() {
         pagesButton.click();
         opportunitiesPage.click();
     }

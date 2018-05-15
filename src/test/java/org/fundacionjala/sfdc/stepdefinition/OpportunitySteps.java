@@ -41,7 +41,10 @@ public class OpportunitySteps {
         editOpportunity = new SFOEdit();
         propertiesManager = PropertiesManager.getInstance().getConfig();
         opportunitiesHome.clickNewOpportunity();
-        editOpportunity.editOpportunity(propertiesManager.getProperty("opportunityName"), propertiesManager.getProperty("opportunityCloseDate"), propertiesManager.getProperty("opportunityStage"));
+        final String opName = propertiesManager.getProperty("opportunityName");
+        final String opCloseDate = propertiesManager.getProperty("opportunityCloseDate");
+        final String opStage = propertiesManager.getProperty("opportunityStage");
+        editOpportunity.editOpportunity(opName, opCloseDate, opStage);
         editOpportunity.clickSaveOpportunityButton();
     }
 
@@ -53,7 +56,6 @@ public class OpportunitySteps {
         opportunitiesHome = new SFOHome();
         editOpportunity = new SFOEdit();
         editOpportunity.goToOpportunitiesPage();
-        System.out.println("xxxxxxxxxx:" + opportunitiesHome.getLastOpportunity());
         Assert.assertEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
     }
 
@@ -75,7 +77,10 @@ public class OpportunitySteps {
     public void iEditTheFieldsFilledInTheOpportunityForm() {
         editOpportunity = new SFOEdit();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        editOpportunity.editOpportunity(propertiesManager.getProperty("editOpportunityName"), propertiesManager.getProperty("editOpportunityCloseDate"), propertiesManager.getProperty("editOpportunityStage"));
+        final String editOpName = propertiesManager.getProperty("editOpportunityName");
+        final String editOpCloseName = propertiesManager.getProperty("editOpportunityCloseDate");
+        final String editOpStage = propertiesManager.getProperty("editOpportunityStage");
+        editOpportunity.editOpportunity(editOpName, editOpCloseName, editOpStage);
         editOpportunity.clickSaveOpportunityButton();
     }
 
@@ -87,7 +92,8 @@ public class OpportunitySteps {
         opportunitiesHome = new SFOHome();
         editOpportunity = new SFOEdit();
         editOpportunity.goToOpportunitiesPage();
-        Assert.assertEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("editOpportunityName"));
+        final String editOpName = propertiesManager.getProperty("editOpportunityName");
+        Assert.assertEquals(opportunitiesHome.getLastOpportunity(), editOpName);
     }
 
     /**
@@ -108,6 +114,7 @@ public class OpportunitySteps {
     public void theOpportunityIsDeleted() {
         opportunitiesHome = new SFOHome();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        Assert.assertNotEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
+        final String opName = propertiesManager.getProperty("opportunityName");
+        Assert.assertNotEquals(opportunitiesHome.getLastOpportunity(), opName);
     }
 }

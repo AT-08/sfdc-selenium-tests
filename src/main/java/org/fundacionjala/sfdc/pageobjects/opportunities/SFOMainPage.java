@@ -63,6 +63,7 @@ public class SFOMainPage extends SalesForceConnection {
 
     /**
      * Method for confirm the dialog emergent.
+     * @return alert.
      */
     private String closeAlertAndGetItsText() {
         try {

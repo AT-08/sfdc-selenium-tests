@@ -1,21 +1,16 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SalesForceLogIn.java
  * Class to log in Salesforce.
  */
-public class SalesForceLogIn extends SalesForceConnection{
+public class SalesForceLogIn extends SalesForceConnection {
     private String url;
 
     @FindBy(how = How.ID, using = "username")

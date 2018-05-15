@@ -68,5 +68,4 @@ public class SFCMainPage extends SalesForceConnection {
     public void clickContactNameLink() {
         getContactNameLink().click();
     }
-
 }

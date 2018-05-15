@@ -13,35 +13,55 @@ import java.util.Map;
  * CommonActions.java
  * Class with common methods that many classes can use.
  */
-public class CommonActions {
-    public static WebDriverWait waiter;
+public final class CommonActions {
 
     /**
-     * Method
-     * @param element
-     * @return
+     * Private constructor because it is a util class.
      */
-    public static WebElement getElement(WebElement element) {
+    private CommonActions() {
+
+    }
+    private static WebDriverWait waiter;
+
+    /**
+     * Method to get any element but wait until it is visible.
+     * @param element to wait for.
+     * @return the element.
+     */
+    public static WebElement getElement(final WebElement element) {
         waiter = DriverManager.getInstance().getWaiter();
         waiter.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
-    public static void clickElement(WebElement element) {
+    /**
+     * Method to click any element.
+     * @param element to click.
+     */
+    public static void clickElement(final WebElement element) {
         element.click();
     }
 
-    public static void scrollPage(WebDriver webDriver, WebElement element) {
+
+    /**
+     * Method to scroll down page.
+     * @param webDriver the webdriver.
+     * @param element the element we want to choose.
+     */
+    public static void scrollPage(final WebDriver webDriver, final WebElement element) {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public static void setValues(Map<String, String> fieldsAndValues, Map<String, Value> fieldsWithMethods) {
+    /**
+     * Method to fill map with required values.
+     * @param values data table from feature.
+     * @param methods map with field and methods.
+     */
+    public static void setValues(final Map<String, String> values, final Map<String, Value> methods) {
         Map<String, Value> filledValues = new HashMap<>();
-        for (String key : fieldsAndValues.keySet()) {
-            filledValues.put(key, fieldsWithMethods.get(key));
+        for (String key : values.keySet()) {
+            filledValues.put(key, methods.get(key));
         }
-        filledValues.forEach((s, value) -> value.fillField(fieldsAndValues.get(s)));
+        filledValues.forEach((s, value) -> value.fillField(values.get(s)));
     }
-
-
 }

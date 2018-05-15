@@ -32,21 +32,21 @@ public class SFOHome extends SalesForceConnection {
     /**
      * Method for click on new opportunity button.
      */
-    public void clickNewOpportunity(){
+    public void clickNewOpportunity() {
         this.newOpportunityButton.click();
     }
 
     /**
      * @return the name of the last opportunity created.
      */
-    public String getLastOpportunity(){
+    public String getLastOpportunity() {
         return lastOpportunity.getText();
     }
 
     /**
      * This method allows to go to the last opportunity page.
      */
-    public void goToLastOpportunityPage(){
+    public void goToLastOpportunityPage() {
         this.lastOpportunity.click();
     }
 }
