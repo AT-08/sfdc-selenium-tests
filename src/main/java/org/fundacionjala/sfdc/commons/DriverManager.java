@@ -21,10 +21,12 @@ public final class DriverManager {
     private DriverManager() {
         System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
         driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, SECONDS_WAIT);
     }
 
     /**
      * Static method to get an class instance.
+     *
      * @return instance.
      */
     public static DriverManager getInstance() {
@@ -36,23 +38,19 @@ public final class DriverManager {
 
     /**
      * Getter of WebDriver object.
+     *
      * @return WebDriver instance.
      */
-    public  WebDriver getNavigator() {
-        if (driver == null || driver.getTitle().contains("null")) {
-            return driver;
-        }
+    public WebDriver getNavigator() {
         return driver;
     }
+
     /**
      * Getter of WebDriverWait object.
+     *
      * @return WebDriverWait instance.
      */
-    public  WebDriverWait getWaiter() {
-        if (wait == null) {
-            wait = new WebDriverWait(driver, SECONDS_WAIT);
-            return wait;
-        }
+    public WebDriverWait getWaiter() {
         return wait;
     }
 
