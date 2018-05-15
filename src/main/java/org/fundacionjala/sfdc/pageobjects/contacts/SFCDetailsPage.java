@@ -7,7 +7,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,40 +27,39 @@ public class SFCDetailsPage extends SalesForceConnection {
     private WebElement newContactLabel;
 
     /**
-     * Constructor.
-     */
-    public SFCDetailsPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
-
-    /**
      * Method to get "edit" button.
+     *
      * @return web element edit button.
      */
     public WebElement getEditButton() {
         return CommonActions.getElement(this.editContactButton);
     }
+
     /**
      * Method to get "delete" selected contact.
+     *
      * @return delete button.
      */
     public WebElement getDeleteButton() {
         return CommonActions.getElement(this.deleteContactButton);
     }
+
     /**
      * Method to know if an account is saved.
+     *
      * @return the new contact name displayed in label.
      */
     public String newContactSavedName() {
         return CommonActions.getElement(this.newContactLabel).getText();
     }
+
     /**
      * Method to do click "delete" selected contact.
      */
     public void clickDeleteContact() {
         getDeleteButton().click();
     }
+
     /**
      * Method to do click accept button on the confirm alert before delete contact.
      */
@@ -69,6 +67,7 @@ public class SFCDetailsPage extends SalesForceConnection {
         Alert alert = WAITER.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
+
     /**
      * Method to do click "edit" button.
      */

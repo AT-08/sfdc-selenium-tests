@@ -7,10 +7,10 @@ import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * SFCNewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify a contact.
@@ -46,15 +46,8 @@ public class SFCNewModifyPage extends SalesForceConnection {
     private Map<String, Value> newContactsFields = new HashMap<>();
 
     /**
-     * Constructor.
-     */
-    public SFCNewModifyPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
-
-    /**
      * Method to get "save" button.
+     *
      * @return web element save button.
      */
     public WebElement getSaveContactButton() {
@@ -63,6 +56,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contactName attribute.
+     *
      * @param contactName string value.
      */
     public void setContactNameTextField(final String contactName) {
@@ -72,6 +66,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactLastName string value.
      */
     public void setContactLastNameTextField(final String contactLastName) {
@@ -81,6 +76,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactTitleTextField string value.
      */
     public void setContactTitleTextField(final String contactTitleTextField) {
@@ -90,6 +86,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactDepartmentTextField string value.
      */
     public void setContactDepartmentTextField(final String contactDepartmentTextField) {
@@ -99,6 +96,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactBirthdateTextField string value.
      */
     public void setContactBirthdateTextField(final String contactBirthdateTextField) {
@@ -108,6 +106,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactLeadSourceTextField string value.
      */
     public void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
@@ -116,6 +115,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactPhoneTextField string value.
      */
     public void setContactPhoneTextField(final String contactPhoneTextField) {
@@ -125,20 +125,24 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactHomePhoneTextField string value.
      */
     public void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
         this.contactHomePhoneTextField.clear();
         this.contactHomePhoneTextField.sendKeys(contactHomePhoneTextField);
     }
+
     /**
      * Method to do click "save" button.
      */
     public void clickSaveContactButton() {
         getSaveContactButton().click();
     }
+
     /**
      * Method to do click "fillMethodsToFields" to map.
+     *
      * @return map of contact fields.
      */
     public Map<String, Value> fillMethodsToFields() {

@@ -6,7 +6,6 @@ import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,15 +42,8 @@ public class SFANewModifyPage extends SalesForceConnection {
     private WebElement saveNewAccountButton;
 
     /**
-     * Constructor.
-     */
-    public SFANewModifyPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
-
-    /**
      * Getter of saveNewAccountButton.
+     *
      * @return button.
      */
     public WebElement getSaveNewAccountButton() {
@@ -60,6 +52,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set accountName attribute.
+     *
      * @param accountName string value.
      */
     public void setAccountNameTextField(final String accountName) {
@@ -68,6 +61,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set parentAccount attribute.
+     *
      * @param parentAccount the value.
      */
     public void setParentAccountTextField(final String parentAccount) {
@@ -76,6 +70,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set accountNumber attribute.
+     *
      * @param accountNumber the value.
      */
     public void setAccountNumberTextField(final String accountNumber) {
@@ -84,6 +79,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set accountSite attribute.
+     *
      * @param accountSite the value.
      */
     public void setAccountSiteTextField(final String accountSite) {
@@ -92,6 +88,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set type attribute.
+     *
      * @param type the value.
      */
     public void setAccountTypeList(final String type) {
@@ -100,6 +97,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set industry attribute.
+     *
      * @param industry the value.
      */
     public void setIndustryList(final String industry) {
@@ -108,12 +106,12 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set annualRevenue attribute.
+     *
      * @param annualRevenue the value.
      */
     public void setAnnualRevenueTextField(final String annualRevenue) {
         this.annualRevenueTextField.sendKeys(annualRevenue);
     }
-
 
 
     /**
@@ -125,6 +123,7 @@ public class SFANewModifyPage extends SalesForceConnection {
 
     /**
      * Method to fill map with field name and method to set it.
+     *
      * @return the map.
      */
     public Map<String, Value> fillMethodsToFields() {

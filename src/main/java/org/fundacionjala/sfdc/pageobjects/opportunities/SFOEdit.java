@@ -6,7 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -34,14 +33,6 @@ public class SFOEdit extends SalesForceConnection {
 
     @FindBy(how = How.CSS, using = "a.opportunityBlock")
     private WebElement opportunitiesPage;
-
-    /**
-     * Constructor.
-     */
-    public SFOEdit() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
 
     /**
      * Method to get "save" button.
@@ -82,14 +73,13 @@ public class SFOEdit extends SalesForceConnection {
         Select dropdown = new Select(this.opportunityStage);
         List<WebElement> stageOptions = dropdown.getOptions();
         WebElement opportunitySelected = null;
-        for (WebElement element: stageOptions) {
+        for (WebElement element : stageOptions) {
             if (element.getText().matches(opportunityStage)) {
                 opportunitySelected = element;
             }
         }
         opportunitySelected.click();
     }
-
 
 
     /**

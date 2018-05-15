@@ -34,7 +34,6 @@ public class ContactSteps {
         salesForceMainTab = new SalesForceMainTabClassic("a.contactBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
-
     }
 
     /**

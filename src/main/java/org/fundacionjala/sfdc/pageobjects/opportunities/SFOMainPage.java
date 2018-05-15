@@ -6,7 +6,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Class that represents the page where an opportunity could be edited or modified.
@@ -22,14 +21,6 @@ public class SFOMainPage extends SalesForceConnection {
 
     @FindBy(how = How.CSS, using = "tr.dataRow:nth-child(2) > th:nth-child(1) > a:nth-child(1)")
     private WebElement lastOpportunity;
-
-    /**
-     * Constructor.
-     */
-    public SFOMainPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
 
     /**
      * Method for click on edit button.
@@ -59,6 +50,7 @@ public class SFOMainPage extends SalesForceConnection {
 
     /**
      * Method for confirm the dialog emergent.
+     *
      * @return alert.
      */
     private String closeAlertAndGetItsText() {
