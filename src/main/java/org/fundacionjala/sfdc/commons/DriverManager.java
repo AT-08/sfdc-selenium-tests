@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public final class DriverManager {
     private static DriverManager driverManager;
-    private static WebDriver driver;
-    private static WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
     private static final int SECONDS_WAIT = 360;
 
     /**
