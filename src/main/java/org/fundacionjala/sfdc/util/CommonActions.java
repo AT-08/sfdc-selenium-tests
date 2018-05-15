@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import java.util.Map;
  * Class with common methods that many classes can use.
  */
 public final class CommonActions {
+    private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
 
     /**
      * Private constructor because it is a util class.
@@ -29,7 +31,7 @@ public final class CommonActions {
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
-        DriverManager.getInstance().getWaiter().until(ExpectedConditions.visibilityOf(element));
+        WAITER.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
@@ -39,7 +41,7 @@ public final class CommonActions {
      * @return the element.
      */
     public static By getElement(final By element) {
-        DriverManager.getInstance().getWaiter().until(ExpectedConditions.visibilityOfElementLocated(element));
+        WAITER.until(ExpectedConditions.visibilityOfElementLocated(element));
         return element;
     }
 
