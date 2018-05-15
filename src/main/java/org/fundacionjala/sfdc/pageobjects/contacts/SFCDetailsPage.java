@@ -9,12 +9,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SFCDetailsPage.java
  * Class that represents the page where details of an contact are displayed.
  */
 public class SFCDetailsPage extends SalesForceConnection {
+    public static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
 
     @FindBy(how = How.CSS, using = "#topButtonRow > input[name='edit']")
     private WebElement editContactButton;
@@ -64,7 +66,7 @@ public class SFCDetailsPage extends SalesForceConnection {
      * Method to do click accept button on the confirm alert before delete contact.
      */
     public void clickDeleteAlert() {
-        Alert alert = DriverManager.getInstance().getWaiter().until(ExpectedConditions.alertIsPresent());
+        Alert alert = WAITER.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
     /**
