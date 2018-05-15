@@ -42,7 +42,13 @@ public final class PropertiesManager {
             input = new FileInputStream("config.properties");
             prop.load(input);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
+        } finally {
+            try {
+                input.close();
+            } catch (IOException e) {
+                e.getMessage();
+            }
         }
     }
 
