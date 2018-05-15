@@ -39,30 +39,6 @@ public class SFANewModifyPage extends SalesForceConnection {
     @FindBy(how = How.ID, using = "acc8")
     private WebElement annualRevenueTextField;
 
-    @FindBy(how = How.ID, using = "acc9")
-    private WebElement ratingList;
-
-    @FindBy(how = How.ID, using = "acc10")
-    private WebElement phoneTextField;
-
-    @FindBy(how = How.ID, using = "acc11")
-    private WebElement faxTextField;
-
-    @FindBy(how = How.ID, using = "acc12")
-    private WebElement websiteTextField;
-
-    @FindBy(how = How.ID, using = "acc13")
-    private WebElement tickerSymbolTextField;
-
-    @FindBy(how = How.ID, using = "acc14")
-    private WebElement ownershipList;
-
-    @FindBy(how = How.ID, using = "acc15")
-    private WebElement employeesTextField;
-
-    @FindBy(how = How.ID, using = "acc16")
-    private WebElement sicCodeTextField;
-
     @FindBy(how = How.CSS, using = ".pbButton > input[name='save']")
     private WebElement saveNewAccountButton;
 
@@ -138,6 +114,8 @@ public class SFANewModifyPage extends SalesForceConnection {
         this.annualRevenueTextField.sendKeys(annualRevenue);
     }
 
+
+
     /**
      * Method to click button.
      */
@@ -150,27 +128,13 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @return the map.
      */
     public Map<String, Value> fillMethodsToFields() {
-        newAccountsFields.put("accountName", (String v) -> {
-            setAccountNameTextField(v);
-        });
-        newAccountsFields.put("parentAccount", (String v) -> {
-            setParentAccountTextField(v);
-        });
-        newAccountsFields.put("accountNumber", (String v) -> {
-            setAccountNumberTextField(v);
-        });
-        newAccountsFields.put("accountSite", (String v) -> {
-            setAccountSiteTextField(v);
-        });
-        newAccountsFields.put("type", (String v) -> {
-            setAccountTypeList(v);
-        });
-        newAccountsFields.put("industry", (String v) -> {
-            setIndustryList(v);
-        });
-        newAccountsFields.put("anuualRevenue", (String v) -> {
-            setAnnualRevenueTextField(v);
-        });
+        newAccountsFields.put("accountName", this::setAccountNameTextField);
+        newAccountsFields.put("parentAccount", this::setParentAccountTextField);
+        newAccountsFields.put("accountNumber", this::setAccountNumberTextField);
+        newAccountsFields.put("accountSite", this::setAccountSiteTextField);
+        newAccountsFields.put("type", this::setAccountTypeList);
+        newAccountsFields.put("industry", this::setIndustryList);
+        newAccountsFields.put("anuualRevenue", this::setAnnualRevenueTextField);
         return newAccountsFields;
     }
 }

@@ -1,21 +1,18 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
-import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Class that represents the page where an opportunity could be edited or modified.
  */
 public class SFOMainPage extends SalesForceConnection {
     private boolean acceptNextAlert = true;
-    private WebDriverWait wait;
 
     @FindBy(how = How.NAME, using = "edit")
     private WebElement editOpportunityButton;
@@ -57,8 +54,7 @@ public class SFOMainPage extends SalesForceConnection {
         clickDeleteOpportunity();
         acceptNextAlert = true;
         closeAlertAndGetItsText();
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOf(this.lastOpportunity));
+        CommonActions.getElement(this.lastOpportunity);
     }
 
     /**

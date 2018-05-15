@@ -18,9 +18,6 @@ public class SFOHome extends SalesForceConnection {
     @FindBy(how = How.CSS, using = "tr.dataRow:nth-child(2) > th:nth-child(1) > a:nth-child(1)")
     private WebElement lastOpportunity;
 
-    @FindBy(how = How.ID, using = "opp11")
-    private WebElement opportunityStage;
-
     /**
      * Class constructor.
      */

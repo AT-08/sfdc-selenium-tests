@@ -21,6 +21,8 @@ public class OpportunitySteps {
     private SFOMainPage opportunityOptionsPage;
     private Properties propertiesManager;
 
+    private static final String OP_NAME = "opportunityName";
+
     /**
      * Given step.
      */
@@ -41,7 +43,7 @@ public class OpportunitySteps {
         editOpportunity = new SFOEdit();
         propertiesManager = PropertiesManager.getInstance().getConfig();
         opportunitiesHome.clickNewOpportunity();
-        final String opName = propertiesManager.getProperty("opportunityName");
+        final String opName = propertiesManager.getProperty(OP_NAME);
         final String opCloseDate = propertiesManager.getProperty("opportunityCloseDate");
         final String opStage = propertiesManager.getProperty("opportunityStage");
         editOpportunity.editOpportunity(opName, opCloseDate, opStage);
@@ -56,7 +58,7 @@ public class OpportunitySteps {
         opportunitiesHome = new SFOHome();
         editOpportunity = new SFOEdit();
         editOpportunity.goToOpportunitiesPage();
-        Assert.assertEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
+        Assert.assertEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty(OP_NAME));
     }
 
     /**
@@ -114,7 +116,7 @@ public class OpportunitySteps {
     public void theOpportunityIsDeleted() {
         opportunitiesHome = new SFOHome();
         propertiesManager = PropertiesManager.getInstance().getConfig();
-        final String opName = propertiesManager.getProperty("opportunityName");
+        final String opName = propertiesManager.getProperty(OP_NAME);
         Assert.assertNotEquals(opportunitiesHome.getLastOpportunity(), opName);
     }
 }

@@ -15,13 +15,14 @@ import java.util.Map;
  */
 public final class CommonActions {
 
+    private static WebDriverWait waiter;
+
     /**
      * Private constructor because it is a util class.
      */
     private CommonActions() {
 
     }
-    private static WebDriverWait waiter;
 
     /**
      * Method to get any element but wait until it is visible.

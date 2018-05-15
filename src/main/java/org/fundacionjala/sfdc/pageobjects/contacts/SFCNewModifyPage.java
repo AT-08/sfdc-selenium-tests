@@ -142,30 +142,14 @@ public class SFCNewModifyPage extends SalesForceConnection {
      * @return map of contact fields.
      */
     public Map<String, Value> fillMethodsToFields() {
-        newContactsFields.put("contactName", (String v) -> {
-            setContactNameTextField(v);
-        });
-        newContactsFields.put("contactLastName", (String v) -> {
-            setContactLastNameTextField(v);
-        });
-        newContactsFields.put("contactTitle", (String v) -> {
-            setContactTitleTextField(v);
-        });
-        newContactsFields.put("contactDepartment", (String v) -> {
-            setContactDepartmentTextField(v);
-        });
-        newContactsFields.put("contactBirthday", (String v) -> {
-            setContactBirthdateTextField(v);
-        });
-        newContactsFields.put("contactLeadSource", (String v) -> {
-            setContactLeadSourceTextField(v);
-        });
-        newContactsFields.put("contactPhone", (String v) -> {
-            setContactPhoneTextField(v);
-        });
-        newContactsFields.put("contactHomePhone", (String v) -> {
-            setContactHomePhoneTextField(v);
-        });
+        newContactsFields.put("contactName", this::setContactNameTextField);
+        newContactsFields.put("contactLastName", this::setContactLastNameTextField);
+        newContactsFields.put("contactTitle", this::setContactTitleTextField);
+        newContactsFields.put("contactDepartment", this::setContactDepartmentTextField);
+        newContactsFields.put("contactBirthday", this::setContactBirthdateTextField);
+        newContactsFields.put("contactLeadSource", this::setContactLeadSourceTextField);
+        newContactsFields.put("contactPhone", this::setContactPhoneTextField);
+        newContactsFields.put("contactHomePhone", this::setContactHomePhoneTextField);
         return newContactsFields;
     }
 }

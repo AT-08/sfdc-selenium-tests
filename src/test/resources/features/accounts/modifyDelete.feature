@@ -8,14 +8,14 @@ Feature: Modify and delete a previous created acount.
 
   Scenario: Modify an existing account
     Given Go to accounts section
-    When I choose an account from recent accounts and I click on Edit account
+    When I choose an account from recent accounts and I execute action
     And I edit the account name field and I press the save button
       | accountName | modify |
-    Then an account is modified
+    Then a new account is created
       | accountName | modify |
 
   Scenario: Delete an existing account
     Given Go to accounts section
-    When I choose last account from recent accounts and I click on Delete account
+    When I choose an account from recent accounts and I execute action
     And I click on OK
     Then the system deletes the account
