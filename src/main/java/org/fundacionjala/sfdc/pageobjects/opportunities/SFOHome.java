@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Opportunities;
+package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  * SFOHome.java
- * Class that represents the Opportunities Home Page.
+ * Class that represents the opportunities Home Page.
  */
 public class SFOHome extends SalesForceConnection {
 

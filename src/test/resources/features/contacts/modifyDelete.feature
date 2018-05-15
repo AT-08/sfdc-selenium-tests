@@ -2,7 +2,7 @@ Feature: Contacts feature
 
   Background: User is logged in the application
     Given Open the Firefox and launch the application enter the Username and Password and press login
-    Then login to the application
+    Then I login to the application
     And I create a new contact
       | contactLastName   | mora           |
 

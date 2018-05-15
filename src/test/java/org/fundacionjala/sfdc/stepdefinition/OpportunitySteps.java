@@ -3,13 +3,11 @@ package org.fundacionjala.sfdc.stepdefinition;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOEdit;
-import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOHome;
-import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOMainPage;
+import org.fundacionjala.sfdc.pageobjects.opportunities.SFOEdit;
+import org.fundacionjala.sfdc.pageobjects.opportunities.SFOHome;
+import org.fundacionjala.sfdc.pageobjects.opportunities.SFOMainPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.util.Properties;
@@ -55,6 +53,7 @@ public class OpportunitySteps {
         opportunitiesHome = new SFOHome();
         editOpportunity = new SFOEdit();
         editOpportunity.goToOpportunitiesPage();
+        System.out.println("xxxxxxxxxx:" + opportunitiesHome.getLastOpportunity());
         Assert.assertEquals(opportunitiesHome.getLastOpportunity(), propertiesManager.getProperty("opportunityName"));
     }
 

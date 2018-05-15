@@ -11,7 +11,7 @@ import org.fundacionjala.sfdc.commons.DriverManager;
 
 /**
  * SalesForceContacts.java
- * Class that represents Contacts page in SalesForce.
+ * Class that represents contacts page in SalesForce.
  */
 public class SalesForceContacts {
     private WebDriver webDriver;

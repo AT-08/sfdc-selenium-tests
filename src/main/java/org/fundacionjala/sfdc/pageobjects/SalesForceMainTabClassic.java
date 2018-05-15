@@ -75,7 +75,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
     }
 
     /**
-     * Method to click on Accounts.
+     * Method to click on accounts.
      */
     public void goToAccounts() {
         WebElement link = getAccountsLink();

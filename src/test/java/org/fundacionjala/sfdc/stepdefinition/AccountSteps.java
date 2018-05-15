@@ -1,15 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.Accounts.SFADetailsPage;
-import org.fundacionjala.sfdc.pageobjects.Accounts.SFAMainPage;
-import org.fundacionjala.sfdc.pageobjects.Accounts.SFANewModifyPage;
+import org.fundacionjala.sfdc.pageobjects.accounts.SFADetailsPage;
+import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
+import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebDriver;

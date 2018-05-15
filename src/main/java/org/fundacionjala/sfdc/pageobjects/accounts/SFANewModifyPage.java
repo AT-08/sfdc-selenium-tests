@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Accounts;
+package org.fundacionjala.sfdc.pageobjects.accounts;
 
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;

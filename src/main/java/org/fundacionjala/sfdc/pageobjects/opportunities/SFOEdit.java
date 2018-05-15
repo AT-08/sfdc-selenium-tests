@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Opportunities;
+package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
@@ -35,7 +35,7 @@ public class SFOEdit extends SalesForceConnection {
     @FindBy(how = How.ID, using = "AllTab_Tab")
     private WebElement pagesButton;
 
-    @FindBy(how = How.LINK_TEXT, using = "Opportunities")
+    @FindBy(how = How.LINK_TEXT, using = "opportunities")
     private WebElement opportunitiesPage;
 
     /**

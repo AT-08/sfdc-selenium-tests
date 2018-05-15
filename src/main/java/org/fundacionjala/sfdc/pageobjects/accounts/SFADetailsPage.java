@@ -1,10 +1,9 @@
-package org.fundacionjala.sfdc.pageobjects.Accounts;
+package org.fundacionjala.sfdc.pageobjects.accounts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;

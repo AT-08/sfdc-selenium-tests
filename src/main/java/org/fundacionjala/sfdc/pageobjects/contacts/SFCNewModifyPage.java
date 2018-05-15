@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Contacts;
+package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;

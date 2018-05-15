@@ -5,9 +5,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.pageobjects.Contacts.SFCDetailsPage;
-import org.fundacionjala.sfdc.pageobjects.Contacts.SFCMainPage;
-import org.fundacionjala.sfdc.pageobjects.Contacts.SFCNewModifyPage;
+import org.fundacionjala.sfdc.pageobjects.contacts.SFCDetailsPage;
+import org.fundacionjala.sfdc.pageobjects.contacts.SFCMainPage;
+import org.fundacionjala.sfdc.pageobjects.contacts.SFCNewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceContacts;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -72,7 +72,9 @@ public class ContactSteps {
     public void TheSystemShowsTheNewContact(Map<String, String> values) {
         contactsDetailPage = new SFCDetailsPage();
         System.out.println("This Step tests new account creation:" + contactsDetailPage.newContactSavedName());
-        Assert.assertEquals(contactsDetailPage.newContactSavedName(), values.get("contactLastName"));
+        StringJoiner name = new StringJoiner(" ");
+        name.add(values.get("contactName")).add(values.get("contactLastName"));
+        Assert.assertEquals(contactsDetailPage.newContactSavedName(), name.toString());
     }
     /**
      * When step.
