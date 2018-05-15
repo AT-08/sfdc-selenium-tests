@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SFADetailsPage.java
@@ -56,8 +55,7 @@ public class SFADetailsPage extends SalesForceConnection {
      * Method to click on javascript alert that is displayed to confirm deleting an account.
      */
     public void clickDeleteAlert() {
-        WebDriverWait wait = DriverManager.getInstance().getWaiter();
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = DriverManager.getInstance().getWaiter().until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
 

@@ -16,8 +16,6 @@ import java.util.Map;
  */
 public final class CommonActions {
 
-    private static WebDriverWait waiter;
-
     /**
      * Private constructor because it is a util class.
      */
@@ -31,7 +29,7 @@ public final class CommonActions {
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
-        waiter = DriverManager.getInstance().getWaiter();
+        final WebDriverWait waiter = DriverManager.getInstance().getWaiter();
         waiter.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
@@ -42,7 +40,7 @@ public final class CommonActions {
      * @return the element.
      */
     public static By getElement(final By element) {
-        waiter = DriverManager.getInstance().getWaiter();
+        final WebDriverWait waiter = DriverManager.getInstance().getWaiter();
         waiter.until(ExpectedConditions.visibilityOfElementLocated(element));
         return element;
     }

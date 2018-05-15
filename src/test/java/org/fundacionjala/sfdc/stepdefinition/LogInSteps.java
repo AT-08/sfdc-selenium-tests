@@ -12,7 +12,7 @@ import java.util.Properties;
  * Class for steps logIn.feature.
  */
 public class LogInSteps {
-    private Properties prop;
+
     private SalesForceLogIn login;
 
     /**
@@ -22,7 +22,7 @@ public class LogInSteps {
     public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
         System.out.println("Open Browser and go to login page of the SalesForce and fill the username and password.");
         login = new SalesForceLogIn("https://login.salesforce.com/");
-        prop = PropertiesManager.getInstance().getConfig();
+        Properties prop = PropertiesManager.getInstance().getConfig();
         login.logIn(prop.getProperty("user"), prop.getProperty("password"));
     }
 
