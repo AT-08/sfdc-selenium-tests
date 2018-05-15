@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,17 @@ public final class CommonActions {
     public static WebElement getElement(final WebElement element) {
         waiter = DriverManager.getInstance().getWaiter();
         waiter.until(ExpectedConditions.visibilityOf(element));
+        return element;
+    }
+
+    /**
+     * Method to get any element but wait until it is visible.
+     * @param element to wait for.
+     * @return the element.
+     */
+    public static By getElement(final By element) {
+        waiter = DriverManager.getInstance().getWaiter();
+        waiter.until(ExpectedConditions.visibilityOfElementLocated(element));
         return element;
     }
 

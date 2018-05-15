@@ -19,8 +19,6 @@ public final class DriverManager {
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        initWebDriver();
-        initWebDriverWaiter();
     }
 
     /**
@@ -35,25 +33,15 @@ public final class DriverManager {
     }
 
     /**
-     * Initialize WebDriver object.
-     */
-    private void initWebDriver() {
-        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-        driver = new FirefoxDriver();
-    }
-
-    /**
-     * Initialize WebDriverWaiter object.
-     */
-    private void initWebDriverWaiter() {
-        wait = new WebDriverWait(this.driver, SECONDS_WAIT);
-    }
-
-    /**
      * Getter of WebDriver object.
      * @return WebDriver instance.
      */
     public static WebDriver getNavigator() {
+        if (driver == null || driver.getTitle().contains("null")) {
+            System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+            driver = new FirefoxDriver();
+            return driver;
+        }
         return driver;
     }
     /**
@@ -61,13 +49,11 @@ public final class DriverManager {
      * @return WebDriverWait instance.
      */
     public static WebDriverWait getWaiter() {
+        if (wait == null) {
+            wait = new WebDriverWait(driver, SECONDS_WAIT);
+            return wait;
+        }
         return wait;
     }
 
-    /**
-     * Method to quit WebDriver instance.
-     */
-    public static void quitWebDriver() {
-        //driver.quit();
-    }
 }

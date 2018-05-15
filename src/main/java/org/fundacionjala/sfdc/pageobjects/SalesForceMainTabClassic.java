@@ -1,12 +1,10 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 
-import org.fundacionjala.sfdc.commons.DriverManager;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * SalesForceMainTabClassic.java
@@ -15,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SalesForceMainTabClassic extends SalesForceConnection {
     private By tabButton;
     private By accountsLink;
-    private WebDriverWait wait;
 
     /**
      * Constructor.
@@ -43,7 +40,8 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
      * @return the link.
      */
     public WebElement getAccountsLink() {
-        return this.webDriver.findElement(this.accountsLink);
+
+        return this.webDriver.findElement(CommonActions.getElement(this.accountsLink));
     }
 
     /**
@@ -70,8 +68,6 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
     public void displayOptions() {
         WebElement button = getTabButton();
         clickTabButton(button);
-        wait = DriverManager.getInstance().getWaiter();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(this.accountsLink));
     }
 
     /**
