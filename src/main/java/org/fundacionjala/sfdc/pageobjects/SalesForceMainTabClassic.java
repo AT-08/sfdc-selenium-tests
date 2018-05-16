@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import javax.activation.CommandObject;
+
 /**
  * SalesForceMainTabClassic.java
  * Class of Salesforce main tab that contains all the options.
@@ -16,11 +18,11 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
 
     /**
      * Constructor.
-     * @param url web page.
+     *
+     * @param url          web page.
      * @param actionButton menu button.
      */
     public SalesForceMainTabClassic(final String url, final String actionButton) {
-        super();
         this.tabButton = By.cssSelector(actionButton);
         this.accountsLink = By.cssSelector(url);
     }
@@ -31,7 +33,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
      * @return the button.
      */
     public WebElement getTabButton() {
-        return this.webDriver.findElement(this.tabButton);
+        return CommonActions.getElement(this.webDriver.findElement(this.tabButton));
     }
 
     /**
@@ -67,7 +69,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
      */
     public void displayOptions() {
         WebElement button = getTabButton();
-        clickTabButton(button);
+        clickTabButton(CommonActions.getElement(button));
     }
 
     /**
@@ -75,7 +77,7 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
      */
     public void goToAccounts() {
         WebElement link = getAccountsLink();
-        clickAccountsLink(link);
+        clickAccountsLink(CommonActions.getElement(link));
         closeMessageLighting();
     }
 

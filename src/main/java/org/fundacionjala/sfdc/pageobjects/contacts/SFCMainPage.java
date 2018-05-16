@@ -5,7 +5,7 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
+
 /**
  * SFCMainPage.java
  * Class that represents the main page of contacts section.
@@ -22,23 +22,18 @@ public class SFCMainPage extends SalesForceConnection {
     private WebElement homeContact;
 
     /**
-     * Constructor.
-     */
-    public SFCMainPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
-
-    /**
      * Method to do click "new" button.
+     *
      * @return a new contact button element.
      */
     public WebElement getNewButton() {
 
         return CommonActions.getElement(this.newContactButton);
     }
+
     /**
      * Method to get the last concat name link.
+     *
      * @return the last contact.
      */
     public WebElement getContactNameLink() {
@@ -48,6 +43,7 @@ public class SFCMainPage extends SalesForceConnection {
 
     /**
      * Method to know if an account was delete.
+     *
      * @return the contact home page.
      */
     public String contactHomePage() {

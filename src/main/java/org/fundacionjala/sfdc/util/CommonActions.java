@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * CommonActions.java
@@ -22,11 +20,11 @@ public final class CommonActions {
      * Private constructor because it is a util class.
      */
     private CommonActions() {
-
     }
 
     /**
      * Method to get any element but wait until it is visible.
+     *
      * @param element to wait for.
      * @return the element.
      */
@@ -37,6 +35,7 @@ public final class CommonActions {
 
     /**
      * Method to get any element but wait until it is visible.
+     *
      * @param element to wait for.
      * @return the element.
      */
@@ -47,6 +46,7 @@ public final class CommonActions {
 
     /**
      * Method to click any element.
+     *
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
@@ -56,23 +56,12 @@ public final class CommonActions {
 
     /**
      * Method to scroll down page.
+     *
      * @param webDriver the webdriver.
-     * @param element the element we want to choose.
+     * @param element   the element we want to choose.
      */
     public static void scrollPage(final WebDriver webDriver, final WebElement element) {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    /**
-     * Method to fill map with required values.
-     * @param values data table from feature.
-     * @param methods map with field and methods.
-     */
-    public static void setValues(final Map<String, String> values, final Map<String, Value> methods) {
-        Map<String, Value> filledValues = new HashMap<>();
-        for (String key : values.keySet()) {
-            filledValues.put(key, methods.get(key));
-        }
-        filledValues.forEach((s, value) -> value.fillField(values.get(s)));
-    }
 }

@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,10 +10,10 @@ import org.fundacionjala.sfdc.pageobjects.contacts.SFCMainPage;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCNewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.Inputs;
 import org.testng.Assert;
 
 import java.util.Map;
-import java.util.StringJoiner;
 
 /**
  * ContactSteps.java
@@ -34,7 +35,6 @@ public class ContactSteps {
         salesForceMainTab = new SalesForceMainTabClassic("a.contactBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
-
     }
 
     /**
@@ -50,27 +50,27 @@ public class ContactSteps {
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I fill the required information and I press Save$")
-    public void iFillTheRequiredInformationAndIPressSave(final Map<String, String> values) {
+    public void iFillTheRequiredInformationAndIPressSave(final Map<Inputs, String> values) {
         System.out.println("This Step fills account name field");
         contactsNewModifyPage = new SFCNewModifyPage();
-        CommonActions.setValues(values, contactsNewModifyPage.fillMethodsToFields());
+        values.keySet().stream().forEach((step) ->
+                contactsNewModifyPage.getStrategyStepMap(values).get(step).fillField());
         CommonActions.clickElement(contactsNewModifyPage.getSaveContactButton());
     }
 
     /**
      * And step.
-     * @param values map.
+     *
+     * @param contactName contact Name.
      */
-    @Then("^The system shows the new contact$")
-    public void theSystemShowsTheNewContact(final Map<String, String> values) {
+    @Then("^The system shows the new contact \"([^\"]*)\"$")
+    public void theSystemShowsTheNewContact(final String contactName) {
         contactsDetailPage = new SFCDetailsPage();
-        System.out.println("This Step tests new account creation:" + contactsDetailPage.newContactSavedName());
-        StringJoiner name = new StringJoiner(" ");
-        name.add(values.get("contactName")).add(values.get("contactLastName"));
-        Assert.assertEquals(contactsDetailPage.newContactSavedName(), name.toString());
+        Assert.assertEquals(contactsDetailPage.newContactSavedName(), contactName);
     }
 
     /**
@@ -88,38 +88,40 @@ public class ContactSteps {
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I edit the contact name field and I press the save button")
-    public void iEditTheContactNameFieldAndIPressTheSaveButton(final Map<String, String> values) {
+    public void iEditTheContactNameFieldAndIPressTheSaveButton(final Map<Inputs, String> values) {
         System.out.println("This Step edits contact name field");
         contactsNewModifyPage = new SFCNewModifyPage();
-        CommonActions.setValues(values, contactsNewModifyPage.fillMethodsToFields());
+        values.keySet().stream().forEach(step ->
+                contactsNewModifyPage.getStrategyStepMap(values).get(step).fillField());
         contactsNewModifyPage.clickSaveContactButton();
     }
 
     /**
      * And step.
-     * @param values map.
+     *
+     * @param accountName accountName.
      */
-    @Then("^The system shows the modified contact$")
-    public void theSystemShowsTheModifiedContact(final Map<String, String> values) {
+    @Then("^The system shows the modified contact \"([^\"]*)\"$")
+    public void theSystemShowsTheModifiedContact(final String accountName) {
         contactsDetailPage = new SFCDetailsPage();
-        StringJoiner name = new StringJoiner(" ");
-        name.add(values.get("contactName")).add(values.get("contactLastName"));
-        Assert.assertEquals(contactsDetailPage.newContactSavedName(), name.toString());
+        Assert.assertEquals(contactsDetailPage.newContactSavedName(), accountName);
     }
+
     /**
      * When step.
      */
     @When("^I choose a contact from recent contacts and I click on delete contact")
     public void iChooseAContactFromRecentContactsAndIClickOnDeleteContact() {
-        System.out.println("Choose last contact");
         contactsMainPage = new SFCMainPage();
         contactsMainPage.clickContactNameLink();
         contactsDetailPage = new SFCDetailsPage();
         contactsDetailPage.clickDeleteContact();
     }
+
     /**
      * And step.
      */
@@ -131,32 +133,39 @@ public class ContactSteps {
         contactsDetailPage.clickDeleteAlert();
 
     }
+
     /**
      * Then step.
      */
     @Then("^The system deletes the selected contact$")
     public void theSystemDeletesTheSelectedContact() {
         contactsMainPage = new SFCMainPage();
-        System.out.println("This Step tests verified id the contact:");
         Assert.assertEquals(contactsMainPage.contactHomePage(), "Home");
     }
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I create a new contact$")
-    public void iCreateANewContact(final Map<String, String> values) {
+    public void iCreateANewContact(final Map<Inputs, String> values) {
         SalesForceMainTabClassic salesForceMainTab;
         salesForceMainTab = new SalesForceMainTabClassic("a.contactBlock", "li#AllTab_Tab");
         salesForceMainTab.displayOptions();
         salesForceMainTab.goToAccounts();
-
         contactsMainPage = new SFCMainPage();
         contactsMainPage.clickNewButton();
-
         contactsNewModifyPage = new SFCNewModifyPage();
-        CommonActions.setValues(values, contactsNewModifyPage.fillMethodsToFields());
+        values.keySet().stream().forEach((step) ->
+                contactsNewModifyPage.getStrategyStepMap(values).get(step).fillField());
         CommonActions.clickElement(contactsNewModifyPage.getSaveContactButton());
+    }
+
+    @And("^I press edit contact$")
+    public void iPressEditContact() {
+        contactsDetailPage = new SFCDetailsPage();
+        contactsDetailPage.clickEditContact();
+
     }
 }

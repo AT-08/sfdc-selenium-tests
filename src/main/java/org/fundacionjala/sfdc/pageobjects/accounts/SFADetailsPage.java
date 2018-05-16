@@ -7,7 +7,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,25 +26,21 @@ public class SFADetailsPage extends SalesForceConnection {
     @FindBy(how = How.CLASS_NAME, using = "topName")
     private WebElement newAccountLabel;
 
-    /**
-     * Constructor.
-     */
-    public SFADetailsPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
 
     /**
      * Method to get edit button.
+     *
      * @return the edit button as WebElement.
      */
     public WebElement getEditButton() {
-        CommonActions.scrollPage(this.webDriver, this.editButton);
+
+        // CommonActions.scrollPage(this.webDriver, this.editButton);
         return CommonActions.getElement(this.editButton);
     }
 
     /**
      * Method to get delete button.
+     *
      * @return delete button as WebElement.
      */
     public WebElement getDeleteButton() {
@@ -63,6 +58,7 @@ public class SFADetailsPage extends SalesForceConnection {
 
     /**
      * Method to know if an account is saved.
+     *
      * @return the new account name displayed in label.
      */
     public String getNewAccountSavedName() {
