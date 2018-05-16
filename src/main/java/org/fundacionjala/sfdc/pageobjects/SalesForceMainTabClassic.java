@@ -20,7 +20,6 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
      * @param actionButton menu button.
      */
     public SalesForceMainTabClassic(final String url, final String actionButton) {
-        super();
         this.tabButton = By.cssSelector(actionButton);
         this.accountsLink = By.cssSelector(url);
     }
