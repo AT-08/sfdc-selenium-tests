@@ -21,7 +21,7 @@ public final class CommonActions {
     /**
      * Private constructor because it is a util class.
      */
-    private CommonActions() {
+    public CommonActions() {
 
     }
 

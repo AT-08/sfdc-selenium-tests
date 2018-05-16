@@ -30,6 +30,11 @@ public class SFAMainPage extends SalesForceConnection {
         PageFactory.initElements(this.webDriver, this);
     }
 
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
+
     /**
      * Getter of newAccountButton.
      * @return button.

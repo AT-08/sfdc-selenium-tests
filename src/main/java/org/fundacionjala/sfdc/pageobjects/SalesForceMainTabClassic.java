@@ -93,4 +93,9 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
         }
 
     }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+        
+    }
 }

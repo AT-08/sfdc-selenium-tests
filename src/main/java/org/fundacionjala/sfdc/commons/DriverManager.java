@@ -56,4 +56,8 @@ public final class DriverManager {
         return wait;
     }
 
+    public WebDriver getWebDriver(){
+        return driver;
+    }
+
 }
