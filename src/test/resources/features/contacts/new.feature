@@ -8,22 +8,20 @@ Feature: Contacts feature
     Given Go to contacts section
     When I press new contacts button a new form is displayed
     And I fill the required information and I press Save
-      | contactLastName   | capibara        |
-    Then The system shows the new contact
-      | contactLastName   | capibara        |
+      | CONTACT_LASTNAME | capibara |
+    Then The system shows the new contact "capibara"
 
   Scenario: Create a new contact with with all fields filled
     Given Go to contacts section
     When I press new contacts button a new form is displayed
     And I fill the required information and I press Save
-      | contactName       | kiwi            |
-      | contactLastName   | capibara        |
-      | contactTitle      | ing             |
-      | contactDepartment | Sales           |
-      | contactBirthday   | 15/05/2018      |
-      | contactLeadSource | Web             |
-      | contactPhone      | 78787878        |
-      | contactHomePhone  | 969969675       |
-    Then The system shows the new contact
-      | contactName       | kiwi            |
-      | contactLastName   | capibara        |
+      | CONTACT_NAME       | kiwi       |
+      | CONTACT_LASTNAME   | capibara   |
+      | CONTACT_TITLE      | ing        |
+      | CONTACT_DEPARTMENT | Sales      |
+      | CONTACT_BIRTHDAY   | 15/05/2018 |
+      | CONTACT_LEADSOURCE | Web        |
+      | CONTACT_PHONE      | 78787878   |
+      | CONTACT_HOMEPHONE  | 969969675  |
+    Then The system shows the new contact "kiwi capibara"
+

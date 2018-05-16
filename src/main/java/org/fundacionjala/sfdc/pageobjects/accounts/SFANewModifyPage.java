@@ -3,6 +3,7 @@ package org.fundacionjala.sfdc.pageobjects.accounts;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.util.Inputs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -15,7 +16,6 @@ import java.util.Map;
  * Class that represents the form where you fill fields in order to create or modify an account.
  */
 public class SFANewModifyPage extends SalesForceConnection {
-    private Map<String, Value> newAccountsFields = new HashMap<>();
 
     @FindBy(how = How.CSS, using = ".requiredInput > input[name='acc2']")
     private WebElement accountNameTextField;
@@ -115,25 +115,27 @@ public class SFANewModifyPage extends SalesForceConnection {
 
 
     /**
-     * Method to click button.
+     * @param values account fields.
+     * @return map of account fields.
      */
-    public void clickSaveNewAccountButton() {
-        getSaveNewAccountButton().click();
-    }
+    public Map<Inputs, Value> getStrategyStepMap(final Map<Inputs, String> values) {
+        Map<Inputs, Value> strategyMap = new HashMap<>();
+        strategyMap.put(Inputs.ACCOUNT_NAME, () ->
+                this.setAccountNameTextField(String.valueOf(values.get(Inputs.ACCOUNT_NAME))));
+        strategyMap.put(Inputs.ACCOUNT_NUMBER, () ->
+                this.setAccountNumberTextField(String.valueOf(values.get(Inputs.ACCOUNT_NUMBER))));
+        strategyMap.put(Inputs.ACCOUNT_SITE, () ->
+                this.setAccountSiteTextField((String.valueOf(values.get(Inputs.ACCOUNT_SITE)))));
+        strategyMap.put(Inputs.ANUAL_REVENUE, () ->
+                this.setAnnualRevenueTextField(String.valueOf(values.get(Inputs.ANUAL_REVENUE))));
+        strategyMap.put(Inputs.INDUSTRY, () ->
+                this.setIndustryList(String.valueOf(values.get(Inputs.INDUSTRY))));
+        strategyMap.put(Inputs.PARENT_ACCOUNT, () ->
+                this.setParentAccountTextField(String.valueOf(values.get(Inputs.PARENT_ACCOUNT))));
+        strategyMap.put(Inputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(Inputs.TYPE))));
 
-    /**
-     * Method to fill map with field name and method to set it.
-     *
-     * @return the map.
-     */
-    public Map<String, Value> fillMethodsToFields() {
-        newAccountsFields.put("accountName", this::setAccountNameTextField);
-        newAccountsFields.put("parentAccount", this::setParentAccountTextField);
-        newAccountsFields.put("accountNumber", this::setAccountNumberTextField);
-        newAccountsFields.put("accountSite", this::setAccountSiteTextField);
-        newAccountsFields.put("type", this::setAccountTypeList);
-        newAccountsFields.put("industry", this::setIndustryList);
-        newAccountsFields.put("anuualRevenue", this::setAnnualRevenueTextField);
-        return newAccountsFields;
+        return strategyMap;
+
     }
 }

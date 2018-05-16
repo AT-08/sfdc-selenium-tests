@@ -83,11 +83,11 @@ public class SalesForceLogIn extends SalesForceConnection {
      * @param pass its password.
      */
     public void logIn(final String user, final String pass) {
-        setWebDriverUrl();
+        this.setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
-        clickLogInButton(button);
+        this.clickLogInButton(button);
     }
 
     /**

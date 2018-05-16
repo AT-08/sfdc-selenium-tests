@@ -9,7 +9,9 @@ import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
 import org.fundacionjala.sfdc.pageobjects.SalesForceMainTabClassic;
 import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.Inputs;
 import org.testng.Assert;
+
 import java.util.Map;
 
 /**
@@ -17,6 +19,9 @@ import java.util.Map;
  * Class for steps of account.feature.
  */
 public class AccountSteps {
+    private SFANewModifyPage newAccountPage = new SFANewModifyPage();
+    private SFAMainPage accountsMainPage = new SFAMainPage();
+    private SFADetailsPage accountDetail = new SFADetailsPage();
 
     /**
      * Given step.
@@ -34,18 +39,17 @@ public class AccountSteps {
      */
     @When("^I press new account button a new account form is displayed$")
     public void iPressNewAccountButtonANewAccountFormIsDisplayed() {
-        SFAMainPage accountsMainPage = new SFAMainPage();
         CommonActions.clickElement(accountsMainPage.getNewAccountButton());
     }
 
     /**
      * And step.
-     * @param values map.
+     *
+     * @param accountName account Name.
      */
-    @Then("^a new account is created$")
-    public void aNewAccountIsCreated(final Map<String, String> values) {
-        SFADetailsPage accountDetail = new SFADetailsPage();
-        Assert.assertEquals(accountDetail.getNewAccountSavedName(), values.get("accountName"));
+    @Then("^a new account is created \"([^\"]*)\"$")
+    public void aNewAccountIsCreated(final String accountName) {
+        Assert.assertEquals(accountDetail.getNewAccountSavedName(), accountName);
     }
 
     /**
@@ -53,7 +57,6 @@ public class AccountSteps {
      */
     @When("^I choose an account from recent accounts and I execute action$")
     public void iChooseAnAccountFromRecentAccountsAndIExecuteAction() {
-        SFAMainPage accountsMainPage = new SFAMainPage();
         CommonActions.clickElement(accountsMainPage.getAccountNameLink());
         SFADetailsPage accountsDetailPage = new SFADetailsPage();
         CommonActions.clickElement(accountsDetailPage.getEditButton());
@@ -61,12 +64,13 @@ public class AccountSteps {
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I edit the account name field and I press the save button$")
-    public void iEditTheAccountNameFieldAndIPressTheSaveButton(final Map<String, String> values) {
+    public void iEditTheAccountNameFieldAndIPressTheSaveButton(final Map<Inputs, String> values) {
         SFANewModifyPage modifyPage = new SFANewModifyPage();
-        CommonActions.setValues(values, modifyPage.fillMethodsToFields());
+        values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         CommonActions.clickElement(modifyPage.getSaveNewAccountButton());
     }
 
@@ -75,7 +79,6 @@ public class AccountSteps {
      */
     @When("^I choose last account from recent accounts and I click on Delete account$")
     public void iChooseLastAccountFromRecentAccountsAndIClickOnDeleteAccount() {
-        SFAMainPage accountsMainPage = new SFAMainPage();
         CommonActions.clickElement(accountsMainPage.getAccountNameLink());
         SFADetailsPage accountsDetailsPage = new SFADetailsPage();
         CommonActions.clickElement(accountsDetailsPage.getDeleteButton());
@@ -95,30 +98,29 @@ public class AccountSteps {
      */
     @Then("^the system deletes the account$")
     public void theSystemDeletesTheAccount() {
-        SFAMainPage accountsMainPage = new SFAMainPage();
         Assert.assertEquals(accountsMainPage.getAccountHomePage(), "Home");
     }
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I fill the fields and press the save button$")
-    public void iFillTheFieldsAndPressTheSaveButton(final Map<String, String> values) {
-        SFANewModifyPage newAccountPage = new SFANewModifyPage();
-        CommonActions.setValues(values, newAccountPage.fillMethodsToFields());
+    public void iFillTheFieldsAndPressTheSaveButton(final Map<Inputs, String> values) {
+        values.keySet().stream().forEach(step -> newAccountPage.getStrategyStepMap(values).get(step).fillField());
         CommonActions.clickElement(newAccountPage.getSaveNewAccountButton());
     }
 
     /**
      * And step.
+     *
      * @param values map.
      */
     @And("^I create a new account$")
-    public void iCreateANewAccount(final Map<String, String> values) {
+    public void iCreateANewAccount(final Map<Inputs, String> values) {
         goToAccountsSection();
         iPressNewAccountButtonANewAccountFormIsDisplayed();
         iFillTheFieldsAndPressTheSaveButton(values);
-        aNewAccountIsCreated(values);
     }
 }

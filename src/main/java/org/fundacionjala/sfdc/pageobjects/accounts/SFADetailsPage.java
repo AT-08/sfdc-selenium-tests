@@ -32,6 +32,7 @@ public class SFADetailsPage extends SalesForceConnection {
      * @return the edit button as WebElement.
      */
     public WebElement getEditButton() {
+
         CommonActions.scrollPage(this.webDriver, this.editButton);
         return CommonActions.getElement(this.editButton);
     }

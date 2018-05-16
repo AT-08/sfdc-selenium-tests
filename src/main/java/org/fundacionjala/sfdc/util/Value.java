@@ -8,7 +8,6 @@ public interface Value {
 
     /**
      * Method to set values to fields.
-     * @param valueForField the value set in feature data table.
      */
-    void fillField(String valueForField);
+    void fillField();
 }
