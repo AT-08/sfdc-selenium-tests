@@ -49,6 +49,6 @@ public class SFADetailsPage extends SFDetails {
      */
     @Override
     public void waitUntilPageObjectIsLoaded() {
-
+        System.out.println("Construction.");
     }
 }

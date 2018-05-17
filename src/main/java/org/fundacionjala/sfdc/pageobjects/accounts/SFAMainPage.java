@@ -39,6 +39,6 @@ public class SFAMainPage extends SFMain {
      */
     @Override
     public void waitUntilPageObjectIsLoaded() {
-
+        System.out.println("Construction.");
     }
 }

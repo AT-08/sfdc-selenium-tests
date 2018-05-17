@@ -11,6 +11,6 @@ public class TopMenuLightning extends TopMenu {
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
-
+        System.out.println("Construction.");
     }
 }
