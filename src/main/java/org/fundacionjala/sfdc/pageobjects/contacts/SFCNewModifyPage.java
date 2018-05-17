@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Inputs;
 import org.fundacionjala.sfdc.util.Value;
@@ -16,7 +16,7 @@ import java.util.Map;
  * SFCNewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
-public class SFCNewModifyPage extends SalesForceConnection {
+public class SFCNewModifyPage extends SFNewModify {
     @FindBy(how = How.ID, using = "name_firstcon2")
     private WebElement contactNameTextField;
 
@@ -40,18 +40,6 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     @FindBy(how = How.ID, using = "con13")
     private WebElement contactHomePhoneTextField;
-
-    @FindBy(how = How.CSS, using = "#topButtonRow> input[name='save']")
-    private WebElement saveContactButton;
-
-    /**
-     * Method to get "save" button.
-     *
-     * @return web element save button.
-     */
-    public WebElement getSaveContactButton() {
-        return CommonActions.getElement(this.saveContactButton);
-    }
 
     /**
      * Method to set contactName attribute.
@@ -132,13 +120,6 @@ public class SFCNewModifyPage extends SalesForceConnection {
         this.contactHomePhoneTextField.sendKeys(contactHomePhoneTextField);
     }
 
-    /**
-     * Method to do click "save" button.
-     */
-    public void clickSaveContactButton() {
-        getSaveContactButton().click();
-    }
-
 
     /**
      * @param values contact field
@@ -152,7 +133,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
         strategyMap.put(Inputs.CONTACT_LASTNAME, () ->
                 this.setContactLastNameTextField(String.valueOf(values.get(Inputs.CONTACT_LASTNAME))));
         strategyMap.put(Inputs.CONTACT_TITLE, () ->
-                this.setContactTitleTextField((String.valueOf(values.get(Inputs.CONTACT_TITLE)))));
+                this.setContactTitleTextField(String.valueOf(values.get(Inputs.CONTACT_TITLE))));
         strategyMap.put(Inputs.CONTACT_DEPARTMENT, () ->
                 this.setContactDepartmentTextField(String.valueOf(values.get(Inputs.CONTACT_DEPARTMENT))));
         strategyMap.put(Inputs.CONTACT_BIRTHDAY, () ->
@@ -166,5 +147,13 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
         return strategyMap;
 
+    }
+
+    /**
+     * getSaveNewAccountButton.
+     */
+    @Override
+    public void getSaveNewAccountButton() {
+        CommonActions.clickElement(this.saveNewAccountButton);
     }
 }

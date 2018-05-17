@@ -1,67 +1,36 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 /**
  * SFCMainPage.java
  * Class that represents the main page of contacts section.
  */
-public class SFCMainPage extends SalesForceConnection {
-
-    @FindBy(how = How.CSS, using = "input[name='new']")
-    private WebElement newContactButton;
-
-    @FindBy(how = How.CSS, using = "tr.dataRow.even.first.dataRow >th[scope='row'] > a")
-    private WebElement lastContactLink;
-
-    @FindBy(how = How.CSS, using = "h2.pageDescription")
-    private WebElement homeContact;
+public class SFCMainPage extends SFMain {
 
     /**
-     * Method to do click "new" button.
-     *
-     * @return a new contact button element.
+     * getNewAccountButton.
      */
-    public WebElement getNewButton() {
-
-        return CommonActions.getElement(this.newContactButton);
+    @Override
+    public void getNewAccountButton() {
+        CommonActions.clickElement(this.newContactButton);
     }
 
     /**
-     * Method to get the last concat name link.
-     *
-     * @return the last contact.
+     * getAccountNameLink.
      */
-    public WebElement getContactNameLink() {
-
-        return CommonActions.getElement(this.lastContactLink);
+    @Override
+    public void getAccountNameLink() {
+        CommonActions.clickElement(this.lastContactLink);
     }
 
     /**
-     * Method to know if an account was delete.
-     *
-     * @return the contact home page.
+     * @return getAccountHomePage.
      */
-    public String contactHomePage() {
+    @Override
+    public String getAccountHomePage() {
         return CommonActions.getElement(this.homeContact).getText();
     }
 
-    /**
-     * Method to do click "new" button.
-     */
-    public void clickNewButton() {
-        getNewButton().click();
-
-    }
-
-    /**
-     * Method to do click "contactHomePage".
-     */
-    public void clickContactNameLink() {
-        getContactNameLink().click();
-    }
 }

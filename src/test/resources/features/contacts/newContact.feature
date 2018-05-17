@@ -5,16 +5,16 @@ Feature: Contacts feature
     Then I login to the application
 
   Scenario: Create a new contact with only obligatory fields filled
-    Given Go to contacts section
-    When I press new contacts button a new form is displayed
-    And I fill the required information and I press Save
+    Given I can go to contact section
+    And I can create a new contact
+    And I can create a new contact fill the fields and press the save button
       | CONTACT_LASTNAME | capibara |
-    Then The system shows the new contact "capibara"
+    Then I can verify the new contact "capibara"
 
-  Scenario: Create a new contact with with all fields filled
-    Given Go to contacts section
-    When I press new contacts button a new form is displayed
-    And I fill the required information and I press Save
+  Scenario: Create a new contact with all fields filled
+    Given I can go to contact section
+    And I can create a new contact
+    And I can create a new contact fill the fields and press the save button
       | CONTACT_NAME       | kiwi       |
       | CONTACT_LASTNAME   | capibara   |
       | CONTACT_TITLE      | ing        |
@@ -23,5 +23,4 @@ Feature: Contacts feature
       | CONTACT_LEADSOURCE | Web        |
       | CONTACT_PHONE      | 78787878   |
       | CONTACT_HOMEPHONE  | 969969675  |
-    Then The system shows the new contact "kiwi capibara"
-
+    Then I can verify the new contact "kiwi capibara"

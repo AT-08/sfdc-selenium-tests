@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.contacts;
+package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -6,12 +6,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * SFCDetailsPage.java
- * Class that represents the page where details of an contact are displayed.
+ * SFODetailsPage.
  */
-public class SFCDetailsPage extends SFDetails {
-
-
+public class SFODetailsPage extends SFDetails {
     /**
      * getEditButton.
      */
@@ -26,7 +23,6 @@ public class SFCDetailsPage extends SFDetails {
     @Override
     public void getDeleteButton() {
         CommonActions.clickElement(this.deleteButton);
-
     }
 
     /**

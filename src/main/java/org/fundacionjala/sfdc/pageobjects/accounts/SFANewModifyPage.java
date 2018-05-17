@@ -1,8 +1,8 @@
 package org.fundacionjala.sfdc.pageobjects.accounts;
 
+import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.fundacionjala.sfdc.util.Inputs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +15,7 @@ import java.util.Map;
  * SFANewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify an account.
  */
-public class SFANewModifyPage extends SalesForceConnection {
+public class SFANewModifyPage extends SFNewModify {
 
     @FindBy(how = How.CSS, using = ".requiredInput > input[name='acc2']")
     private WebElement accountNameTextField;
@@ -38,17 +38,6 @@ public class SFANewModifyPage extends SalesForceConnection {
     @FindBy(how = How.ID, using = "acc8")
     private WebElement annualRevenueTextField;
 
-    @FindBy(how = How.CSS, using = ".pbButton > input[name='save']")
-    private WebElement saveNewAccountButton;
-
-    /**
-     * Getter of saveNewAccountButton.
-     *
-     * @return button.
-     */
-    public WebElement getSaveNewAccountButton() {
-        return CommonActions.getElement(this.saveNewAccountButton);
-    }
 
     /**
      * Method to set accountName attribute.
@@ -56,6 +45,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param accountName string value.
      */
     public void setAccountNameTextField(final String accountName) {
+        this.accountNameTextField.clear();
         this.accountNameTextField.sendKeys(accountName);
     }
 
@@ -74,6 +64,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param accountNumber the value.
      */
     public void setAccountNumberTextField(final String accountNumber) {
+        this.accountNumberTextField.clear();
         this.accountNumberTextField.sendKeys(accountNumber);
     }
 
@@ -83,6 +74,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param accountSite the value.
      */
     public void setAccountSiteTextField(final String accountSite) {
+        this.accountSiteTextField.clear();
         this.accountSiteTextField.sendKeys(accountSite);
     }
 
@@ -92,6 +84,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param type the value.
      */
     public void setAccountTypeList(final String type) {
+        //this.typeList.clear();
         this.typeList.sendKeys(type);
     }
 
@@ -101,6 +94,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param industry the value.
      */
     public void setIndustryList(final String industry) {
+        //this.industryList.clear();
         this.industryList.sendKeys(industry);
     }
 
@@ -110,6 +104,7 @@ public class SFANewModifyPage extends SalesForceConnection {
      * @param annualRevenue the value.
      */
     public void setAnnualRevenueTextField(final String annualRevenue) {
+        this.annualRevenueTextField.clear();
         this.annualRevenueTextField.sendKeys(annualRevenue);
     }
 
@@ -125,7 +120,7 @@ public class SFANewModifyPage extends SalesForceConnection {
         strategyMap.put(Inputs.ACCOUNT_NUMBER, () ->
                 this.setAccountNumberTextField(String.valueOf(values.get(Inputs.ACCOUNT_NUMBER))));
         strategyMap.put(Inputs.ACCOUNT_SITE, () ->
-                this.setAccountSiteTextField((String.valueOf(values.get(Inputs.ACCOUNT_SITE)))));
+                this.setAccountSiteTextField(String.valueOf(values.get(Inputs.ACCOUNT_SITE))));
         strategyMap.put(Inputs.ANUAL_REVENUE, () ->
                 this.setAnnualRevenueTextField(String.valueOf(values.get(Inputs.ANUAL_REVENUE))));
         strategyMap.put(Inputs.INDUSTRY, () ->
@@ -137,5 +132,13 @@ public class SFANewModifyPage extends SalesForceConnection {
 
         return strategyMap;
 
+    }
+
+    /**
+     * getSaveNewAccountButton.
+     */
+    @Override
+    public void getSaveNewAccountButton() {
+        CommonActions.clickElement(this.saveNewAccountButton);
     }
 }

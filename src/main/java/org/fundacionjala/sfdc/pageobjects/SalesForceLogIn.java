@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
  * SalesForceLogIn.java
  * Class to log in Salesforce.
  */
-public class SalesForceLogIn extends SalesForceConnection {
+public class SalesForceLogIn extends Base {
     private String url;
 
     @FindBy(how = How.ID, using = "username")
