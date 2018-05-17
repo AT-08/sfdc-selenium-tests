@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePageLightning extends HomePage {
 
-    @FindBy(css = "li.slds-context-bar__item:nth-child(2) > a:nth-child(1)")
+    @FindBy(css = "#oneHeader a[href*=\"#/setup/SetupOneHome/home\"]")
     private WebElement homeTab;
 
     @Override
