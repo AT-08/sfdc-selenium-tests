@@ -3,7 +3,6 @@ package org.fundacionjala.sfdc.pageobjects.contacts;
 
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -125,25 +124,25 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param values contact field
      * @return map of contact fields.
      */
-    public Map<Inputs, Value> getStrategyStepMap(final Map<Inputs, String> values) {
-        Map<Inputs, Value> strategyMap = new HashMap<>();
+    public Map<ContactInputs, Value> getStrategyStepMap(final Map<ContactInputs, String> values) {
+        Map<ContactInputs, Value> strategyMap = new HashMap<>();
 
-        strategyMap.put(Inputs.CONTACT_NAME, () ->
-                this.setContactNameTextField(String.valueOf(values.get(Inputs.CONTACT_NAME))));
-        strategyMap.put(Inputs.CONTACT_LASTNAME, () ->
-                this.setContactLastNameTextField(String.valueOf(values.get(Inputs.CONTACT_LASTNAME))));
-        strategyMap.put(Inputs.CONTACT_TITLE, () ->
-                this.setContactTitleTextField(String.valueOf(values.get(Inputs.CONTACT_TITLE))));
-        strategyMap.put(Inputs.CONTACT_DEPARTMENT, () ->
-                this.setContactDepartmentTextField(String.valueOf(values.get(Inputs.CONTACT_DEPARTMENT))));
-        strategyMap.put(Inputs.CONTACT_BIRTHDAY, () ->
-                this.setContactBirthdateTextField(String.valueOf(values.get(Inputs.CONTACT_BIRTHDAY))));
-        strategyMap.put(Inputs.CONTACT_LEADSOURCE, () ->
-                this.setContactLeadSourceTextField(String.valueOf(values.get(Inputs.CONTACT_LEADSOURCE))));
-        strategyMap.put(Inputs.CONTACT_PHONE, () ->
-                this.setContactPhoneTextField(String.valueOf(values.get(Inputs.CONTACT_PHONE))));
-        strategyMap.put(Inputs.CONTACT_HOMEPHONE, () ->
-                this.setContactHomePhoneTextField(String.valueOf(values.get(Inputs.CONTACT_HOMEPHONE))));
+        strategyMap.put(ContactInputs.CONTACT_NAME, () ->
+                this.setContactNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_NAME))));
+        strategyMap.put(ContactInputs.CONTACT_LASTNAME, () ->
+                this.setContactLastNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_LASTNAME))));
+        strategyMap.put(ContactInputs.CONTACT_TITLE, () ->
+                this.setContactTitleTextField(String.valueOf(values.get(ContactInputs.CONTACT_TITLE))));
+        strategyMap.put(ContactInputs.CONTACT_DEPARTMENT, () ->
+                this.setContactDepartmentTextField(String.valueOf(values.get(ContactInputs.CONTACT_DEPARTMENT))));
+        strategyMap.put(ContactInputs.CONTACT_BIRTHDAY, () ->
+                this.setContactBirthdateTextField(String.valueOf(values.get(ContactInputs.CONTACT_BIRTHDAY))));
+        strategyMap.put(ContactInputs.CONTACT_LEADSOURCE, () ->
+                this.setContactLeadSourceTextField(String.valueOf(values.get(ContactInputs.CONTACT_LEADSOURCE))));
+        strategyMap.put(ContactInputs.CONTACT_PHONE, () ->
+                this.setContactPhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_PHONE))));
+        strategyMap.put(ContactInputs.CONTACT_HOMEPHONE, () ->
+                this.setContactHomePhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_HOMEPHONE))));
 
         return strategyMap;
 

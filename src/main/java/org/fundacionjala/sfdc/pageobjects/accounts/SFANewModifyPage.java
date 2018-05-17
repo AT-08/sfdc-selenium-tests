@@ -3,7 +3,6 @@ package org.fundacionjala.sfdc.pageobjects.accounts;
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -113,22 +112,22 @@ public class SFANewModifyPage extends SFNewModify {
      * @param values account fields.
      * @return map of account fields.
      */
-    public Map<Inputs, Value> getStrategyStepMap(final Map<Inputs, String> values) {
-        Map<Inputs, Value> strategyMap = new HashMap<>();
-        strategyMap.put(Inputs.ACCOUNT_NAME, () ->
-                this.setAccountNameTextField(String.valueOf(values.get(Inputs.ACCOUNT_NAME))));
-        strategyMap.put(Inputs.ACCOUNT_NUMBER, () ->
-                this.setAccountNumberTextField(String.valueOf(values.get(Inputs.ACCOUNT_NUMBER))));
-        strategyMap.put(Inputs.ACCOUNT_SITE, () ->
-                this.setAccountSiteTextField(String.valueOf(values.get(Inputs.ACCOUNT_SITE))));
-        strategyMap.put(Inputs.ANUAL_REVENUE, () ->
-                this.setAnnualRevenueTextField(String.valueOf(values.get(Inputs.ANUAL_REVENUE))));
-        strategyMap.put(Inputs.INDUSTRY, () ->
-                this.setIndustryList(String.valueOf(values.get(Inputs.INDUSTRY))));
-        strategyMap.put(Inputs.PARENT_ACCOUNT, () ->
-                this.setParentAccountTextField(String.valueOf(values.get(Inputs.PARENT_ACCOUNT))));
-        strategyMap.put(Inputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(Inputs.TYPE))));
+    public Map<AccountInputs, Value> getStrategyStepMap(final Map<AccountInputs, String> values) {
+        Map<AccountInputs, Value> strategyMap = new HashMap<>();
+        strategyMap.put(AccountInputs.ACCOUNT_NAME, () ->
+                this.setAccountNameTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_NAME))));
+        strategyMap.put(AccountInputs.ACCOUNT_NUMBER, () ->
+                this.setAccountNumberTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_NUMBER))));
+        strategyMap.put(AccountInputs.ACCOUNT_SITE, () ->
+                this.setAccountSiteTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_SITE))));
+        strategyMap.put(AccountInputs.ANUAL_REVENUE, () ->
+                this.setAnnualRevenueTextField(String.valueOf(values.get(AccountInputs.ANUAL_REVENUE))));
+        strategyMap.put(AccountInputs.INDUSTRY, () ->
+                this.setIndustryList(String.valueOf(values.get(AccountInputs.INDUSTRY))));
+        strategyMap.put(AccountInputs.PARENT_ACCOUNT, () ->
+                this.setParentAccountTextField(String.valueOf(values.get(AccountInputs.PARENT_ACCOUNT))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.TYPE))));
 
         return strategyMap;
 

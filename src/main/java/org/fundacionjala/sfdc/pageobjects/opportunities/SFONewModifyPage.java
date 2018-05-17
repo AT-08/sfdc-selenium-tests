@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +14,6 @@ import java.util.Map;
  * SFONewModifyPage.
  */
 public class SFONewModifyPage extends SFNewModify {
-
 
     @FindBy(how = How.CSS, using = "#opp3")
     private WebElement opportunityName;
@@ -49,9 +47,9 @@ public class SFONewModifyPage extends SFNewModify {
      * @param stage setOpportunityStage.
      */
     public void setOpportunityStage(final String stage) {
-        CommonActions.clickElement(opportunityCloseDate);
-        this.opportunityCloseDate.sendKeys(stage);
-        CommonActions.clickElement(opportunityCloseDate);
+        //CommonActions.clickElement(opportunityStage);
+        this.opportunityStage.sendKeys(stage);
+        //CommonActions.clickElement(opportunityStage);
     }
 
 
@@ -59,15 +57,15 @@ public class SFONewModifyPage extends SFNewModify {
      * @param values contact field
      * @return map of contact fields.
      */
-    public Map<Inputs, Value> getStrategyStepMap(final Map<Inputs, String> values) {
-        Map<Inputs, Value> strategyMap = new HashMap<>();
+    public Map<OpportInputs, Value> getStrategyStepMap(final Map<OpportInputs, String> values) {
+        Map<OpportInputs, Value> strategyMap = new HashMap<>();
 
-        strategyMap.put(Inputs.OPPORTUNITY_NAME, () ->
-                this.setOpportunityName(String.valueOf(values.get(Inputs.OPPORTUNITY_NAME))));
-        strategyMap.put(Inputs.OPPORTUNITY_CLOSE_DATE, () ->
-                this.setOpportunityCloseDate(String.valueOf(values.get(Inputs.OPPORTUNITY_CLOSE_DATE))));
-        strategyMap.put(Inputs.OPPORTUNITY_STAGE, () ->
-                this.setOpportunityStage(String.valueOf(values.get(Inputs.OPPORTUNITY_STAGE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_NAME, () ->
+                this.setOpportunityName(String.valueOf(values.get(OpportInputs.OPPORTUNITY_NAME))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_CLOSE_DATE, () ->
+                this.setOpportunityCloseDate(String.valueOf(values.get(OpportInputs.OPPORTUNITY_CLOSE_DATE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_STAGE, () ->
+                this.setOpportunityStage(String.valueOf(values.get(OpportInputs.OPPORTUNITY_STAGE))));
 
         return strategyMap;
     }

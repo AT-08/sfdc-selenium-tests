@@ -5,10 +5,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
+import org.fundacionjala.sfdc.pageobjects.accounts.AccountInputs;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFADetailsPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -42,7 +42,7 @@ public class AccountStepsCheck {
      * @param values iCanCreateANewAccountFillTheFieldsAndPressTheSaveButton.
      */
     @And("^I can create a new account fill the fields and press the save button$")
-    public void iCanCreateANewAccountFillTheFieldsAndPressTheSaveButton(final Map<Inputs, String> values) {
+    public void iCanCreateANewAccountFillTheFieldsAndPressTheSaveButton(final Map<AccountInputs, String> values) {
         values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }

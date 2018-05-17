@@ -5,10 +5,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
+import org.fundacionjala.sfdc.pageobjects.contacts.ContactInputs;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCDetailsPage;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCMainPage;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCNewModifyPage;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -42,7 +42,7 @@ public class ContactStepsCheck {
      * @param values iCanCreateANewContactFillTheFieldsAndPressTheSaveButton.
      */
     @And("^I can create a new contact fill the fields and press the save button$")
-    public void iCanCreateANewContactFillTheFieldsAndPressTheSaveButton(final Map<Inputs, String> values) {
+    public void iCanCreateANewContactFillTheFieldsAndPressTheSaveButton(final Map<ContactInputs, String> values) {
         values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }

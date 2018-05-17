@@ -5,10 +5,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
+import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
 import org.fundacionjala.sfdc.pageobjects.opportunities.SFODetailsPage;
 import org.fundacionjala.sfdc.pageobjects.opportunities.SFOMainPage;
 import org.fundacionjala.sfdc.pageobjects.opportunities.SFONewModifyPage;
-import org.fundacionjala.sfdc.util.Inputs;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -43,8 +43,9 @@ public class OpportunityStepsCheck {
      * @param values iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton.
      */
     @And("^I can create a new opportunity fill the fields and press the save button$")
-    public void iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton(final Map<Inputs, String> values) {
-        values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
+    public void iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton(final Map<OpportInputs, String> values) {
+        values.keySet().stream().forEach(step
+                -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }
 

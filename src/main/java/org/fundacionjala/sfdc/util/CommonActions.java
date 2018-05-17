@@ -1,7 +1,6 @@
 package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,22 +33,12 @@ public final class CommonActions {
     }
 
     /**
-     * Method to get any element but wait until it is visible.
-     *
-     * @param element to wait for.
-     * @return the element.
-     */
-    public static By getElement(final By element) {
-        WAITER.until(ExpectedConditions.visibilityOfElementLocated(element));
-        return element;
-    }
-
-    /**
      * Method to click any element.
      *
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
