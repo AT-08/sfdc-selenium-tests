@@ -34,4 +34,11 @@ public class SFAMainPage extends SFMain {
         return CommonActions.getElement(this.homeContact).getText();
     }
 
+    /**
+     * Wait until the page loads.
+     */
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
 }

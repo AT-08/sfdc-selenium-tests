@@ -80,6 +80,6 @@ public class ContactStepsCheck {
      */
     @Then("^I can verify that the contact was deleted$")
     public void iCanVerifyThatTheContactWasDeleted() {
-        Assert.assertEquals(mainPage.getAccountHomePage(), "Home");
+        Assert.assertEquals(mainPage.getAccountHomePage(), "home");
     }
 }

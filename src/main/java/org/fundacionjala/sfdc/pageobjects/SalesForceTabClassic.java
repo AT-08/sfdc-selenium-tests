@@ -62,4 +62,12 @@ public class SalesForceTabClassic extends Base {
         }
 
     }
+
+    /**
+     * Wait until the page loads.
+     */
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
 }

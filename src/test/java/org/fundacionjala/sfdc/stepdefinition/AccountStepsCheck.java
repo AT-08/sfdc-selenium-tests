@@ -87,6 +87,6 @@ public class AccountStepsCheck {
      */
     @Then("^I can verify that the account was deleted$")
     public void iCanVerifyThatTheAccountWasDeleted() {
-        Assert.assertEquals(mainPage.getAccountHomePage(), "Home");
+        Assert.assertEquals(mainPage.getAccountHomePage(), "home");
     }
 }

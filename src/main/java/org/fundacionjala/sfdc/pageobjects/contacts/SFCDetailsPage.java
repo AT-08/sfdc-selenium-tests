@@ -45,4 +45,9 @@ public class SFCDetailsPage extends SFDetails {
     public String getNewAccountSavedName() {
         return CommonActions.getElement(this.newAccountLabel).getText();
     }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
 }
