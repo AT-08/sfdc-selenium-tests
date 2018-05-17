@@ -78,4 +78,8 @@ public class SFONewModifyPage extends SFNewModify {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
 
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
 }

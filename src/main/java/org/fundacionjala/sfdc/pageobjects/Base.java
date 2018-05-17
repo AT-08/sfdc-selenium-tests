@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Base.java
  * Class to initialize WebDriver for all pages.
  */
-public class Base {
+public abstract class Base {
     protected WebDriver webDriver;
     protected WebDriverWait wait;
 
@@ -21,4 +21,9 @@ public class Base {
         PageFactory.initElements(this.webDriver, this);
         wait = DriverManager.getInstance().getWaiter();
     }
+
+    /**
+     * Wait until page object is loaded.
+     */
+    public abstract void waitUntilPageObjectIsLoaded();
 }

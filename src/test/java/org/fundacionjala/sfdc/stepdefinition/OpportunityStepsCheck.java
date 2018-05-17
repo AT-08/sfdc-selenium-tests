@@ -81,7 +81,7 @@ public class OpportunityStepsCheck {
      */
     @Then("^I can verify that the opportunity was deleted$")
     public void iCanVerifyThatTheOpportunityWasDeleted() {
-        Assert.assertEquals(mainPage.getAccountHomePage(), "Home");
+        Assert.assertEquals(mainPage.getAccountHomePage(), "home");
 
     }
 }

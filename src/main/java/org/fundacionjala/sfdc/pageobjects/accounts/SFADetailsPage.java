@@ -44,4 +44,11 @@ public class SFADetailsPage extends SFDetails {
         return CommonActions.getElement(this.newAccountLabel).getText();
     }
 
+    /**
+     * Wait until the page loads.
+     */
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+        System.out.println("Construction.");
+    }
 }

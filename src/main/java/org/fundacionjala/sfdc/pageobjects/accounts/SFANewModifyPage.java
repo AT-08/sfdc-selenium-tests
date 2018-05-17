@@ -140,4 +140,12 @@ public class SFANewModifyPage extends SFNewModify {
     public void getSaveNewAccountButton() {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
+
+    /**
+     * Wait until the page loads.
+     */
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+        System.out.println("Construction.");
+    }
 }

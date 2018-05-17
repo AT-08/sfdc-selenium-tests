@@ -33,4 +33,8 @@ public class SFCMainPage extends SFMain {
         return CommonActions.getElement(this.homeContact).getText();
     }
 
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
+    }
 }
