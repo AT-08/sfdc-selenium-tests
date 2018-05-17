@@ -20,7 +20,6 @@ public class LogInSteps {
      */
     @Given("^Open the Firefox and launch the application enter the Username and Password and press login$")
     public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
-        System.out.println("Open Browser and go to login page of the SalesForce and fill the username and password.");
         login = new SalesForceLogIn("https://login.salesforce.com/");
         Properties prop = PropertiesManager.getInstance().getConfig();
         login.logIn(prop.getProperty("user"), prop.getProperty("password"));
@@ -31,7 +30,6 @@ public class LogInSteps {
      */
     @Then("^I login to the application$")
     public void iLoginToTheApplication() {
-        System.out.println("Click login.");
         Assert.assertTrue(login.getCloudIcon());
     }
 

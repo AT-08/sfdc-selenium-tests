@@ -1,21 +1,21 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * SFCNewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
-public class SFCNewModifyPage extends SalesForceConnection {
+public class SFCNewModifyPage extends SFNewModify {
     @FindBy(how = How.ID, using = "name_firstcon2")
     private WebElement contactNameTextField;
 
@@ -40,29 +40,9 @@ public class SFCNewModifyPage extends SalesForceConnection {
     @FindBy(how = How.ID, using = "con13")
     private WebElement contactHomePhoneTextField;
 
-    @FindBy(how = How.CSS, using = "#topButtonRow> input[name='save']")
-    private WebElement saveContactButton;
-
-    private Map<String, Value> newContactsFields = new HashMap<>();
-
-    /**
-     * Constructor.
-     */
-    public SFCNewModifyPage() {
-        super();
-        PageFactory.initElements(this.webDriver, this);
-    }
-
-    /**
-     * Method to get "save" button.
-     * @return web element save button.
-     */
-    public WebElement getSaveContactButton() {
-        return CommonActions.getElement(this.saveContactButton);
-    }
-
     /**
      * Method to set contactName attribute.
+     *
      * @param contactName string value.
      */
     public void setContactNameTextField(final String contactName) {
@@ -72,6 +52,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactLastName string value.
      */
     public void setContactLastNameTextField(final String contactLastName) {
@@ -81,6 +62,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactTitleTextField string value.
      */
     public void setContactTitleTextField(final String contactTitleTextField) {
@@ -90,6 +72,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactDepartmentTextField string value.
      */
     public void setContactDepartmentTextField(final String contactDepartmentTextField) {
@@ -99,6 +82,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactBirthdateTextField string value.
      */
     public void setContactBirthdateTextField(final String contactBirthdateTextField) {
@@ -108,6 +92,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactLeadSourceTextField string value.
      */
     public void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
@@ -116,6 +101,7 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactPhoneTextField string value.
      */
     public void setContactPhoneTextField(final String contactPhoneTextField) {
@@ -125,31 +111,48 @@ public class SFCNewModifyPage extends SalesForceConnection {
 
     /**
      * Method to set contact las Name attribute.
+     *
      * @param contactHomePhoneTextField string value.
      */
     public void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
         this.contactHomePhoneTextField.clear();
         this.contactHomePhoneTextField.sendKeys(contactHomePhoneTextField);
     }
+
+
     /**
-     * Method to do click "save" button.
-     */
-    public void clickSaveContactButton() {
-        getSaveContactButton().click();
-    }
-    /**
-     * Method to do click "fillMethodsToFields" to map.
+     * @param values contact field
      * @return map of contact fields.
      */
-    public Map<String, Value> fillMethodsToFields() {
-        newContactsFields.put("contactName", this::setContactNameTextField);
-        newContactsFields.put("contactLastName", this::setContactLastNameTextField);
-        newContactsFields.put("contactTitle", this::setContactTitleTextField);
-        newContactsFields.put("contactDepartment", this::setContactDepartmentTextField);
-        newContactsFields.put("contactBirthday", this::setContactBirthdateTextField);
-        newContactsFields.put("contactLeadSource", this::setContactLeadSourceTextField);
-        newContactsFields.put("contactPhone", this::setContactPhoneTextField);
-        newContactsFields.put("contactHomePhone", this::setContactHomePhoneTextField);
-        return newContactsFields;
+    public Map<ContactInputs, Value> getStrategyStepMap(final Map<ContactInputs, String> values) {
+        Map<ContactInputs, Value> strategyMap = new HashMap<>();
+
+        strategyMap.put(ContactInputs.CONTACT_NAME, () ->
+                this.setContactNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_NAME))));
+        strategyMap.put(ContactInputs.CONTACT_LASTNAME, () ->
+                this.setContactLastNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_LASTNAME))));
+        strategyMap.put(ContactInputs.CONTACT_TITLE, () ->
+                this.setContactTitleTextField(String.valueOf(values.get(ContactInputs.CONTACT_TITLE))));
+        strategyMap.put(ContactInputs.CONTACT_DEPARTMENT, () ->
+                this.setContactDepartmentTextField(String.valueOf(values.get(ContactInputs.CONTACT_DEPARTMENT))));
+        strategyMap.put(ContactInputs.CONTACT_BIRTHDAY, () ->
+                this.setContactBirthdateTextField(String.valueOf(values.get(ContactInputs.CONTACT_BIRTHDAY))));
+        strategyMap.put(ContactInputs.CONTACT_LEADSOURCE, () ->
+                this.setContactLeadSourceTextField(String.valueOf(values.get(ContactInputs.CONTACT_LEADSOURCE))));
+        strategyMap.put(ContactInputs.CONTACT_PHONE, () ->
+                this.setContactPhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_PHONE))));
+        strategyMap.put(ContactInputs.CONTACT_HOMEPHONE, () ->
+                this.setContactHomePhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_HOMEPHONE))));
+
+        return strategyMap;
+
+    }
+
+    /**
+     * getSaveNewAccountButton.
+     */
+    @Override
+    public void getSaveNewAccountButton() {
+        CommonActions.clickElement(this.saveNewAccountButton);
     }
 }

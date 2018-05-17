@@ -4,13 +4,12 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * SalesForceLogIn.java
  * Class to log in Salesforce.
  */
-public class SalesForceLogIn extends SalesForceConnection {
+public class SalesForceLogIn extends Base {
     private String url;
 
     @FindBy(how = How.ID, using = "username")
@@ -27,12 +26,11 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Constructor.
+     *
      * @param url the page.
      */
     public SalesForceLogIn(final String url) {
-        super();
         this.url = url;
-        PageFactory.initElements(this.webDriver, this);
     }
 
     /**
@@ -44,6 +42,7 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Setter of userName attribute.
+     *
      * @param userName string value.
      */
     public void setUserName(final String userName) {
@@ -52,6 +51,7 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Setter of userPassword attribute.
+     *
      * @param userPassword string value.
      */
     public void setUserPassword(final String userPassword) {
@@ -60,6 +60,7 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Getter of logInbutton.
+     *
      * @return the button.
      */
     public WebElement getLogInButton() {
@@ -68,6 +69,7 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Method to click logInButton.
+     *
      * @param button to click.
      */
     public void clickLogInButton(final WebElement button) {
@@ -76,18 +78,21 @@ public class SalesForceLogIn extends SalesForceConnection {
 
     /**
      * Method to log in Salesforce.
+     *
      * @param user the user.
      * @param pass its password.
      */
     public void logIn(final String user, final String pass) {
-        setWebDriverUrl();
+        this.setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
-        clickLogInButton(button);
+        this.clickLogInButton(button);
     }
+
     /**
      * Method to lget icon cloud.
+     *
      * @return if the icon is displayed
      */
     public boolean getCloudIcon() {
