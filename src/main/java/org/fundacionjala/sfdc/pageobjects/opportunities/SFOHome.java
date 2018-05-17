@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.BasePage;
+import org.fundacionjala.sfdc.pageobjects.HomeBasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
  * SFOHome.java
  * Class that represents the opportunities Home Page.
  */
-public class SFOHome extends BasePage {
+public class SFOHome extends HomeBasePage {
 
     @FindBy(how = How.NAME, using = "new")
     private WebElement newOpportunityButton;
@@ -24,6 +25,10 @@ public class SFOHome extends BasePage {
     public SFOHome() {
         super();
         PageFactory.initElements(this.webDriver, this);
+    }
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
     }
 
     /**

@@ -39,7 +39,8 @@ public class OpportunitySteps {
      */
     @When("^I fill the required fields in the new opportunity form$")
     public void iFillTheRequiredFieldsInTheNewOpportunityForm() {
-        opportunitiesHome = new SFOHome();
+        opportunitiesHome = new SFOHome() {
+        };
         editOpportunity = new SFOEdit();
         propertiesManager = PropertiesManager.getInstance().getConfig();
         opportunitiesHome.clickNewOpportunity();
@@ -67,7 +68,8 @@ public class OpportunitySteps {
     @Given("^Select the opportunity created$")
     public void selectTheOpportunityCreated() {
         opportunitiesHome = new SFOHome();
-        opportunityOptionsPage = new SFOMainPage();
+        opportunityOptionsPage = new SFOMainPage() {
+        };
         opportunitiesHome.goToLastOpportunityPage();
         opportunityOptionsPage.clickEditOpportunity();
     }

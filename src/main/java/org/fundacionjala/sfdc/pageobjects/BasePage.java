@@ -19,9 +19,9 @@ public abstract class BasePage {
      * Constructor.
      */
     public BasePage() {
-        this.webDriver = DriverManager.getInstance().getNavigator();
-        this.wait = DriverManager.getInstance().getWaiter();
-        this.commonActions = new CommonActions();
+        this.webDriver = DriverManager.getNavigator();
+        this.wait = DriverManager.getWaiter();
+//        this.commonActions = new CommonActions();
         PageFactory.initElements(webDriver, this);
         waitUntilPageObjectIsLoaded();
     }

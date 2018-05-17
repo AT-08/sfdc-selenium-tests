@@ -1,6 +1,5 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.pageobjects.Home.HomePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +19,7 @@ public class SalesForceLogIn extends BasePage {
     @FindBy(id = "password")
     private WebElement userPassword;
 
-    @FindBy(id = "Login")
+    @FindBy(id = "login")
     private WebElement logInButton;
 
     /**
@@ -79,19 +78,15 @@ public class SalesForceLogIn extends BasePage {
 
     /**
      * Method to log in Salesforce.
-     *
-     * @param user the user.
+     *  @param user the user.
      * @param pass its password.
      */
-    public HomePage logIn(final String user, final String pass) {
-//        setWebDriverUrl();
+    public void logIn(final String user, final String pass) {
+        setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
         clickLogInButton(button);
-        wait.until(ExpectedConditions.urlContains("home"));
-        PageUtil.getInstance().switchTheme();
-        return org.fundacionjala.sfdc.pageobjects.PageFactory.getHomePage();
     }
 
     @Override

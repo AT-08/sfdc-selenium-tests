@@ -2,6 +2,7 @@ package org.fundacionjala.sfdc.pageobjects.accounts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.BasePage;
+import org.fundacionjala.sfdc.pageobjects.HomeBasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * SFADetailsPage.java
  * Class that represents the page where details of an account are displayed.
  */
-public class SFADetailsPage extends BasePage {
+public class SFADetailsPage extends HomeBasePage {
     public static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
 
     @FindBy(how = How.CSS, using = "#topButtonRow.pbButton > input[name='edit']")
@@ -33,6 +34,11 @@ public class SFADetailsPage extends BasePage {
     public SFADetailsPage() {
         super();
         PageFactory.initElements(this.webDriver, this);
+    }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
     }
 
     /**

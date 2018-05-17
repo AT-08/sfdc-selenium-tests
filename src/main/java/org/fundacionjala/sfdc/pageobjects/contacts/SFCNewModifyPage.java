@@ -2,6 +2,7 @@ package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
 import org.fundacionjala.sfdc.pageobjects.BasePage;
+import org.fundacionjala.sfdc.pageobjects.HomeBasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import java.util.Map;
  * SFCNewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
-public class SFCNewModifyPage extends BasePage {
+public class SFCNewModifyPage extends HomeBasePage {
     @FindBy(how = How.ID, using = "name_firstcon2")
     private WebElement contactNameTextField;
 
@@ -51,6 +52,11 @@ public class SFCNewModifyPage extends BasePage {
     public SFCNewModifyPage() {
         super();
         PageFactory.initElements(this.webDriver, this);
+    }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
     }
 
     /**

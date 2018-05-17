@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PageUtil {
     private static PageUtil instance;
-    private WebDriver webDriver = DriverManager.getInstance().getWebDriver();
+    private WebDriver webDriver = DriverManager.getNavigator();
 
     protected PageUtil() {
         initialize();
