@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class HomePageLightning extends HomePage {
 
-    @FindBy(css = "#oneHeader a[href*=\"#/setup/SetupOneHome/home\"]")
+    @FindBy(css = "ul.slds-has-flexi-truncate>li:first-child")
     private WebElement homeTab;
 
     @Override

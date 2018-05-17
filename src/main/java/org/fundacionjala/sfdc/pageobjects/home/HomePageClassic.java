@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
  * Home page classic SL.
  */
 public class HomePageClassic extends HomePage {
-    @FindBy(css = "#home_Tab")
+    @FindBy(css = "home_Tab")
     private WebElement homeTab;
 
     @Override
