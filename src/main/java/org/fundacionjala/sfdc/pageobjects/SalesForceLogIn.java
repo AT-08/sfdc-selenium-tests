@@ -19,7 +19,7 @@ public class SalesForceLogIn extends BasePage {
     @FindBy(id = "password")
     private WebElement userPassword;
 
-    @FindBy(id = "login")
+    @FindBy(id = "#Login")
     private WebElement logInButton;
 
     /**

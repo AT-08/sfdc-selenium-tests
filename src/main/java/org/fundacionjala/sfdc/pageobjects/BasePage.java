@@ -23,7 +23,7 @@ public abstract class BasePage {
         this.wait = DriverManager.getWaiter();
 //        this.commonActions = new CommonActions();
         PageFactory.initElements(webDriver, this);
-        waitUntilPageObjectIsLoaded();
+//        waitUntilPageObjectIsLoaded();
     }
 
     public abstract void waitUntilPageObjectIsLoaded();
