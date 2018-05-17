@@ -12,20 +12,30 @@ import org.openqa.selenium.support.How;
  */
 public class SalesForceTabClassic extends Base {
 
-    @FindBy(how = How.ID, using = "Account_Tab")
+    @FindBy(how = How.CSS, using = "#AllTab_Tab")
+    private WebElement plusButton;
+
+    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.accountBlock.title")
     private WebElement accountTab;
 
-
-    @FindBy(how = How.ID, using = "Contact_Tab")
+    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.contactBlock.title")
     private WebElement contactTab;
 
-    @FindBy(how = How.ID, using = "Opportunity_Tab")
+    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.opportunityBlock.title")
     private WebElement opportunityTab;
+
+    /**
+     * setPlusButton.
+     */
+    public void setPlusButton() {
+        CommonActions.clickElement(plusButton);
+    }
 
     /**
      * setOpportunityTab.
      */
     public void setOpportunityTab() {
+        this.setPlusButton();
         CommonActions.clickElement(opportunityTab);
         closeMessageLighting();
 
@@ -35,6 +45,7 @@ public class SalesForceTabClassic extends Base {
      * setContactTab.
      */
     public void setContactTab() {
+        this.setPlusButton();
         CommonActions.clickElement(contactTab);
         closeMessageLighting();
     }
@@ -43,6 +54,7 @@ public class SalesForceTabClassic extends Base {
      * setAccountTab.
      */
     public void setAccountTab() {
+        this.setPlusButton();
         CommonActions.clickElement(accountTab);
         closeMessageLighting();
     }

@@ -54,7 +54,7 @@ public class OpportunityStepsCheck {
      */
     @Then("^I can verify the new opportunity \"([^\"]*)\"$")
     public void iCanVerifyTheNewOpportunity(final String opportunityName) {
-        Assert.assertEquals(detailsPage.getNewAccountSavedName(), opportunityName);
+        Assert.assertEquals(detailsPage.getOpportunityName(), opportunityName);
     }
 
     /**
