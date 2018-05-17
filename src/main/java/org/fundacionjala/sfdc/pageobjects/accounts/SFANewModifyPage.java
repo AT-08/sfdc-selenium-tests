@@ -1,8 +1,8 @@
 package org.fundacionjala.sfdc.pageobjects.accounts;
 
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -15,7 +15,7 @@ import java.util.Map;
  * SFANewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify an account.
  */
-public class SFANewModifyPage extends SalesForceConnection {
+public class SFANewModifyPage extends BasePage {
     private Map<String, Value> newAccountsFields = new HashMap<>();
 
     @FindBy(how = How.CSS, using = ".requiredInput > input[name='acc2']")

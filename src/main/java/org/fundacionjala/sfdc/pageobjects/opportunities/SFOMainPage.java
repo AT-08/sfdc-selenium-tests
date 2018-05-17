@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Class that represents the page where an opportunity could be edited or modified.
  */
-public class SFOMainPage extends SalesForceConnection {
+public class SFOMainPage extends BasePage {
     private boolean acceptNextAlert = true;
 
     @FindBy(how = How.NAME, using = "edit")

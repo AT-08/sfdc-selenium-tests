@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * SFCMainPage.java
  * Class that represents the main page of contacts section.
  */
-public class SFCMainPage extends SalesForceConnection {
+public class SFCMainPage extends BasePage {
 
     @FindBy(how = How.CSS, using = "input[name='new']")
     private WebElement newContactButton;

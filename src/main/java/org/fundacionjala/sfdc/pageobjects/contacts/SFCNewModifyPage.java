@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ import java.util.Map;
  * SFCNewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
-public class SFCNewModifyPage extends SalesForceConnection {
+public class SFCNewModifyPage extends BasePage {
     @FindBy(how = How.ID, using = "name_firstcon2")
     private WebElement contactNameTextField;
 

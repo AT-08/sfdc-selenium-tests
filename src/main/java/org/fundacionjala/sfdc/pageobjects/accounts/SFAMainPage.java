@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.accounts;
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
  * SFAMainPage.java
  * Class that represents the main page of accounts section.
  */
-public class SFAMainPage extends SalesForceConnection {
+public class SFAMainPage extends BasePage {
 
     @FindBy(how = How.CSS, using = ".pbButton > input[title='New']")
     private WebElement newAccountButton;

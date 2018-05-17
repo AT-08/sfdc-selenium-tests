@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ import java.util.List;
  * SFOEdit.java
  * Class that represents the page where an oppotunity could be modified.
  */
-public class SFOEdit extends SalesForceConnection {
+public class SFOEdit extends BasePage {
 
     @FindBy(how = How.ID, using = "opp3")
     private WebElement opportunityName;

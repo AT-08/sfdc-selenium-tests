@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * SalesForceLogIn.java
  * Class to log in Salesforce.
  */
-public class SalesForceLogIn extends SalesForceConnection {
+public class SalesForceLogIn extends BasePage {
     private String url;
 
     @FindBy(id = "username")

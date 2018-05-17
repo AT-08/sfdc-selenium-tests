@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * SalesForceConnection.java
+ * BasePage.java
  * Class to initialize WebDriver for all pages.
  */
-public abstract class SalesForceConnection {
+public abstract class BasePage {
     protected WebDriver webDriver;
     protected WebDriverWait wait;
     protected CommonActions commonActions;
@@ -18,7 +18,7 @@ public abstract class SalesForceConnection {
     /**
      * Constructor.
      */
-    public SalesForceConnection() {
+    public BasePage() {
         this.webDriver = DriverManager.getInstance().getNavigator();
         this.wait = DriverManager.getInstance().getWaiter();
         this.commonActions = new CommonActions();
