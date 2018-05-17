@@ -44,7 +44,9 @@ public class AccountSteps {
      */
     @Then("^a new account is created$")
     public void aNewAccountIsCreated(final Map<String, String> values) {
-        SFADetailsPage accountDetail = new SFADetailsPage();
+        SFADetailsPage accountDetail = new SFADetailsPage() {
+
+        };
         Assert.assertEquals(accountDetail.getNewAccountSavedName(), values.get("accountName"));
     }
 
@@ -65,7 +67,9 @@ public class AccountSteps {
      */
     @And("^I edit the account name field and I press the save button$")
     public void iEditTheAccountNameFieldAndIPressTheSaveButton(final Map<String, String> values) {
-        SFANewModifyPage modifyPage = new SFANewModifyPage();
+        SFANewModifyPage modifyPage = new SFANewModifyPage() {
+
+        };
         CommonActions.setValues(values, modifyPage.fillMethodsToFields());
         CommonActions.clickElement(modifyPage.getSaveNewAccountButton());
     }

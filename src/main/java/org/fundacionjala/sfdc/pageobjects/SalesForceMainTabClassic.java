@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
  * SalesForceMainTabClassic.java
  * Class of Salesforce main tab that contains all the options.
  */
-public class SalesForceMainTabClassic extends SalesForceConnection {
+public class SalesForceMainTabClassic extends BasePage {
     private By tabButton;
     private By accountsLink;
 
@@ -91,6 +91,11 @@ public class SalesForceMainTabClassic extends SalesForceConnection {
         } catch (NoSuchElementException e) {
             System.out.println("Message not displayed.");
         }
+
+    }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
 
     }
 }

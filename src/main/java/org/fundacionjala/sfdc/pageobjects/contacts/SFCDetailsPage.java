@@ -1,7 +1,8 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.pageobjects.SalesForceConnection;
+import org.fundacionjala.sfdc.pageobjects.BasePage;
+import org.fundacionjala.sfdc.pageobjects.HomeBasePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * SFCDetailsPage.java
  * Class that represents the page where details of an contact are displayed.
  */
-public class SFCDetailsPage extends SalesForceConnection {
+public class SFCDetailsPage extends HomeBasePage {
     public static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
 
     @FindBy(how = How.CSS, using = "#topButtonRow > input[name='edit']")
@@ -33,6 +34,11 @@ public class SFCDetailsPage extends SalesForceConnection {
     public SFCDetailsPage() {
         super();
         PageFactory.initElements(this.webDriver, this);
+    }
+
+    @Override
+    public void waitUntilPageObjectIsLoaded() {
+
     }
 
     /**

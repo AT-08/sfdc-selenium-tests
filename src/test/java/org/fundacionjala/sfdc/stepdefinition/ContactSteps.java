@@ -20,7 +20,7 @@ import java.util.StringJoiner;
  */
 public class ContactSteps {
     private SFCDetailsPage contactsDetailPage;
-    private SFCMainPage contactsMainPage;
+    private SFCMainPage contactsMainPage = new SFCMainPage();
     private SFCNewModifyPage contactsNewModifyPage;
 
 
@@ -43,7 +43,8 @@ public class ContactSteps {
     @When("^I press new contacts button a new form is displayed$")
     public void iPressNewContactsButtonANewFormIsDisplayed() {
         System.out.println("This Step presses new account button");
-        contactsMainPage = new SFCMainPage();
+        contactsMainPage = new SFCMainPage() {
+        };
         contactsMainPage.clickNewButton();
     }
 
@@ -55,7 +56,8 @@ public class ContactSteps {
     @And("^I fill the required information and I press Save$")
     public void iFillTheRequiredInformationAndIPressSave(final Map<String, String> values) {
         System.out.println("This Step fills account name field");
-        contactsNewModifyPage = new SFCNewModifyPage();
+        contactsNewModifyPage = new SFCNewModifyPage() {
+        };
         CommonActions.setValues(values, contactsNewModifyPage.fillMethodsToFields());
         CommonActions.clickElement(contactsNewModifyPage.getSaveContactButton());
     }
@@ -66,7 +68,8 @@ public class ContactSteps {
      */
     @Then("^The system shows the new contact$")
     public void theSystemShowsTheNewContact(final Map<String, String> values) {
-        contactsDetailPage = new SFCDetailsPage();
+        contactsDetailPage = new SFCDetailsPage() {
+        };
         System.out.println("This Step tests new account creation:" + contactsDetailPage.newContactSavedName());
         StringJoiner name = new StringJoiner(" ");
         name.add(values.get("contactName")).add(values.get("contactLastName"));
