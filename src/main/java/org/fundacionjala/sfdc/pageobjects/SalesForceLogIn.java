@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects;
 
+import org.fundacionjala.sfdc.pageobjects.home.HomePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -81,13 +82,16 @@ public class SalesForceLogIn extends Base {
      *
      * @param user the user.
      * @param pass its password.
+     * @return get the home page.
      */
-    public void logIn(final String user, final String pass) {
+    public HomePage logIn(final String user, final String pass) {
         this.setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
         this.clickLogInButton(button);
+        PageUtil.getInstance().switchTheme();
+        return PageFactory.getHomePage();
     }
 
     /**
