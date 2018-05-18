@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * Top menu of classic SL.
  */
 public class TopMenuClassic extends TopMenu {
-    @FindBy(id = "#userNavLabel")
+    @FindBy(id = "userNavLabel")
     private WebElement userProfileLink;
 
-    @FindBy(id = "a[title=\"Switch to Lightning Experience\"]")
+    @FindBy(css = "a[title=\"Switch to Lightning Experience\"]")
     private WebElement switchThemeLink;
 
     @Override
