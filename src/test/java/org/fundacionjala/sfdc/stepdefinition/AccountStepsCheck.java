@@ -4,11 +4,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
 import org.fundacionjala.sfdc.pageobjects.accounts.AccountInputs;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFADetailsPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
+import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -17,7 +17,7 @@ import java.util.Map;
  * AccountStepsCheck.
  */
 public class AccountStepsCheck {
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
+    private TopMenuClassic topMenuClassic = new TopMenuClassic();
     private SFAMainPage mainPage = new SFAMainPage();
     private SFANewModifyPage modifyPage = new SFANewModifyPage();
     private SFADetailsPage detailsPage = new SFADetailsPage();
@@ -27,7 +27,7 @@ public class AccountStepsCheck {
      */
     @Given("^I can go to account section$")
     public void iCanGoToAccountSection() {
-        tabClassic.setAccountTab();
+        topMenuClassic.setAccountTab();
     }
 
     /**

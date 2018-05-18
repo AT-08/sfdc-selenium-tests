@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
+import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.fundacionjala.sfdc.pageobjects.contacts.ContactInputs;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCDetailsPage;
 import org.fundacionjala.sfdc.pageobjects.contacts.SFCMainPage;
@@ -17,7 +18,7 @@ import java.util.Map;
  * ContactStepsCheck.
  */
 public class ContactStepsCheck {
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
+    private TopMenuClassic topMenuClassic = new TopMenuClassic();
     private SFCMainPage mainPage = new SFCMainPage();
     private SFCNewModifyPage modifyPage = new SFCNewModifyPage();
     private SFCDetailsPage detailsPage = new SFCDetailsPage();
@@ -27,7 +28,7 @@ public class ContactStepsCheck {
      */
     @Given("^I can go to contact section$")
     public void iCanGoToContactSection() {
-        tabClassic.setContactTab();
+        topMenuClassic.setContactTab();
     }
 
     /**

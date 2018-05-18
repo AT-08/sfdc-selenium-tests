@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
+import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
 import org.fundacionjala.sfdc.pageobjects.opportunities.SFODetailsPage;
 import org.fundacionjala.sfdc.pageobjects.opportunities.SFOMainPage;
@@ -18,7 +19,7 @@ import java.util.Map;
  */
 public class OpportunityStepsCheck {
 
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
+private TopMenuClassic topMenuClassic = new TopMenuClassic();
     private SFOMainPage mainPage = new SFOMainPage();
     private SFONewModifyPage modifyPage = new SFONewModifyPage();
     private SFODetailsPage detailsPage = new SFODetailsPage();
@@ -28,7 +29,7 @@ public class OpportunityStepsCheck {
      */
     @Given("^I can go to opportunity section$")
     public void iCanGoToOpportunitySection() {
-        tabClassic.setOpportunityTab();
+        topMenuClassic.setOpportunityTab();
     }
 
     /**
