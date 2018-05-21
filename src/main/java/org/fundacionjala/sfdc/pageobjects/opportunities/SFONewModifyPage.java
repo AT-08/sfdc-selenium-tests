@@ -28,28 +28,24 @@ public class SFONewModifyPage extends SFNewModify {
     /**
      * @param opportunityName setOpportunityName.
      */
-    public void setOpportunityName(final String opportunityName) {
-        this.opportunityName.clear();
-        this.opportunityName.sendKeys(opportunityName);
-
+    private void setOpportunityName(final String opportunityName) {
+        CommonActions.clearField(this.opportunityName);
+        CommonActions.setTextElement(this.opportunityName, opportunityName);
     }
 
     /**
      * @param closeDate setOpportunityCloseDate.
      */
-    public void setOpportunityCloseDate(final String closeDate) {
-        this.opportunityCloseDate.clear();
-        CommonActions.getElement(opportunityCloseDate);
-        this.opportunityCloseDate.sendKeys(closeDate);
+    private void setOpportunityCloseDate(final String closeDate) {
+        CommonActions.clearField(this.opportunityCloseDate);
+        CommonActions.setTextElement(this.opportunityCloseDate, closeDate);
     }
 
     /**
      * @param stage setOpportunityStage.
      */
-    public void setOpportunityStage(final String stage) {
-        //CommonActions.clickElement(opportunityStage);
-        this.opportunityStage.sendKeys(stage);
-        //CommonActions.clickElement(opportunityStage);
+    private void setOpportunityStage(final String stage) {
+        CommonActions.setTextElement(this.opportunityStage, stage);
     }
 
 

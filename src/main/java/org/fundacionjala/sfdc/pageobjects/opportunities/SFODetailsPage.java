@@ -19,8 +19,7 @@ public class SFODetailsPage extends SFDetails {
      * @return getOpportunityName.
      */
     public String getOpportunityName() {
-        CommonActions.getElement(opportunityLabel);
-        return opportunityLabel.getText();
+        return CommonActions.getTextElement(this.opportunityLabel);
     }
 
     /**
@@ -53,7 +52,7 @@ public class SFODetailsPage extends SFDetails {
      */
     @Override
     public String getNewAccountSavedName() {
-        return CommonActions.getElement(this.newAccountLabel).getText();
+        return CommonActions.getTextElement(this.newAccountLabel);
     }
 
     @Override
