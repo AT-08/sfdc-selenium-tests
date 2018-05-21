@@ -20,7 +20,7 @@ public class SFANewModifyPage extends SFNewModify {
     // Account Information.
     @FindAll({
             @FindBy(how = How.ID, using = "acc2"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='6']")
+            @FindBy(how = How.CSS, using = "div:nth-child(2) > div:nth-child(1) > div > div > div > input")
     })
     private WebElement accountNameTextField;
 
@@ -31,80 +31,75 @@ public class SFANewModifyPage extends SFNewModify {
     private WebElement parentAccountTextField;
     @FindAll({
             @FindBy(how = How.ID, using = "acc5"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='10']")
+            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(1) > div > div > div > input")
     })
     private WebElement accountNumberTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc23"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='12']")
+            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(1) > div > div > div > input")
     })
 
     private WebElement accountSiteTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc6"),
-            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='14']")
     })
     private WebElement typeList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc7"),
-            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='16']")
     })
     private WebElement industryList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc8"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='18']")
+            @FindBy(how = How.CSS, using = "div:nth-child(8) > div:nth-child(1) > div > div > div > input")
     })
     private WebElement annualRevenueTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc9"),
-            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='5']")
     })
     private WebElement ratingList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc10"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='7']")
     })
     private WebElement accountPhone;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc11"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='9']")
+            @FindBy(how = How.CSS, using = "div:nth-child(3) > div:nth-child(2) > div > div > div > input")
     })
     private WebElement accountFax;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc12"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='11']")
+            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(2) > div > div > div > input")
     })
     private WebElement accountWebsite;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc13"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='13']")
+            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(2) > div > div > div > input")
     })
     private WebElement accountTickerSymbol;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc14"),
-            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='15']")
     })
     private WebElement ownershipList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc15"),
-            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='17']")
+            @FindBy(how = How.CSS, using = "div:nth-child(7) > div:nth-child(2) > div > div > div > input")
     })
     private WebElement accountEmployee;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc16"),
-            @FindBy(how = How.CSS, using = "data-interactive-lib-uid='19'")
+            @FindBy(how = How.CSS, using = "div:nth-child(8) > div:nth-child(2) > div > div > div > input")
     })
     private WebElement accountSICCode;
 
@@ -114,8 +109,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSICCode string value.
      */
     public void setAccountSICCodeTextField(final String accountSICCode) {
-        this.accountSICCode.clear();
-        this.accountSICCode.sendKeys(accountSICCode);
+        CommonActions.clearField(this.accountSICCode);
+        CommonActions.setTextElement(this.accountSICCode, accountSICCode);
     }
 
     /**
@@ -124,8 +119,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountEmployee string value.
      */
     public void setAccountEmployeeTextField(final String accountEmployee) {
-        this.accountEmployee.clear();
-        this.accountEmployee.sendKeys(accountEmployee);
+        CommonActions.clearField(this.accountEmployee);
+        CommonActions.setTextElement(this.accountSICCode, accountEmployee);
     }
 
     /**
@@ -134,8 +129,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountOwnershipList string value.
      */
     public void setAccountOwnershipList(final String accountOwnershipList) {
-        this.ownershipList.clear();
-        this.ownershipList.sendKeys(accountOwnershipList);
+        CommonActions.clearField(this.ownershipList);
+        CommonActions.setTextElement(this.ownershipList, accountOwnershipList);
     }
 
     /**
@@ -144,8 +139,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountTickerSymbol string value.
      */
     public void setAccountTickerSymbolTextField(final String accountTickerSymbol) {
-        this.accountTickerSymbol.clear();
-        this.accountTickerSymbol.sendKeys(accountTickerSymbol);
+        CommonActions.clearField(this.accountTickerSymbol);
+        CommonActions.setTextElement(this.accountTickerSymbol, accountTickerSymbol);
     }
 
     /**
@@ -154,8 +149,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountWebsite string value.
      */
     public void setAccountWebsiteTextField(final String accountWebsite) {
-        this.accountWebsite.clear();
-        this.accountWebsite.sendKeys(accountWebsite);
+        CommonActions.clearField(this.accountWebsite);
+        CommonActions.setTextElement(this.accountWebsite, accountWebsite);
     }
 
     /**
@@ -164,8 +159,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountFax string value.
      */
     public void setAccountFaxTextField(final String accountFax) {
-        this.accountFax.clear();
-        this.accountFax.sendKeys(accountFax);
+        CommonActions.clearField(this.accountFax);
+        CommonActions.setTextElement(this.accountFax, accountFax);
     }
 
     /**
@@ -174,8 +169,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountPhone string value.
      */
     public void setAccountPhoneTextField(final String accountPhone) {
-        this.accountPhone.clear();
-        this.accountPhone.sendKeys(accountPhone);
+        CommonActions.clearField(this.accountPhone);
+        CommonActions.setTextElement(this.accountPhone, accountPhone);
     }
 
     /**
@@ -184,7 +179,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param ratingList string value.
      */
     public void setAccountRatingList(final String ratingList) {
-        this.ratingList.sendKeys(ratingList);
+        CommonActions.setTextElement(this.ratingList, ratingList);
     }
 
     /**
@@ -195,7 +190,6 @@ public class SFANewModifyPage extends SFNewModify {
     private void setAccountNameTextField(final String accountName) {
         CommonActions.clearField(this.accountNameTextField);
         CommonActions.setTextElement(this.accountNameTextField, accountName);
-
     }
 
     /**
@@ -255,7 +249,6 @@ public class SFANewModifyPage extends SFNewModify {
         CommonActions.clearField(annualRevenueTextField);
         CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
     }
-
 
     /**
      * @param values account fields.
