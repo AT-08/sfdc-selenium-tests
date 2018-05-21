@@ -3,6 +3,7 @@ package org.fundacionjala.sfdc.pageobjects;
 import org.fundacionjala.sfdc.pageobjects.home.HomePage;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -22,7 +23,10 @@ public class SalesForceLogIn extends Base {
     @FindBy(how = How.ID, using = "Login")
     private WebElement logInButton;
 
-    @FindBy(how = How.CSS, using = "img#phHeaderLogoImage")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "img#phHeaderLogoImage"),
+            @FindBy(how = How.CSS, using = "div.slds-global-header__logo")
+    })
     private WebElement cloudIcon;
 
     /**
@@ -90,7 +94,7 @@ public class SalesForceLogIn extends Base {
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
         this.clickLogInButton(button);
-        PageUtil.getInstance().switchTheme();
+       // PageUtil.getInstance().switchTheme();
         return PageFactory.getHomePage();
     }
 
