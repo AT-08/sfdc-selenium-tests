@@ -4,6 +4,7 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -12,30 +13,35 @@ import org.openqa.selenium.support.How;
  */
 public class SalesForceTabClassic extends Base {
 
-    @FindBy(how = How.CSS, using = "#AllTab_Tab")
+    @FindAll({
+            @FindBy(how = How.ID, using = "AllTab_Tab"),
+            @FindBy(how = How.CLASS_NAME, using = "slds-icon-waffle")
+    })
     private WebElement plusButton;
 
-    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.accountBlock.title")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "a.accountBlock"),
+            @FindBy(how = How.CSS, using = ".oneAppLauncherItem a[title='Accounts']")
+    })
     private WebElement accountTab;
 
-    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.contactBlock.title")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "a.contactBlock"),
+            @FindBy(how = How.XPATH, using = ".oneAppLauncherItem a[title='Contacts']")
+    })
     private WebElement contactTab;
 
-    @FindBy(how = How.CSS, using = "#bodyCell  a.listRelatedObject.opportunityBlock.title")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "a.opportunityBlock"),
+            @FindBy(how = How.XPATH, using = ".oneAppLauncherItem a[title='Opportunities']")
+    })
     private WebElement opportunityTab;
-
-    /**
-     * setPlusButton.
-     */
-    public void setPlusButton() {
-        CommonActions.clickElement(plusButton);
-    }
 
     /**
      * setOpportunityTab.
      */
     public void setOpportunityTab() {
-        this.setPlusButton();
+        CommonActions.clickElement(plusButton);
         CommonActions.clickElement(opportunityTab);
         closeMessageLighting();
 
@@ -45,7 +51,7 @@ public class SalesForceTabClassic extends Base {
      * setContactTab.
      */
     public void setContactTab() {
-        this.setPlusButton();
+        CommonActions.clickElement(plusButton);
         CommonActions.clickElement(contactTab);
         closeMessageLighting();
     }
@@ -54,7 +60,7 @@ public class SalesForceTabClassic extends Base {
      * setAccountTab.
      */
     public void setAccountTab() {
-        this.setPlusButton();
+        CommonActions.clickElement(plusButton);
         CommonActions.clickElement(accountTab);
         closeMessageLighting();
     }
