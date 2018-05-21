@@ -12,7 +12,7 @@ public class TopMenuClassic extends TopMenu {
     @FindBy(id = "userNavLabel")
     private WebElement userProfileLink;
 
-    @FindBy(css = "a[title=\"Switch to Lightning Experience\"]")
+    @FindBy(css = "a[class='switch-to-lightning']")
     private WebElement switchThemeLink;
 
     @Override

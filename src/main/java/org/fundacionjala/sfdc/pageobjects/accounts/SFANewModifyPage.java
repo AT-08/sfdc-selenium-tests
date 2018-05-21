@@ -4,6 +4,7 @@ import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -16,27 +17,175 @@ import java.util.Map;
  */
 public class SFANewModifyPage extends SFNewModify {
 
-    @FindBy(how = How.CSS, using = ".requiredInput > input[name='acc2']")
+    // Account Information.
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc2"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='6']")
+    })
     private WebElement accountNameTextField;
 
-    @FindBy(how = How.CSS, using = ".lookupInput > input[name='acc3']")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc3"),
+            @FindBy(how = How.CSS, using = "input[title='Search Accounts']")
+    })
     private WebElement parentAccountTextField;
-
-    @FindBy(how = How.ID, using = "acc5")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc5"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='10']")
+    })
     private WebElement accountNumberTextField;
 
-    @FindBy(how = How.ID, using = "acc23")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc23"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='12']")
+    })
+
     private WebElement accountSiteTextField;
 
-    @FindBy(how = How.ID, using = "acc6")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc6"),
+            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='14']")
+    })
     private WebElement typeList;
 
-    @FindBy(how = How.ID, using = "acc7")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc7"),
+            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='16']")
+    })
     private WebElement industryList;
 
-    @FindBy(how = How.ID, using = "acc8")
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc8"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='18']")
+    })
     private WebElement annualRevenueTextField;
 
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc9"),
+            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='5']")
+    })
+    private WebElement ratingList;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc10"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='7']")
+    })
+    private WebElement accountPhone;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc11"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='9']")
+    })
+    private WebElement accountFax;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc12"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='11']")
+    })
+    private WebElement accountWebsite;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc13"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='13']")
+    })
+    private WebElement accountTickerSymbol;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc14"),
+            @FindBy(how = How.CSS, using = "a[data-interactive-lib-uid='15']")
+    })
+    private WebElement ownershipList;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc15"),
+            @FindBy(how = How.CSS, using = "input[data-interactive-lib-uid='17']")
+    })
+    private WebElement accountEmployee;
+
+    @FindAll({
+            @FindBy(how = How.ID, using = "acc16"),
+            @FindBy(how = How.CSS, using = "data-interactive-lib-uid='19'")
+    })
+    private WebElement accountSICCode;
+
+    /**
+     * Method to set accountEmployee attribute.
+     *
+     * @param accountSICCode string value.
+     */
+    public void setAccountSICCodeTextField(final String accountSICCode) {
+        this.accountSICCode.clear();
+        this.accountSICCode.sendKeys(accountSICCode);
+    }
+
+    /**
+     * Method to set accountEmployee attribute.
+     *
+     * @param accountEmployee string value.
+     */
+    public void setAccountEmployeeTextField(final String accountEmployee) {
+        this.accountEmployee.clear();
+        this.accountEmployee.sendKeys(accountEmployee);
+    }
+
+    /**
+     * Method to set accountOwnershipList attribute.
+     *
+     * @param accountOwnershipList string value.
+     */
+    public void setAccountOwnershipList(final String accountOwnershipList) {
+        this.ownershipList.clear();
+        this.ownershipList.sendKeys(accountOwnershipList);
+    }
+
+    /**
+     * Method to set accountTickerSymbol attribute.
+     *
+     * @param accountTickerSymbol string value.
+     */
+    public void setAccountTickerSymbolTextField(final String accountTickerSymbol) {
+        this.accountTickerSymbol.clear();
+        this.accountTickerSymbol.sendKeys(accountTickerSymbol);
+    }
+
+    /**
+     * Method to set accountWebsite attribute.
+     *
+     * @param accountWebsite string value.
+     */
+    public void setAccountWebsiteTextField(final String accountWebsite) {
+        this.accountWebsite.clear();
+        this.accountWebsite.sendKeys(accountWebsite);
+    }
+
+    /**
+     * Method to set accountPhone attribute.
+     *
+     * @param accountFax string value.
+     */
+    public void setAccountFaxTextField(final String accountFax) {
+        this.accountFax.clear();
+        this.accountFax.sendKeys(accountFax);
+    }
+
+    /**
+     * Method to set accountPhone attribute.
+     *
+     * @param accountPhone string value.
+     */
+    public void setAccountPhoneTextField(final String accountPhone) {
+        this.accountPhone.clear();
+        this.accountPhone.sendKeys(accountPhone);
+    }
+
+    /**
+     * Method to set ratingList attribute.
+     *
+     * @param ratingList string value.
+     */
+    public void setAccountRatingList(final String ratingList) {
+        this.ratingList.sendKeys(ratingList);
+    }
 
     /**
      * Method to set accountName attribute.
