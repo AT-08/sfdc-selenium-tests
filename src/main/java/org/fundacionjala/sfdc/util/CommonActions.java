@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public final class CommonActions {
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
+    private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
 
     /**
      * Private constructor because it is a util class.
@@ -38,6 +39,7 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
+        scrollPage(WEB_DRIVER,element);
         WAITER.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }

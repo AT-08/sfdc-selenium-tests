@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -9,15 +10,23 @@ import org.openqa.selenium.support.How;
  */
 public abstract class SFDetails extends Base {
 
-    @FindBy(how = How.CSS, using = "#topButtonRow.pbButton > input[name='edit']")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "topButtonRow.pbButton > input[name='edit']"),
+            @FindBy(how = How.CSS, using = "a[title='Edit']")
+    })
     protected WebElement editButton;
 
-    @FindBy(how = How.CSS, using = "#topButtonRow > input:nth-child(4).btn")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "topButtonRow > input[value='Delete']"),
+            @FindBy(how = How.CSS, using = "a[title='Delete']")
+    })
     protected WebElement deleteButton;
 
-    @FindBy(how = How.CLASS_NAME, using = "topName")
+    @FindAll({
+            @FindBy(how = How.CLASS_NAME, using = "topName"),
+            @FindBy(how = How.CSS, using = "span.slds-truncate.uiOutputText")
+    })
     protected WebElement newAccountLabel;
-
 
     /**
      * getEditButton.

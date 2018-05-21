@@ -13,7 +13,7 @@ public class SFOMainPage extends SFMain {
      */
     @Override
     public void getNewAccountButton() {
-        CommonActions.clickElement(this.newContactButton);
+        CommonActions.clickElement(this.newButton);
     }
 
     /**
@@ -21,7 +21,7 @@ public class SFOMainPage extends SFMain {
      */
     @Override
     public void getAccountNameLink() {
-        CommonActions.clickElement(this.lastContactLink);
+        CommonActions.clickElement(this.lastItemOnList);
     }
 
     /**
