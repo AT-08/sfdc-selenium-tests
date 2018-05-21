@@ -59,7 +59,7 @@ public final class CommonActions {
      * @param element   the element we want to choose.
      */
     public static void scrollPage(final WebDriver webDriver, final WebElement element) {
-        System.out.println("clicking scroll "+element);
+        System.out.println("clicking scroll " + element);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 

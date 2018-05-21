@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.pageobjects.home.HomePage;
+import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
+import org.fundacionjala.sfdc.pageobjects.components.TopMenuLightning;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -63,6 +64,25 @@ public class SalesForceLogIn extends Base {
         CommonActions.getElement(this.userPassword).sendKeys(userPassword);
     }
 
+
+    /**
+     * Set the user theme.
+     *
+     * @param userTheme the theme from properties.
+     */
+    public void setUserTheme(final String userTheme) {
+        String currentTheme = PageUtil.getInstance().getCurrentTheme().toString();
+        if (!userTheme.equalsIgnoreCase(currentTheme)) {
+            if (userTheme.equalsIgnoreCase("lightning")) {
+                TopMenuClassic topMenu = new TopMenuClassic();
+                topMenu.switchTheme();
+            } else {
+                TopMenuLightning topMenu = new TopMenuLightning();
+                topMenu.switchTheme();
+            }
+        }
+    }
+
     /**
      * Getter of logInbutton.
      *
@@ -84,18 +104,17 @@ public class SalesForceLogIn extends Base {
     /**
      * Method to log in Salesforce.
      *
-     * @param user the user.
-     * @param pass its password.
-     * @return get the home page.
+     * @param user  the user.
+     * @param pass  its password.
+     * @param theme is the theme
      */
-    public HomePage logIn(final String user, final String pass) {
+    public void logIn(final String user, final String pass, final String theme) {
         this.setWebDriverUrl();
         this.setUserName(user);
         this.setUserPassword(pass);
         WebElement button = getLogInButton();
         this.clickLogInButton(button);
-       // PageUtil.getInstance().switchTheme();
-        return PageFactory.getHomePage();
+        this.setUserTheme(theme);
     }
 
     /**
@@ -115,4 +134,3 @@ public class SalesForceLogIn extends Base {
         System.out.println("Construction.");
     }
 }
-
