@@ -3,6 +3,7 @@ package org.fundacionjala.sfdc.pageobjects.contacts;
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.util.CommonActions;
 
+
 /**
  * SFCMainPage.java
  * Class that represents the main page of contacts section.
@@ -30,7 +31,7 @@ public class SFCMainPage extends SFMain {
      */
     @Override
     public String getAccountHomePage() {
-        return CommonActions.getElement(this.homeContact).getText();
+        return CommonActions.getTextElement(this.homeContact);
     }
 
     @Override

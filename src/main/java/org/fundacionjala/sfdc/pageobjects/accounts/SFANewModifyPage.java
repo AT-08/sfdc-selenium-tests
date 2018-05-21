@@ -192,9 +192,10 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param accountName string value.
      */
-    public void setAccountNameTextField(final String accountName) {
-        this.accountNameTextField.clear();
-        this.accountNameTextField.sendKeys(accountName);
+    private void setAccountNameTextField(final String accountName) {
+        CommonActions.clearField(this.accountNameTextField);
+        CommonActions.setTextElement(this.accountNameTextField, accountName);
+
     }
 
     /**
@@ -202,8 +203,9 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param parentAccount the value.
      */
-    public void setParentAccountTextField(final String parentAccount) {
-        this.parentAccountTextField.sendKeys(parentAccount);
+    private void setParentAccountTextField(final String parentAccount) {
+        CommonActions.clearField(this.parentAccountTextField);
+        CommonActions.setTextElement(this.parentAccountTextField, parentAccount);
     }
 
     /**
@@ -211,9 +213,9 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param accountNumber the value.
      */
-    public void setAccountNumberTextField(final String accountNumber) {
-        this.accountNumberTextField.clear();
-        this.accountNumberTextField.sendKeys(accountNumber);
+    private void setAccountNumberTextField(final String accountNumber) {
+        CommonActions.clearField(this.accountNumberTextField);
+        CommonActions.setTextElement(this.accountNumberTextField, accountNumber);
     }
 
     /**
@@ -221,9 +223,9 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param accountSite the value.
      */
-    public void setAccountSiteTextField(final String accountSite) {
-        this.accountSiteTextField.clear();
-        this.accountSiteTextField.sendKeys(accountSite);
+    private void setAccountSiteTextField(final String accountSite) {
+        CommonActions.clearField(accountSiteTextField);
+        CommonActions.setTextElement(this.accountSiteTextField, accountSite);
     }
 
     /**
@@ -231,8 +233,8 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param type the value.
      */
-    public void setAccountTypeList(final String type) {
-        this.typeList.sendKeys(type);
+    private void setAccountTypeList(final String type) {
+        CommonActions.setTextElement(this.typeList, type);
     }
 
     /**
@@ -240,8 +242,8 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param industry the value.
      */
-    public void setIndustryList(final String industry) {
-        this.industryList.sendKeys(industry);
+    private void setIndustryList(final String industry) {
+        CommonActions.setTextElement(this.industryList, industry);
     }
 
     /**
@@ -249,9 +251,9 @@ public class SFANewModifyPage extends SFNewModify {
      *
      * @param annualRevenue the value.
      */
-    public void setAnnualRevenueTextField(final String annualRevenue) {
-        this.annualRevenueTextField.clear();
-        this.annualRevenueTextField.sendKeys(annualRevenue);
+    private void setAnnualRevenueTextField(final String annualRevenue) {
+        CommonActions.clearField(annualRevenueTextField);
+        CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
     }
 
 

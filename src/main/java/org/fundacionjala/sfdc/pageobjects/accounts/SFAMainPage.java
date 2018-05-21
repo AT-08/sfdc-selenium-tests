@@ -31,7 +31,8 @@ public class SFAMainPage extends SFMain {
      */
     @Override
     public String getAccountHomePage() {
-        return CommonActions.getElement(this.homeContact).getText();
+
+        return CommonActions.getTextElement(this.homeContact);
     }
 
     /**

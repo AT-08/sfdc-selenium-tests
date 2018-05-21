@@ -41,7 +41,7 @@ public class SFADetailsPage extends SFDetails {
      */
     @Override
     public String getNewAccountSavedName() {
-        return CommonActions.getElement(this.newAccountLabel).getText();
+        return CommonActions.getTextElement(this.newAccountLabel);
     }
 
     /**

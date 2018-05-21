@@ -38,11 +38,19 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
-        System.out.println("clicking "+element);
-        WAITER.until(ExpectedConditions.visibilityOf(element));
+        WAITER.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
+
+    /**
+     * @param element Any WebElement.
+     * @return the text of Webelement.
+     */
+    public static String getTextElement(final WebElement element) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        return element.getText();
+    }
 
     /**
      * Method to scroll down page.
@@ -55,4 +63,20 @@ public final class CommonActions {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
+    /**
+     * @param element Clear a field.
+     */
+    public static void clearField(final WebElement element) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+    }
+
+    /**
+     * @param element Any WebElement.
+     * @param text    set a text on a field.
+     */
+    public static void setTextElement(final WebElement element, final String text) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.sendKeys(text);
+    }
 }

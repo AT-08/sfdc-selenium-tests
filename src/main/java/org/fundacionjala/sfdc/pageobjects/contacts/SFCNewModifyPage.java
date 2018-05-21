@@ -45,9 +45,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactName string value.
      */
-    public void setContactNameTextField(final String contactName) {
-        this.contactNameTextField.clear();
-        this.contactNameTextField.sendKeys(contactName);
+    private void setContactNameTextField(final String contactName) {
+        CommonActions.clearField(this.contactNameTextField);
+        CommonActions.setTextElement(this.contactNameTextField, contactName);
     }
 
     /**
@@ -55,9 +55,10 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactLastName string value.
      */
-    public void setContactLastNameTextField(final String contactLastName) {
-        this.contactLastNameTextField.clear();
-        this.contactLastNameTextField.sendKeys(contactLastName);
+    private void setContactLastNameTextField(final String contactLastName) {
+
+        CommonActions.clearField(this.contactLastNameTextField);
+        CommonActions.setTextElement(this.contactLastNameTextField, contactLastName);
     }
 
     /**
@@ -65,9 +66,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactTitleTextField string value.
      */
-    public void setContactTitleTextField(final String contactTitleTextField) {
-        this.contactTitleTextField.clear();
-        this.contactTitleTextField.sendKeys(contactTitleTextField);
+    private void setContactTitleTextField(final String contactTitleTextField) {
+        CommonActions.clearField(this.contactTitleTextField);
+        CommonActions.setTextElement(this.contactTitleTextField, contactTitleTextField);
     }
 
     /**
@@ -75,9 +76,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactDepartmentTextField string value.
      */
-    public void setContactDepartmentTextField(final String contactDepartmentTextField) {
-        this.contactDepartmentTextField.clear();
-        this.contactDepartmentTextField.sendKeys(contactDepartmentTextField);
+    private void setContactDepartmentTextField(final String contactDepartmentTextField) {
+        CommonActions.clearField(this.contactDepartmentTextField);
+        CommonActions.setTextElement(this.contactDepartmentTextField, contactDepartmentTextField);
     }
 
     /**
@@ -85,9 +86,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactBirthdateTextField string value.
      */
-    public void setContactBirthdateTextField(final String contactBirthdateTextField) {
-        this.contactBirthdateTextField.clear();
-        this.contactBirthdateTextField.sendKeys(contactBirthdateTextField);
+    private void setContactBirthdateTextField(final String contactBirthdateTextField) {
+        CommonActions.clearField(this.contactBirthdateTextField);
+        CommonActions.setTextElement(this.contactBirthdateTextField, contactBirthdateTextField);
     }
 
     /**
@@ -95,8 +96,8 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactLeadSourceTextField string value.
      */
-    public void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
-        this.contactLeadSourceTextField.sendKeys(contactLeadSourceTextField);
+    private void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
+        CommonActions.setTextElement(this.contactLeadSourceTextField, contactLeadSourceTextField);
     }
 
     /**
@@ -104,9 +105,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactPhoneTextField string value.
      */
-    public void setContactPhoneTextField(final String contactPhoneTextField) {
-        this.contactPhoneTextField.clear();
-        this.contactPhoneTextField.sendKeys(contactPhoneTextField);
+    private void setContactPhoneTextField(final String contactPhoneTextField) {
+        CommonActions.clearField(this.contactPhoneTextField);
+        CommonActions.setTextElement(this.contactPhoneTextField, contactPhoneTextField);
     }
 
     /**
@@ -114,9 +115,9 @@ public class SFCNewModifyPage extends SFNewModify {
      *
      * @param contactHomePhoneTextField string value.
      */
-    public void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
-        this.contactHomePhoneTextField.clear();
-        this.contactHomePhoneTextField.sendKeys(contactHomePhoneTextField);
+    private void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
+        CommonActions.clearField(this.contactHomePhoneTextField);
+        CommonActions.setTextElement(this.contactHomePhoneTextField, contactHomePhoneTextField);
     }
 
 
