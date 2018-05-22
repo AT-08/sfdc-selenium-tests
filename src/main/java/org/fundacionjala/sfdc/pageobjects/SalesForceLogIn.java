@@ -30,6 +30,9 @@ public class SalesForceLogIn extends Base {
     })
     private WebElement cloudIcon;
 
+    private TopMenuClassic topMenuClassic = new TopMenuClassic();
+    private TopMenuLightning topMenuLightning = new TopMenuLightning();
+
     /**
      * Constructor.
      *
@@ -64,7 +67,6 @@ public class SalesForceLogIn extends Base {
         CommonActions.getElement(this.userPassword).sendKeys(userPassword);
     }
 
-
     /**
      * Set the user theme.
      *
@@ -73,12 +75,10 @@ public class SalesForceLogIn extends Base {
     public void setUserTheme(final String userTheme) {
         String currentTheme = PageUtil.getInstance().getCurrentTheme().toString();
         if (!userTheme.equalsIgnoreCase(currentTheme)) {
-            if (userTheme.equalsIgnoreCase("lightning")) {
-                TopMenuClassic topMenu = new TopMenuClassic();
-                topMenu.switchTheme();
+            if (userTheme.equalsIgnoreCase("LIGHT")) {
+                topMenuClassic.switchTheme();
             } else {
-                TopMenuLightning topMenu = new TopMenuLightning();
-                topMenu.switchTheme();
+                topMenuLightning.switchTheme();
             }
         }
     }
