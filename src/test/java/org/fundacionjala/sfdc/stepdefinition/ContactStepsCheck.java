@@ -18,9 +18,27 @@ import java.util.Map;
  */
 public class ContactStepsCheck {
     private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
-    private SFCMainPage mainPage = new SFCMainPage();
-    private SFCNewModifyPage modifyPage = new SFCNewModifyPage();
-    private SFCDetailsPage detailsPage = new SFCDetailsPage();
+    private SFCMainPage mainPage;
+    private SFCNewModifyPage modifyPage;
+    private SFCDetailsPage detailsPage;
+
+    /**
+     * ContactStepsCheck.
+     *
+     * @param tabClassic  tabClassic menu.
+     * @param mainPage    mainPage menu.
+     * @param modifyPage  modifyPage menu.
+     * @param detailsPage detailsPage menu.
+     */
+    public ContactStepsCheck(final SalesForceTabClassic tabClassic,
+                             final SFCMainPage mainPage,
+                             final SFCNewModifyPage modifyPage,
+                             final SFCDetailsPage detailsPage) {
+        this.tabClassic = tabClassic;
+        this.mainPage = mainPage;
+        this.modifyPage = modifyPage;
+        this.detailsPage = detailsPage;
+    }
 
     /**
      * iCanGoToContactSection.

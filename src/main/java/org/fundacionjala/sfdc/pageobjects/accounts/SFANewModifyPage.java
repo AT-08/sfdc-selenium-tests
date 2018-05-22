@@ -200,7 +200,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param ratingList string value.
      */
     public void setAccountRatingList(final String ratingList) {
-        this.ratingList.sendKeys(ratingList);
+        CommonActions.setTextElement(this.ratingList, ratingList);
     }
 
     /**
@@ -211,7 +211,6 @@ public class SFANewModifyPage extends SFNewModify {
     private void setAccountNameTextField(final String accountName) {
         CommonActions.clearField(this.accountNameTextField);
         CommonActions.setTextElement(this.accountNameTextField, accountName);
-
     }
 
     /**
@@ -272,7 +271,6 @@ public class SFANewModifyPage extends SFNewModify {
         CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
     }
 
-
     /**
      * @param values account fields.
      * @return map of account fields.
@@ -321,12 +319,5 @@ public class SFANewModifyPage extends SFNewModify {
     public void getSaveNewAccountButton() {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
-
-    /**
-     * Wait until the page loads.
-     */
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-        System.out.println("Construction.");
-    }
+    
 }

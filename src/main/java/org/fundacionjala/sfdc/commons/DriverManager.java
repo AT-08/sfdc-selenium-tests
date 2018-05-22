@@ -13,7 +13,7 @@ public final class DriverManager {
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait wait;
-    private static final int SECONDS_WAIT = 30;
+    private static final int SECONDS_WAIT = 90;
 
     /**
      * Constructor, private to apply singleton pattern.

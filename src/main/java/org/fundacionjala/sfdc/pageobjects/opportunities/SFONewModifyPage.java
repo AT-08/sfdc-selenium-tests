@@ -4,6 +4,7 @@ import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -15,15 +16,21 @@ import java.util.Map;
  */
 public class SFONewModifyPage extends SFNewModify {
 
-    @FindBy(how = How.CSS, using = "opp3")
+
+    @FindAll({
+            @FindBy(how = How.CSS, using = "#opp3"),
+    })
     private WebElement opportunityName;
 
-    @FindBy(how = How.CSS, using = "opp9")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "#opp9"),
+    })
     private WebElement opportunityCloseDate;
 
-    @FindBy(how = How.CSS, using = "opp11")
+    @FindAll({
+            @FindBy(how = How.CSS, using = "#opp11")
+    })
     private WebElement opportunityStage;
-
 
     /**
      * @param opportunityName setOpportunityName.
@@ -74,8 +81,4 @@ public class SFONewModifyPage extends SFNewModify {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
 
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-
-    }
 }

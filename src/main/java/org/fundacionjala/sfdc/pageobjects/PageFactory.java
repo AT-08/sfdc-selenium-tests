@@ -1,8 +1,5 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.pageobjects.home.HomePage;
-import org.fundacionjala.sfdc.pageobjects.home.HomePageClassic;
-import org.fundacionjala.sfdc.pageobjects.home.HomePageLightning;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenu;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuLightning;
@@ -22,19 +19,6 @@ public final class PageFactory {
     }
 
     private static Theme theme = SalesForceAppConfig.getInstance().getTheme();
-
-    /**
-     * Get whether is classic or lightning.
-     *
-     * @return instance whether is classic or lightning.
-     */
-    public static HomePage getHomePage() {
-        if (theme == Theme.CLASSIC) {
-            return new HomePageClassic();
-        } else {
-            return new HomePageLightning();
-        }
-    }
 
     /**
      * Get whether is classic or lightning.
