@@ -15,13 +15,13 @@ import java.util.Map;
  */
 public class SFONewModifyPage extends SFNewModify {
 
-    @FindBy(how = How.CSS, using = "#opp3")
+    @FindBy(how = How.CSS, using = "opp3")
     private WebElement opportunityName;
 
-    @FindBy(how = How.CSS, using = "#opp9")
+    @FindBy(how = How.CSS, using = "opp9")
     private WebElement opportunityCloseDate;
 
-    @FindBy(how = How.CSS, using = "#opp11")
+    @FindBy(how = How.CSS, using = "opp11")
     private WebElement opportunityStage;
 
 

@@ -24,7 +24,7 @@ public abstract class SFDetails extends Base {
 
     @FindAll({
             @FindBy(how = How.CLASS_NAME, using = "topName"),
-            @FindBy(how = How.CSS, using = "span.slds-truncate.uiOutputText")
+            @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
     protected WebElement newAccountLabel;
 

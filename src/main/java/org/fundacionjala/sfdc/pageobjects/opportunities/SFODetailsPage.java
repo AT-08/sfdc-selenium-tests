@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * SFODetailsPage.
  */
 public class SFODetailsPage extends SFDetails {
-    @FindBy(how = How.CSS, using = "#bodyCell  h2.pageDescription")
+    @FindBy(how = How.CSS, using = "bodyCell h2.pageDescription")
     private WebElement opportunityLabel;
 
     /**

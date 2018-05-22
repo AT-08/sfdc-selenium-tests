@@ -59,7 +59,6 @@ public final class CommonActions {
      * @param element   the element we want to choose.
      */
     public static void scrollPage(final WebDriver webDriver, final WebElement element) {
-        System.out.println("clicking scroll "+element);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -76,6 +75,15 @@ public final class CommonActions {
      * @param text    set a text on a field.
      */
     public static void setTextElement(final WebElement element, final String text) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.sendKeys(text);
+    }
+
+    /**
+     * @param element Any WebElement.
+     * @param text    text to select.
+     */
+    public static void setTextOnAutoCompleter(final WebElement element, final String text) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
         element.sendKeys(text);
     }
