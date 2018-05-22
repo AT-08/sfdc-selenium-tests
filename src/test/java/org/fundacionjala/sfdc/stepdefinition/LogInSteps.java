@@ -22,7 +22,7 @@ public class LogInSteps {
     public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
         login = new SalesForceLogIn("https://login.salesforce.com/");
         Properties prop = PropertiesManager.getInstance().getConfig();
-        login.logIn(prop.getProperty("user"), prop.getProperty("password"));
+        login.logIn(prop.getProperty("user"), prop.getProperty("password"), prop.getProperty("theme"));
     }
 
     /**
