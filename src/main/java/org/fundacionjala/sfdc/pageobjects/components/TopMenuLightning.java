@@ -21,8 +21,4 @@ public class TopMenuLightning extends TopMenu {
         CommonActions.clickElement(switchThemeLink);
     }
 
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(userProfileLink));
-    }
 }
