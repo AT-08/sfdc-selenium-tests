@@ -46,9 +46,4 @@ public class SFCDetailsPage extends SFDetails {
 
         return CommonActions.getTextElement(this.newAccountLabel);
     }
-
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-
-    }
 }

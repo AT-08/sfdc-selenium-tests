@@ -3,7 +3,6 @@ package org.fundacionjala.sfdc.pageobjects.components;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Top menu of lightning SL.

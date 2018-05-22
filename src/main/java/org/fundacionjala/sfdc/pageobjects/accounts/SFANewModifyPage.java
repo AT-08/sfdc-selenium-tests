@@ -307,9 +307,7 @@ public class SFANewModifyPage extends SFNewModify {
                 this.setAccountTypeList(String.valueOf(values.get(AccountInputs.EMPLOYEES))));
         strategyMap.put(AccountInputs.TYPE, () ->
                 this.setAccountTypeList(String.valueOf(values.get(AccountInputs.SIC_CODE))));
-
         return strategyMap;
-
     }
 
     /**
@@ -319,5 +317,4 @@ public class SFANewModifyPage extends SFNewModify {
     public void getSaveNewAccountButton() {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
-    
 }

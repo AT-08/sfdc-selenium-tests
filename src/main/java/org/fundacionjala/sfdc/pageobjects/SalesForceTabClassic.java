@@ -77,14 +77,5 @@ public class SalesForceTabClassic extends Base {
         } catch (NoSuchElementException e) {
             System.out.println("Message not displayed.");
         }
-
-    }
-
-    /**
-     * Wait until the page loads.
-     */
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-        System.out.println("Construction.");
     }
 }

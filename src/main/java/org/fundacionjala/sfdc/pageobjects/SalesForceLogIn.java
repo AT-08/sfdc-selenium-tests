@@ -125,12 +125,4 @@ public class SalesForceLogIn extends Base {
     public boolean getCloudIcon() {
         return CommonActions.getElement(this.cloudIcon).isDisplayed();
     }
-
-    /**
-     * Wait until the page loads.
-     */
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-        System.out.println("Construction.");
-    }
 }

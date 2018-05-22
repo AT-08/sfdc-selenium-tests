@@ -33,9 +33,4 @@ public class SFCMainPage extends SFMain {
     public String getAccountHomePage() {
         return CommonActions.getTextElement(this.homeContact);
     }
-
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-
-    }
 }
