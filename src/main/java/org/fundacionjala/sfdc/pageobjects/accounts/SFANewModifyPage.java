@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -20,7 +20,7 @@ public class SFANewModifyPage extends SFNewModify {
     // Account Information.
     @FindAll({
             @FindBy(how = How.ID, using = "acc2"),
-            @FindBy(how = How.CSS, using = "div:nth-child(2) > div:nth-child(1) > div > div > div > input")
+            @FindBy(how = How.CSS, using = ".witsSuggestedNameField .input")
     })
     private WebElement accountNameTextField;
 
@@ -29,79 +29,100 @@ public class SFANewModifyPage extends SFNewModify {
             @FindBy(how = How.CSS, using = "input[title='Search Accounts']")
     })
     private WebElement parentAccountTextField;
+
     @FindAll({
             @FindBy(how = How.ID, using = "acc5"),
-            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(1) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Account Number']/parent::label/following-sibling::input")
     })
     private WebElement accountNumberTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc23"),
-            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(1) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Account Site']/parent::label/following-sibling::input")
     })
 
     private WebElement accountSiteTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc6"),
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement typeList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc7"),
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Industry']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement industryList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc8"),
-            @FindBy(how = How.CSS, using = "div:nth-child(8) > div:nth-child(1) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Annual Revenue']/parent::label/following-sibling::input")
     })
     private WebElement annualRevenueTextField;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc9"),
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Rating']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement ratingList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc10"),
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Phone']/parent::label/following-sibling::input")
     })
     private WebElement accountPhone;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc11"),
-            @FindBy(how = How.CSS, using = "div:nth-child(3) > div:nth-child(2) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Fax']/parent::label/following-sibling::input")
     })
     private WebElement accountFax;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc12"),
-            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(2) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Website']/parent::label/following-sibling::input")
     })
     private WebElement accountWebsite;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc13"),
-            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(2) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Ticker Symbol']/parent::label/following-sibling::input")
     })
     private WebElement accountTickerSymbol;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc14"),
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Ownership']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement ownershipList;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc15"),
-            @FindBy(how = How.CSS, using = "div:nth-child(7) > div:nth-child(2) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='Employees']/parent::label/following-sibling::input")
     })
     private WebElement accountEmployee;
 
     @FindAll({
             @FindBy(how = How.ID, using = "acc16"),
-            @FindBy(how = How.CSS, using = "div:nth-child(8) > div:nth-child(2) > div > div > div > input")
+            @FindBy(how = How.XPATH, using =
+                    "//span[text()='SIC Code']/parent::label/following-sibling::input")
     })
     private WebElement accountSICCode;
+
+    // Address Information
 
     /**
      * Method to set accountEmployee attribute.
@@ -120,7 +141,7 @@ public class SFANewModifyPage extends SFNewModify {
      */
     public void setAccountEmployeeTextField(final String accountEmployee) {
         CommonActions.clearField(this.accountEmployee);
-        CommonActions.setTextElement(this.accountSICCode, accountEmployee);
+        CommonActions.setTextElement(this.accountEmployee, accountEmployee);
     }
 
     /**
@@ -255,7 +276,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @return map of account fields.
      */
     public Map<AccountInputs, Value> getStrategyStepMap(final Map<AccountInputs, String> values) {
-        Map<AccountInputs, Value> strategyMap = new HashMap<>();
+        EnumMap<AccountInputs, Value> strategyMap = new EnumMap<>(AccountInputs.class);
         strategyMap.put(AccountInputs.ACCOUNT_NAME, () ->
                 this.setAccountNameTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_NAME))));
         strategyMap.put(AccountInputs.ACCOUNT_NUMBER, () ->
@@ -270,9 +291,23 @@ public class SFANewModifyPage extends SFNewModify {
                 this.setParentAccountTextField(String.valueOf(values.get(AccountInputs.PARENT_ACCOUNT))));
         strategyMap.put(AccountInputs.TYPE, () ->
                 this.setAccountTypeList(String.valueOf(values.get(AccountInputs.TYPE))));
-
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.RATING))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.PHONE))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.FAX))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.WEBSITE))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.TICKER_SYMBOL))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.OWNERSHIP))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.EMPLOYEES))));
+        strategyMap.put(AccountInputs.TYPE, () ->
+                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.SIC_CODE))));
         return strategyMap;
-
     }
 
     /**
@@ -282,5 +317,4 @@ public class SFANewModifyPage extends SFNewModify {
     public void getSaveNewAccountButton() {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
-    
 }

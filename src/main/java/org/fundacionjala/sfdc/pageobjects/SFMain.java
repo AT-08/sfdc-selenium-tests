@@ -25,7 +25,7 @@ public abstract class SFMain extends Base {
 
     @FindAll({
     @FindBy(how = How.CSS, using = "h2.pageDescription"),
-            @FindBy(how = How.CSS, using = "span.slds-truncate.uiOutputText")
+            @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
     protected WebElement homeContact;
 

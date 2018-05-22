@@ -43,12 +43,4 @@ public class SFADetailsPage extends SFDetails {
     public String getNewAccountSavedName() {
         return CommonActions.getTextElement(this.newAccountLabel);
     }
-
-    /**
-     * Wait until the page loads.
-     */
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-        System.out.println("Construction.");
-    }
 }

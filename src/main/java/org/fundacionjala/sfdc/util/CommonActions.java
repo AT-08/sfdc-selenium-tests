@@ -78,4 +78,13 @@ public final class CommonActions {
         WAITER.until(ExpectedConditions.visibilityOf(element));
         element.sendKeys(text);
     }
+
+    /**
+     * @param element Any WebElement.
+     * @param text    text to select.
+     */
+    public static void setTextOnAutoCompleter(final WebElement element, final String text) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.sendKeys(text);
+    }
 }

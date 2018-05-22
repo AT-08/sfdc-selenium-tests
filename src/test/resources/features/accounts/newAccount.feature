@@ -8,17 +8,27 @@ Feature: Create a new account
     Given I can go to account section
     And I can create a new account
     And I can create a new account fill the fields and press the save button
-      | ACCOUNT_NAME | test1 |
-    Then I can verify the new account "test1"
+      | ACCOUNT_NAME | Account with only obligatory fields filled |
+    Then I can verify the new account "Account with only obligatory fields filled"
 
   Scenario: Create a new account with all fields filled
     Given I can go to account section
     And I can create a new account
     And I can create a new account fill the fields and press the save button
-      | ACCOUNT_NAME   | test2       |
-      | ACCOUNT_NUMBER | 1           |
-      | ACCOUNT_SITE   | 2           |
-      | TYPE           | Prospect    |
-      | INDUSTRY       | Agriculture |
-      | ANUAL_REVENUE  | 200         |
-    Then I can verify the new account "test2"
+      | ACCOUNT_NAME   | Account with all fields filled |
+      | ACCOUNT_NUMBER | 100                            |
+      | ACCOUNT_SITE   | 2                              |
+      | PARENT_ACCOUNT | test2                          |
+      | TYPE           | Prospect                       |
+      | INDUSTRY       | Agriculture                    |
+      | ANUAL_REVENUE  | 200                            |
+      | RATING         | Hot                            |
+      | PHONE          | 591591591                      |
+      | FAX            | 591591222                      |
+      | WEBSITE        | www.website.com                |
+      | TICKER_SYMBOL  | ACC                            |
+      | OWNERSHIP      | Public                         |
+      | EMPLOYEES      | 10                             |
+      | SIC_CODE       | 200200200                      |
+
+    Then I can verify the new account "Account with all fields filled"
