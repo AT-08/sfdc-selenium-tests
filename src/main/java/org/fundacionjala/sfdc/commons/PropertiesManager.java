@@ -37,8 +37,7 @@ public final class PropertiesManager {
      */
     private void init() {
         prop = new Properties();
-        try {
-            InputStream input = new FileInputStream("config.properties");
+        try (InputStream input = new FileInputStream("config.properties")) {
             prop.load(input);
         } catch (IOException e) {
             System.out.println(e.getMessage());

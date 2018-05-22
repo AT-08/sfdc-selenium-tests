@@ -2,7 +2,7 @@ package org.fundacionjala.sfdc.commons;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -11,20 +11,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public final class DriverManager {
     private static DriverManager driverManager;
-    private static WebDriver driver;
-    private static WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
     private static final int SECONDS_WAIT = 90;
 
     /**
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        initWebDriver();
-        initWebDriverWaiter();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, SECONDS_WAIT);
     }
 
     /**
      * Static method to get an class instance.
+     *
      * @return instance.
      */
     public static DriverManager getInstance() {
@@ -35,39 +36,21 @@ public final class DriverManager {
     }
 
     /**
-     * Initialize WebDriver object.
-     */
-    private void initWebDriver() {
-        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-        driver = new FirefoxDriver();
-    }
-
-    /**
-     * Initialize WebDriverWaiter object.
-     */
-    private void initWebDriverWaiter() {
-        wait = new WebDriverWait(this.driver, SECONDS_WAIT);
-    }
-
-    /**
      * Getter of WebDriver object.
+     *
      * @return WebDriver instance.
      */
-    public static WebDriver getNavigator() {
+    public WebDriver getNavigator() {
         return driver;
     }
+
     /**
      * Getter of WebDriverWait object.
+     *
      * @return WebDriverWait instance.
      */
     public WebDriverWait getWaiter() {
         return wait;
     }
 
-    /**
-     * Method to quit WebDriver instance.
-     */
-    public static void quitWebDriver() {
-        driver.quit();
-    }
 }
