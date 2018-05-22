@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -61,7 +61,7 @@ public class SFONewModifyPage extends SFNewModify {
      * @return map of contact fields.
      */
     public Map<OpportInputs, Value> getStrategyStepMap(final Map<OpportInputs, String> values) {
-        Map<OpportInputs, Value> strategyMap = new HashMap<>();
+        EnumMap<OpportInputs, Value> strategyMap = new EnumMap<>(OpportInputs.class);
 
         strategyMap.put(OpportInputs.OPPORTUNITY_NAME, () ->
                 this.setOpportunityName(String.valueOf(values.get(OpportInputs.OPPORTUNITY_NAME))));

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -149,7 +149,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @return map of contact fields.
      */
     public Map<ContactInputs, Value> getStrategyStepMap(final Map<ContactInputs, String> values) {
-        Map<ContactInputs, Value> strategyMap = new HashMap<>();
+        EnumMap<ContactInputs, Value> strategyMap = new EnumMap<>(ContactInputs.class);
 
         strategyMap.put(ContactInputs.CONTACT_NAME, () ->
                 this.setContactNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_NAME))));
