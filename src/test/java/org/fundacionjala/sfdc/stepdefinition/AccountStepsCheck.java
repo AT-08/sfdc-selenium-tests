@@ -30,10 +30,10 @@ public class AccountStepsCheck {
      * @param modifyPage  modifyPage menu.
      * @param detailsPage detailsPage menu.
      */
-    public AccountStepsCheck(SalesForceTabClassic tabClassic,
-                             SFAMainPage mainPage,
-                             SFANewModifyPage modifyPage,
-                             SFADetailsPage detailsPage) {
+    public AccountStepsCheck(final SalesForceTabClassic tabClassic,
+                             final SFAMainPage mainPage,
+                             final SFANewModifyPage modifyPage,
+                             final SFADetailsPage detailsPage) {
         this.tabClassic = tabClassic;
         this.mainPage = mainPage;
         this.modifyPage = modifyPage;

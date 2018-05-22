@@ -30,10 +30,10 @@ public class ContactStepsCheck {
      * @param modifyPage  modifyPage menu.
      * @param detailsPage detailsPage menu.
      */
-    public ContactStepsCheck(SalesForceTabClassic tabClassic
-            , SFCMainPage mainPage
-            , SFCNewModifyPage modifyPage
-            , SFCDetailsPage detailsPage) {
+    public ContactStepsCheck(final SalesForceTabClassic tabClassic,
+                             final SFCMainPage mainPage,
+                             final SFCNewModifyPage modifyPage,
+                             final SFCDetailsPage detailsPage) {
         this.tabClassic = tabClassic;
         this.mainPage = mainPage;
         this.modifyPage = modifyPage;

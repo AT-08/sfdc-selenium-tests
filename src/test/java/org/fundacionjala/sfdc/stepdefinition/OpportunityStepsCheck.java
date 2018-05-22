@@ -31,10 +31,10 @@ public class OpportunityStepsCheck {
      * @param modifyPage  modifyPage menu.
      * @param detailsPage detailsPage menu.
      */
-    public OpportunityStepsCheck(SalesForceTabClassic tabClassic,
-                                 SFOMainPage mainPage,
-                                 SFONewModifyPage modifyPage,
-                                 SFODetailsPage detailsPage) {
+    public OpportunityStepsCheck(final SalesForceTabClassic tabClassic,
+                                 final SFOMainPage mainPage,
+                                 final SFONewModifyPage modifyPage,
+                                 final SFODetailsPage detailsPage) {
         this.tabClassic = tabClassic;
         this.mainPage = mainPage;
         this.modifyPage = modifyPage;
