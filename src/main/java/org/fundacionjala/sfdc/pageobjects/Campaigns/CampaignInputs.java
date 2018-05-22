@@ -1,9 +1,9 @@
-package org.fundacionjala.sfdc.pageobjects.opportunities;
+package org.fundacionjala.sfdc.pageobjects.Campaigns;
 
 /**
  * CampaignInputs.
  */
-public enum OpportInputs {
+public enum CampaignInputs {
     OPPORTUNITY_NAME,
     OPPORTUNITY_CLOSE_DATE,
     OPPORTUNITY_STAGE

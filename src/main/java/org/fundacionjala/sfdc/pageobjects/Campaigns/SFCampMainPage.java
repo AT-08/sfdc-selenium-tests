@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.opportunities;
+package org.fundacionjala.sfdc.pageobjects.Campaigns;
 
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -6,7 +6,7 @@ import org.fundacionjala.sfdc.util.CommonActions;
 /**
  * SFCampMainPage.
  */
-public class SFOMainPage extends SFMain {
+public class SFCampMainPage extends SFMain {
 
     /**
      * getNewAccountButton.

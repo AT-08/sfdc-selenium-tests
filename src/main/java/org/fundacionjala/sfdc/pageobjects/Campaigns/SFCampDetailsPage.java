@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.opportunities;
+package org.fundacionjala.sfdc.pageobjects.Campaigns;
 
 import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * SFCampDetailsPage.
  */
-public class SFODetailsPage extends SFDetails {
+public class SFCampDetailsPage extends SFDetails {
     @FindBy(how = How.CSS, using = "bodyCell h2.pageDescription")
     private WebElement opportunityLabel;
 
