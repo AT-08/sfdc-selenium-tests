@@ -21,9 +21,4 @@ public abstract class Base {
         PageFactory.initElements(this.webDriver, this);
         wait = DriverManager.getInstance().getWaiter();
     }
-
-    /**
-     * Wait until page object is loaded.
-     */
-    public abstract void waitUntilPageObjectIsLoaded();
 }

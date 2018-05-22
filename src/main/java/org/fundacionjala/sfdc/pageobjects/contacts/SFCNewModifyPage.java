@@ -5,6 +5,7 @@ import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -16,28 +17,50 @@ import java.util.Map;
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
 public class SFCNewModifyPage extends SFNewModify {
-    @FindBy(how = How.ID, using = "name_firstcon2")
-    private WebElement contactNameTextField;
 
-    @FindBy(how = How.ID, using = "name_lastcon2")
+    @FindAll({
+            @FindBy(how = How.ID, using = "name_firstcon2"),
+            @FindBy(how = How.CSS, using = "fieldset > div > div:nth-child(2) > input")
+    })
+    private WebElement contactNameTextField;
+    @FindAll({
+            @FindBy(how = How.ID, using = "name_lastcon2"),
+            @FindBy(how = How.CSS, using = "fieldset > div > div:nth-child(3) > input")
+    })
     private WebElement contactLastNameTextField;
 
-    @FindBy(how = How.ID, using = "con5")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con5"),
+            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(1) > div > div > div > input")
+    })
     private WebElement contactTitleTextField;
 
-    @FindBy(how = How.ID, using = "con6")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con6"),
+            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(1) > div > div > div > input")
+    })
     private WebElement contactDepartmentTextField;
 
-    @FindBy(how = How.ID, using = "con7")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con7"),
+            @FindBy(how = How.CSS, using = "div:nth-child(6) > div:nth-child(1) > div > div > div > div > input")
+    })
     private WebElement contactBirthdateTextField;
 
-    @FindBy(how = How.ID, using = "con9")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con9"),
+    })
     private WebElement contactLeadSourceTextField;
 
-    @FindBy(how = How.ID, using = "con10")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con10"),
+    })
     private WebElement contactPhoneTextField;
 
-    @FindBy(how = How.ID, using = "con13")
+    @FindAll({
+            @FindBy(how = How.ID, using = "con13"),
+            @FindBy(how = How.CSS, using = "div:nth-child(2) > div:nth-child(2) > div > div > div > input")
+    })
     private WebElement contactHomePhoneTextField;
 
     /**
@@ -146,7 +169,6 @@ public class SFCNewModifyPage extends SFNewModify {
                 this.setContactHomePhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_HOMEPHONE))));
 
         return strategyMap;
-
     }
 
     /**
@@ -157,8 +179,4 @@ public class SFCNewModifyPage extends SFNewModify {
         CommonActions.clickElement(this.saveNewAccountButton);
     }
 
-    @Override
-    public void waitUntilPageObjectIsLoaded() {
-
-    }
 }

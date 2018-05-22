@@ -65,7 +65,6 @@ public class SalesForceTabClassic extends Base {
         closeMessageLighting();
     }
 
-
     /**
      * Method to close message displayed.
      */

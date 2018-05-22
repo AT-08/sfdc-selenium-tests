@@ -18,10 +18,28 @@ import java.util.Map;
  */
 public class OpportunityStepsCheck {
 
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
-    private SFOMainPage mainPage = new SFOMainPage();
-    private SFONewModifyPage modifyPage = new SFONewModifyPage();
-    private SFODetailsPage detailsPage = new SFODetailsPage();
+    private SalesForceTabClassic tabClassic;
+    private SFOMainPage mainPage;
+    private SFONewModifyPage modifyPage;
+    private SFODetailsPage detailsPage;
+
+    /**
+     * OpportunityStepsCheck.
+     *
+     * @param tabClassic  tabClassic menu.
+     * @param mainPage    mainPage menu.
+     * @param modifyPage  modifyPage menu.
+     * @param detailsPage detailsPage menu.
+     */
+    public OpportunityStepsCheck(final SalesForceTabClassic tabClassic,
+                                 final SFOMainPage mainPage,
+                                 final SFONewModifyPage modifyPage,
+                                 final SFODetailsPage detailsPage) {
+        this.tabClassic = tabClassic;
+        this.mainPage = mainPage;
+        this.modifyPage = modifyPage;
+        this.detailsPage = detailsPage;
+    }
 
     /**
      * iCanGoToOpportunitySection.

@@ -17,10 +17,28 @@ import java.util.Map;
  * AccountStepsCheck.
  */
 public class AccountStepsCheck {
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
-    private SFAMainPage mainPage = new SFAMainPage();
-    private SFANewModifyPage modifyPage = new SFANewModifyPage();
-    private SFADetailsPage detailsPage = new SFADetailsPage();
+    private SalesForceTabClassic tabClassic;
+    private SFAMainPage mainPage;
+    private SFANewModifyPage modifyPage;
+    private SFADetailsPage detailsPage;
+
+    /**
+     * AccountStepsCheck.
+     *
+     * @param tabClassic  tabClassic menu.
+     * @param mainPage    mainPage menu.
+     * @param modifyPage  modifyPage menu.
+     * @param detailsPage detailsPage menu.
+     */
+    public AccountStepsCheck(final SalesForceTabClassic tabClassic,
+                             final SFAMainPage mainPage,
+                             final SFANewModifyPage modifyPage,
+                             final SFADetailsPage detailsPage) {
+        this.tabClassic = tabClassic;
+        this.mainPage = mainPage;
+        this.modifyPage = modifyPage;
+        this.detailsPage = detailsPage;
+    }
 
     /**
      * iCanGoToAccountSection.
