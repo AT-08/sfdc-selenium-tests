@@ -69,7 +69,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactName string value.
      */
     private void setContactNameTextField(final String contactName) {
-        CommonActions.clearField(this.contactNameTextField);
         CommonActions.setTextElement(this.contactNameTextField, contactName);
     }
 
@@ -80,7 +79,6 @@ public class SFCNewModifyPage extends SFNewModify {
      */
     private void setContactLastNameTextField(final String contactLastName) {
 
-        CommonActions.clearField(this.contactLastNameTextField);
         CommonActions.setTextElement(this.contactLastNameTextField, contactLastName);
     }
 
@@ -90,7 +88,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactTitleTextField string value.
      */
     private void setContactTitleTextField(final String contactTitleTextField) {
-        CommonActions.clearField(this.contactTitleTextField);
         CommonActions.setTextElement(this.contactTitleTextField, contactTitleTextField);
     }
 
@@ -100,7 +97,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactDepartmentTextField string value.
      */
     private void setContactDepartmentTextField(final String contactDepartmentTextField) {
-        CommonActions.clearField(this.contactDepartmentTextField);
         CommonActions.setTextElement(this.contactDepartmentTextField, contactDepartmentTextField);
     }
 
@@ -110,7 +106,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactBirthdateTextField string value.
      */
     private void setContactBirthdateTextField(final String contactBirthdateTextField) {
-        CommonActions.clearField(this.contactBirthdateTextField);
         CommonActions.setTextElement(this.contactBirthdateTextField, contactBirthdateTextField);
     }
 
@@ -129,7 +124,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactPhoneTextField string value.
      */
     private void setContactPhoneTextField(final String contactPhoneTextField) {
-        CommonActions.clearField(this.contactPhoneTextField);
         CommonActions.setTextElement(this.contactPhoneTextField, contactPhoneTextField);
     }
 
@@ -139,7 +133,6 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactHomePhoneTextField string value.
      */
     private void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
-        CommonActions.clearField(this.contactHomePhoneTextField);
         CommonActions.setTextElement(this.contactHomePhoneTextField, contactHomePhoneTextField);
     }
 

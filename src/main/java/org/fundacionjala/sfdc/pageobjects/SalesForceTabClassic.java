@@ -15,7 +15,7 @@ public class SalesForceTabClassic extends Base {
 
     @FindAll({
             @FindBy(how = How.ID, using = "AllTab_Tab"),
-            @FindBy(how = How.CLASS_NAME, using = "slds-icon-waffle")
+            @FindBy(how = How.CSS, using = ".slds-icon-waffle .slds-r1")
     })
     private WebElement plusButton;
 

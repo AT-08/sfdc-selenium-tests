@@ -10,7 +10,7 @@ public enum AccountInputs {
     ACCOUNT_SITE,
     TYPE,
     INDUSTRY,
-    ANUAL_REVENUE,
+    ANNUAL_REVENUE,
     RATING,
     PHONE,
     FAX,
