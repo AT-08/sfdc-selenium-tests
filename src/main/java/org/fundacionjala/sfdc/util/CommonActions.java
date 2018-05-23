@@ -18,6 +18,7 @@ public final class CommonActions {
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
     private static final String THEME = PropertiesManager.getInstance().getTheme();
+    private static final String CLASSIC = "classic";
 
     /**
      * Private constructor because it is a util class.
@@ -43,7 +44,7 @@ public final class CommonActions {
      */
     public static void clickElement(final WebElement element) {
 
-        if (THEME.equalsIgnoreCase("classic")) {
+        if (THEME.equalsIgnoreCase(CLASSIC)) {
             scrollPage(WEB_DRIVER, element);
         }
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
@@ -87,7 +88,7 @@ public final class CommonActions {
     public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
 
         element.click();
-        String css = THEME.equalsIgnoreCase("classic")
+        String css = THEME.equalsIgnoreCase(CLASSIC)
                 ? String.format("option[value='%s']", textOnComboBox)
                 : String.format("a[title='%s']", textOnComboBox);
 
@@ -101,7 +102,7 @@ public final class CommonActions {
     public static void selectOnAutoCompleterTextField(final WebElement element, final String textToSelect) {
 
         element.click();
-        String css = THEME.equalsIgnoreCase("classic")
+        String css = THEME.equalsIgnoreCase(CLASSIC)
                 ? String.format("option[value='%s']", textToSelect)
                 : String.format("div[title='%s']", textToSelect);
 
