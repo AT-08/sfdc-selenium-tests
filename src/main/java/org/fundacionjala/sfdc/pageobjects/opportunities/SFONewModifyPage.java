@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.opportunities;
+package org.fundacionjala.sfdc.pageobjects.Opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class SFONewModifyPage extends SFNewModify {
 
+    //Opportunity Information.
     @FindAll({
             @FindBy(how = How.ID, using = "opp2"),
             @FindBy(how = How.ID, using = "63:2731;a")
@@ -88,6 +89,8 @@ public class SFONewModifyPage extends SFNewModify {
             @FindBy(how = How.ID, using = "00Nf400000HnB9t"),
             @FindBy(how = How.ID, using = "529:2731;a")
     })
+
+    //Additional Information.
     private WebElement orderNumber;
 
     @FindAll({
@@ -114,6 +117,8 @@ public class SFONewModifyPage extends SFNewModify {
     })
     private WebElement deliveryInstallationStatus;
 
+
+    //Description Information.
     @FindAll({
             @FindBy(how = How.ID, using = "opp14"),
             @FindBy(how = How.ID, using = "676:2731;a")
@@ -138,8 +143,28 @@ public class SFONewModifyPage extends SFNewModify {
      * @param accountName setAccountName.
      */
     private void setAccountName(final String accountName) {
-        CommonActions.clearField(this.accountName);
         CommonActions.setTextElement(this.accountName, accountName);
+    }
+
+    /**
+     * @param opportunityType setOpportunityType.
+     */
+    private void setOpportunityType(final String opportunityType) {
+        CommonActions.selectOnComboBox(this.opportunityType, opportunityType);
+    }
+
+    /**
+     * @param opportunityLeadSource setOpportunityLeadSource.
+     */
+    private void setOpportunityLeadSource(final String opportunityLeadSource) {
+        CommonActions.selectOnComboBox(this.opportunityLeadSource, opportunityLeadSource);
+    }
+
+    /**
+     * @param opportunityAmount setOpportunityAmount.
+     */
+    private void setOpportunityAmount(final String opportunityAmount) {
+        CommonActions.setTextElement(this.opportunityAmount, opportunityAmount);
     }
 
     /**
@@ -150,26 +175,118 @@ public class SFONewModifyPage extends SFNewModify {
     }
 
     /**
+     * @param opportunityNextStep setOpportunityNextStep.
+     */
+    private void setOpportunityNextStep(final String opportunityNextStep) {
+        CommonActions.setTextElement(this.opportunityNextStep, opportunityNextStep);
+    }
+
+    /**
      * @param stage setOpportunityStage.
      */
     private void setOpportunityStage(final String stage) {
         CommonActions.setTextElement(this.opportunityStage, stage);
     }
 
+    /**
+     * @param opportunityProbability setOpportunityProbability.
+     */
+    private void setOpportunityProbability(final String opportunityProbability) {
+        CommonActions.setTextElement(this.opportunityProbability, opportunityProbability);
+    }
 
     /**
-     * @param values contact field
-     * @return map of contact fields.
+     * @param primaryCampaignSource setPrimaryCampaignSource.
+     */
+    private void setPrimaryCampaignSource(final String primaryCampaignSource) {
+        CommonActions.setTextElement(this.primaryCampaignSource, primaryCampaignSource);
+    }
+
+    /**
+     * @param orderNumber setOrderNumber.
+     */
+    private void setOrderNumber(final String orderNumber) {
+        CommonActions.setTextElement(this.orderNumber, orderNumber);
+    }
+
+    /**
+     * @param currentGenerator setCurrentGenerator.
+     */
+    private void setCurrentGenerator(final String currentGenerator) {
+        CommonActions.setTextElement(this.currentGenerator, currentGenerator);
+    }
+
+    /**
+     * @param trackingNumber setTrackingNumber.
+     */
+    private void setTrackingNumber(final String trackingNumber) {
+        CommonActions.setTextElement(this.trackingNumber, trackingNumber);
+    }
+
+    /**
+     * @param mainCompetitors setMainCompetitors.
+     */
+    private void setMainCompetitors(final String mainCompetitors) {
+        CommonActions.setTextElement(this.mainCompetitors, mainCompetitors);
+    }
+
+    /**
+     * @param deliveryInstallationStatus setDeliveryInstallationStatus.
+     */
+    private void setDeliveryInstallationStatus(final String deliveryInstallationStatus) {
+        CommonActions.selectOnComboBox(this.deliveryInstallationStatus, deliveryInstallationStatus);
+    }
+
+    /**
+     * @param description setDescription.
+     */
+    private void setDescription(final String description) {
+        CommonActions.setTextElement(this.description, description);
+    }
+
+    /**
+     * @param values opportunity field
+     * @return map of opportunity fields.
      */
     public Map<OpportInputs, Value> getStrategyStepMap(final Map<OpportInputs, String> values) {
         EnumMap<OpportInputs, Value> strategyMap = new EnumMap<>(OpportInputs.class);
 
+        strategyMap.put(OpportInputs.OPPORTUNITY_PRIVATE, () ->
+                this.setPrivateCheckbox());
         strategyMap.put(OpportInputs.OPPORTUNITY_NAME, () ->
                 this.setOpportunityName(String.valueOf(values.get(OpportInputs.OPPORTUNITY_NAME))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_ACCOUNT_NAME, () ->
+                this.setAccountName(String.valueOf(values.get(OpportInputs.OPPORTUNITY_ACCOUNT_NAME))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_TYPE, () ->
+                this.setOpportunityType(String.valueOf(values.get(OpportInputs.OPPORTUNITY_TYPE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_LEAD_SOURCE, () ->
+                this.setOpportunityLeadSource(String.valueOf(values.get(OpportInputs.OPPORTUNITY_LEAD_SOURCE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_AMOUNT, () ->
+                this.setOpportunityAmount(String.valueOf(values.get(OpportInputs.OPPORTUNITY_AMOUNT))));
         strategyMap.put(OpportInputs.OPPORTUNITY_CLOSE_DATE, () ->
                 this.setOpportunityCloseDate(String.valueOf(values.get(OpportInputs.OPPORTUNITY_CLOSE_DATE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_NEXT_STEP, () ->
+                this.setOpportunityNextStep(String.valueOf(values.get(OpportInputs.OPPORTUNITY_NEXT_STEP))));
         strategyMap.put(OpportInputs.OPPORTUNITY_STAGE, () ->
                 this.setOpportunityStage(String.valueOf(values.get(OpportInputs.OPPORTUNITY_STAGE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_PROBABILITY, () ->
+                this.setOpportunityProbability(String.valueOf(values.get(OpportInputs.OPPORTUNITY_PROBABILITY))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_PRIMARY_CAMPAIGN_SOURCE, () ->
+                this.setPrimaryCampaignSource(String.valueOf(values
+                        .get(OpportInputs.OPPORTUNITY_PRIMARY_CAMPAIGN_SOURCE))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_ORDER_NUMBER, () ->
+                this.setOrderNumber(String.valueOf(values.get(OpportInputs.OPPORTUNITY_ORDER_NUMBER))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_CURRENT_GENERATOR, () ->
+                this.setCurrentGenerator(String.valueOf(values.get(OpportInputs.OPPORTUNITY_CURRENT_GENERATOR))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_TRACKING, () ->
+                this.setTrackingNumber(String.valueOf(values.get(OpportInputs.OPPORTUNITY_TRACKING))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_MAIN_COMPETITORS, () ->
+                this.setMainCompetitors(String.valueOf(values.get(OpportInputs.OPPORTUNITY_MAIN_COMPETITORS))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_DELIVERY_INSTALLATION_STATUS, () ->
+                this.setDeliveryInstallationStatus(String.valueOf(values
+                        .get(OpportInputs.OPPORTUNITY_DELIVERY_INSTALLATION_STATUS))));
+        strategyMap.put(OpportInputs.OPPORTUNITY_DESCRIPTION, () ->
+                this.setDescription(String.valueOf(values.get(OpportInputs.OPPORTUNITY_DESCRIPTION))));
 
         return strategyMap;
     }

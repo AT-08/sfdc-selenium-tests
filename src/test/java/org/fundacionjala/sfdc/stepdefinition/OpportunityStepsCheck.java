@@ -5,10 +5,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.pageobjects.SalesForceTabClassic;
-import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
-import org.fundacionjala.sfdc.pageobjects.opportunities.SFODetailsPage;
-import org.fundacionjala.sfdc.pageobjects.opportunities.SFOMainPage;
-import org.fundacionjala.sfdc.pageobjects.opportunities.SFONewModifyPage;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.OpportInputs;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFODetailsPage;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFOMainPage;
+import org.fundacionjala.sfdc.pageobjects.Opportunities.SFONewModifyPage;
 import org.testng.Assert;
 
 import java.util.Map;

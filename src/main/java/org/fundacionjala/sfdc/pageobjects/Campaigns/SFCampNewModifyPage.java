@@ -103,36 +103,89 @@ public class SFCampNewModifyPage extends SFNewModify {
     }
 
     /**
-     * @param opportunityName setOpportunityName.
+     * @param campaignName setCampaignName.
      */
-    private void setOpportunityName(final String opportunityName) {
-        CommonActions.clearField(this.opportunityName);
-        CommonActions.setTextElement(this.opportunityName, opportunityName);
+    private void setCampaignName(final String campaignName) {
+        CommonActions.setTextElement(this.campaignName, campaignName);
+    }
+
+
+    /**
+     * @param campaignType setCampaignType.
+     */
+    private void setCampaignType(final String campaignType) {
+        CommonActions.selectOnComboBox(this.campaignType, campaignType);
     }
 
     /**
-     * @param accountName setAccountName.
+     * @param campaignStatus setCampaignStatus.
      */
-    private void setAccountName(final String accountName) {
-        CommonActions.clearField(this.accountName);
-        CommonActions.setTextElement(this.accountName, accountName);
+    private void setCampaignStatus(final String campaignStatus) {
+        CommonActions.selectOnComboBox(this.campaignStatus, campaignStatus);
     }
 
     /**
-     * @param closeDate setOpportunityCloseDate.
+     * @param campaignStartDate setCampaignStartDate.
      */
-    private void setOpportunityCloseDate(final String closeDate) {
-        CommonActions.clearField(this.opportunityCloseDate);
-        CommonActions.setTextElement(this.opportunityCloseDate, closeDate);
+    private void setCampaignStartDate(final String campaignStartDate) {
+        CommonActions.setTextElement(this.campaignStartDate, campaignStartDate);
     }
 
     /**
-     * @param stage setOpportunityStage.
+     * @param campaignExpectedRevenue setCampaignExpectedRevenue.
      */
-    private void setOpportunityStage(final String stage) {
-        CommonActions.setTextElement(this.opportunityStage, stage);
+    private void setCampaignExpectedRevenue(final String campaignExpectedRevenue) {
+        CommonActions.setTextElement(this.campaignExpectedRevenue, campaignExpectedRevenue);
     }
 
+    /**
+     * @param campaignEndDate setCampaignEndDate.
+     */
+    private void setCampaignEndDate(final String campaignEndDate) {
+        CommonActions.setTextElement(this.campaignEndDate, campaignEndDate);
+    }
+
+    /**
+     * @param campaignBudgetedCost setCampaignBudgetedCost.
+     */
+    private void setCampaignBudgetedCost(final String campaignBudgetedCost) {
+        CommonActions.setTextElement(this.campaignBudgetedCost, campaignBudgetedCost);
+    }
+
+    /**
+     * @param campaignActualCost setCampaignActualCost.
+     */
+    private void setCampaignActualCost(final String campaignActualCost) {
+        CommonActions.setTextElement(this.campaignActualCost, campaignActualCost);
+    }
+
+    /**
+     * @param campaignExpectedResponse setCampaignExpectedResponse.
+     */
+    private void setCampaignExpectedResponse(final String campaignExpectedResponse) {
+        CommonActions.setTextElement(this.campaignExpectedResponse, campaignExpectedResponse);
+    }
+
+    /**
+     * @param campaignNumSent setCampaignNumSent.
+     */
+    private void setCampaignNumSent(final String campaignNumSent) {
+        CommonActions.setTextElement(this.campaignNumSent, campaignNumSent);
+    }
+
+    /**
+     * @param parentCampaign setParentCampaign.
+     */
+    private void setParentCampaign(final String parentCampaign) {
+        CommonActions.setTextElement(this.parentCampaign, parentCampaign);
+    }
+
+    /**
+     * @param campaignDescription setCampaignDescription.
+     */
+    private void setCampaignDescription(final String campaignDescription) {
+        CommonActions.setTextElement(this.campaignDescription, campaignDescription);
+    }
 
     /**
      * @param values contact field
@@ -141,13 +194,33 @@ public class SFCampNewModifyPage extends SFNewModify {
     public Map<CampaignInputs, Value> getStrategyStepMap(final Map<CampaignInputs, String> values) {
         EnumMap<CampaignInputs, Value> strategyMap = new EnumMap<>(CampaignInputs.class);
 
-        strategyMap.put(CampaignInputs.OPPORTUNITY_NAME, () ->
-                this.setOpportunityName(String.valueOf(values.get(CampaignInputs.OPPORTUNITY_NAME))));
-        strategyMap.put(CampaignInputs.OPPORTUNITY_CLOSE_DATE, () ->
-                this.setOpportunityCloseDate(String.valueOf(values.get(CampaignInputs.OPPORTUNITY_CLOSE_DATE))));
-        strategyMap.put(CampaignInputs.OPPORTUNITY_STAGE, () ->
-                this.setOpportunityStage(String.valueOf(values.get(CampaignInputs.OPPORTUNITY_STAGE))));
-
+        strategyMap.put(CampaignInputs.CAMPAIGN_NAME, () ->
+                this.setCampaignName(String.valueOf(values.get(CampaignInputs.CAMPAIGN_NAME))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_ACTIVE, () ->
+                this.setCampaignActiveCheckbox());
+        strategyMap.put(CampaignInputs.CAMPAIGN_TYPE, () ->
+                this.setCampaignType(String.valueOf(values.get(CampaignInputs.CAMPAIGN_TYPE))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_STATUS, () ->
+                this.setCampaignStatus(String.valueOf(values.get(CampaignInputs.CAMPAIGN_STATUS))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_START_DATE, () ->
+                this.setCampaignStartDate(String.valueOf(values.get(CampaignInputs.CAMPAIGN_START_DATE))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_END_DATE, () ->
+                this.setCampaignEndDate(String.valueOf(values.get(CampaignInputs.CAMPAIGN_END_DATE))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_EXPECTED_REVENUE, () ->
+                this.setCampaignExpectedRevenue(String.valueOf(values.get(CampaignInputs.CAMPAIGN_EXPECTED_REVENUE))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_BUDGETED_COST, () ->
+                this.setCampaignBudgetedCost(String.valueOf(values.get(CampaignInputs.CAMPAIGN_BUDGETED_COST))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_ACTUAL_COST, () ->
+                this.setCampaignActualCost(String.valueOf(values.get(CampaignInputs.CAMPAIGN_ACTUAL_COST))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_EXPECTED_RESPONSE, () ->
+                this.setCampaignExpectedResponse(String.valueOf(values
+                        .get(CampaignInputs.CAMPAIGN_EXPECTED_RESPONSE))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_NUM_SENT, () ->
+                this.setCampaignNumSent(String.valueOf(values.get(CampaignInputs.CAMPAIGN_NUM_SENT))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_PARENT, () ->
+                this.setParentCampaign(String.valueOf(values.get(CampaignInputs.CAMPAIGN_PARENT))));
+        strategyMap.put(CampaignInputs.CAMPAIGN_DESCRIPTION, () ->
+                this.setCampaignDescription(String.valueOf(values.get(CampaignInputs.CAMPAIGN_DESCRIPTION))));
         return strategyMap;
     }
 

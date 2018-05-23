@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.opportunities;
+package org.fundacionjala.sfdc.pageobjects.Opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.util.CommonActions;
