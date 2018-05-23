@@ -30,6 +30,7 @@ public class SalesForceLogIn extends Base {
     })
     private WebElement cloudIcon;
 
+
     private TopMenuClassic topMenuClassic = new TopMenuClassic();
     private TopMenuLightning topMenuLightning = new TopMenuLightning();
 
@@ -73,7 +74,7 @@ public class SalesForceLogIn extends Base {
      * @param userTheme the theme from properties.
      */
     public void setUserTheme(final String userTheme) {
-        String currentTheme = PageUtil.getInstance().getCurrentTheme().toString();
+        String currentTheme = PageUtil.getCurrentTheme().toString();
         if (!userTheme.equalsIgnoreCase(currentTheme)) {
             if (userTheme.equalsIgnoreCase("LIGHT")) {
                 topMenuClassic.switchTheme();

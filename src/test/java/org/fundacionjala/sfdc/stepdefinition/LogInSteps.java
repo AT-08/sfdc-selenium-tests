@@ -4,8 +4,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceLogIn;
+
 import org.testng.Assert;
-import java.util.Properties;
 
 /**
  * LogInSteps.java.
@@ -18,11 +18,11 @@ public class LogInSteps {
     /**
      * Given step.
      */
-    @Given("^Open the Firefox and launch the application enter the Username and Password and press login$")
+    @Given("^Open Browser and launch the application enter the Username and Password and press login$")
     public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
         login = new SalesForceLogIn("https://login.salesforce.com/");
-        Properties prop = PropertiesManager.getInstance().getConfig();
-        login.logIn(prop.getProperty("user"), prop.getProperty("password"), prop.getProperty("theme"));
+        PropertiesManager prop = PropertiesManager.getInstance();
+        login.logIn(prop.getUsername(), prop.getPassword(), prop.getTheme());
     }
 
     /**

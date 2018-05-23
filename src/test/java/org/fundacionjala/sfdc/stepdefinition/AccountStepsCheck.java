@@ -17,7 +17,7 @@ import java.util.Map;
  * AccountStepsCheck.
  */
 public class AccountStepsCheck {
-    private SalesForceTabClassic tabClassic;
+    private SalesForceTabClassic tabSalesForce;
     private SFAMainPage mainPage;
     private SFANewModifyPage modifyPage;
     private SFADetailsPage detailsPage;
@@ -25,16 +25,16 @@ public class AccountStepsCheck {
     /**
      * AccountStepsCheck.
      *
-     * @param tabClassic  tabClassic menu.
+     * @param tabSalesForce  tabSalesForce menu.
      * @param mainPage    mainPage menu.
      * @param modifyPage  modifyPage menu.
      * @param detailsPage detailsPage menu.
      */
-    public AccountStepsCheck(final SalesForceTabClassic tabClassic,
+    public AccountStepsCheck(final SalesForceTabClassic tabSalesForce,
                              final SFAMainPage mainPage,
                              final SFANewModifyPage modifyPage,
                              final SFADetailsPage detailsPage) {
-        this.tabClassic = tabClassic;
+        this.tabSalesForce = tabSalesForce;
         this.mainPage = mainPage;
         this.modifyPage = modifyPage;
         this.detailsPage = detailsPage;
@@ -45,7 +45,7 @@ public class AccountStepsCheck {
      */
     @Given("^I can go to account section$")
     public void iCanGoToAccountSection() {
-        tabClassic.setAccountTab();
+        tabSalesForce.setAccountTab();
     }
 
     /**

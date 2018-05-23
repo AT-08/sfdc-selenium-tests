@@ -36,7 +36,6 @@ public class SFONewModifyPage extends SFNewModify {
      * @param opportunityName setOpportunityName.
      */
     private void setOpportunityName(final String opportunityName) {
-        CommonActions.clearField(this.opportunityName);
         CommonActions.setTextElement(this.opportunityName, opportunityName);
     }
 
@@ -44,7 +43,6 @@ public class SFONewModifyPage extends SFNewModify {
      * @param closeDate setOpportunityCloseDate.
      */
     private void setOpportunityCloseDate(final String closeDate) {
-        CommonActions.clearField(this.opportunityCloseDate);
         CommonActions.setTextElement(this.opportunityCloseDate, closeDate);
     }
 

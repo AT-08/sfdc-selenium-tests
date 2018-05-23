@@ -1,7 +1,7 @@
 Feature: Create a new account
 
   Background: User is logged in the application
-    Given Open the Firefox and launch the application enter the Username and Password and press login
+    Given Open Browser and launch the application enter the Username and Password and press login
     Then I login to the application
 
   Scenario: Create a new account with only obligatory fields filled
@@ -21,13 +21,13 @@ Feature: Create a new account
       | PARENT_ACCOUNT | test2                          |
       | TYPE           | Prospect                       |
       | INDUSTRY       | Agriculture                    |
-      | ANUAL_REVENUE  | 200                            |
+      | ANNUAL_REVENUE | 200                            |
       | RATING         | Hot                            |
       | PHONE          | 591591591                      |
       | FAX            | 591591222                      |
       | WEBSITE        | www.website.com                |
       | TICKER_SYMBOL  | ACC                            |
-      | OWNERSHIP      | Public                         |
+      | OWNERSHIP      | Private                        |
       | EMPLOYEES      | 10                             |
       | SIC_CODE       | 200200200                      |
 
