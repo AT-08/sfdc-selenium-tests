@@ -6,7 +6,6 @@ import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -19,105 +18,105 @@ public class SFANewModifyPage extends SFNewModify {
 
     // Account Information.
     @FindAll({
-            @FindBy(how = How.ID, using = "acc2"),
-            @FindBy(how = How.CSS, using = ".witsSuggestedNameField .input")
+            @FindBy(id = "acc2"),
+            @FindBy(css = ".witsSuggestedNameField .input")
     })
     private WebElement accountNameTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc3"),
-            @FindBy(how = How.CSS, using = "input[title='Search Accounts']")
+            @FindBy(id = "acc3"),
+            @FindBy(css = "input[title='Search Accounts']")
     })
     private WebElement parentAccountTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc5"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc5"),
+            @FindBy(xpath =
                     "//span[text()='Account Number']/parent::label/following-sibling::input")
     })
     private WebElement accountNumberTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc23"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc23"),
+            @FindBy(xpath =
                     "//span[text()='Account Site']/parent::label/following-sibling::input")
     })
 
     private WebElement accountSiteTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc6"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc6"),
+            @FindBy(xpath =
                     "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement typeList;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc7"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc7"),
+            @FindBy(xpath =
                     "//span[text()='Industry']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement industryList;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc8"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc8"),
+            @FindBy(xpath =
                     "//span[text()='Annual Revenue']/parent::label/following-sibling::input")
     })
     private WebElement annualRevenueTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc9"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc9"),
+            @FindBy(xpath =
                     "//span[text()='Rating']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement ratingList;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc10"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc10"),
+            @FindBy(xpath =
                     "//span[text()='Phone']/parent::label/following-sibling::input")
     })
     private WebElement accountPhone;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc11"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc11"),
+            @FindBy(xpath =
                     "//span[text()='Fax']/parent::label/following-sibling::input")
     })
     private WebElement accountFax;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc12"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc12"),
+            @FindBy(xpath =
                     "//span[text()='Website']/parent::label/following-sibling::input")
     })
     private WebElement accountWebsite;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc13"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc13"),
+            @FindBy(xpath =
                     "//span[text()='Ticker Symbol']/parent::label/following-sibling::input")
     })
     private WebElement accountTickerSymbol;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc14"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc14"),
+            @FindBy(xpath =
                     "//span[text()='Ownership']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement ownershipList;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc15"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc15"),
+            @FindBy(xpath =
                     "//span[text()='Employees']/parent::label/following-sibling::input")
     })
     private WebElement accountEmployee;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "acc16"),
-            @FindBy(how = How.XPATH, using =
+            @FindBy(id = "acc16"),
+            @FindBy(xpath =
                     "//span[text()='SIC Code']/parent::label/following-sibling::input")
     })
     private WebElement accountSICCode;
@@ -130,7 +129,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSICCode string value.
      */
     public void setAccountSICCodeTextField(final String accountSICCode) {
-        CommonActions.clearField(this.accountSICCode);
         CommonActions.setTextElement(this.accountSICCode, accountSICCode);
     }
 
@@ -140,7 +138,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountEmployee string value.
      */
     public void setAccountEmployeeTextField(final String accountEmployee) {
-        CommonActions.clearField(this.accountEmployee);
         CommonActions.setTextElement(this.accountEmployee, accountEmployee);
     }
 
@@ -150,8 +147,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountOwnershipList string value.
      */
     public void setAccountOwnershipList(final String accountOwnershipList) {
-        CommonActions.clearField(this.ownershipList);
-        CommonActions.setTextElement(this.ownershipList, accountOwnershipList);
+        CommonActions.selectOnComboBox(this.ownershipList, accountOwnershipList);
     }
 
     /**
@@ -160,7 +156,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountTickerSymbol string value.
      */
     public void setAccountTickerSymbolTextField(final String accountTickerSymbol) {
-        CommonActions.clearField(this.accountTickerSymbol);
         CommonActions.setTextElement(this.accountTickerSymbol, accountTickerSymbol);
     }
 
@@ -170,7 +165,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountWebsite string value.
      */
     public void setAccountWebsiteTextField(final String accountWebsite) {
-        CommonActions.clearField(this.accountWebsite);
         CommonActions.setTextElement(this.accountWebsite, accountWebsite);
     }
 
@@ -180,7 +174,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountFax string value.
      */
     public void setAccountFaxTextField(final String accountFax) {
-        CommonActions.clearField(this.accountFax);
         CommonActions.setTextElement(this.accountFax, accountFax);
     }
 
@@ -190,7 +183,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountPhone string value.
      */
     public void setAccountPhoneTextField(final String accountPhone) {
-        CommonActions.clearField(this.accountPhone);
         CommonActions.setTextElement(this.accountPhone, accountPhone);
     }
 
@@ -200,7 +192,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param ratingList string value.
      */
     public void setAccountRatingList(final String ratingList) {
-        CommonActions.setTextElement(this.ratingList, ratingList);
+        CommonActions.selectOnComboBox(this.ratingList, ratingList);
     }
 
     /**
@@ -209,7 +201,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountName string value.
      */
     private void setAccountNameTextField(final String accountName) {
-        CommonActions.clearField(this.accountNameTextField);
         CommonActions.setTextElement(this.accountNameTextField, accountName);
     }
 
@@ -219,8 +210,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param parentAccount the value.
      */
     private void setParentAccountTextField(final String parentAccount) {
-        CommonActions.clearField(this.parentAccountTextField);
         CommonActions.setTextElement(this.parentAccountTextField, parentAccount);
+        CommonActions.selectOnAutoCompleterTextField(this.parentAccountTextField, parentAccount);
     }
 
     /**
@@ -229,7 +220,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountNumber the value.
      */
     private void setAccountNumberTextField(final String accountNumber) {
-        CommonActions.clearField(this.accountNumberTextField);
         CommonActions.setTextElement(this.accountNumberTextField, accountNumber);
     }
 
@@ -239,7 +229,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSite the value.
      */
     private void setAccountSiteTextField(final String accountSite) {
-        CommonActions.clearField(accountSiteTextField);
         CommonActions.setTextElement(this.accountSiteTextField, accountSite);
     }
 
@@ -249,7 +238,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param type the value.
      */
     private void setAccountTypeList(final String type) {
-        CommonActions.setTextElement(this.typeList, type);
+        CommonActions.selectOnComboBox(this.typeList, type);
     }
 
     /**
@@ -258,7 +247,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param industry the value.
      */
     private void setIndustryList(final String industry) {
-        CommonActions.setTextElement(this.industryList, industry);
+        CommonActions.selectOnComboBox(this.industryList, industry);
     }
 
     /**
@@ -267,7 +256,6 @@ public class SFANewModifyPage extends SFNewModify {
      * @param annualRevenue the value.
      */
     private void setAnnualRevenueTextField(final String annualRevenue) {
-        CommonActions.clearField(annualRevenueTextField);
         CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
     }
 
@@ -277,36 +265,51 @@ public class SFANewModifyPage extends SFNewModify {
      */
     public Map<AccountInputs, Value> getStrategyStepMap(final Map<AccountInputs, String> values) {
         EnumMap<AccountInputs, Value> strategyMap = new EnumMap<>(AccountInputs.class);
+
         strategyMap.put(AccountInputs.ACCOUNT_NAME, () ->
                 this.setAccountNameTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_NAME))));
+
         strategyMap.put(AccountInputs.ACCOUNT_NUMBER, () ->
                 this.setAccountNumberTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_NUMBER))));
+
         strategyMap.put(AccountInputs.ACCOUNT_SITE, () ->
                 this.setAccountSiteTextField(String.valueOf(values.get(AccountInputs.ACCOUNT_SITE))));
-        strategyMap.put(AccountInputs.ANUAL_REVENUE, () ->
-                this.setAnnualRevenueTextField(String.valueOf(values.get(AccountInputs.ANUAL_REVENUE))));
+
+        strategyMap.put(AccountInputs.ANNUAL_REVENUE, () ->
+                this.setAnnualRevenueTextField(String.valueOf(values.get(AccountInputs.ANNUAL_REVENUE))));
+
         strategyMap.put(AccountInputs.INDUSTRY, () ->
                 this.setIndustryList(String.valueOf(values.get(AccountInputs.INDUSTRY))));
+
         strategyMap.put(AccountInputs.PARENT_ACCOUNT, () ->
                 this.setParentAccountTextField(String.valueOf(values.get(AccountInputs.PARENT_ACCOUNT))));
+
         strategyMap.put(AccountInputs.TYPE, () ->
                 this.setAccountTypeList(String.valueOf(values.get(AccountInputs.TYPE))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.RATING))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.PHONE))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.FAX))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.WEBSITE))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.TICKER_SYMBOL))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.OWNERSHIP))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.EMPLOYEES))));
-        strategyMap.put(AccountInputs.TYPE, () ->
-                this.setAccountTypeList(String.valueOf(values.get(AccountInputs.SIC_CODE))));
+
+        strategyMap.put(AccountInputs.RATING, () ->
+                this.setAccountRatingList(String.valueOf(values.get(AccountInputs.RATING))));
+
+        strategyMap.put(AccountInputs.PHONE, () ->
+                this.setAccountPhoneTextField(String.valueOf(values.get(AccountInputs.PHONE))));
+
+        strategyMap.put(AccountInputs.FAX, () ->
+                this.setAccountFaxTextField(String.valueOf(values.get(AccountInputs.FAX))));
+
+        strategyMap.put(AccountInputs.WEBSITE, () ->
+                this.setAccountWebsiteTextField(String.valueOf(values.get(AccountInputs.WEBSITE))));
+
+        strategyMap.put(AccountInputs.TICKER_SYMBOL, () ->
+                this.setAccountTickerSymbolTextField(String.valueOf(values.get(AccountInputs.TICKER_SYMBOL))));
+
+        strategyMap.put(AccountInputs.OWNERSHIP, () ->
+                this.setAccountOwnershipList(String.valueOf(values.get(AccountInputs.OWNERSHIP))));
+
+        strategyMap.put(AccountInputs.EMPLOYEES, () ->
+                this.setAccountEmployeeTextField(String.valueOf(values.get(AccountInputs.EMPLOYEES))));
+
+        strategyMap.put(AccountInputs.SIC_CODE, () ->
+                this.setAccountSICCodeTextField(String.valueOf(values.get(AccountInputs.SIC_CODE))));
         return strategyMap;
     }
 

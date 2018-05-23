@@ -51,4 +51,28 @@ public final class PropertiesManager {
     public Properties getConfig() {
         return prop;
     }
+
+    /**
+     * Getter of username.
+     * @return String username.
+     */
+    public String getUsername() {
+        return prop.getProperty("user");
+    }
+
+    /**
+     * Getter of password.
+     * @return String password.
+     */
+    public String getPassword() {
+        return prop.getProperty("password");
+    }
+
+    /**
+     * Getter of theme.
+     * @return String theme.
+     */
+    public String getTheme() {
+        return prop.getProperty("theme");
+    }
 }

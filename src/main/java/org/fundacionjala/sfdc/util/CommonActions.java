@@ -1,6 +1,8 @@
 package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
+import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public final class CommonActions {
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
+    private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
+    private static final String THEME = PropertiesManager.getInstance().getTheme();
 
     /**
      * Private constructor because it is a util class.
@@ -38,6 +42,10 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
+
+        if (THEME.equalsIgnoreCase("classic")) {
+            scrollPage(WEB_DRIVER, element);
+        }
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -63,28 +71,40 @@ public final class CommonActions {
     }
 
     /**
-     * @param element Clear a field.
-     */
-    public static void clearField(final WebElement element) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
-        element.clear();
-    }
-
-    /**
      * @param element Any WebElement.
      * @param text    set a text on a field.
      */
     public static void setTextElement(final WebElement element, final String text) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
         element.sendKeys(text);
     }
 
     /**
-     * @param element Any WebElement.
-     * @param text    text to select.
+     * @param element        comboBox.
+     * @param textOnComboBox select text on comboBox.
      */
-    public static void setTextOnAutoCompleter(final WebElement element, final String text) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
-        element.sendKeys(text);
+    public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
+
+        element.click();
+        String css = THEME.equalsIgnoreCase("classic")
+                ? String.format("option[value='%s']", textOnComboBox)
+                : String.format("a[title='%s']", textOnComboBox);
+
+        WEB_DRIVER.findElement(By.cssSelector(css)).click();
+    }
+
+    /**
+     * @param element      auto completer textField.
+     * @param textToSelect select text on comboBox.
+     */
+    public static void selectOnAutoCompleterTextField(final WebElement element, final String textToSelect) {
+
+        element.click();
+        String css = THEME.equalsIgnoreCase("classic")
+                ? String.format("option[value='%s']", textToSelect)
+                : String.format("div[title='%s']", textToSelect);
+
+        clickElement(WEB_DRIVER.findElement(By.cssSelector(css)));
     }
 }
