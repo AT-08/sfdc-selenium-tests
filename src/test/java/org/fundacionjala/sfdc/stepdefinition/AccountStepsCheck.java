@@ -86,7 +86,6 @@ public class AccountStepsCheck {
      */
     @When("^I click on edit button to new account created$")
     public void iChooseAnAccountAndPressTheEditButton() {
-      //  mainPage.getAccountNameLink();
         detailsPage.getEditButton();
     }
 
