@@ -97,33 +97,28 @@ public class SFCNewModifyPage extends SFNewModify {
     @FindAll({
             @FindBy(id = "con19street"),
             @FindBy(xpath = "//span[text()='Mailing Street']/parent::label/following-sibling::textarea")
-            //[placeholder='Mailing Street']
     })
     private WebElement contactMailingStreetTextField;
 
     @FindAll({
             @FindBy(id = "con18street"),
             @FindBy(xpath = "//span[text()='Other Street']/parent::label/following-sibling::textarea")
-            //[placeholder='Other Street']
     })
     private WebElement contactOtherStreetTextField;
 
     @FindAll({
             @FindBy(id = "con19city"),
             @FindBy(xpath = "//span[text()='Mailing City']/parent::label/following-sibling::input")
-            //[placeholder='Mailing City']
     })
     private WebElement contactMailingCityTextField;
     @FindAll({
             @FindBy(id = "con19state"),
             @FindBy(xpath = "//span[text()='Mailing State/Province']/parent::label/following-sibling::input")
-            //[placeholder='Mailing State/Province']
     })
     private WebElement contactMailingStateTextField;
     @FindAll({
             @FindBy(id = "con18city"),
             @FindBy(xpath = "//span[text()='Other City']/parent::label/following-sibling::input")
-            //[placeholder='Other City']
     })
     private WebElement contactOtherCityTextField;
 
