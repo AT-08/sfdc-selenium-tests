@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 /**
- * CampaignInputs.
+ * OpportInputs.
  */
 public enum OpportInputs {
     OPPORTUNITY_PRIVATE,
