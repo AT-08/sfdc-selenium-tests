@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * SFCampDetailsPage.
+ * SFODetailsPage.
  */
 public class SFODetailsPage extends SFDetails {
     @FindBy(how = How.CSS, using = "bodyCell h2.pageDescription")
