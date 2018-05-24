@@ -18,102 +18,101 @@ public class SFONewModifyPage extends SFNewModify {
 
     //Opportunity Information.
     @FindAll({
-            @FindBy(how = How.ID, using = "opp2"),
-            @FindBy(how = How.ID, using = "63:2731;a")
+            @FindBy(id = "opp2"),
+            @FindBy(xpath = "//span[text()='Private']/parent::label/following-sibling::input")
 
     })
     private WebElement privateCheckbox;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp3"),
-            @FindBy(how = How.ID, using = "106:2731;a")
+            @FindBy(id = "opp3"),
+            @FindBy(xpath = "//span[text()='Opportunity Name']/parent::label/following-sibling::input")
     })
     private WebElement opportunityName;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp4"),
-            @FindBy(how = How.ID, using = "142:2731;a")
+            @FindBy(id = "opp4"),
+            @FindBy(xpath = "//span[text()='Account Name']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement accountName;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp5"),
-            @FindBy(how = How.CSS, using = "#\\33 12\\:2731\\;a > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(id = "opp5"),
+            @FindBy(xpath = "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement opportunityType;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp6"),
-            @FindBy(how = How.CSS, using = "#\\33 90\\:2731\\;a > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(id = "opp6"),
+            @FindBy(xpath = "//span[text()='Lead Source']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement opportunityLeadSource;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp7"),
-            @FindBy(how = How.ID, using = "41:2731;a")
+            @FindBy(id = "opp7"),
+            @FindBy(xpath = "//span[text()='Amount']/parent::label/following-sibling::input")
     })
     private WebElement opportunityAmount;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp9"),
-            @FindBy(how = How.ID, using = "79:2731;a")
+            @FindBy(id = "opp9"),
+            @FindBy(xpath = "//span[text()='Close Date']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement opportunityCloseDate;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp10"),
-            @FindBy(how = How.ID, using = "122:2731;a")
+            @FindBy(id = "opp10"),
+            @FindBy(xpath = "//span[text()='Next Step']/parent::label/following-sibling::input")
     })
     private WebElement opportunityNextStep;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp11"),
-            @FindBy(how = How.CSS, using = "#\\32 59\\:2731\\;a > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(id = "opp11"),
+            @FindBy(xpath = "//span[text()='Stage']/parent::label/following-sibling::div/descendant::a")
 
     })
     private WebElement opportunityStage;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp12"),
-            @FindBy(how = How.ID, using = "349:2731;a")
+            @FindBy(id = "opp12"),
+            @FindBy(xpath = "//span[text()='Probability (%)']/parent::label/following-sibling::input")
     })
     private WebElement opportunityProbability;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "opp17"),
-            @FindBy(how = How.ID, using = "420:2731;a")
+            @FindBy(id = "opp17"),
+            @FindBy(xpath = "//span[text()='Primary Campaign Source']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement primaryCampaignSource;
 
-    @FindAll({
-            @FindBy(how = How.ID, using = "00Nf400000HnB9t"),
-            @FindBy(how = How.ID, using = "529:2731;a")
-    })
-
     //Additional Information.
+    @FindAll({
+            @FindBy(id = "00Nf400000HnB9t"),
+            @FindBy(xpath = "//span[text()='Order Number']/parent::label/following-sibling::input")
+    })
     private WebElement orderNumber;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "00Nf400000HnB9q"),
-            @FindBy(how = How.ID, using = "565:2731;a")
+            @FindBy(id = "00Nf400000HnB9q"),
+            @FindBy(xpath = "//span[text()='Current Generator(s)']/parent::label/following-sibling::input")
     })
     private WebElement currentGenerator;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "00Nf400000HnB9u"),
-            @FindBy(how = How.ID, using = "631:2731;a")
+            @FindBy(id = "00Nf400000HnB9u"),
+            @FindBy(xpath = "//span[text()='Tracking Number']/parent::label/following-sibling::input")
     })
     private WebElement trackingNumber;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "00Nf400000HnB9s"),
-            @FindBy(how = How.ID, using = "545:2731;a")
+            @FindBy(id = "00Nf400000HnB9s"),
+            @FindBy(xpath = "//span[text()='Main Competitor(s)']/parent::label/following-sibling::input")
     })
     private WebElement mainCompetitors;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "00Nf400000HnB9r"),
-            @FindBy(how = How.ID, using = "#\\35 97\\:2731\\;a > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(id = "00Nf400000HnB9r"),
+            @FindBy(xpath = "//span[text()='Description']/parent::label/following-sibling::div/descendant::a")
     })
     private WebElement deliveryInstallationStatus;
 
@@ -121,7 +120,7 @@ public class SFONewModifyPage extends SFNewModify {
     //Description Information.
     @FindAll({
             @FindBy(how = How.ID, using = "opp14"),
-            @FindBy(how = How.ID, using = "676:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Description']/parent::label/following-sibling::textarea")
     })
     private WebElement description;
 

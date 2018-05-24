@@ -18,80 +18,80 @@ public class SFCampNewModifyPage extends SFNewModify {
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn1"),
-            @FindBy(how = How.ID, using = "58:2291;a")
+            @FindBy(how = How.ID, using = "//span[text()='Campaign Name']/parent::label/following-sibling::input")
     })
     private WebElement campaignName;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn16"),
-            @FindBy(how = How.ID, using = "92:2291;a")
+            @FindBy(how = How.ID, using = "//span[text()='Active']/parent::label/following-sibling::input")
     })
     private WebElement campaignActiveCheckbox;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn2"),
-            @FindBy(how = How.CSS, using = "#\\31 33\\:2291\\;a > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(how = How.CSS, using = "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement campaignType;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn3"),
-            @FindBy(how = How.CSS, using = "#\\31 97\\:2291\\;a > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(how = How.CSS, using = "//span[text()='Status']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement campaignStatus;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn5"),
-            @FindBy(how = How.ID, using = "41:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Start Date']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement campaignStartDate;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn6"),
-            @FindBy(how = How.ID, using = "79:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='End Date']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement campaignEndDate;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn8"),
-            @FindBy(how = How.ID, using = "122:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Expected Revenue in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignExpectedRevenue;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn9"),
-            @FindBy(how = How.CSS, using = "#\\32 59\\:2731\\;a > div:nth-child(1) > a:nth-child(1)")
+            @FindBy(how = How.CSS, using = "//span[text()='Budgeted Cost in Campaign']/parent::label/following-sibling::input")
 
     })
     private WebElement campaignBudgetedCost;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn10"),
-            @FindBy(how = How.ID, using = "349:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Actual Cost in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignActualCost;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn11"),
-            @FindBy(how = How.ID, using = "420:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Expected Response (%)']/parent::label/following-sibling::input")
     })
     private WebElement campaignExpectedResponse;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn13"),
-            @FindBy(how = How.ID, using = "529:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Num Sent in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignNumSent;
 
     @FindAll({
             @FindBy(how = How.ID, using = "Parent"),
-            @FindBy(how = How.ID, using = "565:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Parent Campaign']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement parentCampaign;
 
     @FindAll({
             @FindBy(how = How.ID, using = "cpn4"),
-            @FindBy(how = How.ID, using = "631:2731;a")
+            @FindBy(how = How.ID, using = "//span[text()='Description']/parent::label/following-sibling::textarea")
     })
     private WebElement campaignDescription;
 
