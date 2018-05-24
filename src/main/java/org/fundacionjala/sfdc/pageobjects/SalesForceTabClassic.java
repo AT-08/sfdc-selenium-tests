@@ -27,7 +27,7 @@ public class SalesForceTabClassic extends Base {
 
     @FindAll({
             @FindBy(how = How.CSS, using = "a.contactBlock"),
-            @FindBy(how = How.XPATH, using = ".oneAppLauncherItem a[title='Contacts']")
+            @FindBy(how = How.CSS, using = ".oneAppLauncherItem a[title='Contacts']")
     })
     private WebElement contactTab;
 

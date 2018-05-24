@@ -17,7 +17,7 @@ import java.util.Map;
  * ContactStepsCheck.
  */
 public class ContactStepsCheck {
-    private SalesForceTabClassic tabClassic = new SalesForceTabClassic();
+    private SalesForceTabClassic tabClassic;
     private SFCMainPage mainPage;
     private SFCNewModifyPage modifyPage;
     private SFCDetailsPage detailsPage;
@@ -71,7 +71,6 @@ public class ContactStepsCheck {
     @Then("^I can verify the new contact \"([^\"]*)\"$")
     public void iCanVerifyTheNewContact(final String contactName) {
         Assert.assertEquals(detailsPage.getNewAccountSavedName(), contactName);
-
     }
 
     /**

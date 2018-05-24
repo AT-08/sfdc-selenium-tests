@@ -11,7 +11,7 @@ import org.openqa.selenium.support.How;
 public abstract class SFDetails extends Base {
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "topButtonRow.pbButton > input[name='edit']"),
+            @FindBy(how = How.CSS, using = "#topButtonRow input[name='edit']"),
             @FindBy(how = How.CSS, using = "a[title='Edit']")
     })
     protected WebElement editButton;
