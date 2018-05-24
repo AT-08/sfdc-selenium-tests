@@ -121,8 +121,8 @@ public class SFONewModifyPage extends SFNewModify {
 
     //Description Information.
     @FindAll({
-            @FindBy(how = How.ID, using = "opp14"),
-            @FindBy(how = How.ID, using = "//span[text()='Description']/parent::label/following-sibling::textarea")
+            @FindBy(id = "opp14"),
+            @FindBy(xpath = "//span[text()='Description']/parent::label/following-sibling::textarea")
     })
     private WebElement description;
 
