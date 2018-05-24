@@ -9,6 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
+import java.util.Set;
+
 
 /**
  * CommonActions.java
@@ -17,8 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public final class CommonActions {
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
-    private static final String THEME = PropertiesManager.getInstance().getTheme();
-    private static final String CLASSIC = "classic";
+    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
 
     /**
      * Private constructor because it is a util class.
@@ -43,14 +45,29 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
-
-        if (THEME.equalsIgnoreCase(CLASSIC)) {
+        if (IS_CLASSIC) {
             scrollPage(WEB_DRIVER, element);
         }
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
+    /**
+     * Method to click any element.
+     *
+     * @param locator to click.
+     */
+    public static void clickByElementLocator(final String locator) {
+
+        WAITER.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+        WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
+
+        if (IS_CLASSIC) {
+            scrollPage(WEB_DRIVER, element);
+        }
+        WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
 
     /**
      * @param element Any WebElement.
@@ -88,7 +105,7 @@ public final class CommonActions {
     public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
 
         element.click();
-        String css = THEME.equalsIgnoreCase(CLASSIC)
+        String css = IS_CLASSIC
                 ? String.format("option[value='%s']", textOnComboBox)
                 : String.format("a[title='%s']", textOnComboBox);
 
@@ -97,15 +114,49 @@ public final class CommonActions {
 
     /**
      * @param element      auto completer textField.
-     * @param textToSelect select text on comboBox.
+     * @param textToSelect select text on autoCompleter.
      */
     public static void selectOnAutoCompleterTextField(final WebElement element, final String textToSelect) {
 
-        element.click();
-        String css = THEME.equalsIgnoreCase(CLASSIC)
-                ? String.format("option[value='%s']", textToSelect)
-                : String.format("div[title='%s']", textToSelect);
+        if (IS_CLASSIC) {
+            WEB_DRIVER.findElement(By.xpath("//input[contains(@id,'acc3')]/following-sibling::a")).click();
 
-        clickElement(WEB_DRIVER.findElement(By.cssSelector(css)));
+            autoCompleterClassicTheme(textToSelect);
+
+        } else {
+            element.click();
+            autoCompleterLightTheme(textToSelect);
+        }
+
+    }
+
+    /**
+     * @param textToSelect select text on autoCompleter.
+     */
+    public static void autoCompleterClassicTheme(final String textToSelect) {
+
+        Set<String> windowHandles = WEB_DRIVER.getWindowHandles();
+        Iterator<String> iterate = windowHandles.iterator();
+        String currentWindows = iterate.next();
+        String secondWindows = iterate.next();
+
+        WEB_DRIVER.switchTo().window(secondWindows);
+        WEB_DRIVER.switchTo().frame("resultsFrame");
+
+        String css = String.format("//a[text()='%s']", textToSelect);
+        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(css)));
+        clickElement(WEB_DRIVER.findElement(By.xpath(css)));
+
+        WEB_DRIVER.switchTo().window(currentWindows);
+    }
+
+    /**
+     * @param textToSelect select text on autoCompleter.
+     */
+    public static void autoCompleterLightTheme(final String textToSelect) {
+
+        String css = String.format("//a[@role='option']/descendant::div[text()='%s']", textToSelect);
+        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(css)));
+        clickElement(WEB_DRIVER.findElement(By.xpath(css)));
     }
 }
