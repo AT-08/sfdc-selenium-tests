@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Opportunities;
+package org.fundacionjala.sfdc.pageobjects.opportunities;
 
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -81,7 +81,8 @@ public class SFONewModifyPage extends SFNewModify {
 
     @FindAll({
             @FindBy(id = "opp17"),
-            @FindBy(xpath = "//span[text()='Primary Campaign Source']/parent::label/following-sibling::div/descendant::input")
+            @FindBy(xpath
+                    = "//span[text()='Primary Campaign Source']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement primaryCampaignSource;
 

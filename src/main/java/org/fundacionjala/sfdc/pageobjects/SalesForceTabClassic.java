@@ -33,7 +33,7 @@ public class SalesForceTabClassic extends Base {
 
     @FindAll({
             @FindBy(how = How.CSS, using = "a.opportunityBlock"),
-            @FindBy(how = How.XPATH, using = ".oneAppLauncherItem a[title='Opportunities']")
+            @FindBy(how = How.XPATH, using = ".oneAppLauncherItem a[title='opportunities']")
     })
     private WebElement opportunityTab;
 

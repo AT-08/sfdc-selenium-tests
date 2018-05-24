@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Campaigns;
+package org.fundacionjala.sfdc.pageobjects.campaigns;
 
 import org.fundacionjala.sfdc.pageobjects.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
@@ -6,7 +6,6 @@ import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -17,81 +16,81 @@ import java.util.Map;
 public class SFCampNewModifyPage extends SFNewModify {
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn1"),
-            @FindBy(how = How.ID, using = "//span[text()='Campaign Name']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn1"),
+            @FindBy(xpath = "//span[text()='Campaign Name']/parent::label/following-sibling::input")
     })
     private WebElement campaignName;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn16"),
-            @FindBy(how = How.ID, using = "//span[text()='Active']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn16"),
+            @FindBy(xpath = "//span[text()='Active']/parent::label/following-sibling::input")
     })
     private WebElement campaignActiveCheckbox;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn2"),
-            @FindBy(how = How.CSS, using = "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
+            @FindBy(id = "cpn2"),
+            @FindBy(xpath = "//span[text()='Type']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement campaignType;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn3"),
-            @FindBy(how = How.CSS, using = "//span[text()='Status']/parent::span/following-sibling::div/descendant::a")
+            @FindBy(id = "cpn3"),
+            @FindBy(xpath = "//span[text()='Status']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement campaignStatus;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn5"),
-            @FindBy(how = How.ID, using = "//span[text()='Start Date']/parent::label/following-sibling::div/descendant::input")
+            @FindBy(id = "cpn5"),
+            @FindBy(xpath = "//span[text()='Start Date']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement campaignStartDate;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn6"),
-            @FindBy(how = How.ID, using = "//span[text()='End Date']/parent::label/following-sibling::div/descendant::input")
+            @FindBy(id = "cpn6"),
+            @FindBy(xpath = "//span[text()='End Date']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement campaignEndDate;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn8"),
-            @FindBy(how = How.ID, using = "//span[text()='Expected Revenue in Campaign']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn8"),
+            @FindBy(xpath = "//span[text()='Expected Revenue in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignExpectedRevenue;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn9"),
-            @FindBy(how = How.CSS, using = "//span[text()='Budgeted Cost in Campaign']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn9"),
+            @FindBy(xpath = "//span[text()='Budgeted Cost in Campaign']/parent::label/following-sibling::input")
 
     })
     private WebElement campaignBudgetedCost;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn10"),
-            @FindBy(how = How.ID, using = "//span[text()='Actual Cost in Campaign']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn10"),
+            @FindBy(xpath = "//span[text()='Actual Cost in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignActualCost;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn11"),
-            @FindBy(how = How.ID, using = "//span[text()='Expected Response (%)']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn11"),
+            @FindBy(xpath = "//span[text()='Expected Response (%)']/parent::label/following-sibling::input")
     })
     private WebElement campaignExpectedResponse;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn13"),
-            @FindBy(how = How.ID, using = "//span[text()='Num Sent in Campaign']/parent::label/following-sibling::input")
+            @FindBy(id = "cpn13"),
+            @FindBy(xpath = "//span[text()='Num Sent in Campaign']/parent::label/following-sibling::input")
     })
     private WebElement campaignNumSent;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "Parent"),
-            @FindBy(how = How.ID, using = "//span[text()='Parent Campaign']/parent::label/following-sibling::div/descendant::input")
+            @FindBy(id = "Parent"),
+            @FindBy(xpath = "//span[text()='Parent Campaign']/parent::label/following-sibling::div/descendant::input")
     })
     private WebElement parentCampaign;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "cpn4"),
-            @FindBy(how = How.ID, using = "//span[text()='Description']/parent::label/following-sibling::textarea")
+            @FindBy(id = "cpn4"),
+            @FindBy(xpath = "//span[text()='Description']/parent::label/following-sibling::textarea")
     })
     private WebElement campaignDescription;
 

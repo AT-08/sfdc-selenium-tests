@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Campaigns;
+package org.fundacionjala.sfdc.pageobjects.campaigns;
 
 /**
  * CampaignInputs.

@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects.Campaigns;
+package org.fundacionjala.sfdc.pageobjects.campaigns;
 
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.util.CommonActions;
