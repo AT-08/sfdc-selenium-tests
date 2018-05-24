@@ -5,14 +5,13 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * SFCampDetailsPage.
  */
 public class SFCampDetailsPage extends SFDetails {
-    @FindBy(how = How.CSS, using = "bodyCell h2.pageDescription")
+    @FindBy(css = "bodyCell h2.pageDescription")
     private WebElement opportunityLabel;
 
     /**

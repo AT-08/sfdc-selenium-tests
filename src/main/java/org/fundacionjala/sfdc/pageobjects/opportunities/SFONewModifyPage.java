@@ -88,31 +88,32 @@ public class SFONewModifyPage extends SFNewModify {
 
     //Additional Information.
     @FindAll({
-            @FindBy(id = "00Nf400000HnB9t"),
+            @FindBy(xpath = "//label[text()='Order Number']/parent::td/following-sibling::td[1]/input"),
             @FindBy(xpath = "//span[text()='Order Number']/parent::label/following-sibling::input")
     })
     private WebElement orderNumber;
 
     @FindAll({
-            @FindBy(id = "00Nf400000HnB9q"),
+            @FindBy(xpath = "//label[text()='Current Generator(s)']/parent::td/following-sibling::td[1]/input"),
             @FindBy(xpath = "//span[text()='Current Generator(s)']/parent::label/following-sibling::input")
     })
     private WebElement currentGenerator;
 
     @FindAll({
-            @FindBy(id = "00Nf400000HnB9u"),
+            @FindBy(xpath = "//label[text()='Tracking Number']/parent::td/following-sibling::td[1]/input"),
             @FindBy(xpath = "//span[text()='Tracking Number']/parent::label/following-sibling::input")
     })
     private WebElement trackingNumber;
 
     @FindAll({
-            @FindBy(id = "00Nf400000HnB9s"),
+            @FindBy(xpath = "//label[text()='Main Competitor(s)']/parent::td/following-sibling::td[1]/input"),
             @FindBy(xpath = "//span[text()='Main Competitor(s)']/parent::label/following-sibling::input")
     })
     private WebElement mainCompetitors;
 
     @FindAll({
-            @FindBy(id = "00Nf400000HnB9r"),
+            @FindBy(xpath = "//label[text()='Delivery/Installation Status']"
+                    + "/parent::td/following-sibling::td[1]/descendant::select"),
             @FindBy(xpath = "//span[text()='Description']/parent::label/following-sibling::div/descendant::a")
     })
     private WebElement deliveryInstallationStatus;
