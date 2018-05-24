@@ -15,20 +15,20 @@ Feature: Create a new account
     Given I can go to account section
     And I can create a new account
     And I can create a new account fill the fields and press the save button
-      | ACCOUNT_NAME   | Account with all fields filled |
-      | ACCOUNT_NUMBER | 100                            |
-      | ACCOUNT_SITE   | 2                              |
-      | PARENT_ACCOUNT | test2                          |
-      | TYPE           | Prospect                       |
-      | INDUSTRY       | Agriculture                    |
-      | ANNUAL_REVENUE | 200                            |
-      | RATING         | Hot                            |
-      | PHONE          | 591591591                      |
-      | FAX            | 591591222                      |
-      | WEBSITE        | www.website.com                |
-      | TICKER_SYMBOL  | ACC                            |
-      | OWNERSHIP      | Private                        |
-      | EMPLOYEES      | 10                             |
-      | SIC_CODE       | 200200200                      |
+      | ACCOUNT_NAME   | Account with all fields filled             |
+      | ACCOUNT_NUMBER | 100                                        |
+      | ACCOUNT_SITE   | 2                                          |
+      | PARENT_ACCOUNT | Account with only obligatory fields filled |
+      | TYPE           | Prospect                                   |
+      | INDUSTRY       | Agriculture                                |
+      | ANNUAL_REVENUE | 200                                        |
+      | RATING         | Hot                                        |
+      | PHONE          | 591591591                                  |
+      | FAX            | 591591222                                  |
+      | WEBSITE        | www.website.com                            |
+      | TICKER_SYMBOL  | ACC                                        |
+      | OWNERSHIP      | Private                                    |
+      | EMPLOYEES      | 10                                         |
+      | SIC_CODE       | 200200200                                  |
 
     Then I can verify the new account "Account with all fields filled"

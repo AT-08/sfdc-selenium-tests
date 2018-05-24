@@ -9,25 +9,24 @@ Feature: Modify and delete a previous created acount.
       | ACCOUNT_NAME | Account to Modify |
 
   Scenario: Edit account with all fields filled
-    Given I can go to account section
-    When I choose an account and press the edit button
+    When I click on edit button to new account created
     And I can create a new account fill the fields and press the save button
-      | ACCOUNT_NAME   | Account Modified |
-      | ACCOUNT_NUMBER | 100              |
-      | ACCOUNT_SITE   | 2                |
-      | PARENT_ACCOUNT | test2            |
-      | TYPE           | Prospect         |
-      | INDUSTRY       | Agriculture      |
-      | ANNUAL_REVENUE | 200              |
-      | RATING         | Hot              |
-      | PHONE          | 591591591        |
-      | FAX            | 591591222        |
-      | WEBSITE        | www.website.com  |
-      | TICKER_SYMBOL  | ACC              |
-      | OWNERSHIP      | Private          |
-      | EMPLOYEES      | 10               |
-      | SIC_CODE       | 200200200        |
-    Then I can verify the new account "test12"
+      | ACCOUNT_NAME   | Account Modified  |
+      | ACCOUNT_NUMBER | 100               |
+      | ACCOUNT_SITE   | 2                 |
+      | PARENT_ACCOUNT | Account to Modify |
+      | TYPE           | Prospect          |
+      | INDUSTRY       | Agriculture       |
+      | ANNUAL_REVENUE | 200               |
+      | RATING         | Hot               |
+      | PHONE          | 591591591         |
+      | FAX            | 591591222         |
+      | WEBSITE        | www.website.com   |
+      | TICKER_SYMBOL  | ACC               |
+      | OWNERSHIP      | Private           |
+      | EMPLOYEES      | 10                |
+      | SIC_CODE       | 200200200         |
+    Then I can verify the new account "Account Modified"
 
   Scenario: Delete account
     Given I can go to account section

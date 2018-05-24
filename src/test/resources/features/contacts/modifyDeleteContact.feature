@@ -1,7 +1,7 @@
 Feature: Contacts feature
 
   Background: User is logged in the application
-    Given Open the Firefox and launch the application enter the Username and Password and press login
+    Given Open Browser and launch the application enter the Username and Password and press login
     When I login to the application
     And I can go to contact section
     And I can create a new contact
