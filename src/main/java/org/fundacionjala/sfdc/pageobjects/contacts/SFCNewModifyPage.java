@@ -7,7 +7,6 @@ import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -17,51 +16,154 @@ import java.util.Map;
  * Class that represents the form where you fill fields in order to create or modify a contact.
  */
 public class SFCNewModifyPage extends SFNewModify {
-
     @FindAll({
-            @FindBy(how = How.ID, using = "name_firstcon2"),
-            @FindBy(how = How.CSS, using = "fieldset > div > div:nth-child(2) > input")
+            @FindBy(id = "name_firstcon2"),
+            @FindBy(xpath = "//span[text()='First Name']/parent::label/following-sibling::input")
     })
     private WebElement contactNameTextField;
     @FindAll({
-            @FindBy(how = How.ID, using = "name_lastcon2"),
-            @FindBy(how = How.CSS, using = "fieldset > div > div:nth-child(3) > input")
+            @FindBy(id = "name_lastcon2"),
+            @FindBy(xpath = "//span[text()='Last Name']/parent::label/following-sibling::input")
     })
     private WebElement contactLastNameTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "con5"),
-            @FindBy(how = How.CSS, using = "div:nth-child(4) > div:nth-child(1) > div > div > div > input")
+            @FindBy(id = "con5"),
+            @FindBy(xpath = "//span[text()='Title']/parent::label/following-sibling::input")
     })
     private WebElement contactTitleTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "con6"),
-            @FindBy(how = How.CSS, using = "div:nth-child(5) > div:nth-child(1) > div > div > div > input")
+            @FindBy(id = "con6"),
+            @FindBy(xpath = "//span[text()='Department']/parent::label/following-sibling::input")
     })
     private WebElement contactDepartmentTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "con7"),
-            @FindBy(how = How.CSS, using = "div:nth-child(6) > div:nth-child(1) > div > div > div > div > input")
+            @FindBy(id = "con7"),
+            @FindBy(xpath = "//span[text()='Birthdate']/parent::label/following-sibling::div/child::input")
     })
     private WebElement contactBirthdateTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "con9"),
-    })
-    private WebElement contactLeadSourceTextField;
-
-    @FindAll({
-            @FindBy(how = How.ID, using = "con10"),
+            @FindBy(id = "con10"),
+            @FindBy(xpath = "//span[text()='Phone']/parent::label/following-sibling::input")
     })
     private WebElement contactPhoneTextField;
 
     @FindAll({
-            @FindBy(how = How.ID, using = "con13"),
-            @FindBy(how = How.CSS, using = "div:nth-child(2) > div:nth-child(2) > div > div > div > input")
+            @FindBy(id = "con13"),
+            @FindBy(xpath = "//span[text()='Home Phone']/parent::label/following-sibling::input")
     })
     private WebElement contactHomePhoneTextField;
+
+    @FindAll({
+            @FindBy(id = "con12"),
+            @FindBy(xpath = "//span[text()='Mobile']/parent::label/following-sibling::input")
+    })
+    private WebElement contactMobileTextField;
+
+    @FindAll({
+            @FindBy(id = "con14"),
+            @FindBy(xpath = "//span[text()='Other Phone']/parent::label/following-sibling::input")
+    })
+    private WebElement contactOtherPhoneTextField;
+
+    @FindAll({
+            @FindBy(id = "con11"),
+            @FindBy(xpath = "//span[text()='Fax']/parent::label/following-sibling::input")
+    })
+    private WebElement contactFaxTextField;
+
+    @FindAll({
+            @FindBy(id = "con15"),
+            @FindBy(xpath = "//span[text()='Email']/parent::label/following-sibling::input")
+    })
+    private WebElement contactEmailTextField;
+
+    @FindAll({
+            @FindBy(id = "con16"),
+            @FindBy(xpath = "//span[text()='Assistant']/parent::label/following-sibling::input")
+    })
+    private WebElement contactAssistantTextField;
+
+    @FindAll({
+            @FindBy(id = "con17"),
+            @FindBy(xpath = "//span[text()='Asst. Phone']/parent::label/following-sibling::input")
+    })
+    private WebElement contactAssistantPhoneTextField;
+
+    //Address information
+    @FindAll({
+            @FindBy(id = "con19street"),
+            @FindBy(xpath = "//span[text()='Mailing Street']/parent::label/following-sibling::textarea")
+    })
+    private WebElement contactMailingStreetTextField;
+
+    @FindAll({
+            @FindBy(id = "con18street"),
+            @FindBy(xpath = "//span[text()='Other Street']/parent::label/following-sibling::textarea")
+    })
+    private WebElement contactOtherStreetTextField;
+
+    @FindAll({
+            @FindBy(id = "con19city"),
+            @FindBy(xpath = "//span[text()='Mailing City']/parent::label/following-sibling::input")
+    })
+    private WebElement contactMailingCityTextField;
+    @FindAll({
+            @FindBy(id = "con19state"),
+            @FindBy(xpath = "//span[text()='Mailing State/Province']/parent::label/following-sibling::input")
+    })
+    private WebElement contactMailingStateTextField;
+    @FindAll({
+            @FindBy(id = "con18city"),
+            @FindBy(xpath = "//span[text()='Other City']/parent::label/following-sibling::input")
+    })
+    private WebElement contactOtherCityTextField;
+
+    @FindAll({
+            @FindBy(id = "con18state"),
+            @FindBy(xpath = "//span[text()='Other State/Province']/parent::label/following-sibling::input")
+    })
+    private WebElement contactOtherStateTextField;
+
+    @FindAll({
+            @FindBy(id = "con19zip"),
+            @FindBy(xpath = "//span[text()='Mailing Zip/Postal Code']/parent::label/following-sibling::input")
+    })
+    private WebElement contactMailingZipTextField;
+    @FindAll({
+            @FindBy(id = "con19country"),
+            @FindBy(xpath = "//span[text()='Mailing Country']/parent::label/following-sibling::input")
+    })
+    private WebElement contactMailingCountryTextField;
+
+    @FindAll({
+            @FindBy(id = "con18zip"),
+            @FindBy(xpath = "//span[text()='Other Zip/Postal Code']/parent::label/following-sibling::input")
+    })
+    private WebElement contactOtherZipTextField;
+
+    @FindAll({
+            @FindBy(id = "con18country"),
+            @FindBy(xpath = "//span[text()='Other Country']/parent::label/following-sibling::input")
+    })
+    private WebElement contactOtherCountryTextField;
+
+    //Additional Information
+    @FindAll({
+            @FindBy(xpath = "//label[text()='Languages']/parent::td/following-sibling::td/child::input"),
+            @FindBy(xpath = "//span[text()='Languages']/parent::label/following-sibling::input")
+    })
+    private WebElement contactLanguagesTextField;
+
+    //Description Information
+    @FindAll({
+            @FindBy(id = "con20"),
+            @FindBy(xpath = "//span[text()='Description']/parent::label/following-sibling::textarea")
+    })
+    private WebElement contactDescriptionTextField;
 
     /**
      * Method to set contactName attribute.
@@ -112,15 +214,6 @@ public class SFCNewModifyPage extends SFNewModify {
     /**
      * Method to set contact las Name attribute.
      *
-     * @param contactLeadSourceTextField string value.
-     */
-    private void setContactLeadSourceTextField(final String contactLeadSourceTextField) {
-        CommonActions.setTextElement(this.contactLeadSourceTextField, contactLeadSourceTextField);
-    }
-
-    /**
-     * Method to set contact las Name attribute.
-     *
      * @param contactPhoneTextField string value.
      */
     private void setContactPhoneTextField(final String contactPhoneTextField) {
@@ -136,6 +229,167 @@ public class SFCNewModifyPage extends SFNewModify {
         CommonActions.setTextElement(this.contactHomePhoneTextField, contactHomePhoneTextField);
     }
 
+    /**
+     * Method to set contact assistant attribute.
+     *
+     * @param assistantTextField string value.
+     */
+    private void setContactAssistantTextField(final String assistantTextField) {
+        CommonActions.setTextElement(contactAssistantTextField, assistantTextField);
+    }
+
+    /**
+     * Method to set contact fax attribute.
+     *
+     * @param faxTextField string value.
+     */
+    private void setContactFaxTextField(final String faxTextField) {
+        CommonActions.setTextElement(contactFaxTextField, faxTextField);
+    }
+
+    /**
+     * Method to set contact other Phone attribute.
+     *
+     * @param otherPhoneTextField string value.
+     */
+    private void setContactOtherPhoneTextField(final String otherPhoneTextField) {
+        CommonActions.setTextElement(contactOtherPhoneTextField, otherPhoneTextField);
+    }
+
+    /**
+     * Method to set contact Mobile attribute.
+     *
+     * @param contactMobileTextField string value.
+     */
+    private void setContactMobileTextField(final String contactMobileTextField) {
+        CommonActions.setTextElement(this.contactMobileTextField, contactMobileTextField);
+    }
+
+    /**
+     * Method to set contact Email attribute.
+     *
+     * @param contactEmailTextField string value.
+     */
+    private void setContactEmailTextField(final String contactEmailTextField) {
+        CommonActions.setTextElement(this.contactEmailTextField, contactEmailTextField);
+    }
+
+    /**
+     * Method to set contact Assistant Phone attribute.
+     *
+     * @param contactAssistantPhoneTextField string value.
+     */
+    public void setContactAssistantPhoneTextField(final String contactAssistantPhoneTextField) {
+        CommonActions.setTextElement(this.contactAssistantPhoneTextField, contactAssistantPhoneTextField);
+    }
+
+    /**
+     * Method to set contact Mailing Street attribute.
+     *
+     * @param contactMailingStreetTextField string value.
+     */
+    public void setContactMailingStreetTextField(final String contactMailingStreetTextField) {
+        CommonActions.setTextElement(this.contactMailingStreetTextField, contactMailingStreetTextField);
+    }
+
+    /**
+     * Method to set contact Other Street attribute.
+     *
+     * @param contactOtherStreetTextField string value.
+     */
+    private void setContactOtherStreetTextField(final String contactOtherStreetTextField) {
+        CommonActions.setTextElement(this.contactOtherStreetTextField, contactOtherStreetTextField);
+    }
+
+    /**
+     * Method to set contact Mailing City attribute.
+     *
+     * @param contactMailingCityTextField string value.
+     */
+    private void setContactMailingCityTextField(final String contactMailingCityTextField) {
+        CommonActions.setTextElement(this.contactMailingCityTextField, contactMailingCityTextField);
+    }
+
+    /**
+     * Method to set contact Other City attribute.
+     *
+     * @param contactOtherCityTextField string value.
+     */
+    private void setContactOtherCityTextField(final String contactOtherCityTextField) {
+        CommonActions.setTextElement(this.contactOtherCityTextField, contactOtherCityTextField);
+    }
+
+    /**
+     * Method to set contact Mailing State attribute.
+     *
+     * @param contactMailingStateTextField string value.
+     */
+    public void setContactMailingStateTextField(final String contactMailingStateTextField) {
+        CommonActions.setTextElement(this.contactMailingStateTextField, contactMailingStateTextField);
+    }
+
+    /**
+     * Method to set contact Other State attribute.
+     *
+     * @param contactOtherStateTextField string value.
+     */
+    private void setContactOtherStateTextField(final String contactOtherStateTextField) {
+        CommonActions.setTextElement(this.contactOtherStateTextField, contactOtherStateTextField);
+    }
+
+    /**
+     * Method to set contact Mailing Zip attribute.
+     *
+     * @param contactMailingZipTextField string value.
+     */
+    private void setContactMailingZipTextField(final String contactMailingZipTextField) {
+        CommonActions.setTextElement(this.contactMailingZipTextField, contactMailingZipTextField);
+    }
+
+    /**
+     * Method to set contact Other Zip attribute.
+     *
+     * @param contactOtherZipTextField string value.
+     */
+    private void setContactOtherZipTextField(final String contactOtherZipTextField) {
+        CommonActions.setTextElement(this.contactOtherZipTextField, contactOtherZipTextField);
+    }
+
+    /**
+     * Method to set contact Mailing Country attribute.
+     *
+     * @param contactMailingCountryTextField string value.
+     */
+    private void setContactMailingCountryTextField(final String contactMailingCountryTextField) {
+        CommonActions.setTextElement(this.contactMailingCountryTextField, contactMailingCountryTextField);
+    }
+
+    /**
+     * Method to set contact Other Country attribute.
+     *
+     * @param contactOtherCountryTextField string value.
+     */
+    private void setContactOtherCountryTextField(final String contactOtherCountryTextField) {
+        CommonActions.setTextElement(this.contactOtherCountryTextField, contactOtherCountryTextField);
+    }
+
+    /**
+     * Method to set contact language attribute.
+     *
+     * @param contactLanguagesTextField string value.
+     */
+    private void setContactLanguagesTextField(final String contactLanguagesTextField) {
+        CommonActions.setTextElement(this.contactLanguagesTextField, contactLanguagesTextField);
+    }
+
+    /**
+     * Method to set contact Description attribute.
+     *
+     * @param contactDescriptionTextField string value.
+     */
+    private void setContactDescriptionTextField(final String contactDescriptionTextField) {
+        CommonActions.setTextElement(this.contactDescriptionTextField, contactDescriptionTextField);
+    }
 
     /**
      * @param values contact field
@@ -146,20 +400,56 @@ public class SFCNewModifyPage extends SFNewModify {
 
         strategyMap.put(ContactInputs.CONTACT_NAME, () ->
                 this.setContactNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_NAME))));
-        strategyMap.put(ContactInputs.CONTACT_LASTNAME, () ->
-                this.setContactLastNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_LASTNAME))));
+        strategyMap.put(ContactInputs.CONTACT_LAST_NAME, () ->
+                this.setContactLastNameTextField(String.valueOf(values.get(ContactInputs.CONTACT_LAST_NAME))));
         strategyMap.put(ContactInputs.CONTACT_TITLE, () ->
                 this.setContactTitleTextField(String.valueOf(values.get(ContactInputs.CONTACT_TITLE))));
         strategyMap.put(ContactInputs.CONTACT_DEPARTMENT, () ->
                 this.setContactDepartmentTextField(String.valueOf(values.get(ContactInputs.CONTACT_DEPARTMENT))));
         strategyMap.put(ContactInputs.CONTACT_BIRTHDAY, () ->
                 this.setContactBirthdateTextField(String.valueOf(values.get(ContactInputs.CONTACT_BIRTHDAY))));
-        strategyMap.put(ContactInputs.CONTACT_LEADSOURCE, () ->
-                this.setContactLeadSourceTextField(String.valueOf(values.get(ContactInputs.CONTACT_LEADSOURCE))));
         strategyMap.put(ContactInputs.CONTACT_PHONE, () ->
                 this.setContactPhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_PHONE))));
-        strategyMap.put(ContactInputs.CONTACT_HOMEPHONE, () ->
-                this.setContactHomePhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_HOMEPHONE))));
+        strategyMap.put(ContactInputs.CONTACT_HOME_PHONE, () ->
+                this.setContactHomePhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_HOME_PHONE))));
+        strategyMap.put(ContactInputs.CONTACT_MOBILE, () ->
+                this.setContactMobileTextField(String.valueOf(values.get(ContactInputs.CONTACT_MOBILE))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_PHONE, () ->
+                this.setContactOtherPhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_PHONE))));
+        strategyMap.put(ContactInputs.CONTACT_FAX, () ->
+                this.setContactFaxTextField(String.valueOf(values.get(ContactInputs.CONTACT_FAX))));
+        strategyMap.put(ContactInputs.CONTACT_EMAIL, () ->
+                this.setContactEmailTextField(String.valueOf(values.get(ContactInputs.CONTACT_EMAIL))));
+        strategyMap.put(ContactInputs.CONTACT_ASSISTANT, () ->
+                this.setContactAssistantTextField(String.valueOf(values.get(ContactInputs.CONTACT_ASSISTANT))));
+        strategyMap.put(ContactInputs.CONTACT_ASST_PHONE, () ->
+                this.setContactAssistantPhoneTextField(String.valueOf(values.get(ContactInputs.CONTACT_ASST_PHONE))));
+        strategyMap.put(ContactInputs.CONTACT_MAILING_STREET, () ->
+                this.setContactMailingStreetTextField(String.valueOf(
+                        values.get(ContactInputs.CONTACT_MAILING_STREET))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_STREET, () ->
+                this.setContactOtherStreetTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_STREET))));
+        strategyMap.put(ContactInputs.CONTACT_MAILING_CITY, () ->
+                this.setContactMailingCityTextField(String.valueOf(values.get(ContactInputs.CONTACT_MAILING_CITY))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_CITY, () ->
+                this.setContactOtherCityTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_CITY))));
+        strategyMap.put(ContactInputs.CONTACT_MAILING_STATE, () ->
+                this.setContactMailingStateTextField(String.valueOf(values.get(ContactInputs.CONTACT_MAILING_STATE))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_STATE, () ->
+                this.setContactOtherStateTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_STATE))));
+        strategyMap.put(ContactInputs.CONTACT_MAILING_ZIP, () ->
+                this.setContactMailingZipTextField(String.valueOf(values.get(ContactInputs.CONTACT_MAILING_ZIP))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_ZIP, () ->
+                this.setContactOtherZipTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_ZIP))));
+        strategyMap.put(ContactInputs.CONTACT_MAILING_COUNTRY, () ->
+                this.setContactMailingCountryTextField(String.valueOf(
+                        values.get(ContactInputs.CONTACT_MAILING_COUNTRY))));
+        strategyMap.put(ContactInputs.CONTACT_OTHER_COUNTRY, () ->
+                this.setContactOtherCountryTextField(String.valueOf(values.get(ContactInputs.CONTACT_OTHER_COUNTRY))));
+        strategyMap.put(ContactInputs.CONTACT_LANGUAGES, () ->
+                this.setContactLanguagesTextField(String.valueOf(values.get(ContactInputs.CONTACT_LANGUAGES))));
+        strategyMap.put(ContactInputs.CONTACT_DESCRIPTION, () ->
+                this.setContactDescriptionTextField(String.valueOf(values.get(ContactInputs.CONTACT_DESCRIPTION))));
 
         return strategyMap;
     }
@@ -173,3 +463,4 @@ public class SFCNewModifyPage extends SFNewModify {
     }
 
 }
+
