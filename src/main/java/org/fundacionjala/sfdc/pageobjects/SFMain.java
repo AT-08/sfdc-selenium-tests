@@ -12,19 +12,19 @@ public abstract class SFMain extends Base {
 
 
     @FindAll({
-    @FindBy(how = How.CSS, using = "input[name='new']"),
+            @FindBy(how = How.CSS, using = "input[name='new']"),
             @FindBy(how = How.CSS, using = "div[title='New']")
     })
     protected WebElement newButton;
 
     @FindAll({
-    @FindBy(how = How.CSS, using = "tr.dataRow.even.first.dataRow >th[scope='row'] > a"),
+            @FindBy(how = How.CSS, using = "tr.dataRow.even.first.dataRow >th[scope='row'] > a"),
             @FindBy(how = How.CSS, using = "tr:nth-child(22) > th > span > a")
     })
     protected WebElement lastItemOnList;
 
     @FindAll({
-    @FindBy(how = How.CSS, using = "h2.pageDescription"),
+            @FindBy(how = How.CSS, using = "h2.pageDescription"),
             @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
     protected WebElement homeContact;

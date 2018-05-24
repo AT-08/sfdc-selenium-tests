@@ -1,7 +1,7 @@
 Feature: Contacts feature
 
   Background: User is logged in the application
-    Given Open the Firefox and launch the application enter the Username and Password and press login
+    Given Open Browser and launch the application enter the Username and Password and press login
     Then I login to the application
 
   Scenario: Create a new contact with only obligatory fields filled
