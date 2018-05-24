@@ -195,8 +195,7 @@ public class SFCampNewModifyPage extends SFNewModify {
 
         strategyMap.put(CampaignInputs.CAMPAIGN_NAME, () ->
                 this.setCampaignName(String.valueOf(values.get(CampaignInputs.CAMPAIGN_NAME))));
-        strategyMap.put(CampaignInputs.CAMPAIGN_ACTIVE, () ->
-                this.setCampaignActiveCheckbox());
+        strategyMap.put(CampaignInputs.CAMPAIGN_ACTIVE, this::setCampaignActiveCheckbox);
         strategyMap.put(CampaignInputs.CAMPAIGN_TYPE, () ->
                 this.setCampaignType(String.valueOf(values.get(CampaignInputs.CAMPAIGN_TYPE))));
         strategyMap.put(CampaignInputs.CAMPAIGN_STATUS, () ->

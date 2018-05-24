@@ -251,8 +251,7 @@ public class SFONewModifyPage extends SFNewModify {
     public Map<OpportInputs, Value> getStrategyStepMap(final Map<OpportInputs, String> values) {
         EnumMap<OpportInputs, Value> strategyMap = new EnumMap<>(OpportInputs.class);
 
-        strategyMap.put(OpportInputs.OPPORTUNITY_PRIVATE, () ->
-                this.setPrivateCheckbox());
+        strategyMap.put(OpportInputs.OPPORTUNITY_PRIVATE, this::setPrivateCheckbox);
         strategyMap.put(OpportInputs.OPPORTUNITY_NAME, () ->
                 this.setOpportunityName(String.valueOf(values.get(OpportInputs.OPPORTUNITY_NAME))));
         strategyMap.put(OpportInputs.OPPORTUNITY_ACCOUNT_NAME, () ->
