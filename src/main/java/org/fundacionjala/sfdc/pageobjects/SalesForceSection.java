@@ -38,8 +38,8 @@ public class SalesForceSection extends Base {
      */
     public String salesForceTabSelector(String section) {
 
-        String classicSelector = section.toLowerCase();
-        String lightningSelector = String
+        final String classicSelector = section.toLowerCase();
+        final String lightningSelector = String
                 .format("%s%s", classicSelector.substring(0, 1).toUpperCase(), classicSelector.substring(1));
 
         return IS_CLASSIC

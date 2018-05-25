@@ -48,7 +48,7 @@ public final class CommonActions {
      */
     public static void clickElement(final WebElement element) {
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
-        scrollPage(WEB_DRIVER, element);
+        scrollPage(element);
         element.click();
     }
 
@@ -60,7 +60,7 @@ public final class CommonActions {
     public static void clickByElementLocator(final String locator) {
         WAITER.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
-        scrollPage(WEB_DRIVER, element);
+        scrollPage(element);
         element.click();
     }
 
@@ -76,10 +76,9 @@ public final class CommonActions {
     /**
      * Method to scroll down page.
      *
-     * @param webDriver the webdriver.
-     * @param element   the element we want to choose.
+     * @param element the element we want to choose.
      */
-    public static void scrollPage(final WebDriver webDriver, final WebElement element) {
+    public static void scrollPage(final WebElement element) {
         if (IS_CLASSIC) {
             ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
         } else {
