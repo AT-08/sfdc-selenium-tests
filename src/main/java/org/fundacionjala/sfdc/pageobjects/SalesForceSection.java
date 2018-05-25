@@ -42,9 +42,9 @@ public class SalesForceSection extends Base {
         String lightningSelector = String
                 .format("%s%s", classicSelector.substring(0, 1).toUpperCase(), classicSelector.substring(1));
 
-        if(IS_CLASSIC){
-            classicSelector = classicSelector.substring(0,classicSelector.length()-1);
-            if(classicSelector.equalsIgnoreCase("OPPORTUNITIE")){
+        if (IS_CLASSIC) {
+            classicSelector = classicSelector.substring(0, classicSelector.length() - 1);
+            if (classicSelector.equalsIgnoreCase("OPPORTUNITIE")) {
                 classicSelector = "opportunity";
             }
             return String.format("a.%sBlock", classicSelector);
