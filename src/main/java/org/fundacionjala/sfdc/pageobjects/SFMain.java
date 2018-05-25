@@ -12,32 +12,32 @@ public abstract class SFMain extends Base {
 
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "input[name='new']"),
-            @FindBy(how = How.CSS, using = "div[title='New']")
+            @FindBy(css = "input[name='new']"),
+            @FindBy(css = "div[title='New']")
     })
     protected WebElement newButton;
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "tr.dataRow.even.first.dataRow >th[scope='row'] > a"),
-            @FindBy(how = How.CSS, using = "tr:nth-child(22) > th > span > a")
+            @FindBy(css = "tr.dataRow.even.first.dataRow >th[scope='row'] > a"),
+            @FindBy(css = "th[scope='row'] > span >a")
     })
     protected WebElement lastItemOnList;
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "h2.pageDescription"),
-            @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
+            @FindBy(css = "h2.pageDescription"),
+            @FindBy(css = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
     protected WebElement homeContact;
 
     /**
-     * getNewAccountButton.
+     * clickToNewButton.
      */
-    public abstract void getNewAccountButton();
+    public abstract void clickToNewButton();
 
     /**
-     * getAccountNameLink.
+     * clickAccountNameLink.
      */
-    public abstract void getAccountNameLink();
+    public abstract void clickAccountNameLink();
 
     /**
      * @return getAccountHomePage.
