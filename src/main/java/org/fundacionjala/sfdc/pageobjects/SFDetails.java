@@ -29,14 +29,14 @@ public abstract class SFDetails extends Base {
     protected WebElement newAccountLabel;
 
     /**
-     * getEditButton.
+     * clickEditButton.
      */
-    public abstract void getEditButton();
+    public abstract void clickEditButton();
 
     /**
-     * getDeleteButton.
+     * clickDeleteButton.
      */
-    public abstract void getDeleteButton();
+    public abstract void clickDeleteButton();
 
     /**
      * clickDeleteAlert.

@@ -1,20 +1,20 @@
 Feature: Create a new account
 
   Background: User is logged in the application
-    Given Open Browser and launch the application enter the Username and Password and press login
-    Then I login to the application
+    Given I login as a User
+    Then Home Page should be displayed
 
   Scenario: Create a new account with only obligatory fields filled
-    Given I can go to account section
-    And I can create a new account
-    And I can create a new account fill the fields and press the save button
+    Given I can go to "ACCOUNTS" Section
+    And I can click on New button
+    And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME | Account with only obligatory fields filled |
-    Then I can verify the new account "Account with only obligatory fields filled"
+    Then I can verify if "Account with only obligatory fields filled" has been created
 
   Scenario: Create a new account with all fields filled
-    Given I can go to account section
-    And I can create a new account
-    And I can create a new account fill the fields and press the save button
+    Given I can go to "ACCOUNTS" Section
+    And I can click on New button
+    And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME   | Account with all fields filled             |
       | ACCOUNT_NUMBER | 100                                        |
       | ACCOUNT_SITE   | 2                                          |
@@ -31,4 +31,4 @@ Feature: Create a new account
       | EMPLOYEES      | 10                                         |
       | SIC_CODE       | 200200200                                  |
 
-    Then I can verify the new account "Account with all fields filled"
+    Then I can verify if "Account with all fields filled" has been created

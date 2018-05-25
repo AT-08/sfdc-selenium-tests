@@ -18,8 +18,8 @@ public class LogInSteps {
     /**
      * Given step.
      */
-    @Given("^Open Browser and launch the application enter the Username and Password and press login$")
-    public void openTheFirefoxAndLaunchTheApplicationEnterTheUsernameAndPasswordAndPressLogin() {
+    @Given("^I login as a User")
+    public void iLoginAsUser() {
         login = new SalesForceLogIn("https://login.salesforce.com/");
         PropertiesManager prop = PropertiesManager.getInstance();
         login.logIn(prop.getUsername(), prop.getPassword(), prop.getTheme());
@@ -28,8 +28,8 @@ public class LogInSteps {
     /**
      * Then step.
      */
-    @Then("^I login to the application$")
-    public void iLoginToTheApplication() {
+    @Then("^Home Page should be displayed$")
+    public void homePageShouldBeDisplated() {
         Assert.assertTrue(login.getCloudIcon());
     }
 

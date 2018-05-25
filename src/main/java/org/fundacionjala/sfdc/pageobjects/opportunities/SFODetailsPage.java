@@ -26,7 +26,7 @@ public class SFODetailsPage extends SFDetails {
      * getEditButton.
      */
     @Override
-    public void getEditButton() {
+    public void clickEditButton() {
         CommonActions.clickElement(this.editButton);
     }
 
@@ -34,9 +34,10 @@ public class SFODetailsPage extends SFDetails {
      * getDeleteButton.
      */
     @Override
-    public void getDeleteButton() {
+    public void clickDeleteButton() {
         CommonActions.clickElement(this.deleteButton);
     }
+
 
     /**
      * clickDeleteAlert.
