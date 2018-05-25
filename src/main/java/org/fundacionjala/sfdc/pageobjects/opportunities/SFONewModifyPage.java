@@ -186,7 +186,7 @@ public class SFONewModifyPage extends SFNewModify {
      * @param stage setOpportunityStage.
      */
     private void setOpportunityStage(final String stage) {
-        CommonActions.setTextElement(this.opportunityStage, stage);
+        CommonActions.selectOnComboBox(this.opportunityStage, stage);
     }
 
     /**
