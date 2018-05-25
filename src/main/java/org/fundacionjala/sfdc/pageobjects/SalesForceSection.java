@@ -36,10 +36,10 @@ public class SalesForceSection extends Base {
      * @param section section on String format.
      * @return String, selector of tab created.
      */
-    public String salesForceTabSelector(String section) {
+    public String salesForceTabSelector(final String section) {
 
-        final String classicSelector = section.toLowerCase();
-        final String lightningSelector = String
+        String classicSelector = section.toLowerCase();
+        String lightningSelector = String
                 .format("%s%s", classicSelector.substring(0, 1).toUpperCase(), classicSelector.substring(1));
 
         return IS_CLASSIC
