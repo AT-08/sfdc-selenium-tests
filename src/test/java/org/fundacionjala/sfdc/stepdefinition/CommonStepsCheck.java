@@ -36,9 +36,10 @@ public class CommonStepsCheck {
 
     /**
      * iCanGoToSection.
+     * @param section section to go.
      */
     @Given("^I can go to \"([^\"]*)\" Section")
-    public void iCanGoToSection(SalesForceObject section) {
+    public void iCanGoToSection(final SalesForceObject section) {
         tabSalesForce.goToSalesForceTab(section);
     }
 

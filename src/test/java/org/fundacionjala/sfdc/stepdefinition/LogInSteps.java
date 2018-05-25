@@ -19,11 +19,10 @@ public class LogInSteps {
      * Given step.
      */
     @Given("^I login as a User")
-    public String iLoginAsUser() {
+    public void iLoginAsUser() {
         login = new SalesForceLogIn("https://login.salesforce.com/");
         PropertiesManager prop = PropertiesManager.getInstance();
         login.logIn(prop.getUsername(), prop.getPassword(), prop.getTheme());
-        return prop.getUsername();
     }
 
     /**
