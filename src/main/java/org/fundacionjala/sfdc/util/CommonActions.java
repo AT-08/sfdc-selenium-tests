@@ -47,6 +47,7 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
+
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         scrollPage(element);
         element.click();
@@ -81,6 +82,7 @@ public final class CommonActions {
     public static void scrollPage(final WebElement element) {
         if (IS_CLASSIC) {
             ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
+            ACTIONS.moveToElement(element);
         } else {
             ACTIONS.moveToElement(element);
         }
@@ -149,7 +151,7 @@ public final class CommonActions {
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
 
-        String selector = String.format("//div[text()='%s']/parent::div", textToSelect);
+        String selector = String.format("div[title='%s']", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }

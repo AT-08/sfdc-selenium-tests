@@ -46,7 +46,7 @@ public class CommonStepsCheck {
     /**
      * iCanCreateANewAccount.
      */
-    @And("^I can click on New button$")
+    @When("^I can click on New button$")
     public void iCanClickOnNewButton() {
         mainPage.clickToNewButton();
     }

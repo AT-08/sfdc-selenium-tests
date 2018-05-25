@@ -16,8 +16,8 @@ public class SalesForceSection extends Base {
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
-            @FindBy(css = "AllTab_Tab"),
-            @FindBy(css = ".slds-icon-waffle .slds-r1")
+            @FindBy(id = "AllTab_Tab"),
+            @FindBy(css = "//div[@class='slds-icon-waffle']/parent::button")
     })
     private WebElement plusButton;
 
@@ -42,9 +42,15 @@ public class SalesForceSection extends Base {
         String lightningSelector = String
                 .format("%s%s", classicSelector.substring(0, 1).toUpperCase(), classicSelector.substring(1));
 
-        return IS_CLASSIC
-                ? String.format("a.%sBlock", classicSelector)
-                : String.format(".oneAppLauncherItem a[title='%s']", lightningSelector);
+        if(IS_CLASSIC){
+            classicSelector = classicSelector.substring(0,classicSelector.length()-1);
+            if(classicSelector.equalsIgnoreCase("OPPORTUNITIE")){
+                classicSelector = "opportunity";
+            }
+            return String.format("a.%sBlock", classicSelector);
+        }
+
+        return String.format(".oneAppLauncherItem a[title='%s']", lightningSelector);
     }
 
     /**
