@@ -17,7 +17,7 @@ public class SalesForceSection extends Base {
 
     @FindAll({
             @FindBy(id = "AllTab_Tab"),
-            @FindBy(css = "//div[@class='slds-icon-waffle']/parent::button")
+            @FindBy(xpath = "//div[@class='slds-icon-waffle']/parent::button")
     })
     private WebElement plusButton;
 
