@@ -6,7 +6,6 @@ import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
