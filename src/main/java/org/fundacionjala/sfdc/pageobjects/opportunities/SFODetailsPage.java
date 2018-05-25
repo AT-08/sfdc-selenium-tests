@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * SFODetailsPage.
  */
 public class SFODetailsPage extends SFDetails {
-    @FindBy(css = "bodyCell h2.pageDescription")
+    @FindBy(css = "#opp3_ileinner")
     private WebElement opportunityLabel;
 
     /**
