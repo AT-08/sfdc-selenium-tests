@@ -59,7 +59,7 @@ public final class CommonActions {
      * @param locator to click.
      */
     public static void clickByElementLocator(final String locator) {
-        WAITER.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
         scrollPage(element);
         element.click();
@@ -151,7 +151,7 @@ public final class CommonActions {
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
 
-        String selector = String.format("div[title='%s']", textToSelect);
+        String selector = String.format("//div[@title=%s]/parent::div/preceding-sibling::div", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }

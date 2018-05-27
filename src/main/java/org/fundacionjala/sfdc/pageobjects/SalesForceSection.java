@@ -17,7 +17,7 @@ public class SalesForceSection extends Base {
 
     @FindAll({
             @FindBy(id = "AllTab_Tab"),
-            @FindBy(css = "//div[@class='slds-icon-waffle']/parent::button")
+            @FindBy(xpath = "//div[@class='slds-icon-waffle']/parent::div")
     })
     private WebElement plusButton;
 
@@ -26,9 +26,9 @@ public class SalesForceSection extends Base {
      *
      * @param section .
      */
-    public void goToSalesForceTab(final SalesForceObject section) {
+    public void goToSalesForceTab(final SalesForceEnums.EnumLocator section) {
         CommonActions.clickElement(plusButton);
-        CommonActions.clickByElementLocator(this.salesForceTabSelector(section.toString()));
+        CommonActions.clickByElementLocator(this.salesForceTabSelector(section));
         closeMessageLighting();
     }
 
@@ -36,21 +36,10 @@ public class SalesForceSection extends Base {
      * @param section section on String format.
      * @return String, selector of tab created.
      */
-    public String salesForceTabSelector(final String section) {
-
-        String classicSelector = section.toLowerCase();
-        String lightningSelector = String
-                .format("%s%s", classicSelector.substring(0, 1).toUpperCase(), classicSelector.substring(1));
-
-        if(IS_CLASSIC){
-            classicSelector = classicSelector.substring(0,classicSelector.length()-1);
-            if(classicSelector.equalsIgnoreCase("OPPORTUNITIE")){
-                classicSelector = "opportunity";
-            }
-            return String.format("a.%sBlock", classicSelector);
-        }
-
-        return String.format(".oneAppLauncherItem a[title='%s']", lightningSelector);
+    public String salesForceTabSelector(final SalesForceEnums.EnumLocator section) {
+        return IS_CLASSIC
+                ? String.format("a.%sBlock", section.getLocatorClassic())
+                : String.format(".oneAppLauncherItem a[title='%s']", section.getLocatorLightning());
     }
 
     /**

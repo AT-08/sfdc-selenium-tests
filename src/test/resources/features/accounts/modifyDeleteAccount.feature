@@ -3,7 +3,7 @@ Feature: Modify and delete a previous created acount.
   Background: User is logged in the application
     Given I login as a User
     When Home Page should be displayed
-    And I can go to "ACCOUNTS" Section
+    And I can go to "ACCOUNT" Section
     And I can click on New button
     And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME | Account to Modify |
@@ -29,6 +29,6 @@ Feature: Modify and delete a previous created acount.
     Then I can verify if "Account to Modify" has been created
 
   Scenario: Delete account
-    Given I can go to "ACCOUNTS" Section
+    Given I can go to "ACCOUNT" Section
     When I choose an account and press the delete button
     Then I can verify that the account was deleted

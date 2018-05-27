@@ -42,4 +42,48 @@ public class SalesForceEnums {
             }
         }
     }
+
+    /**
+     * Enum theme.
+     */
+    public enum EnumLocator {
+        ACCOUNT("account", "Accounts"),
+        CONTACT("contact", "Contacts"),
+        OPPORTUNITY("opportunity", "Opportunities"),
+        CAMPAIGN("campaign", "Campaigns"),
+        PRODUCT("product", "Products");
+
+        private String locatorClassic;
+        private String locatorLightning;
+
+        /**
+         * Enum constructor.
+         *
+         * @param locatorClassic   is the locator on classic theme.
+         * @param locatorLightning is the locator on lightning.
+         */
+        EnumLocator(final String locatorClassic, final String locatorLightning) {
+            this.locatorClassic = locatorClassic;
+            this.locatorLightning = locatorLightning;
+        }
+
+        /**
+         * Get the locator to classic theme.
+         *
+         * @return the locator on classic theme.
+         */
+        public String getLocatorClassic() {
+            return locatorClassic;
+        }
+
+        /**
+         * Get the locator to lightning theme.
+         *
+         * @return the locator on lightning theme.
+         */
+        public String getLocatorLightning() {
+            return locatorLightning;
+        }
+
+    }
 }

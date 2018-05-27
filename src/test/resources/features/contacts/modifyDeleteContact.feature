@@ -22,7 +22,7 @@ Feature: Contacts feature
       | CONTACT_DEPARTMENT | Sales      |
       | CONTACT_BIRTHDAY   | 21/12/2020 |
       | CONTACT_LEADSOURCE | Other      |
-    Then I can verify the new contact "Mani Chocolate"
+    Then I can verify if "Mani Chocolate" has been created
 
   Scenario: Delete account
     Given I can go to "CONTACTS" Section
