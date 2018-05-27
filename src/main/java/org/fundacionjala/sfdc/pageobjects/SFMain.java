@@ -1,45 +1,64 @@
 package org.fundacionjala.sfdc.pageobjects;
 
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 /**
  * SFMain.
  */
-public abstract class SFMain extends Base {
+public class SFMain extends Base {
 
 
     @FindAll({
             @FindBy(css = "input[name='new']"),
             @FindBy(css = "div[title='New']")
     })
-    protected WebElement newButton;
+    private WebElement newButton;
 
     @FindAll({
-            @FindBy(css = "tr.dataRow.even.first.dataRow >th[scope='row'] > a"),
-            @FindBy(css = "th[scope='row'] > span >a")
+            @FindBy(xpath = "//tr[@class='headerRow']/following-sibling::tr/descendant::a"),
+            @FindBy(xpath = "//td[contains(@class,'slds-cell-edit')]/following-sibling::th/descendant::a")
     })
-    protected WebElement lastItemOnList;
+    private List<WebElement> elementOnList;
 
-    @FindAll({
-            @FindBy(css = "h2.pageDescription"),
-            @FindBy(css = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
-    })
-    protected WebElement homeContact;
+    @FindBy(xpath = "//span[contains(@class, 'toastMessage')]//child::text()")
+    private WebElement greeConfirmMessage;
 
     /**
      * clickToNewButton.
      */
-    public abstract void clickToNewButton();
+    public void clickToNewButton() {
+        CommonActions.clickElement(this.newButton);
+    }
 
     /**
-     * clickAccountNameLink.
+     * clickElementOnList.
+     *
+     * @param elementOnList This is element on list.
      */
-    public abstract void clickAccountNameLink();
+    public void clickElementOnList(final String elementOnList) {
+        CommonActions.clickElement(getElementOnList(elementOnList));
+    }
 
     /**
+     * getElementOnList.
+     *
+     * @param elementOnList This is element on list.
      * @return getAccountHomePage.
      */
-    public abstract String getAccountHomePage();
+    public WebElement getElementOnList(final String elementOnList) {
+        return CommonActions.getWebElementFromMainList(this.elementOnList, elementOnList);
+    }
+
+    /**
+     * @param elementOnList This is element on list.
+     * @return getAccountHomePage.
+     */
+    public String getConfirmMessageShowed(final String elementOnList) {
+        return CommonActions.getConfirmMessageShowed(this.greeConfirmMessage);
+    }
 }

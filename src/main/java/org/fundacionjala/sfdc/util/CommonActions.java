@@ -4,6 +4,7 @@ import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 
@@ -51,6 +53,18 @@ public final class CommonActions {
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         scrollPage(element);
         element.click();
+    }
+
+    /**
+     * Method to JClick any element.
+     *
+     * @param element to click.
+     */
+    public static void jsClickButton(final WebElement element) {
+        WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        ((JavascriptExecutor) WEB_DRIVER)
+                .executeScript("arguments[0].click();", element);
+
     }
 
     /**
@@ -155,4 +169,46 @@ public final class CommonActions {
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }
+
+    /**
+     * @param element .
+     * @return String .
+     */
+    public static String getConfirmMessageShowed(final WebElement element) {
+
+        WAITER.until(ExpectedConditions.alertIsPresent());
+        System.out.println(element.getText() + " <======");
+        return element.getText();
+
+    }
+
+    /**
+     * @param listOfElements is the WebElements lists.
+     * @param element        is the content parameter.
+     * @return WebElement .
+     */
+    public static WebElement getWebElementFromMainList(final List<WebElement> listOfElements, final String element) {
+        return listOfElements
+                .stream()
+                .filter(elementOnList -> elementOnList.getText().equalsIgnoreCase(element))
+                .findFirst()
+                .orElse(null);
+
+    }
+
+    /**
+     * Method to close message displayed.
+     */
+    public static void closeMessageLighting() {
+        try {
+            if (WEB_DRIVER.findElement(By.id("lexNoThanks")).isDisplayed()) {
+                WEB_DRIVER.findElement(By.id("lexNoThanks")).click();
+                WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Message not displayed.");
+        }
+    }
+
+
 }

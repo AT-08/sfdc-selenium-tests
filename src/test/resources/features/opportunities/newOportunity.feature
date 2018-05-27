@@ -11,4 +11,5 @@ Feature: Create a new account
       | OPPORTUNITY_NAME       | Mora        |
       | OPPORTUNITY_CLOSE_DATE | 17/05/2018  |
       | OPPORTUNITY_STAGE      | Prospecting |
-    Then I can verify if "Mora" has been created
+    Then I can go to "OPPORTUNITY" Section
+    And I can verify if "Mora" was created/modified on Detail Page

@@ -1,50 +1,73 @@
 package org.fundacionjala.sfdc.pageobjects;
 
+import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.util.CommonActions;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * SFDetails.
  */
-public abstract class SFDetails extends Base {
+public class SFDetails extends Base {
+
+    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "topButtonRow.pbButton > input[name='edit']"),
+            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='edit']"),
             @FindBy(how = How.CSS, using = "a[title='Edit']")
     })
-    protected WebElement editButton;
+    private WebElement editButton;
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "topButtonRow > input[value='Delete']"),
+            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='delete']"),
             @FindBy(how = How.CSS, using = "a[title='Delete']")
     })
-    protected WebElement deleteButton;
+    private WebElement deleteButton;
 
     @FindAll({
-            @FindBy(how = How.CLASS_NAME, using = "topName"),
+            @FindBy(className = "topName"),
             @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
-    protected WebElement newAccountLabel;
+    private WebElement newAccountLabel;
+
+    @FindBy(css = "a[title='Show 7 more actions']")
+    private WebElement dropDownMenu;
 
     /**
      * clickEditButton.
      */
-    public abstract void clickEditButton();
+    public void clickEditButton() {
+        if (IS_CLASSIC) {
+            CommonActions.clickElement(this.editButton);
+        } else {
+            CommonActions.clickElement(this.dropDownMenu);
+            CommonActions.clickElement(this.editButton);
+        }
+    }
 
     /**
      * clickDeleteButton.
      */
-    public abstract void clickDeleteButton();
+    public void clickDeleteButton() {
+        CommonActions.clickElement(this.deleteButton);
+    }
 
     /**
      * clickDeleteAlert.
      */
-    public abstract void clickDeleteAlert();
+    public void clickDeleteAlert() {
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
+    }
 
     /**
      * @return getNewAccountSavedName.
      */
-    public abstract String getNewAccountSavedName();
+    public String getNewAccountSavedName() {
+        return CommonActions.getTextElement(this.newAccountLabel);
+    }
 }
