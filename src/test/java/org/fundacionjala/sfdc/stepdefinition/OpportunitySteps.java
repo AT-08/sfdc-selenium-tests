@@ -7,17 +7,17 @@ import org.fundacionjala.sfdc.pageobjects.opportunities.SFONewModifyPage;
 import java.util.Map;
 
 /**
- * OpportunityStepsCheck.
+ * OpportunitySteps.
  */
-public class OpportunityStepsCheck {
+public class OpportunitySteps {
     private SFONewModifyPage modifyPage;
 
     /**
-     * OpportunityStepsCheck.
+     * OpportunitySteps.
      *
      * @param modifyPage  modifyPage menu.
      */
-    public OpportunityStepsCheck(final SFONewModifyPage modifyPage) {
+    public OpportunitySteps(final SFONewModifyPage modifyPage) {
         this.modifyPage = modifyPage;
 
     }

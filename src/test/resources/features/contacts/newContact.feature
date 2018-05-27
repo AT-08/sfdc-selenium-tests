@@ -1,20 +1,20 @@
 Feature: Contacts feature
 
   Background: User is logged in the application
-    Given Open Browser and launch the application enter the Username and Password and press login
-    Then I login to the application
+    Given I login as a User
+    Then Home Page should be displayed
 
   Scenario: Create a new contact with only obligatory fields filled
-    Given I can go to contact section
-    And I can create a new contact
-    And I can create a new contact fill the fields and press the save button
+    Given I can go to "CONTACT" Section
+    And I can click on New button
+    And I can fill the fields of Account and press the save button
       | CONTACT_LASTNAME | capibara |
-    Then I can verify the new contact "capibara"
+    Then I can verify if "capibara" has been created
 
   Scenario: Create a new contact with all fields filled
-    Given I can go to contact section
-    And I can create a new contact
-    And I can create a new contact fill the fields and press the save button
+    Given I can go to "CONTACT" Section
+    And I can click on New button
+    And I can fill the fields of Account and press the save button
       | CONTACT_NAME       | kiwi       |
       | CONTACT_LASTNAME   | capibara   |
       | CONTACT_TITLE      | ing        |
@@ -23,4 +23,4 @@ Feature: Contacts feature
       | CONTACT_LEADSOURCE | Web        |
       | CONTACT_PHONE      | 78787878   |
       | CONTACT_HOMEPHONE  | 969969675  |
-    Then I can verify the new contact "kiwi capibara"
+    Then I can verify if "kiwi capibara" has been created

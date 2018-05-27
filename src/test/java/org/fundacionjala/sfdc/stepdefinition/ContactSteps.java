@@ -7,18 +7,18 @@ import org.fundacionjala.sfdc.pageobjects.contacts.SFCNewModifyPage;
 import java.util.Map;
 
 /**
- * ContactStepsCheck.
+ * ContactSteps.
  */
-public class ContactStepsCheck {
+public class ContactSteps {
 
     private SFCNewModifyPage modifyPage;
 
     /**
-     * ContactStepsCheck.
+     * ContactSteps.
      *
      * @param modifyPage  modifyPage menu.
      */
-    public ContactStepsCheck(final SFCNewModifyPage modifyPage) {
+    public ContactSteps(final SFCNewModifyPage modifyPage) {
         this.modifyPage = modifyPage;
     }
     /**

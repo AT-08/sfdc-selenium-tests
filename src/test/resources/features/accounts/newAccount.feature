@@ -5,14 +5,14 @@ Feature: Create a new account
     Then Home Page should be displayed
 
   Scenario: Create a new account with only obligatory fields filled
-    Given I can go to "ACCOUNTS" Section
+    Given I can go to "ACCOUNT" Section
     And I can click on New button
     And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME | Account with only obligatory fields filled |
     Then I can verify if "Account with only obligatory fields filled" has been created
 
   Scenario: Create a new account with all fields filled
-    Given I can go to "ACCOUNTS" Section
+    Given I can go to "ACCOUNT" Section
     And I can click on New button
     And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME   | Account with all fields filled             |

@@ -23,6 +23,7 @@ public final class PropertiesManager {
 
     /**
      * Static method to get an class instance.
+     *
      * @return instance.
      */
     public static PropertiesManager getInstance() {
@@ -45,15 +46,8 @@ public final class PropertiesManager {
     }
 
     /**
-     * Getter of Properties object.
-     * @return Properties instance.
-     */
-    public Properties getConfig() {
-        return prop;
-    }
-
-    /**
      * Getter of username.
+     *
      * @return String username.
      */
     public String getUsername() {
@@ -62,6 +56,7 @@ public final class PropertiesManager {
 
     /**
      * Getter of password.
+     *
      * @return String password.
      */
     public String getPassword() {
@@ -70,6 +65,7 @@ public final class PropertiesManager {
 
     /**
      * Getter of theme.
+     *
      * @return String theme.
      */
     public String getTheme() {

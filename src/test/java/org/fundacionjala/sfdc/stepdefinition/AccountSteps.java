@@ -7,17 +7,17 @@ import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
 import java.util.Map;
 
 /**
- * AccountStepsCheck.
+ * AccountSteps.
  */
-public class AccountStepsCheck {
+public class AccountSteps {
     private SFANewModifyPage modifyPage;
 
     /**
-     * AccountStepsCheck.
+     * AccountSteps.
      *
      * @param modifyPage    modifyPage menu.
      */
-    public AccountStepsCheck(final SFANewModifyPage modifyPage) {
+    public AccountSteps(final SFANewModifyPage modifyPage) {
         this.modifyPage = modifyPage;
     }
 

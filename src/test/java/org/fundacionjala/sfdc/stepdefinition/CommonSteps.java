@@ -1,10 +1,9 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.pageobjects.SalesForceObject;
+import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFADetailsPage;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
@@ -12,23 +11,23 @@ import org.testng.Assert;
 
 
 /**
- * AccountStepsCheck.
+ * AccountSteps.
  */
-public class CommonStepsCheck {
+public class CommonSteps {
     private SalesForceSection tabSalesForce;
     private SFAMainPage mainPage;
     private SFADetailsPage detailsPage;
 
     /**
-     * AccountStepsCheck.
+     * AccountSteps.
      *
      * @param tabSalesForce tabSalesForce menu.
      * @param mainPage      mainPage menu.
      * @param detailsPage   detailsPage menu.
      */
-    public CommonStepsCheck(final SalesForceSection tabSalesForce,
-                            final SFAMainPage mainPage,
-                            final SFADetailsPage detailsPage) {
+    public CommonSteps(final SalesForceSection tabSalesForce,
+                       final SFAMainPage mainPage,
+                       final SFADetailsPage detailsPage) {
         this.tabSalesForce = tabSalesForce;
         this.mainPage = mainPage;
         this.detailsPage = detailsPage;
@@ -39,7 +38,7 @@ public class CommonStepsCheck {
      * @param section section to go.
      */
     @Given("^I can go to \"([^\"]*)\" Section")
-    public void iCanGoToSection(final SalesForceObject section) {
+    public void iCanGoToSection(final SalesForceEnums.EnumLocator section) {
         tabSalesForce.goToSalesForceTab(section);
     }
 
