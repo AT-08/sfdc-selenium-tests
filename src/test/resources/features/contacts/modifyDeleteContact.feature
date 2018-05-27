@@ -1,11 +1,11 @@
 Feature: Contacts feature
 
   Background: User is logged in the application
-    Given Open Browser and launch the application enter the Username and Password and press login
-    When I login to the application
-    And I can go to contact section
-    And I can create a new contact
-    And I can create a new contact fill the fields and press the save button
+    Given I login as a User
+    When Home Page should be displayed
+    And I can go to "CONTACTS" Section
+    And I can click on New button
+    And I can fill the fields of Account and press the save button
       | CONTACT_NAME       | kiwi       |
       | CONTACT_LASTNAME   | capibara   |
       | CONTACT_TITLE      | ing        |
@@ -14,18 +14,17 @@ Feature: Contacts feature
       | CONTACT_LEADSOURCE | Web        |
 
   Scenario: Edit account with all fields filled
-    Given I can go to contact section
-    When I choose an contact and press the edit button
-    And I can create a new contact fill the fields and press the save button
+    When I click on edit button to new account created
+    And I can fill the fields of Account and press the save button
       | CONTACT_NAME       | Mani       |
       | CONTACT_LASTNAME   | Chocolate  |
       | CONTACT_TITLE      | Doctor     |
       | CONTACT_DEPARTMENT | Sales      |
       | CONTACT_BIRTHDAY   | 21/12/2020 |
       | CONTACT_LEADSOURCE | Other      |
-    Then I can verify the new contact "Mani Chocolate"
+    Then I can verify if "Mani Chocolate" has been created
 
-  Scenario: Delete contact
-    Given I can go to contact section
-    When I choose an contact and press the delete button
-    Then I can verify that the contact was deleted
+  Scenario: Delete account
+    Given I can go to "CONTACTS" Section
+    When I choose an account and press the delete button
+    Then I can verify that the account was deleted

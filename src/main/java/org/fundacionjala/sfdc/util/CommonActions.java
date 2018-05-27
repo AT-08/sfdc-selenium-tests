@@ -5,8 +5,10 @@ import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,6 +21,7 @@ import java.util.Set;
  * Class with common methods that many classes can use.
  */
 public final class CommonActions {
+    private static final Actions ACTIONS = new Actions(DriverManager.getInstance().getNavigator());
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
@@ -46,10 +49,9 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
-        if (IS_CLASSIC) {
-            scrollPage(WEB_DRIVER, element);
-        }
+
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        scrollPage(element);
         element.click();
     }
 
@@ -59,14 +61,9 @@ public final class CommonActions {
      * @param locator to click.
      */
     public static void clickByElementLocator(final String locator) {
-
-        WAITER.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
-
-        if (IS_CLASSIC) {
-            scrollPage(WEB_DRIVER, element);
-        }
-        WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        scrollPage(element);
         element.click();
     }
 
@@ -82,11 +79,15 @@ public final class CommonActions {
     /**
      * Method to scroll down page.
      *
-     * @param webDriver the webdriver.
-     * @param element   the element we want to choose.
+     * @param element the element we want to choose.
      */
-    public static void scrollPage(final WebDriver webDriver, final WebElement element) {
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
+    public static void scrollPage(final WebElement element) {
+        if (IS_CLASSIC) {
+            ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
+            ACTIONS.moveToElement(element);
+        } else {
+            ACTIONS.moveToElement(element);
+        }
     }
 
     /**
@@ -105,7 +106,6 @@ public final class CommonActions {
      * @param textOnComboBox select text on comboBox.
      */
     public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
-
         element.click();
         String css = IS_CLASSIC
                 ? String.format("option[value='%s']", textOnComboBox)
@@ -119,17 +119,14 @@ public final class CommonActions {
      * @param textToSelect select text on autoCompleter.
      */
     public static void selectOnAutoCompleterTextField(final WebElement element, final String textToSelect) {
-
         if (IS_CLASSIC) {
             WEB_DRIVER.findElement(By.xpath("//input[contains(@id,'acc3')]/following-sibling::a")).click();
-
             autoCompleterClassicTheme(textToSelect);
 
         } else {
             element.click();
             autoCompleterLightTheme(textToSelect);
         }
-
     }
 
     /**
@@ -157,8 +154,8 @@ public final class CommonActions {
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
 
-        String css = String.format("//a[@role='option']/descendant::div[text()='%s']", textToSelect);
-        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(css)));
-        clickElement(WEB_DRIVER.findElement(By.xpath(css)));
+        String selector = String.format("//div[@title=%s]/parent::div/preceding-sibling::div", textToSelect);
+        WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
+        clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }
 }

@@ -16,10 +16,10 @@ public class SFADetailsPage extends SFDetails {
 
 
     /**
-     * getEditButton.
+     * clickEditButton.
      */
     @Override
-    public void getEditButton() {
+    public void clickEditButton() {
         if (IS_CLASSIC) {
             CommonActions.clickElement(this.editButton);
         } else {
@@ -30,10 +30,10 @@ public class SFADetailsPage extends SFDetails {
     }
 
     /**
-     * getDeleteButton.
+     * clickDeleteButton.
      */
     @Override
-    public void getDeleteButton() {
+    public void clickDeleteButton() {
         CommonActions.clickElement(this.deleteButton);
     }
 

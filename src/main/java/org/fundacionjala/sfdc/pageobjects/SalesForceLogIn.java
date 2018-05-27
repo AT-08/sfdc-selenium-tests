@@ -6,7 +6,6 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 /**
  * SalesForceLogIn.java
@@ -15,18 +14,18 @@ import org.openqa.selenium.support.How;
 public class SalesForceLogIn extends Base {
     private String url;
 
-    @FindBy(how = How.ID, using = "username")
+    @FindBy(id = "username")
     private WebElement userName;
 
-    @FindBy(how = How.ID, using = "password")
+    @FindBy(id = "password")
     private WebElement userPassword;
 
-    @FindBy(how = How.ID, using = "Login")
+    @FindBy(id = "Login")
     private WebElement logInButton;
 
     @FindAll({
-            @FindBy(how = How.CSS, using = "img#phHeaderLogoImage"),
-            @FindBy(how = How.CSS, using = "div.slds-global-header__logo")
+            @FindBy(css = "img#phHeaderLogoImage"),
+            @FindBy(css = "div.slds-global-header__logo")
     })
     private WebElement cloudIcon;
 

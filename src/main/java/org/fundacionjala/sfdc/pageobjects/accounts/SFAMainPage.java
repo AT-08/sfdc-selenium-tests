@@ -11,18 +11,18 @@ public class SFAMainPage extends SFMain {
 
 
     /**
-     * getNewAccountButton.
+     * clickToNewButton.
      */
     @Override
-    public void getNewAccountButton() {
+    public void clickToNewButton() {
         CommonActions.clickElement(this.newButton);
     }
 
     /**
-     * getAccountNameLink.
+     * clickAccountNameLink.
      */
     @Override
-    public void getAccountNameLink() {
+    public void clickAccountNameLink() {
         CommonActions.clickElement(this.lastItemOnList);
     }
 
