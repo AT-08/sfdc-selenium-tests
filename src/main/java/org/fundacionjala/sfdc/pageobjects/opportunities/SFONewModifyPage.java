@@ -127,10 +127,11 @@ public class SFONewModifyPage extends SFNewModify {
 
     /**
      * setPrivateCheckbox.
-     * @param value  a string representation of a boolean value.
+     *
+     * @param value a string representation of a boolean value.
      */
     private void setPrivateCheckbox(final String value) {
-        CommonActions.setCheckBox(this.privateCheckbox, value);
+        CommonActions.setCheckBox(this.privateCheckbox, Boolean.valueOf(value));
     }
 
     /**
@@ -172,7 +173,7 @@ public class SFONewModifyPage extends SFNewModify {
      * @param closeDate setOpportunityCloseDate.
      */
     private void setOpportunityCloseDate(final String closeDate) {
-        CommonActions.setTextElement(this.opportunityCloseDate, closeDate);
+        CommonActions.setDateOnCalendar(this.opportunityCloseDate, closeDate);
     }
 
     /**

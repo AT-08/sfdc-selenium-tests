@@ -23,7 +23,7 @@ public class SFDetails extends Base {
     private WebElement editButton;
 
     @FindAll({
-            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='delete']"),
+            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@title='Delete']"),
             @FindBy(how = How.CSS, using = "a[title='Delete']")
     })
     private WebElement deleteButton;

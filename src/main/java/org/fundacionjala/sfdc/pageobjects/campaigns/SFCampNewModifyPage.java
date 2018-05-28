@@ -97,10 +97,10 @@ public class SFCampNewModifyPage extends SFNewModify {
     /**
      * setPrivateCheckbox.
      *
-     * @param value  a string representation of a boolean value.
+     * @param value a string representation of a boolean value.
      */
     private void setCampaignActiveCheckbox(final String value) {
-        CommonActions.setCheckBox(this.campaignActiveCheckbox, value);
+        CommonActions.setCheckBox(this.campaignActiveCheckbox, Boolean.valueOf(value));
     }
 
     /**
@@ -129,7 +129,7 @@ public class SFCampNewModifyPage extends SFNewModify {
      * @param campaignStartDate setCampaignStartDate.
      */
     private void setCampaignStartDate(final String campaignStartDate) {
-        CommonActions.setTextElement(this.campaignStartDate, campaignStartDate);
+        CommonActions.setDateOnCalendar(this.campaignStartDate, campaignStartDate);
     }
 
     /**
@@ -143,7 +143,7 @@ public class SFCampNewModifyPage extends SFNewModify {
      * @param campaignEndDate setCampaignEndDate.
      */
     private void setCampaignEndDate(final String campaignEndDate) {
-        CommonActions.setTextElement(this.campaignEndDate, campaignEndDate);
+        CommonActions.setDateOnCalendar(this.campaignEndDate, campaignEndDate);
     }
 
     /**

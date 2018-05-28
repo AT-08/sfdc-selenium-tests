@@ -111,19 +111,27 @@ public final class CommonActions {
         WAITER.until(ExpectedConditions.visibilityOf(element));
         element.clear();
         element.sendKeys(text);
+    }
+
+    /**
+     * @param element Any WebElement.
+     * @param text    set a text on a field.
+     */
+    public static void setDateOnCalendar(final WebElement element, final String text) {
+        setTextElement(element, text);
         element.sendKeys(Keys.TAB);
     }
 
     /**
      * @param element a checkbox element.
-     * @param text    a string representation of a boolean value.
+     * @param value   a boolean value.
      */
-    public static void setCheckBox(final WebElement element, final String text) {
+    public static void setCheckBox(final WebElement element, boolean value) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
-        if (!element.isSelected() && text.equalsIgnoreCase("true")) {
+        if (!element.isSelected() && value) {
             clickElement(element);
         }
-        if (element.isSelected() && text.equalsIgnoreCase("false")) {
+        if (element.isSelected() && !value) {
             clickElement(element);
         }
     }
