@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -54,30 +55,6 @@ public class CommonSteps {
     }
 
     /**
-     * @param nameOfObject iCanVerifyNewCreatedObject.
-     */
-    @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
-    public void iCanVerifyNewCreatedObject(final String nameOfObject) {
-        if (IS_CLASSIC) {
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
-        } else {
-            Assert.assertTrue(mainPage.getConfirmMessageShowed(nameOfObject).contains(nameOfObject));
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
-        }
-
-    }
-
-    /**
-     * iChooseLastElementOnList.
-     *
-     * @param elementOnList .
-     */
-    @When("^I can click on \"([^\"]*)\" at list on Main Page")
-    public void iChooseLastElementOnList(final String elementOnList) {
-        mainPage.clickElementOnList(elementOnList);
-    }
-
-    /**
      * iChooseLastElementOnList.
      */
     @When("I can click on Edit Button")
@@ -103,10 +80,47 @@ public class CommonSteps {
 
     /**
      * iCanVerifyThatTheAccountWasDeleted.
+     *
      * @param elementDeleted .
+     * @param section        .
      */
     @Then("^I can verify that \"([^\"]*)\" was deleted$")
-    public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
-        Assert.assertNull(mainPage.getElementOnList(elementDeleted));
+    public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted,
+                                                   final SalesForceEnums.EnumLocator section) {
+        Assert.assertNull(mainPage.getElementOnList(elementDeleted, section));
+    }
+
+    /**
+     * @param nameOfObject iCanVerifyNewCreatedObject.
+     * @param section      .
+     */
+    @And("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
+    public void iCanVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
+                                                           final SalesForceEnums.EnumLocator section) {
+        if (IS_CLASSIC) {
+            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject, section));
+        } else {
+            Assert.assertTrue(mainPage.getConfirmMessageShowed(nameOfObject).contains(nameOfObject));
+            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject, section));
+        }
+
+    }
+
+    /**
+     * @param nameOfObject iCanClickOnAtListOnMainPage.
+     * @param section      .
+     */
+    @And("^I can click on \"([^\"]*)\" \"([^\"]*)\" at list on Main Page$")
+    public void iCanClickOnAtListOnMainPage(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
+        mainPage.clickElementOnList(nameOfObject, section);
+    }
+
+    /**
+     * @param elementDeleted iCanVerifyThatWasDeleted.
+     * @param section        .
+     */
+    @Then("^I can verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
+    public void iCanVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
+        Assert.assertNull(mainPage.getElementOnList(elementDeleted, section));
     }
 }
