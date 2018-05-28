@@ -3,8 +3,6 @@ package org.fundacionjala.sfdc.stepdefinition;
 import cucumber.api.java.en.And;
 import org.fundacionjala.sfdc.pageobjects.campaigns.CampaignInputs;
 import org.fundacionjala.sfdc.pageobjects.campaigns.SFCampNewModifyPage;
-import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
-import org.fundacionjala.sfdc.pageobjects.opportunities.SFONewModifyPage;
 
 import java.util.Map;
 
@@ -17,7 +15,7 @@ public class CampaignSteps {
     /**
      * OpportunitySteps.
      *
-     * @param modifyPage  modifyPage menu.
+     * @param modifyPage modifyPage menu.
      */
     public CampaignSteps(final SFCampNewModifyPage modifyPage) {
         this.modifyPage = modifyPage;
@@ -28,7 +26,8 @@ public class CampaignSteps {
      * @param values iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton.
      */
     @And("^I can create or modify a campaign fill the fields and press the save button$")
-    public void iCanCreateOrModifyACampaignFillTheFieldsAndPressTheSaveButton(final Map<CampaignInputs, String> values) {
+    public void iCanCreateOrModifyACampaignFillTheFieldsAndPressTheSaveButton(final Map<CampaignInputs,
+            String> values) {
         values.keySet().forEach(step
                 -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
