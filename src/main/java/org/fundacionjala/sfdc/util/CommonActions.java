@@ -2,10 +2,7 @@ package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -98,7 +95,7 @@ public final class CommonActions {
         WAITER.until(ExpectedConditions.visibilityOf(element));
         element.clear();
         element.sendKeys(text);
-        element.sendKeys(Keys.ESCAPE);
+        element.sendKeys(Keys.TAB);
     }
 
     /**

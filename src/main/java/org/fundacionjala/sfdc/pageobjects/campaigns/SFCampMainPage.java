@@ -12,7 +12,7 @@ public class SFCampMainPage extends SFMain {
      * getNewAccountButton.
      */
     @Override
-    public void getNewAccountButton() {
+    public void clickToNewButton() {
         CommonActions.clickElement(this.newButton);
     }
 
@@ -20,7 +20,7 @@ public class SFCampMainPage extends SFMain {
      * getAccountNameLink.
      */
     @Override
-    public void getAccountNameLink() {
+    public void clickAccountNameLink() {
         CommonActions.clickElement(this.lastItemOnList);
     }
 
