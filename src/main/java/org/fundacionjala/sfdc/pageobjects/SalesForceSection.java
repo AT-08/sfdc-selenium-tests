@@ -2,8 +2,6 @@ package org.fundacionjala.sfdc.pageobjects;
 
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +15,7 @@ public class SalesForceSection extends Base {
 
     @FindAll({
             @FindBy(id = "AllTab_Tab"),
-            @FindBy(xpath = "//div[@class='slds-icon-waffle']/parent::div")
+            @FindBy(className = "slds-icon-waffle")
     })
     private WebElement plusButton;
 
@@ -27,9 +25,14 @@ public class SalesForceSection extends Base {
      * @param section .
      */
     public void goToSalesForceTab(final SalesForceEnums.EnumLocator section) {
-        CommonActions.clickElement(plusButton);
+        if (IS_CLASSIC) {
+            CommonActions.clickElement(plusButton);
+        } else {
+            CommonActions.jsClickButton(plusButton);
+        }
+
         CommonActions.clickByElementLocator(this.salesForceTabSelector(section));
-        closeMessageLighting();
+        CommonActions.closeMessageLighting();
     }
 
     /**
@@ -39,20 +42,8 @@ public class SalesForceSection extends Base {
     public String salesForceTabSelector(final SalesForceEnums.EnumLocator section) {
         return IS_CLASSIC
                 ? String.format("a.%sBlock", section.getLocatorClassic())
-                : String.format(".oneAppLauncherItem a[title='%s']", section.getLocatorLightning());
+                : String.format("a[title=%s]>span>span", section.getLocatorLightning());
     }
 
-    /**
-     * Method to close message displayed.
-     */
-    public void closeMessageLighting() {
-        try {
-            if (webDriver.findElement(By.id("lexNoThanks")).isDisplayed()) {
-                webDriver.findElement(By.id("lexNoThanks")).click();
-                webDriver.findElement(By.id("tryLexDialogX")).click();
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("Message not displayed.");
-        }
-    }
+
 }

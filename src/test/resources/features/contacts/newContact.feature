@@ -9,7 +9,8 @@ Feature: Contacts feature
     And I can click on New button
     And I can fill the fields of Account and press the save button
       | CONTACT_LASTNAME | capibara |
-    Then I can verify if "capibara" has been created
+    Then I can go to "CONTACT" Section
+    And I can verify if "capibara" was created/modified on Detail Page
 
   Scenario: Create a new contact with all fields filled
     Given I can go to "CONTACT" Section
@@ -23,4 +24,5 @@ Feature: Contacts feature
       | CONTACT_LEADSOURCE | Web        |
       | CONTACT_PHONE      | 78787878   |
       | CONTACT_HOMEPHONE  | 969969675  |
-    Then I can verify if "kiwi capibara" has been created
+    Then I can go to "CONTACT" Section
+    And I can verify if "kiwi capibara" was created/modified on Detail Page
