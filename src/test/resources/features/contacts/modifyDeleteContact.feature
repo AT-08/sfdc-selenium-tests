@@ -14,7 +14,7 @@ Feature: Contacts feature
       | CONTACT_LEADSOURCE | Web        |
 
   Scenario: Edit account with all fields filled
-    When I click on edit button to new account created
+    When I can click on last element at list on Main Page
     And I can fill the fields of Account and press the save button
       | CONTACT_NAME       | Mani       |
       | CONTACT_LASTNAME   | Chocolate  |
@@ -22,7 +22,7 @@ Feature: Contacts feature
       | CONTACT_DEPARTMENT | Sales      |
       | CONTACT_BIRTHDAY   | 21/12/2020 |
       | CONTACT_LEADSOURCE | Other      |
-    Then I can verify if "Mani Chocolate" has been created
+    Then I can verify if "Mani Chocolate" was created/modified on Detail Page
 
   Scenario: Delete account
     Given I can go to "CONTACTS" Section

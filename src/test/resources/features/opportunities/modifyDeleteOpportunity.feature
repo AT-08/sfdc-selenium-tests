@@ -11,12 +11,12 @@ Feature: Opportunity features
       | OPPORTUNITY_STAGE      | Prospecting |
 
   Scenario: Edit opportunity with all fields filled
-    When I click on edit button to new account created
+    When I can click on last element at list on Main Page
     And I can fill the fields of Account and press the save button
       | OPPORTUNITY_NAME       | Coco        |
       | OPPORTUNITY_CLOSE_DATE | 18/05/2030  |
       | OPPORTUNITY_STAGE      | Prospecting |
-    Then I can verify if "Coco" has been created
+    Then I can verify if "Coco" was created/modified on Detail Page
 
   Scenario: Delete account
     Given I can go to "OPPORTUNITY" Section

@@ -121,8 +121,6 @@ public class SFANewModifyPage extends SFNewModify {
     })
     private WebElement accountSICCode;
 
-    // Address Information
-
     /**
      * Method to set accountEmployee attribute.
      *

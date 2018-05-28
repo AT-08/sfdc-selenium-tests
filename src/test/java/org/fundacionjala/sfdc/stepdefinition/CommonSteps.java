@@ -3,10 +3,11 @@ package org.fundacionjala.sfdc.stepdefinition;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.pageobjects.SFDetails;
+import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
-import org.fundacionjala.sfdc.pageobjects.accounts.SFADetailsPage;
-import org.fundacionjala.sfdc.pageobjects.accounts.SFAMainPage;
 import org.testng.Assert;
 
 
@@ -14,9 +15,10 @@ import org.testng.Assert;
  * AccountSteps.
  */
 public class CommonSteps {
+    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private SalesForceSection tabSalesForce;
-    private SFAMainPage mainPage;
-    private SFADetailsPage detailsPage;
+    private SFMain mainPage;
+    private SFDetails detailsPage;
 
     /**
      * AccountSteps.
@@ -26,8 +28,8 @@ public class CommonSteps {
      * @param detailsPage   detailsPage menu.
      */
     public CommonSteps(final SalesForceSection tabSalesForce,
-                       final SFAMainPage mainPage,
-                       final SFADetailsPage detailsPage) {
+                       final SFMain mainPage,
+                       final SFDetails detailsPage) {
         this.tabSalesForce = tabSalesForce;
         this.mainPage = mainPage;
         this.detailsPage = detailsPage;
@@ -35,6 +37,7 @@ public class CommonSteps {
 
     /**
      * iCanGoToSection.
+     *
      * @param section section to go.
      */
     @Given("^I can go to \"([^\"]*)\" Section")
@@ -53,42 +56,57 @@ public class CommonSteps {
     /**
      * @param nameOfObject iCanVerifyNewCreatedObject.
      */
-    @Then("^I can verify if \"([^\"]*)\" has been created$")
+    @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyNewCreatedObject(final String nameOfObject) {
-        Assert.assertEquals(detailsPage.getNewAccountSavedName(), nameOfObject);
+        if (IS_CLASSIC) {
+            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
+        } else {
+            Assert.assertTrue(mainPage.getConfirmMessageShowed(nameOfObject).contains(nameOfObject));
+            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
+        }
+
     }
 
     /**
-     * iChooseAnAccount.
+     * iChooseLastElementOnList.
+     *
+     * @param elementOnList .
      */
-    @When("^I choose an account$")
-    public void iChooseAnAccount() {
-        mainPage.clickAccountNameLink();
+    @When("^I can click on \"([^\"]*)\" at list on Main Page")
+    public void iChooseLastElementOnList(final String elementOnList) {
+        mainPage.clickElementOnList(elementOnList);
     }
 
     /**
-     * iChooseAnAccountAndPressTheEditButton.
+     * iChooseLastElementOnList.
      */
-    @When("^I click on edit button to new account created$")
-    public void iChooseAnAccountAndPressTheEditButton() {
+    @When("I can click on Edit Button")
+    public void iCanClickOnEditButton() {
         detailsPage.clickEditButton();
     }
 
     /**
-     * iChooseAnAccountAndPressTheDeleteButton.
+     * iCanClickOnDeleteButton.
      */
-    @When("^I choose an account and press the delete button$")
-    public void iChooseAnAccountAndPressTheDeleteButton() {
-        mainPage.clickAccountNameLink();
+    @When("I can click on Delete Button")
+    public void iCanClickOnDeleteButton() {
         detailsPage.clickDeleteButton();
+    }
+
+    /**
+     * iCanConfirmDeleteAlert.
+     */
+    @When("I can confirm Delete alert")
+    public void iCanConfirmDeleteAlert() {
         detailsPage.clickDeleteAlert();
     }
 
     /**
      * iCanVerifyThatTheAccountWasDeleted.
+     * @param elementDeleted .
      */
-    @Then("^I can verify that the account was deleted$")
-    public void iCanVerifyThatTheAccountWasDeleted() {
-        Assert.assertEquals(mainPage.getAccountHomePage(), "home");
+    @Then("^I can verify that \"([^\"]*)\" was deleted$")
+    public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
+        Assert.assertNull(mainPage.getElementOnList(elementDeleted));
     }
 }
