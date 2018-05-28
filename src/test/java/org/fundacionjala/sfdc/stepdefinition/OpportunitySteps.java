@@ -15,7 +15,7 @@ public class OpportunitySteps {
     /**
      * OpportunitySteps.
      *
-     * @param modifyPage  modifyPage menu.
+     * @param modifyPage modifyPage menu.
      */
     public OpportunitySteps(final SFONewModifyPage modifyPage) {
         this.modifyPage = modifyPage;
@@ -26,7 +26,8 @@ public class OpportunitySteps {
      * @param values iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton.
      */
     @And("^I can create or modify an opportunity fill the fields and press the save button$")
-    public void iCanCreateOrModifyAnOpportunityFillTheFieldsAndPressTheSaveButton(final Map<OpportInputs, String> values) {
+    public void iCanCreateOrModifyAnOpportunityFillTheFieldsAndPressTheSaveButton(final Map<OpportInputs,
+            String> values) {
         values.keySet().forEach(step
                 -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();

@@ -127,6 +127,7 @@ public class SFONewModifyPage extends SFNewModify {
 
     /**
      * setPrivateCheckbox.
+     * @param value  a string representation of a boolean value.
      */
     private void setPrivateCheckbox(final String value) {
         CommonActions.setCheckBox(this.privateCheckbox, value);
