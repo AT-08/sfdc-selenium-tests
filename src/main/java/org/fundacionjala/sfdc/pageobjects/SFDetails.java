@@ -6,7 +6,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
@@ -18,24 +17,28 @@ public class SFDetails extends Base {
 
     @FindAll({
             @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='edit']"),
-            @FindBy(how = How.CSS, using = "a[title='Edit']")
+            @FindBy(xpath = "//a[@title='Edit']/child::div")
     })
     private WebElement editButton;
 
     @FindAll({
             @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='delete']"),
-            @FindBy(how = How.CSS, using = "a[title='Delete']")
+            @FindBy(xpath = "//a[@title='Delete']/child::div")
     })
     private WebElement deleteButton;
 
     @FindAll({
             @FindBy(className = "topName"),
-            @FindBy(how = How.CSS, using = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
+            @FindBy(css = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
     })
     private WebElement newAccountLabel;
 
-    @FindBy(css = "a[title='Show 7 more actions']")
+    @FindBy(css = "[class='slds-icon_container slds-icon-utility-down slds-button__icon forceIcon']")
     private WebElement dropDownMenu;
+
+    @FindBy(xpath
+            = "//div[contains(@class ,'forceModalActionContainer--footerAction')]/child::button[@title = 'Delete']")
+    private WebElement deleteConfirmation;
 
     /**
      * clickEditButton.
@@ -44,8 +47,8 @@ public class SFDetails extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(this.editButton);
         } else {
-            CommonActions.clickElement(this.dropDownMenu);
-            CommonActions.clickElement(this.editButton);
+            CommonActions.jsClickElement(this.dropDownMenu);
+            CommonActions.jsClickElement(this.editButton);
         }
     }
 
@@ -53,15 +56,24 @@ public class SFDetails extends Base {
      * clickDeleteButton.
      */
     public void clickDeleteButton() {
-        CommonActions.clickElement(this.deleteButton);
+        if (IS_CLASSIC) {
+            CommonActions.clickElement(this.deleteButton);
+        } else {
+            CommonActions.jsClickElement(this.dropDownMenu);
+            CommonActions.jsClickElement(this.deleteButton);
+        }
     }
 
     /**
      * clickDeleteAlert.
      */
     public void clickDeleteAlert() {
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        if (IS_CLASSIC) {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+        } else {
+            CommonActions.jsClickElement(deleteConfirmation);
+        }
     }
 
     /**

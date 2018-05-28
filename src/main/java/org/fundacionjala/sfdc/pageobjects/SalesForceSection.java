@@ -28,9 +28,8 @@ public class SalesForceSection extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(plusButton);
         } else {
-            CommonActions.jsClickButton(plusButton);
+            CommonActions.jsClickElement(plusButton);
         }
-
         CommonActions.clickByElementLocator(this.salesForceTabSelector(section));
         CommonActions.closeMessageLighting();
     }

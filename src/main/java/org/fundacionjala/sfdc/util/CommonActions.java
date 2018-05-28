@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -39,8 +40,17 @@ public final class CommonActions {
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
+        WAITER.until(ExpectedConditions.elementToBeClickable(element));
         return element;
+    }
+
+    /**
+     * This method generates a wait for a fixed time.
+     *
+     * @param time .
+     */
+    public static void waitTime(int time) {
+        WEB_DRIVER.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
     }
 
     /**
@@ -49,7 +59,6 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
-
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         scrollPage(element);
         element.click();
@@ -60,10 +69,12 @@ public final class CommonActions {
      *
      * @param element to click.
      */
-    public static void jsClickButton(final WebElement element) {
+    public static void jsClickElement(final WebElement element) {
+        CommonActions.waitTime(2);
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
         ((JavascriptExecutor) WEB_DRIVER)
                 .executeScript("arguments[0].click();", element);
+        CommonActions.waitTime(0);
 
     }
 
@@ -94,12 +105,8 @@ public final class CommonActions {
      * @param element the element we want to choose.
      */
     public static void scrollPage(final WebElement element) {
-        if (IS_CLASSIC) {
-            ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
-            ACTIONS.moveToElement(element);
-        } else {
-            ACTIONS.moveToElement(element);
-        }
+        ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
+        ACTIONS.moveToElement(element);
     }
 
     /**
@@ -165,7 +172,7 @@ public final class CommonActions {
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
 
-        String selector = String.format("//div[@title=%s]/parent::div/preceding-sibling::div", textToSelect);
+        String selector = String.format("//div[@title='%s']/parent::div/preceding-sibling::div", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }
@@ -183,17 +190,19 @@ public final class CommonActions {
     }
 
     /**
-     * @param listOfElements is the WebElements lists.
-     * @param element        is the content parameter.
+     * @param element is the content parameter.
+     * @param listOfElements list of elements.
      * @return WebElement .
      */
     public static WebElement getWebElementFromMainList(final List<WebElement> listOfElements, final String element) {
-        return listOfElements
+        waitTime(1);
+        WebElement webElement = listOfElements
                 .stream()
                 .filter(elementOnList -> elementOnList.getText().equalsIgnoreCase(element))
                 .findFirst()
                 .orElse(null);
-
+        waitTime(0);
+        return webElement;
     }
 
     /**
