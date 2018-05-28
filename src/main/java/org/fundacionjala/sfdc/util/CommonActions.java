@@ -2,11 +2,7 @@ package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -111,6 +107,20 @@ public final class CommonActions {
         element.clear();
         element.sendKeys(text);
         element.sendKeys(Keys.TAB);
+    }
+
+    /**
+     * @param element a checkbox element.
+     * @param text    a string representation of a boolean value.
+     */
+    public static void setCheckBox(final WebElement element, final String text) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        if (!element.isSelected() && text.equalsIgnoreCase("true")) {
+            clickElement(element);
+        }
+        if (element.isSelected() && text.equalsIgnoreCase("false")) {
+            clickElement(element);
+        }
     }
 
     /**

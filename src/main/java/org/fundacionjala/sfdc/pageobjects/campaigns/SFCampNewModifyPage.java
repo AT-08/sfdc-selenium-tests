@@ -97,8 +97,8 @@ public class SFCampNewModifyPage extends SFNewModify {
     /**
      * setPrivateCheckbox.
      */
-    private void setCampaignActiveCheckbox() {
-        CommonActions.clickElement(this.campaignActiveCheckbox);
+    private void setCampaignActiveCheckbox(String value) {
+        CommonActions.setCheckBox(this.campaignActiveCheckbox, value);
     }
 
     /**
@@ -172,8 +172,11 @@ public class SFCampNewModifyPage extends SFNewModify {
         CommonActions.setTextElement(this.campaignNumSent, campaignNumSent);
     }
 
+
     /**
-     * @param parentCampaign setParentCampaign.
+     * Method to set parentAccount attribute.
+     *
+     * @param parentCampaign the value.
      */
     private void setParentCampaign(final String parentCampaign) {
         CommonActions.setTextElement(this.parentCampaign, parentCampaign);
@@ -195,7 +198,8 @@ public class SFCampNewModifyPage extends SFNewModify {
 
         strategyMap.put(CampaignInputs.CAMPAIGN_NAME, () ->
                 this.setCampaignName(String.valueOf(values.get(CampaignInputs.CAMPAIGN_NAME))));
-        strategyMap.put(CampaignInputs.CAMPAIGN_ACTIVE, this::setCampaignActiveCheckbox);
+        strategyMap.put(CampaignInputs.CAMPAIGN_ACTIVE, () ->
+                this.setCampaignActiveCheckbox(String.valueOf(values.get(CampaignInputs.CAMPAIGN_ACTIVE))));
         strategyMap.put(CampaignInputs.CAMPAIGN_TYPE, () ->
                 this.setCampaignType(String.valueOf(values.get(CampaignInputs.CAMPAIGN_TYPE))));
         strategyMap.put(CampaignInputs.CAMPAIGN_STATUS, () ->
