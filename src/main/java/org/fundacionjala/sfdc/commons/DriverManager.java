@@ -5,22 +5,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * DriverManager.java.
  * Class that applies Singleton pattern to instance WebDriver only once.
  */
 public final class DriverManager {
+    private static final int EXPLICIT_TIME = 60;
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait wait;
-    private static final int SECONDS_WAIT = 90;
+
 
     /**
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, SECONDS_WAIT);
+        wait = new WebDriverWait(driver, EXPLICIT_TIME);
     }
 
     /**
@@ -52,5 +55,31 @@ public final class DriverManager {
     public WebDriverWait getWaiter() {
         return wait;
     }
+
+    /**
+     * Set time implicit wait.
+     *
+     * @param implicitTimeWait time for wait.
+     */
+    public void setImplicitTime(int implicitTimeWait) {
+        driver.manage().timeouts().implicitlyWait(implicitTimeWait, TimeUnit.SECONDS);
+    }
+
+    /**
+     * Set update waits.
+     *
+     * @param time time for implicit and explicit.
+     */
+    public void setUpdateWait(int time) {
+        this.setImplicitTime(time);
+    }
+
+    /**
+     * Back previous set default times.
+     */
+    public void backPreviousWait() {
+        this.setImplicitTime(0);
+    }
+
 
 }

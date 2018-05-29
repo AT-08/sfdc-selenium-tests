@@ -39,24 +39,22 @@ public class SFMain extends Base {
      * clickElementOnList.
      *
      * @param elementOnList This is element on list.
-     * @param section       section(ACCOUNT,PRODUCT,CONTACT,OPPORTUNITY).
      */
-    public void clickElementOnList(final String elementOnList, final SalesForceEnums.EnumLocator section) {
-        CommonActions.clickElement(getElementOnList(elementOnList, section));
+
+    public void clickElementOnList(final String elementOnList) {
+        WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
+        CommonActions.clickElement(webElement);
     }
 
     /**
-     * getElementOnList.
+     * istWebElementPresentOnList.
      *
      * @param elementOnList This is element on list.
-     * @param section       section(ACCOUNT,PRODUCT,CONTACT,OPPORTUNITY).
      * @return getAccountHomePage.
      */
-    public WebElement getElementOnList(final String elementOnList, final SalesForceEnums.EnumLocator section) {
-        return SalesForceEnums.EnumLocator.CONTACT.equals(section)
-                ? CommonActions.getWebElementFromMainList(this.elementOnList,
-                CommonActions.formatContactName(elementOnList))
-                : CommonActions.getWebElementFromMainList(this.elementOnList, elementOnList);
+
+    public boolean istWebElementPresentOnList(final String elementOnList) {
+        return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
     }
 
     /**

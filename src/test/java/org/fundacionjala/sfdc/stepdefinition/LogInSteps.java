@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceLogIn;
 
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
 
 /**
@@ -30,7 +31,9 @@ public class LogInSteps {
      */
     @Then("^Home Page should be displayed$")
     public void homePageShouldBeDisplated() {
+        CommonActions.waitTime(2);
         Assert.assertTrue(login.getCloudIcon());
+        CommonActions.resetWaitTime();
     }
 
 }
