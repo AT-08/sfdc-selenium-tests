@@ -29,4 +29,5 @@ public class ContactSteps {
         values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }
+
 }
