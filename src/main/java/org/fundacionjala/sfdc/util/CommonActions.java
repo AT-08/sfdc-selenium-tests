@@ -201,7 +201,6 @@ public final class CommonActions {
     public static String getConfirmMessageShowed(final WebElement element) {
 
         WAITER.until(ExpectedConditions.alertIsPresent());
-        System.out.println(element.getText() + " <======");
         return element.getText();
 
     }
@@ -230,7 +229,6 @@ public final class CommonActions {
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
             }
         } catch (NoSuchElementException e) {
-            System.out.println("Message not displayed.");
         }
     }
 
