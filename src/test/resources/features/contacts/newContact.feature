@@ -45,4 +45,4 @@ Feature: Contacts feature
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
     Then I can go to "CONTACT" Section
-    And I can verify if "Pablo Grillosss" "CONTACT" was created/modified on Detail Page
+    And I can verify if "Grillloss, Pablo" "CONTACT" was created/modified on Detail Page

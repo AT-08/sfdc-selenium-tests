@@ -75,8 +75,7 @@ public final class CommonActions {
     public static void clickByElementLocator(final String locator) {
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
-        scrollPage(element);
-        element.click();
+        jsClickButton(element);
     }
 
     /**
@@ -219,10 +218,10 @@ public final class CommonActions {
      * @return the contact name formated .
      */
     public static String formatContactName(final String contactName) {
-        if (IS_CLASSIC) {
-            String[] array = contactName.split(" ");
+        if (!IS_CLASSIC) {
+            String[] array = contactName.split(", ");
             if (array.length > 1) {
-                return String.format("%s, %s", array[1], array[0]);
+                return String.format("%s %s", array[1], array[0]);
             }
         }
         return contactName;

@@ -18,8 +18,7 @@ import java.util.Map;
 public class SFCNewModifyPage extends SFNewModify {
     @FindAll({
             @FindBy(id = "name_salutationcon2"),
-            @FindBy(xpath = "//span[text()='Salutation']/parent::span/following-sibling::"
-                    + "div/child::div/child::div/child::div/child::a")
+            @FindBy(xpath = "//span[text()='Salutation']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement contactSalutation;
     @FindAll({
@@ -52,8 +51,7 @@ public class SFCNewModifyPage extends SFNewModify {
     private WebElement contactBirthdateTextField;
     @FindAll({
             @FindBy(id = "con9"),
-            @FindBy(xpath = "//span[text()='Lead Source']/parent::span/following-sibling::div/child::"
-                    + "div/child::div/child::div/child::a")
+            @FindBy(xpath = "//span[text()='Lead Source']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement contactLeadSource;
     @FindAll({
@@ -170,8 +168,7 @@ public class SFCNewModifyPage extends SFNewModify {
     private WebElement contactLanguagesTextField;
     @FindAll({
             @FindBy(xpath = "//label[text()='Level']/parent::td/following-sibling::td/child::span/child::select"),
-            @FindBy(xpath = "//span[text()='Level']/parent::span/following-sibling::div/child::"
-                    + "div/child::div/child::div/child::a")
+            @FindBy(xpath = "//span[text()='Level']/parent::span/following-sibling::div/descendant::a")
     })
     private WebElement contactLevel;
 

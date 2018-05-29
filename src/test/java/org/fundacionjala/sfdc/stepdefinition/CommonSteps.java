@@ -123,4 +123,20 @@ public class CommonSteps {
     public void iCanVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
         Assert.assertNull(mainPage.getElementOnList(elementDeleted, section));
     }
+
+    /**
+     * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
+     */
+    @When("^I can click on Delete Button at list on Main Page$")
+    public void iCanClickOnDeleteButtonAtListOnMainPage() {
+        detailsPage.clickDeleteSecondWay();
+    }
+
+    /**
+     * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
+     */
+    @And("^I can click on Edit Button at list on Main Page$")
+    public void iCanClickOnEditButtonAtListOnMainPage() {
+        detailsPage.clickEditSecondWay();
+    }
 }

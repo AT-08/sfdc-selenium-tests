@@ -53,7 +53,7 @@ public class SFMain extends Base {
      * @return getAccountHomePage.
      */
     public WebElement getElementOnList(final String elementOnList, final SalesForceEnums.EnumLocator section) {
-        return section.toString().equals("CONTACT")
+        return SalesForceEnums.EnumLocator.CONTACT.equals(section)
                 ? CommonActions.getWebElementFromMainList(this.elementOnList,
                 CommonActions.formatContactName(elementOnList))
                 : CommonActions.getWebElementFromMainList(this.elementOnList, elementOnList);
