@@ -27,7 +27,7 @@ Feature: Create a new account
       | OPPORTUNITY_CLOSE_DATE                  | 17/06/2018    |
       | OPPORTUNITY_NEXT_STEP                   | 17/05/2018    |
       | OPPORTUNITY_STAGE                       | Prospecting   |
-      | OPPORTUNITY_PROBABILITY                 | 70            |
+      | OPPORTUNITY_PROBABILITY                 | 75            |
       | OPPORTUNITY_PRIMARY_CAMPAIGN_SOURCE     | CampaignOpp   |
       | OPPORTUNITY_ORDER_NUMBER                | 12345         |
       | OPPORTUNITY_CURRENT_GENERATOR           | Current       |
