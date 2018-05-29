@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -26,6 +25,7 @@ public final class CommonActions {
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
 
     /**
      * Private constructor because it is a util class.
@@ -40,7 +40,6 @@ public final class CommonActions {
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
-        waitTime(1);
         WAITER.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
@@ -48,10 +47,17 @@ public final class CommonActions {
     /**
      * This method generates a wait for a fixed time.
      *
-     * @param time .
+     * @param time time.
      */
     public static void waitTime(int time) {
-        WEB_DRIVER.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+        DriverManager.getInstance().setUpdateWait(time);
+    }
+
+    /**
+     * This method generates a wait for a fixed time.
+     */
+    public static void resetWaitTime() {
+        DriverManager.getInstance().setUpdateWait(0);
     }
 
     /**
@@ -61,6 +67,7 @@ public final class CommonActions {
      */
     public static void clickElement(final WebElement element) {
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        WAITER.until(ExpectedConditions.visibilityOf(element));
         scrollPage(element);
         element.click();
     }
@@ -71,12 +78,8 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void jsClickElement(final WebElement element) {
-        CommonActions.waitTime(2);
         WAITER.until(ExpectedConditions.elementToBeClickable(element));
-        ((JavascriptExecutor) WEB_DRIVER)
-                .executeScript("arguments[0].click();", element);
-        CommonActions.waitTime(0);
-
+        JAVASCRIPT_EXECUTOR.executeScript("arguments[0].click();", element);
     }
 
     /**
@@ -84,11 +87,12 @@ public final class CommonActions {
      *
      * @param locator to click.
      */
-    public static void clickByElementLocator(final String locator) {
+    public static void jsClickByElementLocator(final String locator) {
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
+        WAITER.until(ExpectedConditions.elementToBeClickable(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
         scrollPage(element);
-        element.click();
+        jsClickElement(element);
     }
 
     /**
@@ -106,7 +110,8 @@ public final class CommonActions {
      * @param element the element we want to choose.
      */
     public static void scrollPage(final WebElement element) {
-        ((JavascriptExecutor) WEB_DRIVER).executeScript("arguments[0].scrollIntoView();", element);
+        JAVASCRIPT_EXECUTOR.executeScript("arguments[0].scrollIntoView();", element);
+        WAITER.until(ExpectedConditions.elementToBeClickable(element));
         ACTIONS.moveToElement(element);
     }
 
@@ -116,8 +121,18 @@ public final class CommonActions {
      */
     public static void setTextElement(final WebElement element, final String text) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
-        element.clear();
+        clearTextField(element);
         element.sendKeys(text);
+    }
+
+    /**
+     * Waits and clear the WebElement.
+     *
+     * @param element WebElement to wait and clear
+     */
+    public static void clearTextField(final WebElement element) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
     }
 
     /**
@@ -172,7 +187,6 @@ public final class CommonActions {
      * @param textToSelect select text on autoCompleter.
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
-
         String selector = String.format("//div[@title='%s']/parent::div/preceding-sibling::div", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
@@ -183,7 +197,6 @@ public final class CommonActions {
      * @return String .
      */
     public static String getConfirmMessageShowed(final WebElement element) {
-
         WAITER.until(ExpectedConditions.alertIsPresent());
         return element.getText();
 
@@ -194,7 +207,8 @@ public final class CommonActions {
      * @param listOfElements list of elements.
      * @return WebElement .
      */
-    public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements, final String element) {
+    public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements,
+                                                     final String element) {
         return listOfElements
                 .stream()
                 .anyMatch(elementOnList -> elementOnList.getText().equalsIgnoreCase(element));
@@ -205,16 +219,14 @@ public final class CommonActions {
      * @param listOfElements list of elements.
      * @return WebElement .
      */
-    public static WebElement getWebElementFromAList(final List<WebElement> listOfElements, final String element) throws NullPointerException {
-        waitTime(2);
-        WebElement webElement = listOfElements
+    public static WebElement getWebElementFromAList(final List<WebElement> listOfElements,
+                                                    final String element) {
+        return listOfElements
                 .stream()
                 .filter(elementOnList -> elementOnList.getText().equalsIgnoreCase(element))
                 .findFirst()
-                .get();
+                .orElseThrow(NullPointerException::new);
 
-        waitTime(0);
-        return webElement;
     }
 
     /**
@@ -230,6 +242,4 @@ public final class CommonActions {
             System.out.println("Message not displayed.");
         }
     }
-
-
 }

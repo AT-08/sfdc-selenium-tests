@@ -47,8 +47,10 @@ public class SFDetails extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(this.editButton);
         } else {
+            CommonActions.waitTime(2);
             CommonActions.jsClickElement(this.dropDownMenu);
             CommonActions.jsClickElement(this.editButton);
+            CommonActions.resetWaitTime();
         }
     }
 

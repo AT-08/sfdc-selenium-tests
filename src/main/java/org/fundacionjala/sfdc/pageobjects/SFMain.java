@@ -42,7 +42,7 @@ public class SFMain extends Base {
      */
     public void clickElementOnList(final String elementOnList) {
         WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
-        CommonActions.jsClickElement(webElement);
+        CommonActions.clickElement(webElement);
     }
 
     /**

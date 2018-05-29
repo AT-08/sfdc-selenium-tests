@@ -7,8 +7,8 @@ import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
-
 
 /**
  * AccountSteps.
@@ -56,7 +56,9 @@ public class CommonSteps {
      */
     @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyNewCreatedObject(final String nameOfObject) {
+        CommonActions.waitTime(2);
         Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
+        CommonActions.resetWaitTime();
     }
 
     /**
@@ -66,7 +68,10 @@ public class CommonSteps {
      */
     @When("^I can click on \"([^\"]*)\" at list on Main Page")
     public void iChooseLastElementOnList(final String elementOnList) {
+        final int time = 3;
+        CommonActions.waitTime(time);
         mainPage.clickElementOnList(elementOnList);
+        CommonActions.resetWaitTime();
     }
 
     /**
@@ -100,6 +105,7 @@ public class CommonSteps {
      */
     @Then("^I can verify that \"([^\"]*)\" was deleted$")
     public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
+        CommonActions.waitTime(2);
         Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
     }
 }
