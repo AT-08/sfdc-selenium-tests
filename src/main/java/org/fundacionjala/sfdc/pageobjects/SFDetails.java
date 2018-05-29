@@ -1,12 +1,12 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.fundacionjala.sfdc.util.CommonActions;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.fundacionjala.sfdc.commons.PropertiesManager;
+        import org.fundacionjala.sfdc.util.CommonActions;
+        import org.openqa.selenium.Alert;
+        import org.openqa.selenium.WebElement;
+        import org.openqa.selenium.support.FindAll;
+        import org.openqa.selenium.support.FindBy;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * SFDetails.
@@ -39,6 +39,11 @@ public class SFDetails extends Base {
     @FindBy(xpath
             = "//div[contains(@class ,'forceModalActionContainer--footerAction')]/child::button[@title = 'Delete']")
     private WebElement deleteConfirmation;
+    @FindBy(css = "[class='slds-icon_container slds-icon-utility-down']")
+    private WebElement dropDownMenuLightInList;
+
+    @FindBy(xpath = "//span[@class=' label bBody truncate' and text()='Delete']")
+    private WebElement confirmDelete;
 
     /**
      * clickEditButton.
@@ -83,5 +88,30 @@ public class SFDetails extends Base {
      */
     public String getNewAccountSavedName() {
         return CommonActions.getTextElement(this.newAccountLabel);
+    }
+
+    /**
+     * clickDeleteButton in the list(Light).
+     */
+    public void clickDeleteSecondWay() {
+        if (IS_CLASSIC) {
+            CommonActions.jsClickElement(this.deleteButton);
+        } else {
+            CommonActions.jsClickElement(this.dropDownMenuLightInList);
+            CommonActions.jsClickElement(this.deleteButton);
+            CommonActions.jsClickElement(this.confirmDelete);
+        }
+    }
+
+    /**
+     * clickEditButton in the list(Light).
+     */
+    public void clickEditSecondWay() {
+        if (IS_CLASSIC) {
+            CommonActions.jsClickElement(this.editButton);
+        } else {
+            CommonActions.jsClickElement(this.dropDownMenuLightInList);
+            CommonActions.jsClickElement(this.editButton);
+        }
     }
 }

@@ -141,7 +141,7 @@ public final class CommonActions {
      * @param textOnComboBox select text on comboBox.
      */
     public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
-        element.click();
+        jsClickElement(element);
         String css = IS_CLASSIC
                 ? String.format("option[value='%s']", textOnComboBox)
                 : String.format("a[title='%s']", textOnComboBox);
@@ -194,6 +194,8 @@ public final class CommonActions {
     }
 
     /**
+     * Updated upstream.
+     *
      * @param element .
      * @return String .
      */
@@ -243,4 +245,21 @@ public final class CommonActions {
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method allows to format the contact name to compare with the assertion.
+     *
+     * @param contactName is the contact name.
+     * @return the contact name formated .
+     */
+    public static String formatContactName(final String contactName) {
+        if (!IS_CLASSIC) {
+            String[] array = contactName.split(", ");
+            if (array.length > 1) {
+                return String.format("%s %s", array[1], array[0]);
+            }
+        }
+        return contactName;
+    }
+
 }

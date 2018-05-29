@@ -10,7 +10,7 @@ Feature: Create a new account
     And I can fill the fields of Account and press the save button
       | ACCOUNT_NAME | Account with only obligatory fields filled |
     Then I can go to "ACCOUNT" Section
-    And I can verify if "Account with only obligatory fields filled" was created/modified on Detail Page
+    And I can verify if "Account with only obligatory fields filled" "ACCOUNT" was created/modified on Detail Page
 
   Scenario: Create a new account with all fields filled
     Given I can go to "ACCOUNT" Section
@@ -33,4 +33,4 @@ Feature: Create a new account
       | SIC_CODE       | 200200200                      |
 
     Then I can go to "ACCOUNT" Section
-    And I can verify if "Account with all fields filled" was created/modified on Detail Page
+    And I can verify if "Account with all fields filled" "ACCOUNT" was created/modified on Detail Page

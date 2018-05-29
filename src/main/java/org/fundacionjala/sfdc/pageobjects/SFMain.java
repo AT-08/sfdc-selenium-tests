@@ -40,6 +40,7 @@ public class SFMain extends Base {
      *
      * @param elementOnList This is element on list.
      */
+
     public void clickElementOnList(final String elementOnList) {
         WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
         CommonActions.clickElement(webElement);
@@ -51,8 +52,8 @@ public class SFMain extends Base {
      * @param elementOnList This is element on list.
      * @return getAccountHomePage.
      */
-    public boolean istWebElementPresentOnList(final String elementOnList) {
 
+    public boolean istWebElementPresentOnList(final String elementOnList) {
         return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
     }
 

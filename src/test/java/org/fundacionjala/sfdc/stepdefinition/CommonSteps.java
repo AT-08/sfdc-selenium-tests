@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -52,6 +53,8 @@ public class CommonSteps {
     }
 
     /**
+     * <<<<<<< FIXES
+     *
      * @param nameOfObject iCanVerifyNewCreatedObject.
      */
     @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
@@ -99,13 +102,60 @@ public class CommonSteps {
     }
 
     /**
-     * iCanVerifyThatTheAccountWasDeleted.
-     *
-     * @param elementDeleted .
+     * @param nameOfObject iCanVerifyNewCreatedObject.
+     * @param section      .
      */
-    @Then("^I can verify that \"([^\"]*)\" was deleted$")
-    public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
+    @And("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
+    public void iCanVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
+                                                           final SalesForceEnums.EnumLocator section) {
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            Assert.assertTrue(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(nameOfObject)));
+        } else {
+            Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
+        }
+
+    }
+
+    /**
+     * @param nameOfObject iCanClickOnAtListOnMainPage.
+     * @param section      .
+     */
+    @And("^I can click on \"([^\"]*)\" \"([^\"]*)\" at list on Main Page$")
+    public void iCanClickOnAtListOnMainPage(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            mainPage.clickElementOnList(CommonActions.formatContactName(nameOfObject));
+        } else {
+            mainPage.clickElementOnList(nameOfObject);
+        }
+    }
+
+    /**
+     * @param elementDeleted iCanVerifyThatWasDeleted.
+     * @param section        .
+     */
+    @Then("^I can verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
+    public void iCanVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
         CommonActions.waitTime(2);
-        Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            Assert.assertFalse(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(elementDeleted)));
+        } else {
+            Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
+        }
+    }
+
+    /**
+     * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
+     */
+    @When("^I can click on Delete Button at list on Main Page$")
+    public void iCanClickOnDeleteButtonAtListOnMainPage() {
+        detailsPage.clickDeleteSecondWay();
+    }
+
+    /**
+     * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
+     */
+    @And("^I can click on Edit Button at list on Main Page$")
+    public void iCanClickOnEditButtonAtListOnMainPage() {
+        detailsPage.clickEditSecondWay();
     }
 }
