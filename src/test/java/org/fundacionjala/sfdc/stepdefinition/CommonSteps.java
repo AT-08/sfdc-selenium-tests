@@ -4,19 +4,17 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
-
 
 /**
  * AccountSteps.
  */
 public class CommonSteps {
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private SalesForceSection tabSalesForce;
     private SFMain mainPage;
     private SFDetails detailsPage;
@@ -55,6 +53,29 @@ public class CommonSteps {
     }
 
     /**
+     * @param nameOfObject iCanVerifyNewCreatedObject.
+     */
+    @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
+    public void iCanVerifyNewCreatedObject(final String nameOfObject) {
+        CommonActions.waitTime(2);
+        Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
+        CommonActions.resetWaitTime();
+    }
+
+    /**
+     * iChooseLastElementOnList.
+     *
+     * @param elementOnList .
+     */
+    @When("^I can click on \"([^\"]*)\" at list on Main Page")
+    public void iChooseLastElementOnList(final String elementOnList) {
+        final int time = 3;
+        CommonActions.waitTime(time);
+        mainPage.clickElementOnList(elementOnList);
+        CommonActions.resetWaitTime();
+    }
+
+    /**
      * iChooseLastElementOnList.
      */
     @When("I can click on Edit Button")
@@ -79,29 +100,16 @@ public class CommonSteps {
     }
 
     /**
-     * iCanVerifyThatTheAccountWasDeleted.
-     *
-     * @param elementDeleted .
-     * @param section        .
-     */
-    @Then("^I can verify that \"([^\"]*)\" was deleted$")
-    public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted,
-                                                   final SalesForceEnums.EnumLocator section) {
-        Assert.assertNull(mainPage.getElementOnList(elementDeleted, section));
-    }
-
-    /**
      * @param nameOfObject iCanVerifyNewCreatedObject.
      * @param section      .
      */
     @And("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
                                                            final SalesForceEnums.EnumLocator section) {
-        if (IS_CLASSIC) {
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject, section));
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            Assert.assertTrue(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(nameOfObject)));
         } else {
-            Assert.assertTrue(mainPage.getConfirmMessageShowed(nameOfObject).contains(nameOfObject));
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject, section));
+            Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
         }
 
     }
@@ -112,7 +120,11 @@ public class CommonSteps {
      */
     @And("^I can click on \"([^\"]*)\" \"([^\"]*)\" at list on Main Page$")
     public void iCanClickOnAtListOnMainPage(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
-        mainPage.clickElementOnList(nameOfObject, section);
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            mainPage.clickElementOnList(CommonActions.formatContactName(nameOfObject));
+        } else {
+            mainPage.clickElementOnList(nameOfObject);
+        }
     }
 
     /**
@@ -121,7 +133,12 @@ public class CommonSteps {
      */
     @Then("^I can verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
     public void iCanVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
-        Assert.assertNull(mainPage.getElementOnList(elementDeleted, section));
+        CommonActions.waitTime(2);
+        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
+            Assert.assertFalse(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(elementDeleted)));
+        } else {
+            Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
+        }
     }
 
     /**

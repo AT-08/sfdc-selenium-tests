@@ -28,11 +28,12 @@ public class SalesForceSection extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(plusButton);
         } else {
-            CommonActions.jsClickButton(plusButton);
+            CommonActions.waitTime(2);
+            CommonActions.jsClickElement(plusButton);
         }
-
-        CommonActions.clickByElementLocator(this.salesForceTabSelector(section));
+        CommonActions.jsClickByElementLocator(this.salesForceTabSelector(section));
         CommonActions.closeMessageLighting();
+        CommonActions.resetWaitTime();
     }
 
     /**
