@@ -43,7 +43,7 @@ public class Hooks {
     @After(value = "@deleteAccount")
     public void deleteCreatedAccount() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.ACCOUNT);
-        mainPage.clickElementOnList(helper.getItemName());
+        mainPage.clickElementOnList(helper.getItemName(), SalesForceEnums.EnumLocator.ACCOUNT);
         detailsPage.clickDeleteButton();
     }
 
@@ -53,7 +53,7 @@ public class Hooks {
     @After(value = "@deleteCampaign")
     public void deleteCreatedItemCampaign() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.CAMPAIGN);
-        mainPage.clickElementOnList(helper.getCampaignName());
+        mainPage.clickElementOnList(helper.getCampaignName(), SalesForceEnums.EnumLocator.CAMPAIGN);
         detailsPage.clickDeleteButton();
     }
 
