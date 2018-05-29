@@ -128,7 +128,6 @@ public final class CommonActions {
     }
 
     /**
-
      * @param element Any WebElement.
      * @param text    set a text on a field.
      */
@@ -149,10 +148,12 @@ public final class CommonActions {
         if (element.isSelected() && !value) {
             clickElement(element);
         }
+    }
 
+    /**
      * Waits and clear the WebElement.
      *
-     * @param element WebElement to wait and clear
+     * @param element WebElement to wait and clear.
      */
     public static void clearTextField(final WebElement element) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
@@ -284,5 +285,5 @@ public final class CommonActions {
         }
         return contactName;
     }
-
 }
+
