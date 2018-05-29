@@ -75,8 +75,7 @@ public final class CommonActions {
     public static void clickByElementLocator(final String locator) {
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
-        scrollPage(element);
-        element.click();
+        jsClickButton(element);
     }
 
     /**
@@ -117,7 +116,7 @@ public final class CommonActions {
      * @param textOnComboBox select text on comboBox.
      */
     public static void selectOnComboBox(final WebElement element, final String textOnComboBox) {
-        element.click();
+        jsClickButton(element);
         String css = IS_CLASSIC
                 ? String.format("option[value='%s']", textOnComboBox)
                 : String.format("a[title='%s']", textOnComboBox);
@@ -165,12 +164,14 @@ public final class CommonActions {
      */
     public static void autoCompleterLightTheme(final String textToSelect) {
 
-        String selector = String.format("//div[@title=%s]/parent::div/preceding-sibling::div", textToSelect);
+        String selector = String.format("//div[@title='%s']/parent::div/preceding-sibling::div", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
         clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
     }
 
     /**
+     * Updated upstream.
+     *
      * @param element .
      * @return String .
      */
@@ -210,5 +211,20 @@ public final class CommonActions {
         }
     }
 
+    /**
+     * This method allows to format the contact name to compare with the assertion.
+     *
+     * @param contactName is the contact name.
+     * @return the contact name formated .
+     */
+    public static String formatContactName(final String contactName) {
+        if (!IS_CLASSIC) {
+            String[] array = contactName.split(", ");
+            if (array.length > 1) {
+                return String.format("%s %s", array[1], array[0]);
+            }
+        }
+        return contactName;
+    }
 
 }

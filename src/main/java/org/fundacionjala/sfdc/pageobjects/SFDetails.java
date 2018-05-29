@@ -37,6 +37,12 @@ public class SFDetails extends Base {
     @FindBy(css = "a[title='Show 7 more actions']")
     private WebElement dropDownMenu;
 
+    @FindBy(css = "[class='slds-icon_container slds-icon-utility-down']")
+    private WebElement dropDownMenuLightInList;
+
+    @FindBy(xpath = "//span[@class=' label bBody truncate' and text()='Delete']")
+    private WebElement confirmDelete;
+
     /**
      * clickEditButton.
      */
@@ -69,5 +75,30 @@ public class SFDetails extends Base {
      */
     public String getNewAccountSavedName() {
         return CommonActions.getTextElement(this.newAccountLabel);
+    }
+
+    /**
+     * clickDeleteButton in the list(Light).
+     */
+    public void clickDeleteSecondWay() {
+        if (IS_CLASSIC) {
+            CommonActions.jsClickButton(this.deleteButton);
+        } else {
+            CommonActions.jsClickButton(this.dropDownMenuLightInList);
+            CommonActions.jsClickButton(this.deleteButton);
+            CommonActions.jsClickButton(this.confirmDelete);
+        }
+    }
+
+    /**
+     * clickEditButton in the list(Light).
+     */
+    public void clickEditSecondWay() {
+        if (IS_CLASSIC) {
+            CommonActions.jsClickButton(this.editButton);
+        } else {
+            CommonActions.jsClickButton(this.dropDownMenuLightInList);
+            CommonActions.jsClickButton(this.editButton);
+        }
     }
 }
