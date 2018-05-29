@@ -195,8 +195,6 @@ public final class CommonActions {
      * @return WebElement .
      */
     public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements, final String element) {
-        waitTime(2);
-
         return listOfElements
                 .stream()
                 .anyMatch(elementOnList -> elementOnList.getText().equalsIgnoreCase(element));
@@ -207,9 +205,8 @@ public final class CommonActions {
      * @param listOfElements list of elements.
      * @return WebElement .
      */
-    public static WebElement getWebElementFromAList(final List<WebElement> listOfElements, final String element) {
+    public static WebElement getWebElementFromAList(final List<WebElement> listOfElements, final String element) throws NullPointerException {
         waitTime(2);
-
         WebElement webElement = listOfElements
                 .stream()
                 .filter(elementOnList -> elementOnList.getText().equalsIgnoreCase(element))

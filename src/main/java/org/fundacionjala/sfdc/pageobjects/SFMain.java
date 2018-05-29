@@ -46,12 +46,12 @@ public class SFMain extends Base {
     }
 
     /**
-     * getElementOnList.
+     * istWebElementPresentOnList.
      *
      * @param elementOnList This is element on list.
      * @return getAccountHomePage.
      */
-    public boolean getElementOnList(final String elementOnList) {
+    public boolean istWebElementPresentOnList(final String elementOnList) {
 
         return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
     }

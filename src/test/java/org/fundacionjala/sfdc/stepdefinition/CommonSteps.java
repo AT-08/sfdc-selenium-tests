@@ -56,7 +56,7 @@ public class CommonSteps {
      */
     @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyNewCreatedObject(final String nameOfObject) {
-        Assert.assertTrue(mainPage.getElementOnList(nameOfObject));
+        Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
     }
 
     /**
@@ -100,6 +100,6 @@ public class CommonSteps {
      */
     @Then("^I can verify that \"([^\"]*)\" was deleted$")
     public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
-        Assert.assertFalse(mainPage.getElementOnList(elementDeleted));
+        Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
     }
 }
