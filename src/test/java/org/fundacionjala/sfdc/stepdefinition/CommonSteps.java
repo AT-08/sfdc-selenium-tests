@@ -53,8 +53,6 @@ public class CommonSteps {
     }
 
     /**
-     * <<<<<<< FIXES
-     *
      * @param nameOfObject iCanVerifyNewCreatedObject.
      */
     @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
