@@ -239,6 +239,8 @@ public final class CommonActions {
                 WEB_DRIVER.findElement(By.id("lexNoThanks")).click();
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
             }
-        } catch (NoSuchElementException e) { }
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
     }
 }
