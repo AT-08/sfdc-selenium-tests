@@ -21,6 +21,7 @@ import java.util.Set;
  * Class with common methods that many classes can use.
  */
 public final class CommonActions {
+
     private static final Actions ACTIONS = new Actions(DriverManager.getInstance().getNavigator());
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
@@ -238,8 +239,6 @@ public final class CommonActions {
                 WEB_DRIVER.findElement(By.id("lexNoThanks")).click();
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
             }
-        } catch (NoSuchElementException e) {
-            System.out.println("Message not displayed.");
-        }
+        } catch (NoSuchElementException e) { }
     }
 }
