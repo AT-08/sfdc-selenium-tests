@@ -40,7 +40,8 @@ public final class CommonActions {
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
-        WAITER.until(ExpectedConditions.elementToBeClickable(element));
+        waitTime(1);
+        WAITER.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
@@ -184,23 +185,37 @@ public final class CommonActions {
     public static String getConfirmMessageShowed(final WebElement element) {
 
         WAITER.until(ExpectedConditions.alertIsPresent());
-        System.out.println(element.getText() + " <======");
         return element.getText();
 
     }
 
     /**
-     * @param element is the content parameter.
+     * @param element        is the content parameter.
      * @param listOfElements list of elements.
      * @return WebElement .
      */
-    public static WebElement getWebElementFromMainList(final List<WebElement> listOfElements, final String element) {
-        waitTime(1);
+    public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements, final String element) {
+        waitTime(2);
+
+        return listOfElements
+                .stream()
+                .anyMatch(elementOnList -> elementOnList.getText().equalsIgnoreCase(element));
+    }
+
+    /**
+     * @param element        is the content parameter.
+     * @param listOfElements list of elements.
+     * @return WebElement .
+     */
+    public static WebElement getWebElementFromAList(final List<WebElement> listOfElements, final String element) {
+        waitTime(2);
+
         WebElement webElement = listOfElements
                 .stream()
                 .filter(elementOnList -> elementOnList.getText().equalsIgnoreCase(element))
                 .findFirst()
-                .orElse(null);
+                .get();
+
         waitTime(0);
         return webElement;
     }

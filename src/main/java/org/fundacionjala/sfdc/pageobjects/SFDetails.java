@@ -16,13 +16,13 @@ public class SFDetails extends Base {
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
-            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='edit']"),
+            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@title='Edit']"),
             @FindBy(xpath = "//a[@title='Edit']/child::div")
     })
     private WebElement editButton;
 
     @FindAll({
-            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@name='delete']"),
+            @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@title='Delete']"),
             @FindBy(xpath = "//a[@title='Delete']/child::div")
     })
     private WebElement deleteButton;

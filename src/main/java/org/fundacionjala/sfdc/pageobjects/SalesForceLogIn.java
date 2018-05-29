@@ -123,6 +123,7 @@ public class SalesForceLogIn extends Base {
      * @return if the icon is displayed
      */
     public boolean getCloudIcon() {
+        CommonActions.waitTime(1);
         return CommonActions.getElement(this.cloudIcon).isDisplayed();
     }
 }

@@ -3,7 +3,6 @@ package org.fundacionjala.sfdc.stepdefinition;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
@@ -15,7 +14,6 @@ import org.testng.Assert;
  * AccountSteps.
  */
 public class CommonSteps {
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private SalesForceSection tabSalesForce;
     private SFMain mainPage;
     private SFDetails detailsPage;
@@ -58,13 +56,7 @@ public class CommonSteps {
      */
     @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyNewCreatedObject(final String nameOfObject) {
-        if (IS_CLASSIC) {
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
-        } else {
-            Assert.assertTrue(mainPage.getConfirmMessageShowed(nameOfObject).contains(nameOfObject));
-            Assert.assertNotNull(mainPage.getElementOnList(nameOfObject));
-        }
-
+        Assert.assertTrue(mainPage.getElementOnList(nameOfObject));
     }
 
     /**
@@ -103,10 +95,11 @@ public class CommonSteps {
 
     /**
      * iCanVerifyThatTheAccountWasDeleted.
+     *
      * @param elementDeleted .
      */
     @Then("^I can verify that \"([^\"]*)\" was deleted$")
     public void iCanVerifyThatTheAccountWasDeleted(final String elementDeleted) {
-        Assert.assertNull(mainPage.getElementOnList(elementDeleted));
+        Assert.assertFalse(mainPage.getElementOnList(elementDeleted));
     }
 }
