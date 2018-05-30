@@ -68,7 +68,6 @@ public final class CommonActions {
      * @param element to click.
      */
     public static void clickElement(final WebElement element) {
-        WAITER.until(ExpectedConditions.elementToBeClickable(element));
         WAITER.until(ExpectedConditions.visibilityOf(element));
         scrollPage(element);
         element.click();
@@ -218,18 +217,6 @@ public final class CommonActions {
     }
 
     /**
-     * Updated upstream.
-     *
-     * @param element .
-     * @return String .
-     */
-    public static String getConfirmMessageShowed(final WebElement element) {
-        WAITER.until(ExpectedConditions.alertIsPresent());
-        return element.getText();
-
-    }
-
-    /**
      * @param element        is the content parameter.
      * @param listOfElements list of elements.
      * @return WebElement .
@@ -266,7 +253,7 @@ public final class CommonActions {
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
             }
         } catch (NoSuchElementException e) {
-            e.printStackTrace();
+            System.out.println("Exception");
         }
     }
 

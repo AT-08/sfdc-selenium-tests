@@ -8,8 +8,8 @@ Feature: Contacts feature
     And I can fill the fields of Contact and press the save button
       | CONTACT_NAME      | Pablo     |
       | CONTACT_LAST_NAME | Grillosss |
-    Then I can go to "CONTACT" Section
-    And I can verify if "Grillosss, Pablo" "CONTACT" was created/modified on Detail Page
+    And I can go to "CONTACT" Section
+    Then I can verify if "Grillosss, Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Edit contact with all fields filled
     When I can go to "CONTACT" Section
@@ -44,12 +44,12 @@ Feature: Contacts feature
       | CONTACT_LANGUAGES       | english         |
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
-    Then I can go to "CONTACT" Section
-    And I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
+    And I can go to "CONTACT" Section
+    Then I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Edit contact at list on Main Page
     When I can go to "CONTACT" Section
-    And   I can click on Edit Button at list on Main Page
+    And   I can select the Edit button at list on Main Page
     And I can fill the fields of Contact and press the save button
       | CONTACT_SALUTATION      | Dr.             |
       | CONTACT_NAME            | Pepe Pablo      |
@@ -79,17 +79,16 @@ Feature: Contacts feature
       | CONTACT_LANGUAGES       | english         |
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
-    Then I can go to "CONTACT" Section
-    And I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
+    And I can go to "CONTACT" Section
+    Then I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Delete contact
     Given I can go to "CONTACT" Section
     When I can click on "Grillosss, Pablo" "CONTACT" at list on Main Page
     And I can click on Delete Button
-    And I can confirm Delete alert
     Then I can verify that "Grillosss, Pablo" "CONTACT" was deleted
 
   Scenario: Delete contact at list on Main Page
-    Given I can go to "CONTACT" Section
-    When  I can click on Delete Button at list on Main Page
+    When I can go to "CONTACT" Section
+    And  I can select the Delete button at list on Main Page
     Then I can verify that "Grillosss, Pablo" "CONTACT" was deleted

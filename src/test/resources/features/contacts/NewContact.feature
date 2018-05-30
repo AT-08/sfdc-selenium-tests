@@ -17,8 +17,8 @@ Feature: Contacts feature
     And I can click on New button
     And I can fill the fields of Contact and press the save button
       | CONTACT_SALUTATION      | Dr.             |
-      | CONTACT_NAME            | Pablo           |
-      | CONTACT_LAST_NAME       | Grillosss       |
+      | CONTACT_NAME            | Escarleth       |
+      | CONTACT_LAST_NAME       | Ledezma         |
       | CONTACT_TITLE           | title           |
       | CONTACT_DEPARTMENT      | Salees          |
       | CONTACT_BIRTHDAY        | 5/4/2018        |
@@ -45,4 +45,4 @@ Feature: Contacts feature
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
     Then I can go to "CONTACT" Section
-    And I can verify if "Grillloss, Pablo" "CONTACT" was created/modified on Detail Page
+    And I can verify if "Ledezma, Escarleth" "CONTACT" was created/modified on Detail Page

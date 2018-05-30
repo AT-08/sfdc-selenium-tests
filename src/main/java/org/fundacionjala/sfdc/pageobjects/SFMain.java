@@ -25,14 +25,11 @@ public class SFMain extends Base {
     })
     private List<WebElement> elementOnList;
 
-    @FindBy(xpath = "//span[contains(@class, 'toastMessage')]//child::text()")
-    private WebElement greeConfirmMessage;
-
     /**
      * clickToNewButton.
      */
     public void clickToNewButton() {
-        CommonActions.clickElement(this.newButton);
+        CommonActions.jsClickElement(this.newButton);
     }
 
     /**
@@ -43,7 +40,7 @@ public class SFMain extends Base {
 
     public void clickElementOnList(final String elementOnList) {
         WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
-        CommonActions.clickElement(webElement);
+        CommonActions.jsClickElement(webElement);
     }
 
     /**
@@ -57,11 +54,4 @@ public class SFMain extends Base {
         return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
     }
 
-    /**
-     * @param elementOnList This is element on list.
-     * @return getAccountHomePage.
-     */
-    public String getConfirmMessageShowed(final String elementOnList) {
-        return CommonActions.getConfirmMessageShowed(this.greeConfirmMessage);
-    }
 }

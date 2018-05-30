@@ -10,8 +10,8 @@ Feature: Create a new campaign
     And I can create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME   | CampaignTest |
       | CAMPAIGN_ACTIVE | true         |
-    Then I can go to "CAMPAIGN" Section
-    And I can verify if "CampaignTest" was created/modified on Detail Page
+    And I can go to "CAMPAIGN" Section
+    Then I can verify if "CampaignTest" "CAMPAIGN" was created/modified on Detail Page
 
   Scenario: Create a new campaign with all fields filled
     Given I can go to "CAMPAIGN" Section
@@ -30,6 +30,6 @@ Feature: Create a new campaign
       | CAMPAIGN_NUM_SENT          | 25         |
       | CAMPAIGN_PARENT            | Camp123    |
       | CAMPAIGN_DESCRIPTION       | Desc123    |
-    Then I can go to "CAMPAIGN" Section
-    And I can verify if "Campaign" was created/modified on Detail Page
+    And I can go to "CAMPAIGN" Section
+    Then I can verify if "Campaign" "CAMPAIGN" was created/modified on Detail Page
 

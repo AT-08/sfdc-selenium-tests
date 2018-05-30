@@ -92,20 +92,13 @@ public class CommonSteps {
     }
 
     /**
-     * iCanConfirmDeleteAlert.
-     */
-    @When("I can confirm Delete alert")
-    public void iCanConfirmDeleteAlert() {
-        detailsPage.clickDeleteAlert();
-    }
-
-    /**
      * @param nameOfObject iCanVerifyNewCreatedObject.
      * @param section      .
      */
-    @And("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
+    @Then("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
     public void iCanVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
                                                            final SalesForceEnums.EnumLocator section) {
+        CommonActions.waitTime(2);
         if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
             Assert.assertTrue(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(nameOfObject)));
         } else {
@@ -144,16 +137,16 @@ public class CommonSteps {
     /**
      * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
      */
-    @When("^I can click on Delete Button at list on Main Page$")
-    public void iCanClickOnDeleteButtonAtListOnMainPage() {
-        detailsPage.clickDeleteSecondWay();
+    @And("^I can select the Edit button at list on Main Page$")
+    public void iCanSelectTheEditButtonAtListOnMainPage() {
+        detailsPage.clickEditSecondWay();
     }
 
     /**
      * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
      */
-    @And("^I can click on Edit Button at list on Main Page$")
-    public void iCanClickOnEditButtonAtListOnMainPage() {
-        detailsPage.clickEditSecondWay();
+    @And("^I can select the Delete button at list on Main Page$")
+    public void iCanSelectTheDeleteButtonAtListOnMainPage() {
+        detailsPage.clickDeleteSecondWay();
     }
 }

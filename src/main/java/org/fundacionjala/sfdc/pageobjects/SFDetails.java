@@ -1,12 +1,12 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-        import org.fundacionjala.sfdc.commons.PropertiesManager;
-        import org.fundacionjala.sfdc.util.CommonActions;
-        import org.openqa.selenium.Alert;
-        import org.openqa.selenium.WebElement;
-        import org.openqa.selenium.support.FindAll;
-        import org.openqa.selenium.support.FindBy;
-        import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.util.CommonActions;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * SFDetails.
@@ -27,34 +27,67 @@ public class SFDetails extends Base {
     })
     private WebElement deleteButton;
 
-    @FindAll({
-            @FindBy(className = "topName"),
-            @FindBy(css = ".testonly-outputNameWithHierarchyIcon .uiOutputText")
-    })
-    private WebElement newAccountLabel;
-
-    @FindBy(css = "[class='slds-icon_container slds-icon-utility-down slds-button__icon forceIcon']")
-    private WebElement dropDownMenu;
-
-    @FindBy(xpath
-            = "//div[contains(@class ,'forceModalActionContainer--footerAction')]/child::button[@title = 'Delete']")
-    private WebElement deleteConfirmation;
+    @FindBy(xpath = "//a[@class='slds-grid slds-grid--vertical-align-center slds-grid--align-center "
+            + "sldsButtonHeightFix' and not(@title='Show one more action')]")
+    private WebElement dropDownMenuInside;
     @FindBy(css = "[class='slds-icon_container slds-icon-utility-down']")
     private WebElement dropDownMenuLightInList;
-
     @FindBy(xpath = "//span[@class=' label bBody truncate' and text()='Delete']")
     private WebElement confirmDelete;
+
+    /**
+     * setEditButton.
+     */
+    public void setEditButton() {
+        CommonActions.jsClickElement(this.editButton);
+    }
+
+    /**
+     * setDeleteButton.
+     */
+    public void setDeleteButton() {
+        CommonActions.jsClickElement(this.deleteButton);
+    }
+
+    /**
+     * setDropDownMenuInsideTheObject.
+     */
+    public void setDropDownMenuInsideTheObject() {
+        CommonActions.jsClickElement(this.dropDownMenuInside);
+    }
+
+    /**
+     * setDropDownMenuInList.
+     */
+    public void setDropDownMenuInList() {
+        CommonActions.jsClickElement(this.dropDownMenuLightInList);
+    }
+
+    /**
+     * confirmDeleteInLight.
+     */
+    public void confirmDeleteInLight() {
+        CommonActions.jsClickElement(this.confirmDelete);
+    }
+
+    /**
+     * confirmDeleteInClassic.
+     */
+    public void confirmDeleteInClassic() {
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
+    }
 
     /**
      * clickEditButton.
      */
     public void clickEditButton() {
         if (IS_CLASSIC) {
-            CommonActions.clickElement(this.editButton);
+            this.setEditButton();
         } else {
             CommonActions.waitTime(2);
-            CommonActions.jsClickElement(this.dropDownMenu);
-            CommonActions.jsClickElement(this.editButton);
+            this.setDropDownMenuInsideTheObject();
+            this.setEditButton();
             CommonActions.resetWaitTime();
         }
     }
@@ -64,30 +97,13 @@ public class SFDetails extends Base {
      */
     public void clickDeleteButton() {
         if (IS_CLASSIC) {
-            CommonActions.clickElement(this.deleteButton);
+            this.setDeleteButton();
+            this.confirmDeleteInClassic();
         } else {
-            CommonActions.jsClickElement(this.dropDownMenu);
-            CommonActions.jsClickElement(this.deleteButton);
+            this.setDropDownMenuInsideTheObject();
+            this.setDeleteButton();
+            this.confirmDeleteInLight();
         }
-    }
-
-    /**
-     * clickDeleteAlert.
-     */
-    public void clickDeleteAlert() {
-        if (IS_CLASSIC) {
-            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-            alert.accept();
-        } else {
-            CommonActions.jsClickElement(deleteConfirmation);
-        }
-    }
-
-    /**
-     * @return getNewAccountSavedName.
-     */
-    public String getNewAccountSavedName() {
-        return CommonActions.getTextElement(this.newAccountLabel);
     }
 
     /**
@@ -95,11 +111,12 @@ public class SFDetails extends Base {
      */
     public void clickDeleteSecondWay() {
         if (IS_CLASSIC) {
-            CommonActions.jsClickElement(this.deleteButton);
+            this.setDeleteButton();
+            this.confirmDeleteInClassic();
         } else {
-            CommonActions.jsClickElement(this.dropDownMenuLightInList);
-            CommonActions.jsClickElement(this.deleteButton);
-            CommonActions.jsClickElement(this.confirmDelete);
+            this.setDropDownMenuInList();
+            this.setDeleteButton();
+            this.confirmDeleteInLight();
         }
     }
 
@@ -108,10 +125,10 @@ public class SFDetails extends Base {
      */
     public void clickEditSecondWay() {
         if (IS_CLASSIC) {
-            CommonActions.jsClickElement(this.editButton);
+            this.setEditButton();
         } else {
-            CommonActions.jsClickElement(this.dropDownMenuLightInList);
-            CommonActions.jsClickElement(this.editButton);
+            this.setDropDownMenuInList();
+            this.setEditButton();
         }
     }
 }
