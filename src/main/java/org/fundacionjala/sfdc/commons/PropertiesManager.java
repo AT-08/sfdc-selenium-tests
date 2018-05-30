@@ -71,4 +71,13 @@ public final class PropertiesManager {
     public String getTheme() {
         return prop.getProperty("theme");
     }
+
+    /**
+     * Getter of browser.
+     *
+     * @return string browser.
+     */
+    public String getBrowser() {
+        return prop.getProperty("browser");
+    }
 }
