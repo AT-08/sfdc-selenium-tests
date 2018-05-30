@@ -2,11 +2,12 @@ package org.fundacionjala.sfdc.util;
 
 import org.fundacionjala.sfdc.commons.DriverManager;
 import org.fundacionjala.sfdc.commons.PropertiesManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -127,9 +128,32 @@ public final class CommonActions {
     }
 
     /**
+     * @param element Any WebElement.
+     * @param text    set a text on a field.
+     */
+    public static void setDateOnCalendar(final WebElement element, final String text) {
+        setTextElement(element, text);
+        element.sendKeys(Keys.TAB);
+    }
+
+    /**
+     * @param element a checkbox element.
+     * @param value   a boolean value.
+     */
+    public static void setCheckBox(final WebElement element, boolean value) {
+        WAITER.until(ExpectedConditions.visibilityOf(element));
+        if (!element.isSelected() && value) {
+            clickElement(element);
+        }
+        if (element.isSelected() && !value) {
+            clickElement(element);
+        }
+    }
+
+    /**
      * Waits and clear the WebElement.
      *
-     * @param element WebElement to wait and clear
+     * @param element WebElement to wait and clear.
      */
     public static void clearTextField(final WebElement element) {
         WAITER.until(ExpectedConditions.visibilityOf(element));
@@ -261,5 +285,5 @@ public final class CommonActions {
         }
         return contactName;
     }
-
 }
+
