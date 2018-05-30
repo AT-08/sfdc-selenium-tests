@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.commons;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -22,7 +21,8 @@ public final class DriverManager {
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        driver = new ChromeDriver();
+        DriverType driverType = DriverType.valueOf(PropertiesManager.getInstance().getBrowser());
+        driver = DriverFactory.getDriverManager(driverType);
         wait = new WebDriverWait(driver, EXPLICIT_TIME);
     }
 
