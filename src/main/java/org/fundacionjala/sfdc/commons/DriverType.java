@@ -5,5 +5,7 @@ package org.fundacionjala.sfdc.commons;
  */
 public enum DriverType {
     CHROME,
-    FIREFOX
+    FIREFOX,
+    DOCKER_CHROME,
+    DOCKER_FIREFOX,
 }
