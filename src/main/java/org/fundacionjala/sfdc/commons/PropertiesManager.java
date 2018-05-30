@@ -80,4 +80,13 @@ public final class PropertiesManager {
     public String getBrowser() {
         return prop.getProperty("browser");
     }
+
+    /**
+     * Getter of docker.
+     *
+     * @return string docker URL.
+     */
+    public String getDockerUrl() {
+        return prop.getProperty("dockerURL");
+    }
 }
