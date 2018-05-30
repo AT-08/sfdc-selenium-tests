@@ -24,7 +24,7 @@ Feature: Modify and delete a previous created opportunity.
   @deleteAccount @deleteCampaign
   Scenario: Edit account previously created
     Given I can go to "OPPORTUNITY" Section
-    And I can click on "Opportunity" at list on Main Page
+    And I can click on "Opportunity" "OPPORTUNITY" at list on Main Page
     And I can click on Edit Button
     And I can create or modify an opportunity fill the fields and press the save button
       | OPPORTUNITY_PRIVATE                      | false          |
@@ -42,13 +42,12 @@ Feature: Modify and delete a previous created opportunity.
       | OPPORTUNITY_MAIN_COMPETITORS             | Competitor2    |
       | OPPORTUNITY_DELIVERY_INSTALLATION_STATUS | In progress    |
       | OPPORTUNITY_DESCRIPTION                  | Don't modify   |
-    Then I can go to "OPPORTUNITY" Section
-    And I can verify if "OpportunityMod" was created/modified on Detail Page
+    And I can go to "OPPORTUNITY" Section
+    Then I can verify if "OpportunityMod" "OPPORTUNITY" was created/modified on Detail Page
 
   @deleteAccount @deleteCampaign
   Scenario: Delete account
     Given I can go to "OPPORTUNITY" Section
     When I can click on "Opportunity" at list on Main Page
     And I can click on Delete Button
-    And I can confirm Delete alert
-    Then I can verify that "Opportunity" was deleted
+    Then I can verify that "Opportunity" "OPPORTUNITY" was deleted
