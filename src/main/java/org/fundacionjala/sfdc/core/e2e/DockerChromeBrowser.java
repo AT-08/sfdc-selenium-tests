@@ -1,6 +1,7 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionjala.sfdc.core.e2e;
 
-import org.fundacionjala.sfdc.util.NoConfigPropertiesFound;
+import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.RunTimeExceptions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -23,7 +24,7 @@ public class DockerChromeBrowser implements Browser {
             driver = new RemoteWebDriver(new URL(PropertiesManager.getInstance().getDockerUrl()), new ChromeOptions());
         } catch (MalformedURLException e) {
             String message = "URL bad created";
-            throw new NoConfigPropertiesFound(message, e);
+            throw new RunTimeExceptions(message, e);
         }
         return driver;
     }

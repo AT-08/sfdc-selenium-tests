@@ -2,7 +2,7 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.SalesForceLogIn;
 
 import org.fundacionjala.sfdc.util.CommonActions;

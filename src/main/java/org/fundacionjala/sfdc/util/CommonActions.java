@@ -1,7 +1,6 @@
 package org.fundacionjala.sfdc.util;
 
-import org.fundacionjala.sfdc.commons.DriverManager;
-import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.core.e2e.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -94,15 +93,6 @@ public final class CommonActions {
         WebElement element = WEB_DRIVER.findElement(By.cssSelector(locator));
         scrollPage(element);
         jsClickElement(element);
-    }
-
-    /**
-     * @param element Any WebElement.
-     * @return the text of Webelement.
-     */
-    public static String getTextElement(final WebElement element) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
-        return element.getText();
     }
 
     /**

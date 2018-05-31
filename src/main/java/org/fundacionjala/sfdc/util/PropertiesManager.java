@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionjala.sfdc.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public final class PropertiesManager {
         try (InputStream input = new FileInputStream("config.properties")) {
             prop.load(input);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new RunTimeExceptions(e.getMessage(), e);
         }
     }
 
@@ -73,7 +73,7 @@ public final class PropertiesManager {
     }
 
     /**
-     * Getter of browser.
+     * Gets browser.
      *
      * @return string browser.
      */
@@ -89,4 +89,59 @@ public final class PropertiesManager {
     public String getDockerUrl() {
         return prop.getProperty("dockerURL");
     }
+
+    /**
+     * Gets remote user name.
+     *
+     * @return string remote user name.
+     */
+    public String getRemoteUserName() {
+        return prop.getProperty("remoteUserName");
+    }
+
+    /**
+     * Gets remote access key.
+     *
+     * @return string remote access key.
+     */
+    public String getRemoteAccessKey() {
+        return prop.getProperty("remoteAccessKey");
+    }
+
+    /**
+     * Gets remote Browser Name .
+     *
+     * @return string remote Browser Name.
+     */
+    public String getRemoteBrowserName() {
+        return prop.getProperty("remoteBrowserName");
+    }
+
+    /**
+     * Gets remote platform.
+     *
+     * @return string remote platform.
+     */
+    public String getRemotePlatform() {
+        return prop.getProperty("remotePlatform");
+    }
+
+    /**
+     * Gets remote Version.
+     *
+     * @return string remote Version.
+     */
+    public String getRemoteVersion() {
+        return prop.getProperty("remoteVersion");
+    }
+
+    /**
+     * Gets remote Resolution.
+     *
+     * @return string remote Resolution.
+     */
+    public String getRemoteResolution() {
+        return prop.getProperty("remoteResolution");
+    }
+
 }

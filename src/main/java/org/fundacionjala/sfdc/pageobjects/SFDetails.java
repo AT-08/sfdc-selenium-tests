@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects;
 
-import org.fundacionjala.sfdc.commons.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
