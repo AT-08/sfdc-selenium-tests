@@ -3,7 +3,7 @@ package org.fundacionjala.sfdc.hooks;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import org.fundacionjala.sfdc.commons.DriverManager;
+import org.fundacionjala.sfdc.core.e2e.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.SFDetails;
 import org.fundacionjala.sfdc.pageobjects.SFMain;
 import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;

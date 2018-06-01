@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionjala.sfdc.core.e2e;
 
 
 import org.openqa.selenium.WebDriver;
@@ -29,6 +29,7 @@ public final class DriverFactory {
         map.put(DriverType.FIREFOX, new FirefoxBrowser());
         map.put(DriverType.DOCKER_CHROME, new DockerChromeBrowser());
         map.put(DriverType.DOCKER_FIREFOX, new DockerFirefoxBrowser());
+        map.put(DriverType.SAUCELABS, new SauceLabs());
         return map.get(driverType).getBrowser();
     }
 }

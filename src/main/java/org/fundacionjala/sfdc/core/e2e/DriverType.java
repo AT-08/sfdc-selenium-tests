@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.commons;
+package org.fundacionjala.sfdc.core.e2e;
 
 /**
  * Enum for the driver types.
@@ -8,4 +8,5 @@ public enum DriverType {
     FIREFOX,
     DOCKER_CHROME,
     DOCKER_FIREFOX,
+    SAUCELABS
 }
