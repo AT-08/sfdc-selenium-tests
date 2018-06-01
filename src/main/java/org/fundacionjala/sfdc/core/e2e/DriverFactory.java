@@ -30,6 +30,7 @@ public final class DriverFactory {
         map.put(DriverType.DOCKER_CHROME, new DockerChromeBrowser());
         map.put(DriverType.DOCKER_FIREFOX, new DockerFirefoxBrowser());
         map.put(DriverType.SAUCELABS, new SauceLabs());
+        map.put(DriverType.BROWSER_STACK, new BrowserStack());
         return map.get(driverType).getBrowser();
     }
 }

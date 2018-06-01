@@ -118,21 +118,21 @@ public final class PropertiesManager {
     }
 
     /**
+     * Gets remote Version.
+     *
+     * @return string remote Version.
+     */
+    public String getRemoteBrowserVersion() {
+        return prop.getProperty("remoteBrowserVersion");
+    }
+
+    /**
      * Gets remote platform.
      *
      * @return string remote platform.
      */
     public String getRemotePlatform() {
         return prop.getProperty("remotePlatform");
-    }
-
-    /**
-     * Gets remote Version.
-     *
-     * @return string remote Version.
-     */
-    public String getRemoteVersion() {
-        return prop.getProperty("remoteVersion");
     }
 
     /**
@@ -144,4 +144,21 @@ public final class PropertiesManager {
         return prop.getProperty("remoteResolution");
     }
 
+    /**
+     * Gets remote operative system.
+     *
+     * @return string remote operative system.
+     */
+    public String getRemoteOS() {
+        return prop.getProperty("remoteOS");
+    }
+
+    /**
+     * Gets remote operative system.
+     *
+     * @return string remote operative system.
+     */
+    public String getRemoteOSVersion() {
+        return prop.getProperty("remoteOSVersion");
+    }
 }

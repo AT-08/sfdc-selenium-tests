@@ -12,7 +12,6 @@ public class SauceLabs extends RemoteBrowserConnection implements Browser {
     private static final String BROWSER_NAME = "browserName";
     private static final String PLATFORM = "platform";
     private static final String BROWSER_VERSION = "version";
-    private static final String RESOLUTION = "resolution";
 
     /**
      * This is the constructor.
@@ -25,12 +24,12 @@ public class SauceLabs extends RemoteBrowserConnection implements Browser {
      * {@inheritDoc}
      */
     @Override
-    DesiredCapabilities setCapabilities() {
+    public DesiredCapabilities setCapabilities() {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(BROWSER_NAME, PROPERTIES_MANAGER.getRemoteBrowserName());
         capabilities.setCapability(PLATFORM, PROPERTIES_MANAGER.getRemotePlatform());
-        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getRemoteVersion());
+        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getRemoteBrowserVersion());
         capabilities.setCapability(RESOLUTION, PROPERTIES_MANAGER.getRemoteResolution());
         return capabilities;
     }
