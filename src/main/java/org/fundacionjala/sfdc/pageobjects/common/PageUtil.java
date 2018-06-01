@@ -1,6 +1,6 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.common;
 
-import org.fundacionjala.sfdc.core.e2e.DriverManager;
+import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 
 /**

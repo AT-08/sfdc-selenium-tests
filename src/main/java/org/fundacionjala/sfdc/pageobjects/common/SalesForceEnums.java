@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.common;
 
 import java.util.HashMap;
 
@@ -37,7 +37,7 @@ public class SalesForceEnums {
         private static final HashMap<String, Theme> THEME_HASH_MAP = new HashMap<>();
 
         static {
-            for (Theme theme : Theme.values()) {
+            for (Theme theme : values()) {
                 THEME_HASH_MAP.put(theme.getThemeName(), theme);
             }
         }

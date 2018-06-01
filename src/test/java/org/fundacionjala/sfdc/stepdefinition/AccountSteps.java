@@ -22,10 +22,10 @@ public class AccountSteps {
     }
 
     /**
-     * @param values iCanFillTheFieldsAndPressTheSaveButton.
+     * @param values iFillTheFieldsAndPressTheSaveButton.
      */
-    @And("^I can fill the fields of Account and press the save button$")
-    public void iCanFillTheFieldsAndPressTheSaveButton(final Map<AccountInputs, String> values) {
+    @And("^I fill the fields of Account and press the save button$")
+    public void iFillTheFieldsAndPressTheSaveButton(final Map<AccountInputs, String> values) {
         values.keySet().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }
