@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.common;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;

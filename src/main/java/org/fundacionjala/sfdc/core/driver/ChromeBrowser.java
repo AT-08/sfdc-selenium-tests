@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.core.e2e;
+package org.fundacionjala.sfdc.core.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

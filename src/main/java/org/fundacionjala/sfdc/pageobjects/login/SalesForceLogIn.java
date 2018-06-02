@@ -1,5 +1,7 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.login;
 
+import org.fundacionjala.sfdc.pageobjects.common.Base;
+import org.fundacionjala.sfdc.pageobjects.common.PageUtil;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuLightning;
 import org.fundacionjala.sfdc.util.CommonActions;

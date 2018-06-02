@@ -3,18 +3,18 @@ Feature: Modify and delete a previous created opportunity.
   Background: User is logged, create an account, campaign and opportunity.
     Given I login as a User
     And Home Page should be displayed
-    And I can go to "ACCOUNT" Section
-    And I can click on New button
-    And I can fill the fields of Account and press the save button
+    And I go to "ACCOUNT" Section
+    And I click on New button
+    And I fill the fields of Account and press the save button
       | ACCOUNT_NAME | AccountOpp2 |
-    And I can go to "CAMPAIGN" Section
-    And I can click on New button
-    And I can create or modify a campaign fill the fields and press the save button
+    And I go to "CAMPAIGN" Section
+    And I click on New button
+    And I create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME   | CampaignOpp2 |
       | CAMPAIGN_ACTIVE | true         |
-    And I can go to "OPPORTUNITY" Section
-    And I can click on New button
-    And I can create or modify an opportunity fill the fields and press the save button
+    And I go to "OPPORTUNITY" Section
+    And I click on New button
+    And I create or modify an opportunity fill the fields and press the save button
       | OPPORTUNITY_NAME                    | Opportunity  |
       | OPPORTUNITY_ACCOUNT_NAME            | AccountOpp2  |
       | OPPORTUNITY_CLOSE_DATE              | 20/08/2018   |
@@ -23,10 +23,10 @@ Feature: Modify and delete a previous created opportunity.
 
   @deleteAccount @deleteCampaign
   Scenario: Edit account previously created
-    Given I can go to "OPPORTUNITY" Section
-    And I can click on "Opportunity" "OPPORTUNITY" at list on Main Page
-    And I can click on Edit Button
-    And I can create or modify an opportunity fill the fields and press the save button
+    Given I go to "OPPORTUNITY" Section
+    And I click on "Opportunity" "OPPORTUNITY" at list on Main Page
+    And I click on Edit Button
+    And I create or modify an opportunity fill the fields and press the save button
       | OPPORTUNITY_PRIVATE                      | false          |
       | OPPORTUNITY_NAME                         | OpportunityMod |
       | OPPORTUNITY_TYPE                         | New Customer   |
@@ -42,12 +42,12 @@ Feature: Modify and delete a previous created opportunity.
       | OPPORTUNITY_MAIN_COMPETITORS             | Competitor2    |
       | OPPORTUNITY_DELIVERY_INSTALLATION_STATUS | In progress    |
       | OPPORTUNITY_DESCRIPTION                  | Don't modify   |
-    And I can go to "OPPORTUNITY" Section
-    Then I can verify if "OpportunityMod" "OPPORTUNITY" was created/modified on Detail Page
+    And I go to "OPPORTUNITY" Section
+    Then I verify if "OpportunityMod" "OPPORTUNITY" was created/modified on Detail Page
 
   @deleteAccount @deleteCampaign
   Scenario: Delete account
-    Given I can go to "OPPORTUNITY" Section
-    When I can click on "Opportunity" at list on Main Page
-    And I can click on Delete Button
-    Then I can verify that "Opportunity" "OPPORTUNITY" was deleted
+    Given I go to "OPPORTUNITY" Section
+    When I click on "Opportunity" at list on Main Page
+    And I click on Delete Button
+    Then I verify that "Opportunity" "OPPORTUNITY" was deleted

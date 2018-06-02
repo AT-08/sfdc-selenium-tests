@@ -22,10 +22,10 @@ public class ContactSteps {
         this.modifyPage = modifyPage;
     }
     /**
-     * @param values iCanCreateANewContactFillTheFieldsAndPressTheSaveButton.
+     * @param values iCreateANewContactFillTheFieldsAndPressTheSaveButton.
      */
-    @And("^I can fill the fields of Contact and press the save button")
-    public void iCanCreateANewContactFillTheFieldsAndPressTheSaveButton(final Map<ContactInputs, String> values) {
+    @And("^I fill the fields of Contact and press the save button")
+    public void iCreateANewContactFillTheFieldsAndPressTheSaveButton(final Map<ContactInputs, String> values) {
         values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }

@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.util;
 
-import org.fundacionjala.sfdc.core.e2e.DriverManager;
+import org.fundacionjala.sfdc.core.driver.DriverManager;
+import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -130,7 +131,6 @@ public final class CommonActions {
      * @param value   a boolean value.
      */
     public static void setCheckBox(final WebElement element, boolean value) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
         if (!element.isSelected() && value) {
             clickElement(element);
         }
@@ -145,7 +145,6 @@ public final class CommonActions {
      * @param element WebElement to wait and clear.
      */
     public static void clearTextField(final WebElement element) {
-        WAITER.until(ExpectedConditions.visibilityOf(element));
         element.clear();
     }
 
@@ -261,6 +260,18 @@ public final class CommonActions {
             }
         }
         return contactName;
+    }
+
+    /**
+     * This method allows to get the object name
+     * and if is a contact return the object name formated.
+     *
+     * @param nameOfObject is the object name.
+     * @param section      enum.
+     * @return the contact name formated .
+     */
+    public static String getNameOfObject(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
+        return SalesForceEnums.EnumLocator.CONTACT.equals(section) ? formatContactName(nameOfObject) : nameOfObject;
     }
 }
 

@@ -1,4 +1,4 @@
-package org.fundacionjala.sfdc.core.e2e;
+package org.fundacionjala.sfdc.core.driver;
 
 
 import org.fundacionjala.sfdc.util.PropertiesManager;

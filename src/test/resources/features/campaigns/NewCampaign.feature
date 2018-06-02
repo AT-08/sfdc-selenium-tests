@@ -5,18 +5,18 @@ Feature: Create a new campaign
     Then Home Page should be displayed
 
   Scenario: Create a new campaign with only mandatory fields filled
-    Given I can go to "CAMPAIGN" Section
-    And I can click on New button
-    And I can create or modify a campaign fill the fields and press the save button
+    Given I go to "CAMPAIGN" Section
+    And I click on New button
+    And I create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME   | CampaignTest |
       | CAMPAIGN_ACTIVE | true         |
-    And I can go to "CAMPAIGN" Section
-    Then I can verify if "CampaignTest" "CAMPAIGN" was created/modified on Detail Page
+    And I go to "CAMPAIGN" Section
+    Then I verify if "CampaignTest" "CAMPAIGN" was created/modified on Detail Page
 
   Scenario: Create a new campaign with all fields filled
-    Given I can go to "CAMPAIGN" Section
-    And I can click on New button
-    And I can create or modify a campaign fill the fields and press the save button
+    Given I go to "CAMPAIGN" Section
+    And I click on New button
+    And I create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME              | Campaign   |
       | CAMPAIGN_ACTIVE            | true       |
       | CAMPAIGN_TYPE              | Webinar    |
@@ -30,6 +30,6 @@ Feature: Create a new campaign
       | CAMPAIGN_NUM_SENT          | 25         |
       | CAMPAIGN_PARENT            | Camp123    |
       | CAMPAIGN_DESCRIPTION       | Desc123    |
-    And I can go to "CAMPAIGN" Section
-    Then I can verify if "Campaign" "CAMPAIGN" was created/modified on Detail Page
+    And I go to "CAMPAIGN" Section
+    Then I verify if "Campaign" "CAMPAIGN" was created/modified on Detail Page
 

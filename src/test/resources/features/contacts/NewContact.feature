@@ -5,19 +5,19 @@ Feature: Contacts feature
     Then Home Page should be displayed
 
   Scenario: Create a new contact with only obligatory fields filled
-    Given I can go to "CONTACT" Section
-    And I can click on New button
-    And I can fill the fields of Contact and press the save button
+    Given I go to "CONTACT" Section
+    And I click on New button
+    And I fill the fields of Contact and press the save button
       | CONTACT_LAST_NAME | capibara |
-    Then I can go to "CONTACT" Section
-    And I can verify if "capibara" "CONTACT" was created/modified on Detail Page
+    Then I go to "CONTACT" Section
+    And I verify if "capibara" "CONTACT" was created/modified on Detail Page
 
   Scenario: Create a new contact with all fields filled
-    Given I can go to "CONTACT" Section
-    And I can click on New button
-    And I can fill the fields of Contact and press the save button
+    Given I go to "CONTACT" Section
+    And I click on New button
+    And I fill the fields of Contact and press the save button
       | CONTACT_SALUTATION      | Dr.             |
-      | CONTACT_NAME            | Escarleth       |
+      | CONTACT_NAME            | Danae           |
       | CONTACT_LAST_NAME       | Ledezma         |
       | CONTACT_TITLE           | title           |
       | CONTACT_DEPARTMENT      | Salees          |
@@ -27,7 +27,7 @@ Feature: Contacts feature
       | CONTACT_MOBILE          | 72727272        |
       | CONTACT_OTHER_PHONE     | 72727270        |
       | CONTACT_FAX             | 2222222         |
-      | CONTACT_EMAIL           | pablo@gmail.com |
+      | CONTACT_EMAIL           | danae@gmail.com |
       | CONTACT_ASSISTANT       | assistant       |
       | CONTACT_ASST_PHONE      | 22222222        |
       | CONTACT_LEAD_SOURCE     | Web             |
@@ -44,5 +44,5 @@ Feature: Contacts feature
       | CONTACT_LANGUAGES       | english         |
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
-    Then I can go to "CONTACT" Section
-    And I can verify if "Ledezma, Escarleth" "CONTACT" was created/modified on Detail Page
+    Then I go to "CONTACT" Section
+    And I verify if "Ledezma, Danae" "CONTACT" was created/modified on Detail Page

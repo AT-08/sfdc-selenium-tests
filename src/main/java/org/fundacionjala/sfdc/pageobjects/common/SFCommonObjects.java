@@ -1,17 +1,19 @@
-package org.fundacionjala.sfdc.pageobjects;
+package org.fundacionjala.sfdc.pageobjects.common;
 
-import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 /**
- * SFDetails.
+ * Class with common objects for the other page objects.
  */
-public class SFDetails extends Base {
+public class SFCommonObjects extends Base {
 
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
 
@@ -27,13 +29,56 @@ public class SFDetails extends Base {
     })
     private WebElement deleteButton;
 
+    @FindBy(xpath = "//span[@class=' label bBody truncate' and text()='Delete']")
+    private WebElement confirmDelete;
+
     @FindBy(xpath = "//a[@class='slds-grid slds-grid--vertical-align-center slds-grid--align-center "
             + "sldsButtonHeightFix' and not(@title='Show one more action')]")
     private WebElement dropDownMenuInside;
+
     @FindBy(css = "[class='slds-icon_container slds-icon-utility-down']")
     private WebElement dropDownMenuLightInList;
-    @FindBy(xpath = "//span[@class=' label bBody truncate' and text()='Delete']")
-    private WebElement confirmDelete;
+
+    @FindAll({
+            @FindBy(css = "input[name='new']"),
+            @FindBy(css = "div[title='New']")
+    })
+    private WebElement newButton;
+
+    @FindAll({
+            @FindBy(xpath = "//tr[@class='headerRow']/following-sibling::tr/descendant::a"),
+            @FindBy(xpath = "//td[contains(@class,'slds-cell-edit')]/following-sibling::th/descendant::a")
+    })
+    private List<WebElement> elementOnList;
+
+    /**
+     * clickToNewButton.
+     */
+    public void clickToNewButton() {
+        CommonActions.jsClickElement(this.newButton);
+    }
+
+    /**
+     * clickElementOnList.
+     *
+     * @param elementOnList This is element on list.
+     */
+
+    public void clickElementOnList(final String elementOnList) {
+        WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
+        CommonActions.jsClickElement(webElement);
+    }
+
+    /**
+     * isWebElementPresentOnList.
+     *
+     * @param elementOnList This is element on list.
+     * @return getAccountHomePage.
+     */
+
+    public boolean isWebElementPresentOnList(final String elementOnList) {
+        return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
+    }
 
     /**
      * setEditButton.
@@ -108,9 +153,12 @@ public class SFDetails extends Base {
 
     /**
      * clickDeleteButton in the list(Light).
+     *
+     * @param objectName object name.
      */
-    public void clickDeleteSecondWay() {
+    public void clickDeleteSecondWay(final String objectName) {
         if (IS_CLASSIC) {
+            this.clickElementOnList(objectName);
             this.setDeleteButton();
             this.confirmDeleteInClassic();
         } else {
@@ -122,9 +170,12 @@ public class SFDetails extends Base {
 
     /**
      * clickEditButton in the list(Light).
+     *
+     * @param objectName object name.
      */
-    public void clickEditSecondWay() {
+    public void clickEditSecondWay(final String objectName) {
         if (IS_CLASSIC) {
+            this.clickElementOnList(objectName);
             this.setEditButton();
         } else {
             this.setDropDownMenuInList();

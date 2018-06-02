@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.accounts;
 
-import org.fundacionjala.sfdc.pageobjects.SFNewModify;
+import org.fundacionjala.sfdc.pageobjects.common.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
 import org.openqa.selenium.WebElement;

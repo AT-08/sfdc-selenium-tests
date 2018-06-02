@@ -3,19 +3,19 @@ Feature: Contacts feature
   Background: User is logged in the application
     Given I login as a User
     When Home Page should be displayed
-    And I can go to "CONTACT" Section
-    And I can click on New button
-    And I can fill the fields of Contact and press the save button
+    And I go to "CONTACT" Section
+    And I click on New button
+    And I fill the fields of Contact and press the save button
       | CONTACT_NAME      | Pablo     |
       | CONTACT_LAST_NAME | Grillosss |
-    And I can go to "CONTACT" Section
-    Then I can verify if "Grillosss, Pablo" "CONTACT" was created/modified on Detail Page
+    And I go to "CONTACT" Section
+    Then I verify if "Grillosss, Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Edit contact with all fields filled
-    When I can go to "CONTACT" Section
-    And I can click on "Grillosss, Pablo" "CONTACT" at list on Main Page
-    And I can click on Edit Button
-    And I can fill the fields of Contact and press the save button
+    When I go to "CONTACT" Section
+    And I click on "Grillosss, Pablo" "CONTACT" at list on Main Page
+    And I click on Edit Button
+    And I fill the fields of Contact and press the save button
       | CONTACT_SALUTATION      | Dr.             |
       | CONTACT_NAME            | Pepe Pablo      |
       | CONTACT_LAST_NAME       | Grillo          |
@@ -44,13 +44,13 @@ Feature: Contacts feature
       | CONTACT_LANGUAGES       | english         |
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
-    And I can go to "CONTACT" Section
-    Then I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
+    And I go to "CONTACT" Section
+    Then I verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Edit contact at list on Main Page
-    When I can go to "CONTACT" Section
-    And   I can select the Edit button at list on Main Page
-    And I can fill the fields of Contact and press the save button
+    When I go to "CONTACT" Section
+    And   I edit "Grillosss, Pablo" at list on Main Page
+    And I fill the fields of Contact and press the save button
       | CONTACT_SALUTATION      | Dr.             |
       | CONTACT_NAME            | Pepe Pablo      |
       | CONTACT_LAST_NAME       | Grillo          |
@@ -79,16 +79,16 @@ Feature: Contacts feature
       | CONTACT_LANGUAGES       | english         |
       | CONTACT_LEVEL           | Secondary       |
       | CONTACT_DESCRIPTION     | This is a test2 |
-    And I can go to "CONTACT" Section
-    Then I can verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
+    And I go to "CONTACT" Section
+    Then I verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
 
   Scenario: Delete contact
-    Given I can go to "CONTACT" Section
-    When I can click on "Grillosss, Pablo" "CONTACT" at list on Main Page
-    And I can click on Delete Button
-    Then I can verify that "Grillosss, Pablo" "CONTACT" was deleted
+    Given I go to "CONTACT" Section
+    When I click on "Grillosss, Pablo" "CONTACT" at list on Main Page
+    And I click on Delete Button
+    Then I verify that "Grillosss, Pablo" "CONTACT" was deleted
 
   Scenario: Delete contact at list on Main Page
-    When I can go to "CONTACT" Section
-    And  I can select the Delete button at list on Main Page
-    Then I can verify that "Grillosss, Pablo" "CONTACT" was deleted
+    When I go to "CONTACT" Section
+    And  I delete "Grillosss, Pablo" at list on Main Page
+    Then I verify that "Grillosss, Pablo" "CONTACT" was deleted
