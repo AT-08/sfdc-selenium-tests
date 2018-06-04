@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
+import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebElement;
@@ -28,12 +29,11 @@ public class SalesForceSection extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(plusButton);
         } else {
-            CommonActions.waitTime(2);
+            DriverManager.getInstance().setImplicitTime(2);
             CommonActions.jsClickElement(plusButton);
         }
         CommonActions.jsClickByElementLocator(this.salesForceTabSelector(section));
         CommonActions.closeMessageLighting();
-        CommonActions.resetWaitTime();
     }
 
     /**

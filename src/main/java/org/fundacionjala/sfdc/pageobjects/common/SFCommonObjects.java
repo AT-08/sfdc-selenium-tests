@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
+import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.Alert;
@@ -130,10 +131,9 @@ public class SFCommonObjects extends Base {
         if (IS_CLASSIC) {
             this.setEditButton();
         } else {
-            CommonActions.waitTime(2);
+            DriverManager.getInstance().setImplicitTime(2);
             this.setDropDownMenuInsideTheObject();
             this.setEditButton();
-            CommonActions.resetWaitTime();
         }
     }
 

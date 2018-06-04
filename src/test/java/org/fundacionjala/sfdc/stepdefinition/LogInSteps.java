@@ -2,10 +2,10 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;
 
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
 
 /**
@@ -31,9 +31,8 @@ public class LogInSteps {
      */
     @Then("^Home Page should be displayed$")
     public void homePageShouldBeDisplated() {
-        CommonActions.waitTime(2);
+        DriverManager.getInstance().setImplicitTime(2);
         Assert.assertTrue(login.getCloudIcon());
-        CommonActions.resetWaitTime();
     }
 
 }

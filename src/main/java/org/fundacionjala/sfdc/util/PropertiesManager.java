@@ -161,4 +161,22 @@ public final class PropertiesManager {
     public String getRemoteOSVersion() {
         return prop.getProperty("remoteOSVersion");
     }
+
+    /**
+     * Gets the explicit time.
+     *
+     * @return the explicit time.
+     */
+    public String getExplicitTime() {
+        return prop.getProperty("explicitTime");
+    }
+
+    /**
+     * Gets the implicit time.
+     *
+     * @return the implicit time.
+     */
+    public String getImplicitTime() {
+        return prop.getProperty("implicitTime");
+    }
 }

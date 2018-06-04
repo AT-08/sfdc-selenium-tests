@@ -12,7 +12,9 @@ import java.util.concurrent.TimeUnit;
  * Class that applies Singleton pattern to instance WebDriver only once.
  */
 public final class DriverManager {
-    private static final int EXPLICIT_TIME = 60;
+    private static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
+    private static final int EXPLICIT_TIME = Integer.parseInt(PROPERTIES_MANAGER.getExplicitTime());
+    private static final int IMPLICIT_TIME = Integer.parseInt(PROPERTIES_MANAGER.getImplicitTime());
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -25,6 +27,7 @@ public final class DriverManager {
         DriverType driverType = DriverType.valueOf(PropertiesManager.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
         wait = new WebDriverWait(driver, EXPLICIT_TIME);
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_TIME, TimeUnit.SECONDS);
     }
 
     /**
@@ -65,22 +68,4 @@ public final class DriverManager {
     public void setImplicitTime(int implicitTimeWait) {
         driver.manage().timeouts().implicitlyWait(implicitTimeWait, TimeUnit.SECONDS);
     }
-
-    /**
-     * Set update waits.
-     *
-     * @param time time for implicit and explicit.
-     */
-    public void setUpdateWait(int time) {
-        this.setImplicitTime(time);
-    }
-
-    /**
-     * Back previous set default times.
-     */
-    public void backPreviousWait() {
-        this.setImplicitTime(0);
-    }
-
-
 }

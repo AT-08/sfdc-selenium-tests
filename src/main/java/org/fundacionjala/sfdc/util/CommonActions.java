@@ -47,22 +47,6 @@ public final class CommonActions {
     }
 
     /**
-     * This method generates a wait for a fixed time.
-     *
-     * @param time time.
-     */
-    public static void waitTime(int time) {
-        DriverManager.getInstance().setUpdateWait(time);
-    }
-
-    /**
-     * This method generates a wait for a fixed time.
-     */
-    public static void resetWaitTime() {
-        DriverManager.getInstance().setUpdateWait(0);
-    }
-
-    /**
      * Method to click any element.
      *
      * @param element to click.
