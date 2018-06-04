@@ -1,37 +1,29 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.pageobjects.SFDetails;
-import org.fundacionjala.sfdc.pageobjects.SFMain;
-import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
-import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
+import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
+import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.testng.Assert;
 
 /**
- * AccountSteps.
+ * Common Steps.
  */
 public class CommonSteps {
     private SalesForceSection tabSalesForce;
-    private SFMain mainPage;
-    private SFDetails detailsPage;
+    private SFCommonObjects commonPage;
 
     /**
-     * AccountSteps.
+     * Constructor of common steps.
      *
      * @param tabSalesForce tabSalesForce menu.
-     * @param mainPage      mainPage menu.
-     * @param detailsPage   detailsPage menu.
+     * @param commonPage    commonPage menu.
      */
     public CommonSteps(final SalesForceSection tabSalesForce,
-                       final SFMain mainPage,
-                       final SFDetails detailsPage) {
+                       final SFCommonObjects commonPage) {
         this.tabSalesForce = tabSalesForce;
-        this.mainPage = mainPage;
-        this.detailsPage = detailsPage;
+        this.commonPage = commonPage;
     }
 
     /**
@@ -39,27 +31,17 @@ public class CommonSteps {
      *
      * @param section section to go.
      */
-    @Given("^I can go to \"([^\"]*)\" Section")
-    public void iCanGoToSection(final SalesForceEnums.EnumLocator section) {
+    @And("^I go to \"([^\"]*)\" Section$")
+    public void iGoToSection(final SalesForceEnums.EnumLocator section) {
         tabSalesForce.goToSalesForceTab(section);
     }
 
     /**
-     * iCanCreateANewAccount.
+     * iCreateANewAccount.
      */
-    @When("^I can click on New button$")
-    public void iCanClickOnNewButton() {
-        mainPage.clickToNewButton();
-    }
-
-    /**
-     * @param nameOfObject iCanVerifyNewCreatedObject.
-     */
-    @Then("^I can verify if \"([^\"]*)\" was created/modified on Detail Page$")
-    public void iCanVerifyNewCreatedObject(final String nameOfObject) {
-        CommonActions.waitTime(2);
-        Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
-        CommonActions.resetWaitTime();
+    @When("^I click on New button$")
+    public void iClickOnNewButton() {
+        commonPage.clickToNewButton();
     }
 
     /**
@@ -67,86 +49,57 @@ public class CommonSteps {
      *
      * @param elementOnList .
      */
-    @When("^I can click on \"([^\"]*)\" at list on Main Page")
+    @When("^I click on \"([^\"]*)\" at list on Main Page")
     public void iChooseLastElementOnList(final String elementOnList) {
         final int time = 3;
         CommonActions.waitTime(time);
-        mainPage.clickElementOnList(elementOnList);
+        commonPage.clickElementOnList(elementOnList);
         CommonActions.resetWaitTime();
     }
 
     /**
      * iChooseLastElementOnList.
      */
-    @When("I can click on Edit Button")
-    public void iCanClickOnEditButton() {
-        detailsPage.clickEditButton();
+    @When("I click on Edit Button")
+    public void iClickOnEditButton() {
+        commonPage.clickEditButton();
     }
 
     /**
-     * iCanClickOnDeleteButton.
+     * iClickOnDeleteButton.
      */
-    @When("I can click on Delete Button")
-    public void iCanClickOnDeleteButton() {
-        detailsPage.clickDeleteButton();
+    @When("I click on Delete Button")
+    public void iClickOnDeleteButton() {
+        commonPage.clickDeleteButton();
     }
 
     /**
-     * @param nameOfObject iCanVerifyNewCreatedObject.
+     * @param nameOfObject iClickOnAtListOnMainPage.
      * @param section      .
      */
-    @Then("^I can verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
-    public void iCanVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
-                                                           final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
-        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
-            Assert.assertTrue(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(nameOfObject)));
-        } else {
-            Assert.assertTrue(mainPage.istWebElementPresentOnList(nameOfObject));
-        }
-
+    @And("^I click on \"([^\"]*)\" \"([^\"]*)\" at list on Main Page$")
+    public void iClickOnAtListOnMainPage(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
+        commonPage.clickElementOnList(CommonActions.getNameOfObject(nameOfObject, section));
     }
 
     /**
-     * @param nameOfObject iCanClickOnAtListOnMainPage.
-     * @param section      .
+     * iCanClickOnEditButtonAtListOnMainPage(Second way).
+     *
+     * @param objectName object Name.
      */
-    @And("^I can click on \"([^\"]*)\" \"([^\"]*)\" at list on Main Page$")
-    public void iCanClickOnAtListOnMainPage(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
-        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
-            mainPage.clickElementOnList(CommonActions.formatContactName(nameOfObject));
-        } else {
-            mainPage.clickElementOnList(nameOfObject);
-        }
-    }
-
-    /**
-     * @param elementDeleted iCanVerifyThatWasDeleted.
-     * @param section        .
-     */
-    @Then("^I can verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
-    public void iCanVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
-        if (SalesForceEnums.EnumLocator.CONTACT.equals(section)) {
-            Assert.assertFalse(mainPage.istWebElementPresentOnList(CommonActions.formatContactName(elementDeleted)));
-        } else {
-            Assert.assertFalse(mainPage.istWebElementPresentOnList(elementDeleted));
-        }
+    @And("^I edit \"([^\"]*)\" at list on Main Page$")
+    public void iEditAtListOnMainPage(final String objectName) {
+        commonPage.clickEditSecondWay(objectName);
     }
 
     /**
      * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
+     *
+     * @param objectName object Name.
      */
-    @And("^I can select the Edit button at list on Main Page$")
-    public void iCanSelectTheEditButtonAtListOnMainPage() {
-        detailsPage.clickEditSecondWay();
+    @And("^I delete \"([^\"]*)\" at list on Main Page$")
+    public void iDeleteAtListOnMainPage(final String objectName) {
+        commonPage.clickDeleteSecondWay(objectName);
     }
 
-    /**
-     * iCanClickOnDeleteButtonAtListOnMainPage(Second way).
-     */
-    @And("^I can select the Delete button at list on Main Page$")
-    public void iCanSelectTheDeleteButtonAtListOnMainPage() {
-        detailsPage.clickDeleteSecondWay();
-    }
 }

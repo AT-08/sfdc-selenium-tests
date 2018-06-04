@@ -16,8 +16,8 @@ public class TopMenuLightning extends TopMenu {
 
     @Override
     public void switchTheme() {
-        CommonActions.clickElement(userProfileLink);
-        CommonActions.clickElement(switchThemeLink);
+        CommonActions.jsClickElement(userProfileLink);
+        CommonActions.jsClickElement(switchThemeLink);
     }
 
 }

@@ -23,10 +23,10 @@ public class OpportunitySteps {
     }
 
     /**
-     * @param values iCanCreateANewOpportunityFillTheFieldsAndPressTheSaveButton.
+     * @param values iCreateANewOpportunityFillTheFieldsAndPressTheSaveButton.
      */
-    @And("^I can create or modify an opportunity fill the fields and press the save button$")
-    public void iCanCreateOrModifyAnOpportunityFillTheFieldsAndPressTheSaveButton(final Map<OpportInputs,
+    @And("^I create or modify an opportunity fill the fields and press the save button$")
+    public void iCreateOrModifyAnOpportunityFillTheFieldsAndPressTheSaveButton(final Map<OpportInputs,
             String> values) {
         values.keySet().forEach(step
                 -> modifyPage.getStrategyStepMap(values).get(step).fillField());

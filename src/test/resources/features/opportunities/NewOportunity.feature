@@ -3,21 +3,21 @@ Feature: Create a new account
   Background: User is logged, create an account and a new campaign
     Given I login as a User
     And Home Page should be displayed
-    And I can go to "ACCOUNT" Section
-    And I can click on New button
-    And I can fill the fields of Account and press the save button
+    And I go to "ACCOUNT" Section
+    And I click on New button
+    And I fill the fields of Account and press the save button
       | ACCOUNT_NAME | AccountOpp |
-    And I can go to "CAMPAIGN" Section
-    And I can click on New button
-    And I can create or modify a campaign fill the fields and press the save button
+    And I go to "CAMPAIGN" Section
+    And I click on New button
+    And I create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME   | CampaignOpp |
       | CAMPAIGN_ACTIVE | true        |
 
   @deleteAccount @deleteCampaign
   Scenario: Create a new opportunity with all fields filled
-    Given I can go to "OPPORTUNITY" Section
-    And I can click on New button
-    And I can create or modify an opportunity fill the fields and press the save button
+    Given I go to "OPPORTUNITY" Section
+    And I click on New button
+    And I create or modify an opportunity fill the fields and press the save button
       | OPPORTUNITY_PRIVATE                      | true         |
       | OPPORTUNITY_NAME                         | Mora2        |
       | OPPORTUNITY_ACCOUNT_NAME                 | AccountOpp   |
@@ -35,5 +35,5 @@ Feature: Create a new account
       | OPPORTUNITY_MAIN_COMPETITORS             | Competitor1  |
       | OPPORTUNITY_DELIVERY_INSTALLATION_STATUS | Completed    |
       | OPPORTUNITY_DESCRIPTION                  | Description  |
-    Then I can go to "OPPORTUNITY" Section
-    And I can verify if "Mora2" "OPPORTUNITY" was created/modified on Detail Page
+    Then I go to "OPPORTUNITY" Section
+    And I verify if "Mora2" "OPPORTUNITY" was created/modified on Detail Page

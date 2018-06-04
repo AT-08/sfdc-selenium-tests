@@ -3,11 +3,10 @@ package org.fundacionjala.sfdc.hooks;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import org.fundacionjala.sfdc.core.e2e.DriverManager;
-import org.fundacionjala.sfdc.pageobjects.SFDetails;
-import org.fundacionjala.sfdc.pageobjects.SFMain;
-import org.fundacionjala.sfdc.pageobjects.SalesForceEnums;
-import org.fundacionjala.sfdc.pageobjects.SalesForceSection;
+import org.fundacionjala.sfdc.core.driver.DriverManager;
+import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
+import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -21,8 +20,7 @@ import org.fundacionjala.sfdc.entities.Helper;
 public class Hooks {
 
     private SalesForceSection tabSalesForce;
-    private SFDetails detailsPage;
-    private SFMain mainPage;
+    private SFCommonObjects detailsPage;
     private Helper helper;
 
     /**
@@ -33,8 +31,7 @@ public class Hooks {
     public Hooks(final Helper helper) {
         this.helper = helper;
         tabSalesForce = new SalesForceSection();
-        detailsPage = new SFDetails();
-        mainPage = new SFMain();
+        detailsPage = new SFCommonObjects();
     }
 
     /**
@@ -43,7 +40,7 @@ public class Hooks {
     @After(value = "@deleteAccount")
     public void deleteCreatedAccount() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.ACCOUNT);
-        mainPage.clickElementOnList(helper.getItemName());
+        detailsPage.clickElementOnList(helper.getItemName());
         detailsPage.clickDeleteButton();
     }
 
@@ -53,7 +50,7 @@ public class Hooks {
     @After(value = "@deleteCampaign")
     public void deleteCreatedItemCampaign() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.CAMPAIGN);
-        mainPage.clickElementOnList(helper.getCampaignName());
+        detailsPage.clickElementOnList(helper.getCampaignName());
         detailsPage.clickDeleteButton();
     }
 
