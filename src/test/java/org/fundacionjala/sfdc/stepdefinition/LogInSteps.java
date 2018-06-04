@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;

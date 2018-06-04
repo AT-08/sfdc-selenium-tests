@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;

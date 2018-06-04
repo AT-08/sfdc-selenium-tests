@@ -1,7 +1,6 @@
 package org.fundacionjala.sfdc.core.driver;
 
 
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

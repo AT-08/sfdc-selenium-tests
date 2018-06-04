@@ -259,7 +259,12 @@ public final class CommonActions {
         return SalesForceEnums.EnumLocator.CONTACT.equals(section) ? formatContactName(nameOfObject) : nameOfObject;
     }
 
-    public static void setImplicitTime(int implicitTime){
+    /**
+     * Sets the implicit time.
+     *
+     * @param implicitTime which is set.
+     */
+    public static void setImplicitTime(int implicitTime) {
         WEB_DRIVER.manage().timeouts().implicitlyWait(implicitTime, TimeUnit.SECONDS);
     }
 }

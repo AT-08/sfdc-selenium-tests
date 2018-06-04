@@ -1,6 +1,5 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
-import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebElement;
