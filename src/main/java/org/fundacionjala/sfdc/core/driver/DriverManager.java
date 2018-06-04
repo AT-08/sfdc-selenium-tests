@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
  */
 public final class DriverManager {
     private static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
-    private static final int EXPLICIT_TIME = Integer.parseInt(PROPERTIES_MANAGER.getExplicitTime());
-    private static final int IMPLICIT_TIME = Integer.parseInt(PROPERTIES_MANAGER.getImplicitTime());
+    private static final int EXPLICIT_TIME = PROPERTIES_MANAGER.getExplicitTime();
+    private static final int IMPLICIT_TIME = PROPERTIES_MANAGER.getImplicitTime();
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait wait;

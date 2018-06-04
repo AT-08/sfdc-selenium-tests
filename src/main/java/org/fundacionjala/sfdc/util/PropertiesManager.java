@@ -167,8 +167,8 @@ public final class PropertiesManager {
      *
      * @return the explicit time.
      */
-    public String getExplicitTime() {
-        return prop.getProperty("explicitTime");
+    public int getExplicitTime() {
+        return Integer.parseInt(prop.getProperty("explicitTime"));
     }
 
     /**
@@ -176,7 +176,7 @@ public final class PropertiesManager {
      *
      * @return the implicit time.
      */
-    public String getImplicitTime() {
-        return prop.getProperty("implicitTime");
+    public int getImplicitTime() {
+        return Integer.parseInt(prop.getProperty("implicitTime"));
     }
 }
