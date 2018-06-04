@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -256,6 +257,10 @@ public final class CommonActions {
      */
     public static String getNameOfObject(final String nameOfObject, final SalesForceEnums.EnumLocator section) {
         return SalesForceEnums.EnumLocator.CONTACT.equals(section) ? formatContactName(nameOfObject) : nameOfObject;
+    }
+
+    public static void setImplicitTime(int implicitTime){
+        WEB_DRIVER.manage().timeouts().implicitlyWait(implicitTime, TimeUnit.SECONDS);
     }
 }
 

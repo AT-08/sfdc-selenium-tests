@@ -29,7 +29,7 @@ public class SalesForceSection extends Base {
         if (IS_CLASSIC) {
             CommonActions.clickElement(plusButton);
         } else {
-            DriverManager.getInstance().setImplicitTime(2);
+            CommonActions.setImplicitTime(PropertiesManager.getInstance().getImplicitTime());
             CommonActions.jsClickElement(plusButton);
         }
         CommonActions.jsClickByElementLocator(this.salesForceTabSelector(section));

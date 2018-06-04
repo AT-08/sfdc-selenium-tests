@@ -5,6 +5,7 @@ import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.testng.Assert;
 
 /**
@@ -29,7 +30,7 @@ public class CommonAssertions {
     @Then("^I verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
     public void iVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
                                                         final SalesForceEnums.EnumLocator section) {
-        DriverManager.getInstance().setImplicitTime(2);
+        CommonActions.setImplicitTime(PropertiesManager.getInstance().getImplicitTime());
         Assert.assertTrue(commonPage.isWebElementPresentOnList(
                 CommonActions.getNameOfObject(nameOfObject, section)));
     }
@@ -40,7 +41,7 @@ public class CommonAssertions {
      */
     @Then("^I verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
     public void iVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
-        DriverManager.getInstance().setImplicitTime(2);
+        CommonActions.setImplicitTime(PropertiesManager.getInstance().getImplicitTime());
         Assert.assertFalse(commonPage.isWebElementPresentOnList(
                 CommonActions.getNameOfObject(elementDeleted, section)));
     }

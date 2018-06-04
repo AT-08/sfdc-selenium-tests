@@ -7,6 +7,7 @@ import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
 import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.sfdc.util.PropertiesManager;
 
 /**
  * Common Steps.
@@ -52,7 +53,7 @@ public class CommonSteps {
      */
     @When("^I click on \"([^\"]*)\" at list on Main Page")
     public void iChooseLastElementOnList(final String elementOnList) {
-        DriverManager.getInstance().setImplicitTime(2);
+        CommonActions.setImplicitTime(PropertiesManager.getInstance().getImplicitTime());
         commonPage.clickElementOnList(elementOnList);
     }
 

@@ -131,7 +131,7 @@ public class SFCommonObjects extends Base {
         if (IS_CLASSIC) {
             this.setEditButton();
         } else {
-            DriverManager.getInstance().setImplicitTime(2);
+            CommonActions.setImplicitTime(PropertiesManager.getInstance().getImplicitTime());
             this.setDropDownMenuInsideTheObject();
             this.setEditButton();
         }
