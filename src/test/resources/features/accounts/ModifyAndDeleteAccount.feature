@@ -10,6 +10,7 @@ Feature: Modify and delete a previous created acount.
     And I go to "ACCOUNT" Section
     Then I verify if "Account to Modify" "ACCOUNT" was created/modified on Detail Page
 
+  @deleteAccount
   Scenario: Edit account with all fields filled
     When I go to "ACCOUNT" Section
     And I click on "Account to Modify" "ACCOUNT" at list on Main Page
@@ -33,6 +34,7 @@ Feature: Modify and delete a previous created acount.
     And I go to "ACCOUNT" Section
     Then I verify if "Account Modified" "ACCOUNT" was created/modified on Detail Page
 
+  @deleteAccount
   Scenario: Edit account at list on Main Page
     When I go to "ACCOUNT" Section
     And I edit "Account to Modify" at list on Main Page

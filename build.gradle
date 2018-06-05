@@ -1,3 +1,6 @@
+plugins {
+    id "io.qameta.allure" version "2.5"
+}
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -5,6 +8,7 @@ apply plugin: 'eclipse'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
+sourceCompatibility = 1.8
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -17,6 +21,9 @@ dependencies {
     testCompile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
     testCompile group: 'io.cucumber', name: 'cucumber-testng', version: '2.4.0'
     testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '2.4.0'
+    testCompile group: 'io.qameta.allure', name: 'allure-cucumber2-jvm', version: '2.6.0'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+
 }
 
 // Checkstyle configuration
@@ -45,4 +52,24 @@ tasks.withType(Pmd) {
         xml.enabled = false
         html.enabled = true
     }
+}
+allure {
+    version = '2.6.0'
+}
+task executeFeatures(type: Test) {
+    doFirst {
+        useTestNG()
+        options {
+            useDefaultListeners = false
+            jvmArgs = ['-Dcucumber.options= ' +
+                               '--glue org.fundacionjala.sfdc ' +
+                               '--plugin pretty ' +
+                               '--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm']
+        }
+        testLogging.showStandardStreams = true
+        scanForTestClasses = false
+        ignoreFailures = true
+        reports.html.enabled = false
+    }
+    finalizedBy 'allureReport'
 }

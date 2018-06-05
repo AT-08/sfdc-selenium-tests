@@ -44,7 +44,7 @@ public final class DriverManager {
      *
      * @return WebDriver instance.
      */
-    public WebDriver getNavigator() {
+    public WebDriver getDriver() {
         return driver;
     }
 
