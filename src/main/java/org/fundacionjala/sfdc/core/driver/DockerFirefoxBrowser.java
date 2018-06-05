@@ -13,7 +13,7 @@ import java.net.URL;
  * DockerFirefoxBrowser class.
  */
 public class DockerFirefoxBrowser implements Browser {
-    private static final Logger log = Logger.getLogger(DockerFirefoxBrowser.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DockerFirefoxBrowser.class.getName());
 
     /**
      * {@inheritDoc}
@@ -24,7 +24,7 @@ public class DockerFirefoxBrowser implements Browser {
         try {
             driver = new RemoteWebDriver(new URL(PropertiesManager.getInstance().getDockerUrl()), new FirefoxOptions());
         } catch (MalformedURLException e) {
-            log.error("URL bad created:", e);
+            LOGGER.error("URL bad created:", e);
         }
         return driver;
     }

@@ -18,7 +18,7 @@ public abstract class RemoteBrowserConnection implements Browser {
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
     protected static final String RESOLUTION = "resolution";
     private final String url;
-    private static final Logger log = Logger.getLogger(RemoteBrowserConnection.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RemoteBrowserConnection.class.getName());
 
     /**
      * This method setCapabilities the remote browser.
@@ -45,7 +45,7 @@ public abstract class RemoteBrowserConnection implements Browser {
         try {
             driver = new RemoteWebDriver(new URL(url), setCapabilities());
         } catch (MalformedURLException e) {
-            log.error("URL bad created:", e);
+            LOGGER.error("URL bad created:", e);
         }
         return driver;
     }

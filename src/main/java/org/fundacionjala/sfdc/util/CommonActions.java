@@ -29,7 +29,7 @@ public final class CommonActions {
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
-    private static final Logger log = Logger.getLogger(CommonActions.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CommonActions.class.getName());
 
     /**
      * Private constructor because it is a util class.
@@ -244,7 +244,7 @@ public final class CommonActions {
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
             }
         } catch (NoSuchElementException e) {
-            log.error("Exception.", e);
+            LOGGER.error("Exception.", e);
         }
     }
 
