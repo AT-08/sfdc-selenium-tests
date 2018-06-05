@@ -212,7 +212,6 @@ public final class CommonActions {
      */
     public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements,
                                                      final String element) {
-        System.out.println(element);
         return listOfElements
                 .stream()
                 .anyMatch(elementOnList -> elementOnList.getText().equalsIgnoreCase(element));
