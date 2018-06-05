@@ -65,10 +65,23 @@ task executeFeatures(type: Test) {
                                '--glue org.fundacionjala.sfdc ' +
                                '--plugin pretty ' +
                                '--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm']
+            jvmArgs = ['-DurlLogin=' + urlLogin]
+            jvmArgs = ['-Duser=' + user]
+            jvmArgs = ['-Dpassword=' + password]
+            jvmArgs = ['-Dtheme=' + theme]
+            jvmArgs = ['-Dbrowser=' + browser]
+            jvmArgs = ['-DremoteUserName=' + remoteUserName]
+            jvmArgs = ['-DremoteAccessKey=' + remoteAccessKey]
+            jvmArgs = ['-DremoteBrowserName=' + remoteBrowserName]
+            jvmArgs = ['-remoteBrowserVersion=' + remoteBrowserVersion]
+            jvmArgs = ['-DremoteResolution=' + remoteResolution]
+            jvmArgs = ['-DremotePlatform=' + remotePlatform]
+            jvmArgs = ['-DremoteOS=' + remoteOS]
+            jvmArgs = ['-DremoteOSVersion=' + remoteOSVersion]
         }
         testLogging.showStandardStreams = true
         scanForTestClasses = false
-        ignoreFailures = true
+        ignoreFailures = false
         reports.html.enabled = false
     }
     finalizedBy 'allureReport'

@@ -3,6 +3,7 @@ package org.fundacionjala.sfdc.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -38,11 +39,31 @@ public final class PropertiesManager {
      */
     private void init() {
         prop = new Properties();
-        try (InputStream input = new FileInputStream("config.properties")) {
+        try (InputStream input = new FileInputStream("gradle.properties")) {
             prop.load(input);
         } catch (IOException e) {
             throw new RunTimeExceptions(e.getMessage(), e);
         }
+    }
+
+    /**
+     * Gets Url Login.
+     *
+     * @param var variable obtained of gradle.properties.
+     * @return the enviroment value.
+     */
+    private String getEnvValue(final String var) {
+        String property = System.getProperty(var);
+        return !Objects.isNull(property) ? property : prop.getProperty(var);
+    }
+
+    /**
+     * Gets Url Login.
+     *
+     * @return String url login.
+     */
+    public String getUrlLogin() {
+        return getEnvValue("urlLogin");
     }
 
     /**
@@ -51,7 +72,7 @@ public final class PropertiesManager {
      * @return String username.
      */
     public String getUsername() {
-        return prop.getProperty("user");
+        return getEnvValue("user");
     }
 
     /**
@@ -60,7 +81,7 @@ public final class PropertiesManager {
      * @return String password.
      */
     public String getPassword() {
-        return prop.getProperty("password");
+        return getEnvValue("password");
     }
 
     /**
@@ -69,7 +90,7 @@ public final class PropertiesManager {
      * @return String theme.
      */
     public String getTheme() {
-        return prop.getProperty("theme");
+        return getEnvValue("theme");
     }
 
     /**
@@ -78,7 +99,7 @@ public final class PropertiesManager {
      * @return string browser.
      */
     public String getBrowser() {
-        return prop.getProperty("browser");
+        return getEnvValue("browser");
     }
 
     /**
@@ -87,7 +108,7 @@ public final class PropertiesManager {
      * @return string docker URL.
      */
     public String getDockerUrl() {
-        return prop.getProperty("dockerURL");
+        return getEnvValue("dockerURL");
     }
 
     /**
@@ -96,7 +117,7 @@ public final class PropertiesManager {
      * @return string remote user name.
      */
     public String getRemoteUserName() {
-        return prop.getProperty("remoteUserName");
+        return getEnvValue("remoteUserName");
     }
 
     /**
@@ -105,7 +126,7 @@ public final class PropertiesManager {
      * @return string remote access key.
      */
     public String getRemoteAccessKey() {
-        return prop.getProperty("remoteAccessKey");
+        return getEnvValue("remoteAccessKey");
     }
 
     /**
@@ -114,7 +135,7 @@ public final class PropertiesManager {
      * @return string remote Browser Name.
      */
     public String getRemoteBrowserName() {
-        return prop.getProperty("remoteBrowserName");
+        return getEnvValue("remoteBrowserName");
     }
 
     /**
@@ -123,7 +144,7 @@ public final class PropertiesManager {
      * @return string remote Version.
      */
     public String getRemoteBrowserVersion() {
-        return prop.getProperty("remoteBrowserVersion");
+        return getEnvValue("remoteBrowserVersion");
     }
 
     /**
@@ -132,7 +153,7 @@ public final class PropertiesManager {
      * @return string remote platform.
      */
     public String getRemotePlatform() {
-        return prop.getProperty("remotePlatform");
+        return getEnvValue("remotePlatform");
     }
 
     /**
@@ -141,7 +162,7 @@ public final class PropertiesManager {
      * @return string remote Resolution.
      */
     public String getRemoteResolution() {
-        return prop.getProperty("remoteResolution");
+        return getEnvValue("remoteResolution");
     }
 
     /**
@@ -150,7 +171,7 @@ public final class PropertiesManager {
      * @return string remote operative system.
      */
     public String getRemoteOS() {
-        return prop.getProperty("remoteOS");
+        return getEnvValue("remoteOS");
     }
 
     /**
@@ -159,6 +180,6 @@ public final class PropertiesManager {
      * @return string remote operative system.
      */
     public String getRemoteOSVersion() {
-        return prop.getProperty("remoteOSVersion");
+        return getEnvValue("remoteOSVersion");
     }
 }
