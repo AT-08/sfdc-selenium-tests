@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
  */
 public final class PageUtil {
 
-    private static WebDriver webDriver = DriverManager.getInstance().getNavigator();
+    private static WebDriver webDriver = DriverManager.getInstance().getDriver();
 
     /**
      * Constructor.

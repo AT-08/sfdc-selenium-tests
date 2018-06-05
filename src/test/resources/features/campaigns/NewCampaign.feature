@@ -4,6 +4,7 @@ Feature: Create a new campaign
     Given I login as a User
     Then Home Page should be displayed
 
+  @deleteCampaign
   Scenario: Create a new campaign with only mandatory fields filled
     Given I go to "CAMPAIGN" Section
     And I click on New button
@@ -13,6 +14,7 @@ Feature: Create a new campaign
     And I go to "CAMPAIGN" Section
     Then I verify if "CampaignTest" "CAMPAIGN" was created/modified on Detail Page
 
+  @deleteCampaign
   Scenario: Create a new campaign with all fields filled
     Given I go to "CAMPAIGN" Section
     And I click on New button

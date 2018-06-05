@@ -23,9 +23,9 @@ import java.util.Set;
  */
 public final class CommonActions {
 
-    private static final Actions ACTIONS = new Actions(DriverManager.getInstance().getNavigator());
+    private static final Actions ACTIONS = new Actions(DriverManager.getInstance().getDriver());
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
-    private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getNavigator();
+    private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getDriver();
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
 
@@ -212,6 +212,7 @@ public final class CommonActions {
      */
     public static boolean istWebElementPresentOnList(final List<WebElement> listOfElements,
                                                      final String element) {
+        System.out.println(element);
         return listOfElements
                 .stream()
                 .anyMatch(elementOnList -> elementOnList.getText().equalsIgnoreCase(element));

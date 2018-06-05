@@ -4,6 +4,7 @@ Feature: Contacts feature
     Given I login as a User
     Then Home Page should be displayed
 
+  @deleteContact
   Scenario: Create a new contact with only obligatory fields filled
     Given I go to "CONTACT" Section
     And I click on New button
