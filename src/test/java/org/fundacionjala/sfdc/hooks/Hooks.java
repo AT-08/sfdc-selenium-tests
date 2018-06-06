@@ -1,17 +1,11 @@
 package org.fundacionjala.sfdc.hooks;
 
 
-import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import org.fundacionjala.sfdc.core.driver.DriverManager;
+import org.fundacionjala.sfdc.entities.Helper;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-
-import org.fundacionjala.sfdc.entities.Helper;
 
 
 /**
@@ -26,12 +20,14 @@ public class Hooks {
     /**
      * Default Constructor.
      *
-     * @param helper Helper.
+     * @param helper        Helper.
+     * @param tabSalesForce tabs.
+     * @param detailsPage   commmon objects.
      */
-    public Hooks(final Helper helper) {
+    public Hooks(final Helper helper, final SalesForceSection tabSalesForce, final SFCommonObjects detailsPage) {
         this.helper = helper;
-        tabSalesForce = new SalesForceSection();
-        detailsPage = new SFCommonObjects();
+        this.tabSalesForce = tabSalesForce;
+        this.detailsPage = detailsPage;
     }
 
     /**
@@ -40,8 +36,7 @@ public class Hooks {
     @After(value = "@deleteAccount")
     public void deleteCreatedAccount() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.ACCOUNT);
-        detailsPage.clickElementOnList(helper.getItemName());
-        detailsPage.clickDeleteButton();
+        detailsPage.clickDeleteSecondWay(helper.getAccountName());
     }
 
     /**
@@ -50,21 +45,24 @@ public class Hooks {
     @After(value = "@deleteCampaign")
     public void deleteCreatedItemCampaign() {
         tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.CAMPAIGN);
-        detailsPage.clickElementOnList(helper.getCampaignName());
-        detailsPage.clickDeleteButton();
+        detailsPage.clickDeleteSecondWay(helper.getCampaignName());
     }
 
     /**
-     * Takes a snapshot when a scenario fails.
-     *
-     * @param scenario variable for Cucumber features.
+     * Delete Contact.
      */
-    @After
-    public void takeScreenShot(final Scenario scenario) {
-        if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) DriverManager.getInstance().getNavigator())
-                    .getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png");
-        }
+    @After(value = "@deleteContact")
+    public void deleteContact() {
+        tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.CONTACT);
+        detailsPage.clickDeleteSecondWay(helper.getContactName());
+    }
+
+    /**
+     * Delete Opportunity.
+     */
+    @After(value = "@deleteOpportunity")
+    public void deleteOpportunity() {
+        tabSalesForce.goToSalesForceTab(SalesForceEnums.EnumLocator.OPPORTUNITY);
+        detailsPage.clickDeleteSecondWay(helper.getOpportunityName());
     }
 }

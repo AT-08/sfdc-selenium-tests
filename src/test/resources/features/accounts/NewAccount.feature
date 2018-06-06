@@ -4,6 +4,7 @@ Feature: Create a new account
     Given I login as a User
     Then Home Page should be displayed
 
+  @deleteAccount
   Scenario: Create a new account with only obligatory fields filled
     Given I go to "ACCOUNT" Section
     And I click on New button
@@ -12,6 +13,7 @@ Feature: Create a new account
     And I go to "ACCOUNT" Section
     Then I verify if "Account with only obligatory fields filled" "ACCOUNT" was created/modified on Detail Page
 
+  @deleteAccount
   Scenario: Create a new account with all fields filled
     Given I go to "ACCOUNT" Section
     And I click on New button

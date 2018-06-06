@@ -17,7 +17,7 @@ public abstract class Base {
      * Constructor.
      */
     public Base() {
-        this.webDriver = DriverManager.getInstance().getNavigator();
+        this.webDriver = DriverManager.getInstance().getDriver();
         PageFactory.initElements(this.webDriver, this);
         wait = DriverManager.getInstance().getWaiter();
     }
