@@ -1,5 +1,7 @@
 package org.fundacionjala.sfdc.util;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +15,7 @@ import java.util.Properties;
 public final class PropertiesManager {
     private static PropertiesManager propertiesManager;
     private Properties prop;
+    private static final Logger LOGGER = Logger.getLogger(PropertiesManager.class.getName());
 
 
     /**
@@ -42,7 +45,7 @@ public final class PropertiesManager {
         try (InputStream input = new FileInputStream("gradle.properties")) {
             prop.load(input);
         } catch (IOException e) {
-            throw new RunTimeExceptions(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
