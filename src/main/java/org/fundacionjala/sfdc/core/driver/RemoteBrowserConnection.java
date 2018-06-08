@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.core.driver;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -17,13 +18,13 @@ public abstract class RemoteBrowserConnection implements Browser {
     protected static final PropertiesConfig PROPERTIES_MANAGER = PropertiesConfig.getInstance();
     protected static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
+    private static final Logger LOGGER = LogManager.getLogger(RemoteBrowserConnection.class);
     private final String url;
-    private static final Logger LOGGER = Logger.getLogger(RemoteBrowserConnection.class.getName());
+
 
     /**
      * This method setCapabilities the remote browser.
-     *
-     * @return DesiredCapabilities instance.
+     * @return capabilities.
      */
     abstract DesiredCapabilities setCapabilities();
 
@@ -45,7 +46,7 @@ public abstract class RemoteBrowserConnection implements Browser {
         try {
             driver = new RemoteWebDriver(new URL(url), setCapabilities());
         } catch (MalformedURLException e) {
-            LOGGER.error("URL bad created:", e);
+            LOGGER.error("URL not valid:", e);
         }
         return driver;
     }

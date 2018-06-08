@@ -1,6 +1,8 @@
 package org.fundacionjala.sfdc.util;
 
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.openqa.selenium.WebDriver;
@@ -29,7 +31,7 @@ public final class CommonActions {
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getDriver();
     private static final boolean IS_CLASSIC = PropertiesConfig.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
-    private static final Logger LOGGER = Logger.getLogger(CommonActions.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(CommonActions.class.getName());
 
     /**
      * Private constructor because it is a util class.
@@ -38,9 +40,9 @@ public final class CommonActions {
     }
 
     /**
-     * Method to get any element but wait until it is visible.
+     * Method to get any element but driverWait until it is visible.
      *
-     * @param element to wait for.
+     * @param element to driverWait for.
      * @return the element.
      */
     public static WebElement getElement(final WebElement element) {
@@ -49,7 +51,7 @@ public final class CommonActions {
     }
 
     /**
-     * This method generates a wait for a fixed time.
+     * This method generates a driverWait for a fixed time.
      *
      * @param time time.
      */
@@ -58,7 +60,7 @@ public final class CommonActions {
     }
 
     /**
-     * This method generates a wait for a fixed time.
+     * This method generates a driverWait for a fixed time.
      */
     public static void resetWaitTime() {
         DriverManager.getInstance().setUpdateWait(0);
@@ -144,7 +146,7 @@ public final class CommonActions {
     /**
      * Waits and clear the WebElement.
      *
-     * @param element WebElement to wait and clear.
+     * @param element WebElement to driverWait and clear.
      */
     public static void clearTextField(final WebElement element) {
         element.clear();

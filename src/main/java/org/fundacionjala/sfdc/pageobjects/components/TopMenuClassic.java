@@ -25,6 +25,6 @@ public class TopMenuClassic extends TopMenu {
      * Wait until profile link is visible.
      */
     public void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(userProfileLink));
+        driverWait.until(ExpectedConditions.visibilityOf(userProfileLink));
     }
 }

@@ -1,7 +1,5 @@
 package org.fundacionjala.sfdc.core.driver;
 
-
-import org.apache.log4j.PropertyConfigurator;
 import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,17 +14,16 @@ public final class DriverManager {
     private static final int EXPLICIT_TIME = 60;
     private static DriverManager driverManager;
     private WebDriver driver;
-    private WebDriverWait wait;
+    private WebDriverWait driverWait;
 
 
     /**
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        PropertyConfigurator.configure("log4j.properties");
         DriverType driverType = DriverType.valueOf(PropertiesConfig.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
-        wait = new WebDriverWait(driver, EXPLICIT_TIME);
+        driverWait = new WebDriverWait(driver, EXPLICIT_TIME);
     }
 
     /**
@@ -56,13 +53,13 @@ public final class DriverManager {
      * @return WebDriverWait instance.
      */
     public WebDriverWait getWaiter() {
-        return wait;
+        return driverWait;
     }
 
     /**
-     * Set time implicit wait.
+     * Set time implicit driverWait.
      *
-     * @param implicitTimeWait time for wait.
+     * @param implicitTimeWait time for driverWait.
      */
     public void setImplicitTime(int implicitTimeWait) {
         driver.manage().timeouts().implicitlyWait(implicitTimeWait, TimeUnit.SECONDS);
@@ -77,12 +74,6 @@ public final class DriverManager {
         this.setImplicitTime(time);
     }
 
-    /**
-     * Back previous set default times.
-     */
-    public void backPreviousWait() {
-        this.setImplicitTime(0);
-    }
 
 
 }

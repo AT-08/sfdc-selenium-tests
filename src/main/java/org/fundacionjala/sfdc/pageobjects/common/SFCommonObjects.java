@@ -119,7 +119,7 @@ public class SFCommonObjects extends Base {
      * confirmDeleteInClassic.
      */
     public void confirmDeleteInClassic() {
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driverWait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
 

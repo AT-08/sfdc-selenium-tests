@@ -11,14 +11,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class Base {
     protected WebDriver webDriver;
-    protected WebDriverWait wait;
+    protected WebDriverWait driverWait;
 
     /**
      * Constructor.
      */
     public Base() {
         this.webDriver = DriverManager.getInstance().getDriver();
+        driverWait = DriverManager.getInstance().getWaiter();
         PageFactory.initElements(this.webDriver, this);
-        wait = DriverManager.getInstance().getWaiter();
     }
 }
