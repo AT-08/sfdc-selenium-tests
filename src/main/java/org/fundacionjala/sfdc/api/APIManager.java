@@ -13,7 +13,7 @@ public final class APIManager {
 
     private static APIManager apiManager;
     private RequestSpecification requestSpecification;
-    private String baseUri = "https://na73.salesforce.com/services/data/v20.0";
+    private String baseUri = "https://na59.salesforce.com/services/data/v32.0";
     private PropertiesManager propertiesManager = PropertiesManager.getInstance();
 
     /**
