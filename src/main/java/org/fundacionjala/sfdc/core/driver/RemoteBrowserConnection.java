@@ -19,13 +19,12 @@ public abstract class RemoteBrowserConnection implements Browser {
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
     protected static final String RESOLUTION = "resolution";
     private final String url;
-
     private static final Logger LOGGER = LogManager.getLogger(RemoteBrowserConnection.class.getName());
-    
+
+
     /**
      * This method setCapabilities the remote browser.
-     *
-     * @return DesiredCapabilities instance.
+     * @return capabilities.
      */
     abstract DesiredCapabilities setCapabilities();
 
