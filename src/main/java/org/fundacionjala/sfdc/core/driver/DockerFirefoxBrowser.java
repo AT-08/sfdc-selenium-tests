@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.core.driver;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -13,7 +14,7 @@ import java.net.URL;
  * DockerFirefoxBrowser class.
  */
 public class DockerFirefoxBrowser implements Browser {
-    private static final Logger LOGGER = Logger.getLogger(DockerFirefoxBrowser.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(DockerFirefoxBrowser.class.getName());
 
     /**
      * {@inheritDoc}

@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.core.driver;
 
 
-import org.apache.log4j.PropertyConfigurator;
+
 import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +23,6 @@ public final class DriverManager {
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        PropertyConfigurator.configure("log4j.properties");
         DriverType driverType = DriverType.valueOf(PropertiesManager.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
         wait = new WebDriverWait(driver, EXPLICIT_TIME);

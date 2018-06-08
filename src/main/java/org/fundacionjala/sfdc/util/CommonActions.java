@@ -1,6 +1,8 @@
 package org.fundacionjala.sfdc.util;
 
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.sfdc.core.driver.DriverManager;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.openqa.selenium.WebDriver;
@@ -29,7 +31,7 @@ public final class CommonActions {
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getDriver();
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
-    private static final Logger LOGGER = Logger.getLogger(CommonActions.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(CommonActions.class.getName());
 
     /**
      * Private constructor because it is a util class.
