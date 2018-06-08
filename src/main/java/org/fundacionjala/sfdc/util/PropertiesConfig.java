@@ -10,19 +10,19 @@ import java.util.Objects;
 import java.util.Properties;
 
 /**
- * PropertiesManager.java.
+ * PropertiesConfig.java.
  * Class that applies Singleton pattern to instance Properties only once.
  */
-public final class PropertiesManager {
-    private static PropertiesManager propertiesManager;
+public final class PropertiesConfig {
+    private static PropertiesConfig propertiesConfig;
     private Properties prop;
-    private static final Logger LOGGER = LogManager.getLogger(PropertiesManager.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(PropertiesConfig.class.getName());
 
 
     /**
      * Constructor, private to apply singleton pattern.
      */
-    private PropertiesManager() {
+    private PropertiesConfig() {
         init();
     }
 
@@ -31,11 +31,11 @@ public final class PropertiesManager {
      *
      * @return instance.
      */
-    public static PropertiesManager getInstance() {
-        if (propertiesManager == null) {
-            propertiesManager = new PropertiesManager();
+    public static PropertiesConfig getInstance() {
+        if (propertiesConfig == null) {
+            propertiesConfig = new PropertiesConfig();
         }
-        return propertiesManager;
+        return propertiesConfig;
     }
 
     /**
@@ -53,12 +53,12 @@ public final class PropertiesManager {
     /**
      * Gets Url Login.
      *
-     * @param var variable obtained of gradle.properties.
+     * @param env variable obtained of gradle.properties.
      * @return the enviroment value.
      */
-    private String getEnvValue(final String var) {
-        String property = System.getProperty(var);
-        return !Objects.isNull(property) ? property : prop.getProperty(var);
+    private String getEnvValue(final String env) {
+        String property = System.getProperty(env);
+        return Objects.isNull(property) ? prop.getProperty(env) : property;
     }
 
     /**
@@ -168,6 +168,16 @@ public final class PropertiesManager {
     public String getRemoteResolution() {
         return getEnvValue("remoteResolution");
     }
+
+    /**
+     * Gets explicit time.
+     *
+     * @return string explicit time.
+     */
+    public String getExplicitTime() {
+        return getEnvValue("explicitTime");
+    }
+
 
     /**
      * Gets remote operative system.

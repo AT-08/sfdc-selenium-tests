@@ -2,7 +2,7 @@ package org.fundacionjala.sfdc.core.driver;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,12 +14,12 @@ import java.net.URL;
  * This abstract class implements methods to use in SauceLabs and Browser Stack connection.
  */
 public abstract class RemoteBrowserConnection implements Browser {
-    protected static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
+
+    protected static final PropertiesConfig PROPERTIES_MANAGER = PropertiesConfig.getInstance();
     protected static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
-    protected static final String RESOLUTION = "resolution";
+    private static final Logger LOGGER = LogManager.getLogger(RemoteBrowserConnection.class);
     private final String url;
-    private static final Logger LOGGER = LogManager.getLogger(RemoteBrowserConnection.class.getName());
 
 
     /**
@@ -46,7 +46,7 @@ public abstract class RemoteBrowserConnection implements Browser {
         try {
             driver = new RemoteWebDriver(new URL(url), setCapabilities());
         } catch (MalformedURLException e) {
-            LOGGER.error("URL bad created:", e);
+            LOGGER.error("URL not valid:", e);
         }
         return driver;
     }

@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class SFCommonObjects extends Base {
 
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final boolean IS_CLASSIC = PropertiesConfig.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
             @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@title='Edit']"),
@@ -119,7 +119,7 @@ public class SFCommonObjects extends Base {
      * confirmDeleteInClassic.
      */
     public void confirmDeleteInClassic() {
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driverWait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
 

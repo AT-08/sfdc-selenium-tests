@@ -12,6 +12,7 @@ public class SauceLabs extends RemoteBrowserConnection implements Browser {
     private static final String BROWSER_NAME = "browserName";
     private static final String PLATFORM = "platform";
     private static final String BROWSER_VERSION = "version";
+    private static final String RESOLUTION = "resolution";
 
     /**
      * This is the constructor.

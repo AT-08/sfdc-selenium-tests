@@ -8,9 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class FirefoxBrowser implements Browser {
 
-
-
-
     /**
      * Get the Firefox driver.
      *

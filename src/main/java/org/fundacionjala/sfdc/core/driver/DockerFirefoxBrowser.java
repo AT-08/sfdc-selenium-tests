@@ -2,7 +2,7 @@ package org.fundacionjala.sfdc.core.driver;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -23,7 +23,7 @@ public class DockerFirefoxBrowser implements Browser {
     public WebDriver getBrowser() {
         WebDriver driver = null;
         try {
-            driver = new RemoteWebDriver(new URL(PropertiesManager.getInstance().getDockerUrl()), new FirefoxOptions());
+            driver = new RemoteWebDriver(new URL(PropertiesConfig.getInstance().getDockerUrl()), new FirefoxOptions());
         } catch (MalformedURLException e) {
             LOGGER.error("URL bad created:", e);
         }
