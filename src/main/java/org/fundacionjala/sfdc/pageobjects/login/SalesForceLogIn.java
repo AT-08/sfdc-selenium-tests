@@ -1,5 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.login;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.sfdc.pageobjects.common.Base;
 import org.fundacionjala.sfdc.pageobjects.common.PageUtil;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
@@ -14,6 +16,9 @@ import org.openqa.selenium.support.FindBy;
  * Class to log in Salesforce.
  */
 public class SalesForceLogIn extends Base {
+    private static final Logger LOGGER = LogManager.getLogger(SalesForceLogIn.class.getName());
+
+
     private String url;
 
     @FindBy(id = "username")
@@ -41,6 +46,7 @@ public class SalesForceLogIn extends Base {
      * @param url the page.
      */
     public SalesForceLogIn(final String url) {
+        LOGGER.info("entro");
         this.url = url;
     }
 
