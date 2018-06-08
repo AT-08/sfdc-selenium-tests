@@ -52,12 +52,12 @@ public final class PropertiesManager {
     /**
      * Gets Url Login.
      *
-     * @param var variable obtained of gradle.properties.
+     * @param env variable obtained of gradle.properties.
      * @return the enviroment value.
      */
-    private String getEnvValue(final String var) {
-        String property = System.getProperty(var);
-        return !Objects.isNull(property) ? property : prop.getProperty(var);
+    private String getEnvValue(final String env) {
+        String property = System.getProperty(env);
+        return Objects.isNull(property) ? prop.getProperty(env) : property;
     }
 
     /**

@@ -16,7 +16,6 @@ public abstract class RemoteBrowserConnection implements Browser {
     protected static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
     protected static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
-    protected static final String RESOLUTION = "resolution";
     private final String url;
     private static final Logger LOGGER = Logger.getLogger(RemoteBrowserConnection.class.getName());
 
