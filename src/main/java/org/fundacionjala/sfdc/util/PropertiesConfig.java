@@ -9,19 +9,19 @@ import java.util.Objects;
 import java.util.Properties;
 
 /**
- * PropertiesManager.java.
+ * PropertiesConfig.java.
  * Class that applies Singleton pattern to instance Properties only once.
  */
-public final class PropertiesManager {
-    private static PropertiesManager propertiesManager;
+public final class PropertiesConfig {
+    private static PropertiesConfig propertiesConfig;
     private Properties prop;
-    private static final Logger LOGGER = Logger.getLogger(PropertiesManager.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PropertiesConfig.class.getName());
 
 
     /**
      * Constructor, private to apply singleton pattern.
      */
-    private PropertiesManager() {
+    private PropertiesConfig() {
         init();
     }
 
@@ -30,11 +30,11 @@ public final class PropertiesManager {
      *
      * @return instance.
      */
-    public static PropertiesManager getInstance() {
-        if (propertiesManager == null) {
-            propertiesManager = new PropertiesManager();
+    public static PropertiesConfig getInstance() {
+        if (propertiesConfig == null) {
+            propertiesConfig = new PropertiesConfig();
         }
-        return propertiesManager;
+        return propertiesConfig;
     }
 
     /**

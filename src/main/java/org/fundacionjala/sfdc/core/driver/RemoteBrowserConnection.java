@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.core.driver;
 
 import org.apache.log4j.Logger;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -13,7 +13,8 @@ import java.net.URL;
  * This abstract class implements methods to use in SauceLabs and Browser Stack connection.
  */
 public abstract class RemoteBrowserConnection implements Browser {
-    protected static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
+
+    protected static final PropertiesConfig PROPERTIES_MANAGER = PropertiesConfig.getInstance();
     protected static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
     protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
     private final String url;

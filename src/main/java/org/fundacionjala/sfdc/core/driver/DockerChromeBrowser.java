@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.core.driver;
 
 import org.apache.log4j.Logger;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -22,7 +22,7 @@ public class DockerChromeBrowser implements Browser {
     public WebDriver getBrowser() {
         WebDriver driver = null;
         try {
-            driver = new RemoteWebDriver(new URL(PropertiesManager.getInstance().getDockerUrl()), new ChromeOptions());
+            driver = new RemoteWebDriver(new URL(PropertiesConfig.getInstance().getDockerUrl()), new ChromeOptions());
         } catch (MalformedURLException e) {
             LOGGER.error("URL bad created:", e);
         }

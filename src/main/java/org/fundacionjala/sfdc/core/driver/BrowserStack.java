@@ -23,7 +23,7 @@ public class BrowserStack extends RemoteBrowserConnection implements Browser {
     }
 
     /**
-     * {@inheritDoc}
+     * @return.
      */
     @Override
     public DesiredCapabilities setCapabilities() {

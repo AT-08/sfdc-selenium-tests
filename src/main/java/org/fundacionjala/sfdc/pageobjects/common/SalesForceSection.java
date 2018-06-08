@@ -1,7 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesConfig;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class SalesForceSection extends Base {
 
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final boolean IS_CLASSIC = PropertiesConfig.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
             @FindBy(id = "AllTab_Tab"),

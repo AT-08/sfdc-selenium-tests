@@ -27,7 +27,7 @@ public final class CommonActions {
     private static final Actions ACTIONS = new Actions(DriverManager.getInstance().getDriver());
     private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getDriver();
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final boolean IS_CLASSIC = PropertiesConfig.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final JavascriptExecutor JAVASCRIPT_EXECUTOR = (JavascriptExecutor) WEB_DRIVER;
     private static final Logger LOGGER = Logger.getLogger(CommonActions.class.getName());
 
