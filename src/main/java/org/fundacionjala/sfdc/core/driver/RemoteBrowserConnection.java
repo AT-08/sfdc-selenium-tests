@@ -21,9 +21,7 @@ public abstract class RemoteBrowserConnection implements Browser {
     private final String url;
 
     private static final Logger LOGGER = LogManager.getLogger(RemoteBrowserConnection.class.getName());
-
-    //private static final Logger LOGGER = Logger.getLogger(RemoteBrowserConnection.class.getName());
-
+    
     /**
      * This method setCapabilities the remote browser.
      *

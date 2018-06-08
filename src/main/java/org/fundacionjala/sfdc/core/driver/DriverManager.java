@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
  * Class that applies Singleton pattern to instance WebDriver only once.
  */
 public final class DriverManager {
-    //private static final Logger LOGGER = LogManager.getLogger(DriverManager.class.getName());
     private static final int EXPLICIT_TIME = 60;
     private static DriverManager driverManager;
     private WebDriver driver;
@@ -24,7 +23,6 @@ public final class DriverManager {
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        //PropertyConfigurator.configure("log4j2.properties");
         DriverType driverType = DriverType.valueOf(PropertiesManager.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
         wait = new WebDriverWait(driver, EXPLICIT_TIME);
