@@ -185,4 +185,40 @@ public final class PropertiesManager {
     public String getRemoteOSVersion() {
         return getEnvValue("remoteOSVersion");
     }
+
+    /**
+     * Gets the grant type value.
+     *
+     * @return string grand type value.
+     */
+    public String getGrantType() {
+        return getEnvValue("grantType");
+    }
+
+    /**
+     * Gets SalesForce client id which is the consumer key.
+     *
+     * @return string which is the consumer key.
+     */
+    public String getClientId() {
+        return getEnvValue("clientId");
+    }
+
+    /**
+     * Gets SalesForce consumer secret which is the client secret.
+     *
+     * @return string which is the client secret.
+     */
+    public String getClientSecret() {
+        return getEnvValue("clientSecret");
+    }
+
+    /**
+     * Gets SalesForce user security token.
+     *
+     * @return string which contains the security token.
+     */
+    public String getUserSecurityToken() {
+        return getEnvValue("userSecurityToken");
+    }
 }
