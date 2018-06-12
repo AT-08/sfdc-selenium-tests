@@ -2,11 +2,13 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.core.util.PropertiesManager;
 import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;
 
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
+
+import static org.fundacionjala.core.util.CommonWebActions.resetWaitTime;
+import static org.fundacionjala.core.util.CommonWebActions.waitTime;
 
 /**
  * LogInSteps.java.
@@ -31,9 +33,9 @@ public class LogInSteps {
      */
     @Then("^Home Page should be displayed$")
     public void homePageShouldBeDisplated() {
-        CommonActions.waitTime(2);
+        waitTime(2);
         Assert.assertTrue(login.getCloudIcon());
-        CommonActions.resetWaitTime();
+        resetWaitTime();
     }
 
 }

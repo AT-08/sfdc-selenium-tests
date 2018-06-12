@@ -1,10 +1,13 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
+import org.fundacionjala.core.common.Base;
+import org.fundacionjala.core.util.PropertiesManager;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+
+import static org.fundacionjala.core.util.CommonWebActions.*;
 
 /**
  * SalesForceSection.
@@ -26,14 +29,14 @@ public class SalesForceSection extends Base {
      */
     public void goToSalesForceTab(final SalesForceEnums.EnumLocator section) {
         if (IS_CLASSIC) {
-            CommonActions.clickElement(plusButton);
+            clickElement(plusButton);
         } else {
-            CommonActions.waitTime(2);
-            CommonActions.jsClickElement(plusButton);
+            waitTime(2);
+            jsClickElement(plusButton);
         }
-        CommonActions.jsClickByElementLocator(this.salesForceTabSelector(section));
-        CommonActions.closeMessageLighting();
-        CommonActions.resetWaitTime();
+        jsClickByElementLocator(this.salesForceTabSelector(section));
+        closeMessageLighting();
+        resetWaitTime();
     }
 
     /**
