@@ -10,6 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import java.util.EnumMap;
 import java.util.Map;
 
+import static org.fundacionjala.core.util.CommonWebActions.*;
+import static org.fundacionjala.sfdc.util.CommonActions.selectOnComboBox;
+
 /**
  * SFCampNewModifyPage.
  */
@@ -131,119 +134,119 @@ public class SFONewModifyPage extends SFNewModify {
      * @param value a string representation of a boolean value.
      */
     private void setPrivateCheckbox(final String value) {
-        CommonActions.setCheckBox(this.privateCheckbox, Boolean.valueOf(value));
+        setCheckBox(this.privateCheckbox, Boolean.valueOf(value));
     }
 
     /**
      * @param opportunityName setOpportunityName.
      */
     private void setOpportunityName(final String opportunityName) {
-        CommonActions.setTextElement(this.opportunityName, opportunityName);
+        setTextElement(this.opportunityName, opportunityName);
     }
 
     /**
      * @param accountName setAccountName.
      */
     private void setAccountName(final String accountName) {
-        CommonActions.setTextElement(this.accountName, accountName);
+        setTextElement(this.accountName, accountName);
     }
 
     /**
      * @param opportunityType setOpportunityType.
      */
     private void setOpportunityType(final String opportunityType) {
-        CommonActions.selectOnComboBox(this.opportunityType, opportunityType);
+        selectOnComboBox(this.opportunityType, opportunityType);
     }
 
     /**
      * @param opportunityLeadSource setOpportunityLeadSource.
      */
     private void setOpportunityLeadSource(final String opportunityLeadSource) {
-        CommonActions.selectOnComboBox(this.opportunityLeadSource, opportunityLeadSource);
+        selectOnComboBox(this.opportunityLeadSource, opportunityLeadSource);
     }
 
     /**
      * @param opportunityAmount setOpportunityAmount.
      */
     private void setOpportunityAmount(final String opportunityAmount) {
-        CommonActions.setTextElement(this.opportunityAmount, opportunityAmount);
+        setTextElement(this.opportunityAmount, opportunityAmount);
     }
 
     /**
      * @param closeDate setOpportunityCloseDate.
      */
     private void setOpportunityCloseDate(final String closeDate) {
-        CommonActions.setDateOnCalendar(this.opportunityCloseDate, closeDate);
+        setDateOnCalendar(this.opportunityCloseDate, closeDate);
     }
 
     /**
      * @param opportunityNextStep setOpportunityNextStep.
      */
     private void setOpportunityNextStep(final String opportunityNextStep) {
-        CommonActions.setTextElement(this.opportunityNextStep, opportunityNextStep);
+        setTextElement(this.opportunityNextStep, opportunityNextStep);
     }
 
     /**
      * @param stage setOpportunityStage.
      */
     private void setOpportunityStage(final String stage) {
-        CommonActions.selectOnComboBox(this.opportunityStage, stage);
+        selectOnComboBox(this.opportunityStage, stage);
     }
 
     /**
      * @param opportunityProbability setOpportunityProbability.
      */
     private void setOpportunityProbability(final String opportunityProbability) {
-        CommonActions.setTextElement(this.opportunityProbability, opportunityProbability);
+        setTextElement(this.opportunityProbability, opportunityProbability);
     }
 
     /**
      * @param primaryCampaignSource setPrimaryCampaignSource.
      */
     private void setPrimaryCampaignSource(final String primaryCampaignSource) {
-        CommonActions.setTextElement(this.primaryCampaignSource, primaryCampaignSource);
+        setTextElement(this.primaryCampaignSource, primaryCampaignSource);
     }
 
     /**
      * @param orderNumber setOrderNumber.
      */
     private void setOrderNumber(final String orderNumber) {
-        CommonActions.setTextElement(this.orderNumber, orderNumber);
+        setTextElement(this.orderNumber, orderNumber);
     }
 
     /**
      * @param currentGenerator setCurrentGenerator.
      */
     private void setCurrentGenerator(final String currentGenerator) {
-        CommonActions.setTextElement(this.currentGenerator, currentGenerator);
+        setTextElement(this.currentGenerator, currentGenerator);
     }
 
     /**
      * @param trackingNumber setTrackingNumber.
      */
     private void setTrackingNumber(final String trackingNumber) {
-        CommonActions.setTextElement(this.trackingNumber, trackingNumber);
+        setTextElement(this.trackingNumber, trackingNumber);
     }
 
     /**
      * @param mainCompetitors setMainCompetitors.
      */
     private void setMainCompetitors(final String mainCompetitors) {
-        CommonActions.setTextElement(this.mainCompetitors, mainCompetitors);
+        setTextElement(this.mainCompetitors, mainCompetitors);
     }
 
     /**
      * @param deliveryInstallationStatus setDeliveryInstallationStatus.
      */
     private void setDeliveryInstallationStatus(final String deliveryInstallationStatus) {
-        CommonActions.selectOnComboBox(this.deliveryInstallationStatus, deliveryInstallationStatus);
+        selectOnComboBox(this.deliveryInstallationStatus, deliveryInstallationStatus);
     }
 
     /**
      * @param description setDescription.
      */
     private void setDescription(final String description) {
-        CommonActions.setTextElement(this.description, description);
+        setTextElement(this.description, description);
     }
 
     /**
@@ -298,7 +301,7 @@ public class SFONewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        clickElement(this.saveNewAccountButton);
     }
 
 }

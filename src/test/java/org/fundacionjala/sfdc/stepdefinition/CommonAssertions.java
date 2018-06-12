@@ -6,6 +6,8 @@ import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
 
+import static org.fundacionjala.core.util.CommonWebActions.waitTime;
+
 /**
  * Common Assertions.
  */
@@ -28,7 +30,7 @@ public class CommonAssertions {
     @Then("^I verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
     public void iVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
                                                         final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
+        waitTime(2);
         Assert.assertTrue(commonPage.isWebElementPresentOnList(
                 CommonActions.getNameOfObject(nameOfObject, section)));
     }
@@ -39,7 +41,7 @@ public class CommonAssertions {
      */
     @Then("^I verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
     public void iVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
+        waitTime(2);
         Assert.assertFalse(commonPage.isWebElementPresentOnList(
                 CommonActions.getNameOfObject(elementDeleted, section)));
     }

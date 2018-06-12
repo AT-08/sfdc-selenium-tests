@@ -7,6 +7,9 @@ import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
 import org.fundacionjala.sfdc.util.CommonActions;
 
+import static org.fundacionjala.core.util.CommonWebActions.resetWaitTime;
+import static org.fundacionjala.core.util.CommonWebActions.waitTime;
+
 /**
  * Common Steps.
  */
@@ -52,9 +55,9 @@ public class CommonSteps {
     @When("^I click on \"([^\"]*)\" at list on Main Page")
     public void iChooseLastElementOnList(final String elementOnList) {
         final int time = 3;
-        CommonActions.waitTime(time);
+        waitTime(time);
         commonPage.clickElementOnList(elementOnList);
-        CommonActions.resetWaitTime();
+        resetWaitTime();
     }
 
     /**

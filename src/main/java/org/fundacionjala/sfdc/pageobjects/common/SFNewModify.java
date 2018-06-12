@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
+import org.fundacionjala.core.common.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;

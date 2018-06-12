@@ -4,6 +4,8 @@ import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.fundacionjala.core.util.CommonWebActions.jsClickElement;
+
 /**
  * Top menu of lightning SL.
  */
@@ -16,8 +18,8 @@ public class TopMenuLightning extends TopMenu {
 
     @Override
     public void switchTheme() {
-        CommonActions.jsClickElement(userProfileLink);
-        CommonActions.jsClickElement(switchThemeLink);
+        jsClickElement(userProfileLink);
+        jsClickElement(switchThemeLink);
     }
 
 }

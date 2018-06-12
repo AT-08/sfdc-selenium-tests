@@ -1,14 +1,19 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
+import org.fundacionjala.core.common.Base;
+import org.fundacionjala.core.driver.DriverManager;
+import org.fundacionjala.core.util.PropertiesManager;
 import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.PropertiesManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
+import static org.fundacionjala.core.util.CommonWebActions.*;
 
 /**
  * Class with common objects for the other page objects.
@@ -16,6 +21,7 @@ import java.util.List;
 public class SFCommonObjects extends Base {
 
     private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final WebDriverWait WAITER = DriverManager.getInstance().getWaiter();
 
     @FindAll({
             @FindBy(xpath = "//td[@id='topButtonRow']/child::input[@title='Edit']"),
@@ -55,7 +61,7 @@ public class SFCommonObjects extends Base {
      * clickToNewButton.
      */
     public void clickToNewButton() {
-        CommonActions.jsClickElement(this.newButton);
+        jsClickElement(this.newButton);
     }
 
     /**
@@ -65,8 +71,8 @@ public class SFCommonObjects extends Base {
      */
 
     public void clickElementOnList(final String elementOnList) {
-        WebElement webElement = CommonActions.getWebElementFromAList(this.elementOnList, elementOnList);
-        CommonActions.jsClickElement(webElement);
+        WebElement webElement = getWebElementFromAList(this.elementOnList, elementOnList);
+        jsClickElement(webElement);
     }
 
     /**
@@ -77,49 +83,49 @@ public class SFCommonObjects extends Base {
      */
 
     public boolean isWebElementPresentOnList(final String elementOnList) {
-        return CommonActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
+        return istWebElementPresentOnList(this.elementOnList, elementOnList);
     }
 
     /**
      * setEditButton.
      */
     public void setEditButton() {
-        CommonActions.jsClickElement(this.editButton);
+        jsClickElement(this.editButton);
     }
 
     /**
      * setDeleteButton.
      */
     public void setDeleteButton() {
-        CommonActions.jsClickElement(this.deleteButton);
+        jsClickElement(this.deleteButton);
     }
 
     /**
      * setDropDownMenuInsideTheObject.
      */
     public void setDropDownMenuInsideTheObject() {
-        CommonActions.jsClickElement(this.dropDownMenuInside);
+        jsClickElement(this.dropDownMenuInside);
     }
 
     /**
      * setDropDownMenuInList.
      */
     public void setDropDownMenuInList() {
-        CommonActions.jsClickElement(this.dropDownMenuLightInList);
+        jsClickElement(this.dropDownMenuLightInList);
     }
 
     /**
      * confirmDeleteInLight.
      */
     public void confirmDeleteInLight() {
-        CommonActions.jsClickElement(this.confirmDelete);
+        jsClickElement(this.confirmDelete);
     }
 
     /**
      * confirmDeleteInClassic.
      */
     public void confirmDeleteInClassic() {
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = WAITER.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
 
@@ -130,10 +136,10 @@ public class SFCommonObjects extends Base {
         if (IS_CLASSIC) {
             this.setEditButton();
         } else {
-            CommonActions.waitTime(2);
+            waitTime(2);
             this.setDropDownMenuInsideTheObject();
             this.setEditButton();
-            CommonActions.resetWaitTime();
+            resetWaitTime();
         }
     }
 

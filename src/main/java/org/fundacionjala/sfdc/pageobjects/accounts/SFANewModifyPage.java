@@ -10,6 +10,11 @@ import org.openqa.selenium.support.FindBy;
 import java.util.EnumMap;
 import java.util.Map;
 
+import static org.fundacionjala.core.util.CommonWebActions.clickElement;
+import static org.fundacionjala.core.util.CommonWebActions.setTextElement;
+import static org.fundacionjala.sfdc.util.CommonActions.selectOnAutoCompleterTextField;
+import static org.fundacionjala.sfdc.util.CommonActions.selectOnComboBox;
+
 /**
  * SFANewModifyPage.java
  * Class that represents the form where you fill fields in order to create or modify an account.
@@ -127,7 +132,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSICCode string value.
      */
     public void setAccountSICCodeTextField(final String accountSICCode) {
-        CommonActions.setTextElement(this.accountSICCode, accountSICCode);
+        setTextElement(this.accountSICCode, accountSICCode);
     }
 
     /**
@@ -136,7 +141,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountEmployee string value.
      */
     public void setAccountEmployeeTextField(final String accountEmployee) {
-        CommonActions.setTextElement(this.accountEmployee, accountEmployee);
+        setTextElement(this.accountEmployee, accountEmployee);
     }
 
     /**
@@ -145,7 +150,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountOwnershipList string value.
      */
     public void setAccountOwnershipList(final String accountOwnershipList) {
-        CommonActions.selectOnComboBox(this.ownershipList, accountOwnershipList);
+        selectOnComboBox(this.ownershipList, accountOwnershipList);
     }
 
     /**
@@ -154,7 +159,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountTickerSymbol string value.
      */
     public void setAccountTickerSymbolTextField(final String accountTickerSymbol) {
-        CommonActions.setTextElement(this.accountTickerSymbol, accountTickerSymbol);
+        setTextElement(this.accountTickerSymbol, accountTickerSymbol);
     }
 
     /**
@@ -163,7 +168,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountWebsite string value.
      */
     public void setAccountWebsiteTextField(final String accountWebsite) {
-        CommonActions.setTextElement(this.accountWebsite, accountWebsite);
+        setTextElement(this.accountWebsite, accountWebsite);
     }
 
     /**
@@ -172,7 +177,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountFax string value.
      */
     public void setAccountFaxTextField(final String accountFax) {
-        CommonActions.setTextElement(this.accountFax, accountFax);
+        setTextElement(this.accountFax, accountFax);
     }
 
     /**
@@ -181,7 +186,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountPhone string value.
      */
     public void setAccountPhoneTextField(final String accountPhone) {
-        CommonActions.setTextElement(this.accountPhone, accountPhone);
+        setTextElement(this.accountPhone, accountPhone);
     }
 
     /**
@@ -190,7 +195,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param ratingList string value.
      */
     public void setAccountRatingList(final String ratingList) {
-        CommonActions.selectOnComboBox(this.ratingList, ratingList);
+        selectOnComboBox(this.ratingList, ratingList);
     }
 
     /**
@@ -199,7 +204,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountName string value.
      */
     private void setAccountNameTextField(final String accountName) {
-        CommonActions.setTextElement(this.accountNameTextField, accountName);
+        setTextElement(this.accountNameTextField, accountName);
     }
 
     /**
@@ -208,8 +213,8 @@ public class SFANewModifyPage extends SFNewModify {
      * @param parentAccount the value.
      */
     private void setParentAccountTextField(final String parentAccount) {
-        CommonActions.setTextElement(this.parentAccountTextField, parentAccount);
-        CommonActions.selectOnAutoCompleterTextField(this.parentAccountTextField, parentAccount);
+        setTextElement(this.parentAccountTextField, parentAccount);
+        selectOnAutoCompleterTextField(this.parentAccountTextField, parentAccount);
     }
 
     /**
@@ -218,7 +223,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountNumber the value.
      */
     private void setAccountNumberTextField(final String accountNumber) {
-        CommonActions.setTextElement(this.accountNumberTextField, accountNumber);
+        setTextElement(this.accountNumberTextField, accountNumber);
     }
 
     /**
@@ -227,7 +232,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSite the value.
      */
     private void setAccountSiteTextField(final String accountSite) {
-        CommonActions.setTextElement(this.accountSiteTextField, accountSite);
+        setTextElement(this.accountSiteTextField, accountSite);
     }
 
     /**
@@ -236,7 +241,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param type the value.
      */
     private void setAccountTypeList(final String type) {
-        CommonActions.selectOnComboBox(this.typeList, type);
+        selectOnComboBox(this.typeList, type);
     }
 
     /**
@@ -245,7 +250,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param industry the value.
      */
     private void setIndustryList(final String industry) {
-        CommonActions.selectOnComboBox(this.industryList, industry);
+        selectOnComboBox(this.industryList, industry);
     }
 
     /**
@@ -254,7 +259,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param annualRevenue the value.
      */
     private void setAnnualRevenueTextField(final String annualRevenue) {
-        CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
+        setTextElement(this.annualRevenueTextField, annualRevenue);
     }
 
     /**
@@ -316,6 +321,6 @@ public class SFANewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        clickElement(this.saveNewAccountButton);
     }
 }
