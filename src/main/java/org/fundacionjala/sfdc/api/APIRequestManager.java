@@ -10,10 +10,24 @@ import static io.restassured.RestAssured.given;
  * Class for the request manager.
  */
 public final class APIRequestManager {
+    private static APIRequestManager apiRequestManager;
+
     /**
      * Constructor method.
      */
     private APIRequestManager() {
+    }
+
+    /**
+     * Gets API request manager instance.
+     *
+     * @return the singleton instance.
+     */
+    public static APIRequestManager getInstance() {
+        if (apiRequestManager == null) {
+            apiRequestManager = new APIRequestManager();
+        }
+        return apiRequestManager;
     }
 
     /**
@@ -32,7 +46,7 @@ public final class APIRequestManager {
                 .spec(APIManager.getInstance().getRequestSpecification())
                 .params(values)
                 .when()
-                .post(endpoint);
+                .post(APIManager.SOBJECTS + endpoint);
     }
 
     /**

@@ -11,9 +11,16 @@ import org.fundacionjala.sfdc.util.PropertiesManager;
  */
 public final class APIManager {
 
+    public static final String SOBJECTS = "/sobjects/";
+    private static final String GRANT_TYPE = "grant_type";
+    private static final String CLIENT_ID = "client_id";
+    private static final String CLIENT_SECRET = "client_secret";
+    private static final String USERNAME = "username";
+    private static final String PASS = "password";
+    private static final String ACCESS_TOKEN = "access_token";
+    private String serviceBaseUri = "https://na59.salesforce.com/services/data/v42.0";
     private static APIManager apiManager;
     private RequestSpecification requestSpecification;
-    private String baseUri = "https://na59.salesforce.com/services/data/v32.0";
     private PropertiesManager propertiesManager = PropertiesManager.getInstance();
 
     /**
@@ -41,8 +48,8 @@ public final class APIManager {
     private void init() {
         requestSpecification = new RequestSpecBuilder()
                 .setRelaxedHTTPSValidation()
-                .setBaseUri(baseUri)
-                .addHeader("authorization", "oauth".concat(getAccessTokenHeader()))
+                .setBaseUri(serviceBaseUri)
+                .addHeader("Authorization", "Bearer ".concat(getAccessTokenHeader()))
                 .build();
     }
 
@@ -55,14 +62,14 @@ public final class APIManager {
     public String getAccessTokenHeader() {
         Response authenticationResponse = RestAssured.given()
                 .relaxedHTTPSValidation()
-                .baseUri(baseUri)
-                .param("grant_type", propertiesManager.getGrantType())
-                .param("client_id", propertiesManager.getClientId())
-                .param("client_secret", propertiesManager.getClientSecret())
-                .param("username", propertiesManager.getUsername())
-                .param("password", propertiesManager.getPassword().concat(propertiesManager.getUserSecurityToken()))
+                .baseUri("https://na59.salesforce.com/services/oauth2/token")
+                .param(GRANT_TYPE, propertiesManager.getGrantType())
+                .param(CLIENT_ID, propertiesManager.getClientId())
+                .param(CLIENT_SECRET, propertiesManager.getClientSecret())
+                .param(USERNAME, propertiesManager.getUsername())
+                .param(PASS, propertiesManager.getPassword().concat(propertiesManager.getUserSecurityToken()))
                 .post();
-        return authenticationResponse.jsonPath().get("access_token");
+        return authenticationResponse.jsonPath().get(ACCESS_TOKEN).toString();
     }
 
     /**

@@ -1,6 +1,9 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import org.fundacionjala.sfdc.api.APICommons;
+import org.fundacionjala.sfdc.api.APIRequestManager;
 import org.fundacionjala.sfdc.entities.Helper;
 import org.fundacionjala.sfdc.pageobjects.accounts.AccountInputs;
 import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
@@ -17,7 +20,7 @@ public class AccountSteps {
     /**
      * AccountSteps.
      *
-     * @param modifyPage modifyPage menu.
+     * @param modifyPage   modifyPage menu.
      * @param helperToHook helper.
      */
     public AccountSteps(final SFANewModifyPage modifyPage, final Helper helperToHook) {
@@ -34,5 +37,14 @@ public class AccountSteps {
         helperToHook.setAccountName(values.get(AccountInputs.ACCOUNT_NAME));
         values.keySet().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
+    }
+
+    /**
+     * @param endPoint is the endpoint.
+     * @param values   are the map values.
+     */
+    @Given("^I post a new Account to \"([^\"]*)\" endpoint$")
+    public void iPostANewAccountToEndpoint(final String endPoint, final Map<String, String> values) {
+        APIRequestManager.post(values, APICommons.buildEndPoint(endPoint));
     }
 }
