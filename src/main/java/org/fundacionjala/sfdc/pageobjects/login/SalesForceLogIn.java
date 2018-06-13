@@ -2,11 +2,12 @@ package org.fundacionjala.sfdc.pageobjects.login;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fundacionjala.sfdc.pageobjects.common.Base;
+import org.fundacionjala.core.driver.DriverManager;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.PageUtil;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuClassic;
 import org.fundacionjala.sfdc.pageobjects.components.TopMenuLightning;
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -54,7 +55,7 @@ public class SalesForceLogIn extends Base {
      * Setter of url attribute.
      */
     public void setWebDriverUrl() {
-        this.webDriver.get(this.url);
+        DriverManager.getInstance().getDriver().get(this.url);
     }
 
     /**
@@ -63,7 +64,7 @@ public class SalesForceLogIn extends Base {
      * @param userName string value.
      */
     public void setUserName(final String userName) {
-        CommonActions.getElement(this.userName).sendKeys(userName);
+        CommonWebActions.getElement(this.userName).sendKeys(userName);
     }
 
     /**
@@ -72,7 +73,7 @@ public class SalesForceLogIn extends Base {
      * @param userPassword string value.
      */
     public void setUserPassword(final String userPassword) {
-        CommonActions.getElement(this.userPassword).sendKeys(userPassword);
+        CommonWebActions.getElement(this.userPassword).sendKeys(userPassword);
     }
 
     /**
@@ -97,7 +98,7 @@ public class SalesForceLogIn extends Base {
      * @return the button.
      */
     public WebElement getLogInButton() {
-        return CommonActions.getElement(this.logInButton);
+        return CommonWebActions.getElement(this.logInButton);
     }
 
     /**
@@ -131,7 +132,7 @@ public class SalesForceLogIn extends Base {
      * @return if the icon is displayed
      */
     public boolean getCloudIcon() {
-        return CommonActions.getElement(this.cloudIcon).isDisplayed();
+        return CommonWebActions.getElement(this.cloudIcon).isDisplayed();
 
     }
 }

@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.components;
 
-import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,8 +16,8 @@ public class TopMenuLightning extends TopMenu {
 
     @Override
     public void switchTheme() {
-        CommonActions.jsClickElement(userProfileLink);
-        CommonActions.jsClickElement(switchThemeLink);
+        CommonWebActions.jsClickElement(userProfileLink);
+        CommonWebActions.jsClickElement(switchThemeLink);
     }
 
 }

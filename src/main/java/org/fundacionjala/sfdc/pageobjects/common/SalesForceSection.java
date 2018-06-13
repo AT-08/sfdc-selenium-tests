@@ -1,7 +1,8 @@
 package org.fundacionjala.sfdc.pageobjects.common;
 
-import org.fundacionjala.sfdc.util.CommonActions;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
+import org.fundacionjala.sfdc.util.PropertiesSalesForce;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class SalesForceSection extends Base {
 
-    private static final boolean IS_CLASSIC = PropertiesManager.getInstance().getTheme().equalsIgnoreCase("classic");
+    private static final boolean IS_CLASSIC = PropertiesSalesForce.getInstance().getTheme().equalsIgnoreCase("classic");
 
     @FindAll({
             @FindBy(id = "AllTab_Tab"),
@@ -26,14 +27,14 @@ public class SalesForceSection extends Base {
      */
     public void goToSalesForceTab(final SalesForceEnums.EnumLocator section) {
         if (IS_CLASSIC) {
-            CommonActions.clickElement(plusButton);
+            CommonWebActions.clickElement(plusButton);
         } else {
-            CommonActions.waitTime(2);
-            CommonActions.jsClickElement(plusButton);
+            CommonWebActions.waitTime(2);
+            CommonWebActions.jsClickElement(plusButton);
         }
-        CommonActions.jsClickByElementLocator(this.salesForceTabSelector(section));
-        CommonActions.closeMessageLighting();
-        CommonActions.resetWaitTime();
+        CommonWebActions.jsClickByElementLocator(this.salesForceTabSelector(section));
+        CommonWebActions.closeMessageLighting();
+        CommonWebActions.resetWaitTime();
     }
 
     /**

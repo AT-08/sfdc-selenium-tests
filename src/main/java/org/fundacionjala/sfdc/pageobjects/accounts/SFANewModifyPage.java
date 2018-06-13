@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.accounts;
 
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
@@ -127,7 +128,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSICCode string value.
      */
     public void setAccountSICCodeTextField(final String accountSICCode) {
-        CommonActions.setTextElement(this.accountSICCode, accountSICCode);
+        CommonWebActions.setTextElement(this.accountSICCode, accountSICCode);
     }
 
     /**
@@ -136,7 +137,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountEmployee string value.
      */
     public void setAccountEmployeeTextField(final String accountEmployee) {
-        CommonActions.setTextElement(this.accountEmployee, accountEmployee);
+        CommonWebActions.setTextElement(this.accountEmployee, accountEmployee);
     }
 
     /**
@@ -154,7 +155,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountTickerSymbol string value.
      */
     public void setAccountTickerSymbolTextField(final String accountTickerSymbol) {
-        CommonActions.setTextElement(this.accountTickerSymbol, accountTickerSymbol);
+        CommonWebActions.setTextElement(this.accountTickerSymbol, accountTickerSymbol);
     }
 
     /**
@@ -163,7 +164,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountWebsite string value.
      */
     public void setAccountWebsiteTextField(final String accountWebsite) {
-        CommonActions.setTextElement(this.accountWebsite, accountWebsite);
+        CommonWebActions.setTextElement(this.accountWebsite, accountWebsite);
     }
 
     /**
@@ -172,7 +173,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountFax string value.
      */
     public void setAccountFaxTextField(final String accountFax) {
-        CommonActions.setTextElement(this.accountFax, accountFax);
+        CommonWebActions.setTextElement(this.accountFax, accountFax);
     }
 
     /**
@@ -181,7 +182,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountPhone string value.
      */
     public void setAccountPhoneTextField(final String accountPhone) {
-        CommonActions.setTextElement(this.accountPhone, accountPhone);
+        CommonWebActions.setTextElement(this.accountPhone, accountPhone);
     }
 
     /**
@@ -199,7 +200,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountName string value.
      */
     private void setAccountNameTextField(final String accountName) {
-        CommonActions.setTextElement(this.accountNameTextField, accountName);
+        CommonWebActions.setTextElement(this.accountNameTextField, accountName);
     }
 
     /**
@@ -208,7 +209,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param parentAccount the value.
      */
     private void setParentAccountTextField(final String parentAccount) {
-        CommonActions.setTextElement(this.parentAccountTextField, parentAccount);
+        CommonWebActions.setTextElement(this.parentAccountTextField, parentAccount);
         CommonActions.selectOnAutoCompleterTextField(this.parentAccountTextField, parentAccount);
     }
 
@@ -218,7 +219,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountNumber the value.
      */
     private void setAccountNumberTextField(final String accountNumber) {
-        CommonActions.setTextElement(this.accountNumberTextField, accountNumber);
+        CommonWebActions.setTextElement(this.accountNumberTextField, accountNumber);
     }
 
     /**
@@ -227,7 +228,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param accountSite the value.
      */
     private void setAccountSiteTextField(final String accountSite) {
-        CommonActions.setTextElement(this.accountSiteTextField, accountSite);
+        CommonWebActions.setTextElement(this.accountSiteTextField, accountSite);
     }
 
     /**
@@ -254,7 +255,7 @@ public class SFANewModifyPage extends SFNewModify {
      * @param annualRevenue the value.
      */
     private void setAnnualRevenueTextField(final String annualRevenue) {
-        CommonActions.setTextElement(this.annualRevenueTextField, annualRevenue);
+        CommonWebActions.setTextElement(this.annualRevenueTextField, annualRevenue);
     }
 
     /**
@@ -316,6 +317,6 @@ public class SFANewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        CommonWebActions.clickElement(this.saveNewAccountButton);
     }
 }

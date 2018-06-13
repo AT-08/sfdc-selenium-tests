@@ -2,6 +2,7 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
@@ -52,9 +53,9 @@ public class CommonSteps {
     @When("^I click on \"([^\"]*)\" at list on Main Page")
     public void iChooseLastElementOnList(final String elementOnList) {
         final int time = 3;
-        CommonActions.waitTime(time);
+        CommonWebActions.waitTime(time);
         commonPage.clickElementOnList(elementOnList);
-        CommonActions.resetWaitTime();
+        CommonWebActions.resetWaitTime();
     }
 
     /**

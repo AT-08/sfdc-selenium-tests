@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.components;
 
-import org.fundacionjala.sfdc.util.CommonActions;
+import org.fundacionjala.core.driver.DriverManager;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,14 +18,14 @@ public class TopMenuClassic extends TopMenu {
 
     @Override
     public void switchTheme() {
-        CommonActions.clickElement(userProfileLink);
-        CommonActions.clickElement(switchThemeLink);
+        CommonWebActions.clickElement(userProfileLink);
+        CommonWebActions.clickElement(switchThemeLink);
     }
 
     /**
      * Wait until profile link is visible.
      */
     public void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(userProfileLink));
+        DriverManager.getInstance().getWaiter().until(ExpectedConditions.visibilityOf(userProfileLink));
     }
 }
