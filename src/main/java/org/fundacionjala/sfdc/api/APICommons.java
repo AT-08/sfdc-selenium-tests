@@ -74,4 +74,14 @@ public final class APICommons {
         }
         return String.join("/", endPointSplit);
     }
+
+    /**
+     * Method to save response from request into a hashmap.
+     *
+     * @param variableName the key name of the response.
+     * @param response     the response from request.
+     */
+    public static void saveResponse(final String variableName, final Response response) {
+        requestResponse.put(variableName, response);
+    }
 }

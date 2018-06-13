@@ -36,7 +36,7 @@ public final class APIRequestManager {
     private static Response response;
 
     /**
-     * Method to post a request.
+     * Request method to post SObject.
      *
      * @param values   map.
      * @param endpoint to request to.
@@ -56,5 +56,29 @@ public final class APIRequestManager {
      */
     public static Response getResponse() {
         return response;
+    }
+
+    /**
+     * Request method to delete a SObject.
+     *
+     * @param endPoint to make the request.
+     */
+    public static void delete(final String endPoint) {
+        response = given()
+                .spec(APIManager.getInstance().getRequestSpecification())
+                .when()
+                .delete(APIManager.SOBJECTS + endPoint + "ID Account");
+    }
+
+    /**
+     * Request method to get SObjects.
+     *
+     * @param endpoint to make the request.
+     */
+    public static void get(final String endpoint) {
+        response = given()
+                .spec(APIManager.getInstance().getRequestSpecification())
+                .when()
+                .get(APIManager.SOBJECTS + endpoint);
     }
 }

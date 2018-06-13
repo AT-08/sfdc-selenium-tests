@@ -40,3 +40,4 @@ Feature: Create a new account
   Scenario: Create a new Account trough API
     Given I post a new Account to "/Account" endpoint
       | ACCOUNT_NAME | Account EX2 |
+    And save the response as "Project"

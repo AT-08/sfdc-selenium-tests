@@ -1,14 +1,14 @@
 Feature: Modify and delete a previous created acount.
 
-  Background: User is logged in the application
-    Given I login as a User
-    When Home Page should be displayed
-    And I go to "ACCOUNT" Section
-    And I click on New button
-    And I fill the fields of Account and press the save button
-      | ACCOUNT_NAME | Account to Modify |
-    And I go to "ACCOUNT" Section
-    Then I verify if "Account to Modify" "ACCOUNT" was created/modified on Detail Page
+#  Background: User is logged in the application
+#    Given I login as a User
+#    When Home Page should be displayed
+#    And I go to "ACCOUNT" Section
+#    And I click on New button
+#    And I fill the fields of Account and press the save button
+#      | ACCOUNT_NAME | Account to Modify |
+#    And I go to "ACCOUNT" Section
+#    Then I verify if "Account to Modify" "ACCOUNT" was created/modified on Detail Page
 
   @deleteAccount
   Scenario: Edit account with all fields filled
@@ -67,3 +67,6 @@ Feature: Modify and delete a previous created acount.
     When I go to "ACCOUNT" Section
     And  I delete "Account to Modify" at list on Main Page
     Then I verify that "Account to Modify" "ACCOUNT" was deleted
+
+  Scenario: Delete an Account trough API
+    When I delete an Account with "/Account/[Account.id]" endpoint

@@ -18,7 +18,7 @@ public final class APIManager {
     private static final String USERNAME = "username";
     private static final String PASS = "password";
     private static final String ACCESS_TOKEN = "access_token";
-    private String serviceBaseUri = "https://na59.salesforce.com/services/data/v42.0";
+    private static final String SERVICE_BASE_URI = "https://na59.salesforce.com/services/data/v42.0";
     private static APIManager apiManager;
     private RequestSpecification requestSpecification;
     private PropertiesManager propertiesManager = PropertiesManager.getInstance();
@@ -48,7 +48,7 @@ public final class APIManager {
     private void init() {
         requestSpecification = new RequestSpecBuilder()
                 .setRelaxedHTTPSValidation()
-                .setBaseUri(serviceBaseUri)
+                .setBaseUri(SERVICE_BASE_URI)
                 .addHeader("Authorization", "Bearer ".concat(getAccessTokenHeader()))
                 .build();
     }
