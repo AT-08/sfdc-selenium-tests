@@ -17,7 +17,7 @@ import org.openqa.selenium.support.FindBy;
  * Class to log in Salesforce.
  */
 public class SalesForceLogIn extends Base {
-    private static final Logger LOGGER = LogManager.getLogger(SalesForceLogIn.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(SalesForceLogIn.class);
 
 
     private String url;

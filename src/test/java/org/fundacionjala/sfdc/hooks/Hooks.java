@@ -2,6 +2,9 @@ package org.fundacionjala.sfdc.hooks;
 
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import org.fundacionjala.sfdc.entities.Helper;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
@@ -29,6 +32,7 @@ public class Hooks {
         this.tabSalesForce = tabSalesForce;
         this.detailsPage = detailsPage;
     }
+
 
     /**
      * Delete Account.

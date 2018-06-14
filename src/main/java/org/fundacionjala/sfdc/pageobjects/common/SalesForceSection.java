@@ -2,6 +2,7 @@ package org.fundacionjala.sfdc.pageobjects.common;
 
 import org.fundacionjala.core.selenium.Base;
 import org.fundacionjala.core.selenium.CommonWebActions;
+import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.PropertiesSalesForce;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -33,7 +34,7 @@ public class SalesForceSection extends Base {
             CommonWebActions.jsClickElement(plusButton);
         }
         CommonWebActions.jsClickByElementLocator(this.salesForceTabSelector(section));
-        CommonWebActions.closeMessageLighting();
+        CommonActions.closeMessageLighting();
         CommonWebActions.resetWaitTime();
     }
 

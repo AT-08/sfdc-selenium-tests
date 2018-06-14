@@ -79,6 +79,7 @@ public class SFCommonObjects extends Base {
      */
 
     public boolean isWebElementPresentOnList(final String elementOnList) {
+        System.out.println(this.elementOnList);
         return CommonWebActions.istWebElementPresentOnList(this.elementOnList, elementOnList);
     }
 

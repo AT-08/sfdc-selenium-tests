@@ -35,6 +35,7 @@ public class CampaignSteps {
         values.keySet().forEach(step
                 -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
+
     }
 
 }
