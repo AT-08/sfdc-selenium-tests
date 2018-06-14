@@ -56,7 +56,6 @@ public final class PropertiesSalesForce {
      */
     private String getEnvValue(final String var) {
         String property = System.getProperty(var);
-       // return !Objects.isNull(property) ? property : properties.getProperty(var);
         return property == null ? properties.getProperty(var) : property;
     }
 
