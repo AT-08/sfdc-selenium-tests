@@ -86,6 +86,15 @@ To execute by command line you can use the following:
     -PurlLogin="https://login.salesforce.com/" -Puser="mariarenee.canqui@gmail.com" -Ppassword="HigurashI1994" 
     -Pbrowser="CHROME" -PexplicitWait="60" -Pbrowser="CHROME" -Ptheme="CLASSIC"
 
+
+
+The project use a coreJavaProject located in https://github.com/AT-06/coreJavaProject that contains the DriverManager, 
+browsers configurations and common actions related to web elements.
+To use this go to releases section and search the last.
+Open build.gradle and change the release version of the coreJavaProject
+ 
+        compile 'com.github.AT-06:coreJavaProject:RELEASE'
+        
       
 CONTRIBUTORS
 ------------
