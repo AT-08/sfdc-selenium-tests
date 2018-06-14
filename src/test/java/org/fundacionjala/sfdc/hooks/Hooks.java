@@ -30,6 +30,7 @@ public class Hooks {
         this.detailsPage = detailsPage;
     }
 
+
     /**
      * Delete Account.
      */

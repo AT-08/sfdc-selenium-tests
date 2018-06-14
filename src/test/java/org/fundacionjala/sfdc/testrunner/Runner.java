@@ -9,6 +9,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         format = {"pretty"},
         features = {"src/test/resources/features"},
+        plugin = {"io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm"},
         glue = {"org.fundacionjala.sfdc"})
 /**
  * Runner.java

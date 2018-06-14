@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.campaigns;
 
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
@@ -100,14 +101,14 @@ public class SFCampNewModifyPage extends SFNewModify {
      * @param value a string representation of a boolean value.
      */
     private void setCampaignActiveCheckbox(final String value) {
-        CommonActions.setCheckBox(this.campaignActiveCheckbox, Boolean.valueOf(value));
+        CommonWebActions.setCheckBox(this.campaignActiveCheckbox, Boolean.valueOf(value));
     }
 
     /**
      * @param campaignName setCampaignName.
      */
     private void setCampaignName(final String campaignName) {
-        CommonActions.setTextElement(this.campaignName, campaignName);
+        CommonWebActions.setTextElement(this.campaignName, campaignName);
     }
 
 
@@ -129,49 +130,49 @@ public class SFCampNewModifyPage extends SFNewModify {
      * @param campaignStartDate setCampaignStartDate.
      */
     private void setCampaignStartDate(final String campaignStartDate) {
-        CommonActions.setDateOnCalendar(this.campaignStartDate, campaignStartDate);
+        CommonWebActions.setDateOnCalendar(this.campaignStartDate, campaignStartDate);
     }
 
     /**
      * @param campaignExpectedRevenue setCampaignExpectedRevenue.
      */
     private void setCampaignExpectedRevenue(final String campaignExpectedRevenue) {
-        CommonActions.setTextElement(this.campaignExpectedRevenue, campaignExpectedRevenue);
+        CommonWebActions.setTextElement(this.campaignExpectedRevenue, campaignExpectedRevenue);
     }
 
     /**
      * @param campaignEndDate setCampaignEndDate.
      */
     private void setCampaignEndDate(final String campaignEndDate) {
-        CommonActions.setDateOnCalendar(this.campaignEndDate, campaignEndDate);
+        CommonWebActions.setDateOnCalendar(this.campaignEndDate, campaignEndDate);
     }
 
     /**
      * @param campaignBudgetedCost setCampaignBudgetedCost.
      */
     private void setCampaignBudgetedCost(final String campaignBudgetedCost) {
-        CommonActions.setTextElement(this.campaignBudgetedCost, campaignBudgetedCost);
+        CommonWebActions.setTextElement(this.campaignBudgetedCost, campaignBudgetedCost);
     }
 
     /**
      * @param campaignActualCost setCampaignActualCost.
      */
     private void setCampaignActualCost(final String campaignActualCost) {
-        CommonActions.setTextElement(this.campaignActualCost, campaignActualCost);
+        CommonWebActions.setTextElement(this.campaignActualCost, campaignActualCost);
     }
 
     /**
      * @param campaignExpectedResponse setCampaignExpectedResponse.
      */
     private void setCampaignExpectedResponse(final String campaignExpectedResponse) {
-        CommonActions.setTextElement(this.campaignExpectedResponse, campaignExpectedResponse);
+        CommonWebActions.setTextElement(this.campaignExpectedResponse, campaignExpectedResponse);
     }
 
     /**
      * @param campaignNumSent setCampaignNumSent.
      */
     private void setCampaignNumSent(final String campaignNumSent) {
-        CommonActions.setTextElement(this.campaignNumSent, campaignNumSent);
+        CommonWebActions.setTextElement(this.campaignNumSent, campaignNumSent);
     }
 
 
@@ -181,14 +182,14 @@ public class SFCampNewModifyPage extends SFNewModify {
      * @param parentCampaign the value.
      */
     private void setParentCampaign(final String parentCampaign) {
-        CommonActions.setTextElement(this.parentCampaign, parentCampaign);
+        CommonWebActions.setTextElement(this.parentCampaign, parentCampaign);
     }
 
     /**
      * @param campaignDescription setCampaignDescription.
      */
     private void setCampaignDescription(final String campaignDescription) {
-        CommonActions.setTextElement(this.campaignDescription, campaignDescription);
+        CommonWebActions.setTextElement(this.campaignDescription, campaignDescription);
     }
 
     /**
@@ -233,7 +234,7 @@ public class SFCampNewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        CommonWebActions.clickElement(this.saveNewAccountButton);
     }
 
 }

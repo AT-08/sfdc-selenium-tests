@@ -1,6 +1,7 @@
 package org.fundacionjala.sfdc.pageobjects.contacts;
 
 
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
@@ -185,7 +186,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactName string value.
      */
     private void setContactNameTextField(final String contactName) {
-        CommonActions.setTextElement(this.contactNameTextField, contactName);
+        CommonWebActions.setTextElement(this.contactNameTextField, contactName);
     }
 
     /**
@@ -195,7 +196,7 @@ public class SFCNewModifyPage extends SFNewModify {
      */
     private void setContactLastNameTextField(final String contactLastName) {
 
-        CommonActions.setTextElement(this.contactLastNameTextField, contactLastName);
+        CommonWebActions.setTextElement(this.contactLastNameTextField, contactLastName);
     }
 
     /**
@@ -204,7 +205,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactTitleTextField string value.
      */
     private void setContactTitleTextField(final String contactTitleTextField) {
-        CommonActions.setTextElement(this.contactTitleTextField, contactTitleTextField);
+        CommonWebActions.setTextElement(this.contactTitleTextField, contactTitleTextField);
     }
 
     /**
@@ -213,7 +214,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactDepartmentTextField string value.
      */
     private void setContactDepartmentTextField(final String contactDepartmentTextField) {
-        CommonActions.setTextElement(this.contactDepartmentTextField, contactDepartmentTextField);
+        CommonWebActions.setTextElement(this.contactDepartmentTextField, contactDepartmentTextField);
     }
 
     /**
@@ -222,7 +223,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactBirthdateTextField string value.
      */
     private void setContactBirthdateTextField(final String contactBirthdateTextField) {
-        CommonActions.setTextElement(this.contactBirthdateTextField, contactBirthdateTextField);
+        CommonWebActions.setTextElement(this.contactBirthdateTextField, contactBirthdateTextField);
     }
 
     /**
@@ -231,7 +232,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactPhoneTextField string value.
      */
     private void setContactPhoneTextField(final String contactPhoneTextField) {
-        CommonActions.setTextElement(this.contactPhoneTextField, contactPhoneTextField);
+        CommonWebActions.setTextElement(this.contactPhoneTextField, contactPhoneTextField);
     }
 
     /**
@@ -240,7 +241,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactHomePhoneTextField string value.
      */
     private void setContactHomePhoneTextField(final String contactHomePhoneTextField) {
-        CommonActions.setTextElement(this.contactHomePhoneTextField, contactHomePhoneTextField);
+        CommonWebActions.setTextElement(this.contactHomePhoneTextField, contactHomePhoneTextField);
     }
 
     /**
@@ -249,7 +250,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param assistantTextField string value.
      */
     private void setContactAssistantTextField(final String assistantTextField) {
-        CommonActions.setTextElement(contactAssistantTextField, assistantTextField);
+        CommonWebActions.setTextElement(contactAssistantTextField, assistantTextField);
     }
 
     /**
@@ -258,7 +259,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param faxTextField string value.
      */
     private void setContactFaxTextField(final String faxTextField) {
-        CommonActions.setTextElement(contactFaxTextField, faxTextField);
+        CommonWebActions.setTextElement(contactFaxTextField, faxTextField);
     }
 
     /**
@@ -267,7 +268,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param otherPhoneTextField string value.
      */
     private void setContactOtherPhoneTextField(final String otherPhoneTextField) {
-        CommonActions.setTextElement(contactOtherPhoneTextField, otherPhoneTextField);
+        CommonWebActions.setTextElement(contactOtherPhoneTextField, otherPhoneTextField);
     }
 
     /**
@@ -276,7 +277,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMobileTextField string value.
      */
     private void setContactMobileTextField(final String contactMobileTextField) {
-        CommonActions.setTextElement(this.contactMobileTextField, contactMobileTextField);
+        CommonWebActions.setTextElement(this.contactMobileTextField, contactMobileTextField);
     }
 
     /**
@@ -285,7 +286,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactEmailTextField string value.
      */
     private void setContactEmailTextField(final String contactEmailTextField) {
-        CommonActions.setTextElement(this.contactEmailTextField, contactEmailTextField);
+        CommonWebActions.setTextElement(this.contactEmailTextField, contactEmailTextField);
     }
 
     /**
@@ -294,7 +295,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactAssistantPhoneTextField string value.
      */
     public void setContactAssistantPhoneTextField(final String contactAssistantPhoneTextField) {
-        CommonActions.setTextElement(this.contactAssistantPhoneTextField, contactAssistantPhoneTextField);
+        CommonWebActions.setTextElement(this.contactAssistantPhoneTextField, contactAssistantPhoneTextField);
     }
 
     /**
@@ -303,7 +304,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMailingStreetTextField string value.
      */
     public void setContactMailingStreetTextField(final String contactMailingStreetTextField) {
-        CommonActions.setTextElement(this.contactMailingStreetTextField, contactMailingStreetTextField);
+        CommonWebActions.setTextElement(this.contactMailingStreetTextField, contactMailingStreetTextField);
     }
 
     /**
@@ -312,7 +313,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactOtherStreetTextField string value.
      */
     private void setContactOtherStreetTextField(final String contactOtherStreetTextField) {
-        CommonActions.setTextElement(this.contactOtherStreetTextField, contactOtherStreetTextField);
+        CommonWebActions.setTextElement(this.contactOtherStreetTextField, contactOtherStreetTextField);
     }
 
     /**
@@ -321,7 +322,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMailingCityTextField string value.
      */
     private void setContactMailingCityTextField(final String contactMailingCityTextField) {
-        CommonActions.setTextElement(this.contactMailingCityTextField, contactMailingCityTextField);
+        CommonWebActions.setTextElement(this.contactMailingCityTextField, contactMailingCityTextField);
     }
 
     /**
@@ -330,7 +331,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactOtherCityTextField string value.
      */
     private void setContactOtherCityTextField(final String contactOtherCityTextField) {
-        CommonActions.setTextElement(this.contactOtherCityTextField, contactOtherCityTextField);
+        CommonWebActions.setTextElement(this.contactOtherCityTextField, contactOtherCityTextField);
     }
 
     /**
@@ -339,7 +340,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMailingStateTextField string value.
      */
     public void setContactMailingStateTextField(final String contactMailingStateTextField) {
-        CommonActions.setTextElement(this.contactMailingStateTextField, contactMailingStateTextField);
+        CommonWebActions.setTextElement(this.contactMailingStateTextField, contactMailingStateTextField);
     }
 
     /**
@@ -348,7 +349,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactOtherStateTextField string value.
      */
     private void setContactOtherStateTextField(final String contactOtherStateTextField) {
-        CommonActions.setTextElement(this.contactOtherStateTextField, contactOtherStateTextField);
+        CommonWebActions.setTextElement(this.contactOtherStateTextField, contactOtherStateTextField);
     }
 
     /**
@@ -357,7 +358,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMailingZipTextField string value.
      */
     private void setContactMailingZipTextField(final String contactMailingZipTextField) {
-        CommonActions.setTextElement(this.contactMailingZipTextField, contactMailingZipTextField);
+        CommonWebActions.setTextElement(this.contactMailingZipTextField, contactMailingZipTextField);
     }
 
     /**
@@ -366,7 +367,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactOtherZipTextField string value.
      */
     private void setContactOtherZipTextField(final String contactOtherZipTextField) {
-        CommonActions.setTextElement(this.contactOtherZipTextField, contactOtherZipTextField);
+        CommonWebActions.setTextElement(this.contactOtherZipTextField, contactOtherZipTextField);
     }
 
     /**
@@ -375,7 +376,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactMailingCountryTextField string value.
      */
     private void setContactMailingCountryTextField(final String contactMailingCountryTextField) {
-        CommonActions.setTextElement(this.contactMailingCountryTextField, contactMailingCountryTextField);
+        CommonWebActions.setTextElement(this.contactMailingCountryTextField, contactMailingCountryTextField);
     }
 
     /**
@@ -384,7 +385,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactOtherCountryTextField string value.
      */
     private void setContactOtherCountryTextField(final String contactOtherCountryTextField) {
-        CommonActions.setTextElement(this.contactOtherCountryTextField, contactOtherCountryTextField);
+        CommonWebActions.setTextElement(this.contactOtherCountryTextField, contactOtherCountryTextField);
     }
 
     /**
@@ -393,7 +394,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactLanguagesTextField string value.
      */
     private void setContactLanguagesTextField(final String contactLanguagesTextField) {
-        CommonActions.setTextElement(this.contactLanguagesTextField, contactLanguagesTextField);
+        CommonWebActions.setTextElement(this.contactLanguagesTextField, contactLanguagesTextField);
     }
 
     /**
@@ -402,7 +403,7 @@ public class SFCNewModifyPage extends SFNewModify {
      * @param contactDescriptionTextField string value.
      */
     private void setContactDescriptionTextField(final String contactDescriptionTextField) {
-        CommonActions.setTextElement(this.contactDescriptionTextField, contactDescriptionTextField);
+        CommonWebActions.setTextElement(this.contactDescriptionTextField, contactDescriptionTextField);
     }
 
     /**
@@ -505,7 +506,7 @@ public class SFCNewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        CommonWebActions.clickElement(this.saveNewAccountButton);
     }
 
 }

@@ -1,5 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.opportunities;
 
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFNewModify;
 import org.fundacionjala.sfdc.util.CommonActions;
 import org.fundacionjala.sfdc.util.Value;
@@ -131,21 +132,21 @@ public class SFONewModifyPage extends SFNewModify {
      * @param value a string representation of a boolean value.
      */
     private void setPrivateCheckbox(final String value) {
-        CommonActions.setCheckBox(this.privateCheckbox, Boolean.valueOf(value));
+        CommonWebActions.setCheckBox(this.privateCheckbox, Boolean.valueOf(value));
     }
 
     /**
      * @param opportunityName setOpportunityName.
      */
     private void setOpportunityName(final String opportunityName) {
-        CommonActions.setTextElement(this.opportunityName, opportunityName);
+        CommonWebActions.setTextElement(this.opportunityName, opportunityName);
     }
 
     /**
      * @param accountName setAccountName.
      */
     private void setAccountName(final String accountName) {
-        CommonActions.setTextElement(this.accountName, accountName);
+        CommonWebActions.setTextElement(this.accountName, accountName);
     }
 
     /**
@@ -166,21 +167,21 @@ public class SFONewModifyPage extends SFNewModify {
      * @param opportunityAmount setOpportunityAmount.
      */
     private void setOpportunityAmount(final String opportunityAmount) {
-        CommonActions.setTextElement(this.opportunityAmount, opportunityAmount);
+        CommonWebActions.setTextElement(this.opportunityAmount, opportunityAmount);
     }
 
     /**
      * @param closeDate setOpportunityCloseDate.
      */
     private void setOpportunityCloseDate(final String closeDate) {
-        CommonActions.setDateOnCalendar(this.opportunityCloseDate, closeDate);
+        CommonWebActions.setDateOnCalendar(this.opportunityCloseDate, closeDate);
     }
 
     /**
      * @param opportunityNextStep setOpportunityNextStep.
      */
     private void setOpportunityNextStep(final String opportunityNextStep) {
-        CommonActions.setTextElement(this.opportunityNextStep, opportunityNextStep);
+        CommonWebActions.setTextElement(this.opportunityNextStep, opportunityNextStep);
     }
 
     /**
@@ -194,42 +195,42 @@ public class SFONewModifyPage extends SFNewModify {
      * @param opportunityProbability setOpportunityProbability.
      */
     private void setOpportunityProbability(final String opportunityProbability) {
-        CommonActions.setTextElement(this.opportunityProbability, opportunityProbability);
+        CommonWebActions.setTextElement(this.opportunityProbability, opportunityProbability);
     }
 
     /**
      * @param primaryCampaignSource setPrimaryCampaignSource.
      */
     private void setPrimaryCampaignSource(final String primaryCampaignSource) {
-        CommonActions.setTextElement(this.primaryCampaignSource, primaryCampaignSource);
+        CommonWebActions.setTextElement(this.primaryCampaignSource, primaryCampaignSource);
     }
 
     /**
      * @param orderNumber setOrderNumber.
      */
     private void setOrderNumber(final String orderNumber) {
-        CommonActions.setTextElement(this.orderNumber, orderNumber);
+        CommonWebActions.setTextElement(this.orderNumber, orderNumber);
     }
 
     /**
      * @param currentGenerator setCurrentGenerator.
      */
     private void setCurrentGenerator(final String currentGenerator) {
-        CommonActions.setTextElement(this.currentGenerator, currentGenerator);
+        CommonWebActions.setTextElement(this.currentGenerator, currentGenerator);
     }
 
     /**
      * @param trackingNumber setTrackingNumber.
      */
     private void setTrackingNumber(final String trackingNumber) {
-        CommonActions.setTextElement(this.trackingNumber, trackingNumber);
+        CommonWebActions.setTextElement(this.trackingNumber, trackingNumber);
     }
 
     /**
      * @param mainCompetitors setMainCompetitors.
      */
     private void setMainCompetitors(final String mainCompetitors) {
-        CommonActions.setTextElement(this.mainCompetitors, mainCompetitors);
+        CommonWebActions.setTextElement(this.mainCompetitors, mainCompetitors);
     }
 
     /**
@@ -243,7 +244,7 @@ public class SFONewModifyPage extends SFNewModify {
      * @param description setDescription.
      */
     private void setDescription(final String description) {
-        CommonActions.setTextElement(this.description, description);
+        CommonWebActions.setTextElement(this.description, description);
     }
 
     /**
@@ -298,7 +299,7 @@ public class SFONewModifyPage extends SFNewModify {
      */
     @Override
     public void getSaveNewAccountButton() {
-        CommonActions.clickElement(this.saveNewAccountButton);
+        CommonWebActions.clickElement(this.saveNewAccountButton);
     }
 
 }

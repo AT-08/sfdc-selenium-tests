@@ -1,6 +1,6 @@
 package org.fundacionjala.sfdc.pageobjects.components;
 
-import org.fundacionjala.sfdc.pageobjects.common.Base;
+import org.fundacionjala.core.selenium.Base;
 
 /**
  * Abstract class which is the top menu of SL application.

@@ -2,10 +2,12 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.sfdc.util.PropertiesManager;
+import org.fundacionjala.core.selenium.CommonWebActions;
+import org.fundacionjala.core.util.PropertiesInput;
+import org.fundacionjala.core.util.PropertiesManager;
+import org.fundacionjala.sfdc.util.PropertiesSalesForce;
 import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;
 
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
 
 /**
@@ -21,19 +23,23 @@ public class LogInSteps {
      */
     @Given("^I login as a User")
     public void iLoginAsUser() {
-        PropertiesManager prop = PropertiesManager.getInstance();
-        login = new SalesForceLogIn(prop.getUrlLogin());
-        login.logIn(prop.getUsername(), prop.getPassword(), prop.getTheme());
+        PropertiesSalesForce prop = PropertiesSalesForce.getInstance();
+        login = new SalesForceLogIn(PropertiesManager.getInstance().getProperties(PropertiesInput.URL_LOGIN));
+        login.logIn(PropertiesManager.getInstance().getProperties(PropertiesInput.USER), PropertiesManager
+                .getInstance().getProperties(PropertiesInput.PASSWORD), prop.getTheme());
     }
 
     /**
      * Then step.
      */
     @Then("^Home Page should be displayed$")
-    public void homePageShouldBeDisplated() {
-        CommonActions.waitTime(2);
-        Assert.assertTrue(login.getCloudIcon());
-        CommonActions.resetWaitTime();
+    public void homePageShouldBeDisplayed() {
+        try {
+            CommonWebActions.waitTime(2);
+            Assert.assertTrue(login.getCloudIcon());
+        } finally {
+            CommonWebActions.resetWaitTime();
+        }
     }
 
 }

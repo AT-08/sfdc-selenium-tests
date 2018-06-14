@@ -13,6 +13,7 @@ Feature: Contacts feature
     Then I go to "CONTACT" Section
     And I verify if "capibara" "CONTACT" was created/modified on Detail Page
 
+  @deleteContact
   Scenario: Create a new contact with all fields filled
     Given I go to "CONTACT" Section
     And I click on New button
