@@ -30,8 +30,8 @@ Feature: Create a new campaign
       | CAMPAIGN_ACTUAL_COST       | 50         |
       | CAMPAIGN_EXPECTED_RESPONSE | 23,57      |
       | CAMPAIGN_NUM_SENT          | 25         |
-      | CAMPAIGN_PARENT            | Camp123    |
-      | CAMPAIGN_DESCRIPTION       | Desc123    |
+      | CAMPAIGN_DESCRIPTION       | Desc456    |
+
     And I go to "CAMPAIGN" Section
     Then I verify if "Campaign" "CAMPAIGN" was created/modified on Detail Page
 

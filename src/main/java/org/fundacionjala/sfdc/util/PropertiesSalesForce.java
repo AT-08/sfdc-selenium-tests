@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;
 
 import java.io.FileInputStream;
 import java.io.IOException;

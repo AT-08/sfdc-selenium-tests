@@ -2,7 +2,6 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import io.qameta.allure.Allure;
 import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
 import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;

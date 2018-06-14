@@ -82,11 +82,13 @@ task executeFeatures(type: Test) {
             jvmArgs = ['-DremoteUserName=' + remoteUserName]
             jvmArgs = ['-DremoteAccessKey=' + remoteAccessKey]
             jvmArgs = ['-DremoteBrowserName=' + remoteBrowserName]
-            jvmArgs = ['-remoteBrowserVersion=' + remoteBrowserVersion]
+            jvmArgs = ['-DremoteBrowserVersion=' + remoteBrowserVersion]
             jvmArgs = ['-DremoteResolution=' + remoteResolution]
             jvmArgs = ['-DremotePlatform=' + remotePlatform]
             jvmArgs = ['-DremoteOS=' + remoteOS]
             jvmArgs = ['-DremoteOSVersion=' + remoteOSVersion]
+            jvmArgs = ['-DdocerURL=' + dockerURL]
+            jvmArgs = ['-DexplicitWait=' + explicitWait]
         }
         testLogging.showStandardStreams = true
         scanForTestClasses = false

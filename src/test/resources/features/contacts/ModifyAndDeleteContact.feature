@@ -10,7 +10,7 @@ Feature: Contacts feature
       | CONTACT_LAST_NAME | Grillosss |
     And I go to "CONTACT" Section
     Then I verify if "Grillosss, Pablo" "CONTACT" was created/modified on Detail Page
-
+  @deleteContact
   Scenario: Edit contact with all fields filled
     When I go to "CONTACT" Section
     And I click on "Grillosss, Pablo" "CONTACT" at list on Main Page
@@ -46,7 +46,7 @@ Feature: Contacts feature
       | CONTACT_DESCRIPTION     | This is a test2 |
     And I go to "CONTACT" Section
     Then I verify if "Grillo, Pepe Pablo" "CONTACT" was created/modified on Detail Page
-
+  @deleteContact
   Scenario: Edit contact at list on Main Page
     When I go to "CONTACT" Section
     And   I edit "Grillosss, Pablo" at list on Main Page

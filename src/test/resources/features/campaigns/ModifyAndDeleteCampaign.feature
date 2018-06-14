@@ -17,7 +17,6 @@ Feature: Modify/delete a campaign
       | CAMPAIGN_ACTUAL_COST       | 50         |
       | CAMPAIGN_EXPECTED_RESPONSE | 55,57      |
       | CAMPAIGN_NUM_SENT          | 25         |
-      | CAMPAIGN_PARENT            | Camp123    |
       | CAMPAIGN_DESCRIPTION       | Desc456    |
     And I go to "CAMPAIGN" Section
     Then I verify if "Campaign3" "CAMPAIGN" was created/modified on Detail Page
@@ -39,7 +38,6 @@ Feature: Modify/delete a campaign
       | CAMPAIGN_ACTUAL_COST       | 75          |
       | CAMPAIGN_EXPECTED_RESPONSE | 34,78       |
       | CAMPAIGN_NUM_SENT          | 67          |
-      | CAMPAIGN_PARENT            | Camp123     |
       | CAMPAIGN_DESCRIPTION       | Desc7809    |
     And I go to "CAMPAIGN" Section
     Then I verify if "Campaign4" "CAMPAIGN" was created/modified on Detail Page
@@ -60,7 +58,6 @@ Feature: Modify/delete a campaign
       | CAMPAIGN_ACTUAL_COST       | 75          |
       | CAMPAIGN_EXPECTED_RESPONSE | 34,78       |
       | CAMPAIGN_NUM_SENT          | 67          |
-      | CAMPAIGN_PARENT            | Camp123     |
       | CAMPAIGN_DESCRIPTION       | Desc7809    |
     And I go to "CAMPAIGN" Section
     Then I verify if "Campaign4" "CAMPAIGN" was created/modified on Detail Page

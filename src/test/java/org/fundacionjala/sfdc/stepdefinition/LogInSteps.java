@@ -33,10 +33,13 @@ public class LogInSteps {
      * Then step.
      */
     @Then("^Home Page should be displayed$")
-    public void homePageShouldBeDisplated() {
-        CommonWebActions.waitTime(2);
-        Assert.assertTrue(login.getCloudIcon());
-        CommonWebActions.resetWaitTime();
+    public void homePageShouldBeDisplayed() {
+        try {
+            CommonWebActions.waitTime(2);
+            Assert.assertTrue(login.getCloudIcon());
+        } finally {
+            CommonWebActions.resetWaitTime();
+        }
     }
 
 }

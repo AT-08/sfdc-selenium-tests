@@ -10,7 +10,6 @@ import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,8 +31,6 @@ public final class CommonActions {
     private static final WebDriver WEB_DRIVER = DriverManager.getInstance().getDriver();
     private static final boolean IS_CLASSIC = PropertiesSalesForce.getInstance().getTheme().equalsIgnoreCase("classic");
     private static final Logger LOGGER = LogManager.getLogger(CommonActions.class);
-    @FindBy(id = "lexNoThanks")
-    private static WebElement messageModal;
     /**
      * Private constructor because it is a util class.
      */
