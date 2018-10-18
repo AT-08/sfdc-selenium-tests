@@ -10,29 +10,6 @@ SALES FORCE TEST
 
 The main objective of this framework is automate acceptance test cases of Sales Force Develop Web Page using testNG, cucumber.
 The test cases executions are made using docker, browserStack and SauceLabs.
-
-FEATURES TESTED
----------------
-
-For Acceptance tests.
-
-- Login.
-- Account.
-    - Create.
-    - Edit
-    - Delete.
-- Contacts.
-    - Create.
-    - Edit
-    - Delete.
-- Campaigns.
-    - Create.
-    - Edit
-    - Delete.
-- Opportunity.
-    - Create.
-    - Edit
-    - Delete.
     
 
 CONFIGURATIONS
@@ -94,19 +71,3 @@ To use this go to releases section and search the last.
 Open build.gradle and change the release version of the coreJavaProject
  
         compile 'com.github.AT-06:coreJavaProject:RELEASE'
-        
-      
-CONTRIBUTORS
-------------
-
-Current contributors:
-
-- Jimmy Romero Sejas (JimmyRomero) - https://github.com/JimmyRomero
-- Escarleth Ledezma Quiroga (EscarlethFatima) - https://github.com/EscarlethFatima
-- Christian Galarza Crespo (Chritian92) - https://github.com/Chritian92
-- Daniel Caballero (danielditer) - https://github.com/danielditer
-- Maria Canqui Macias (PanDeBatalla94) - https://github.com/PanDeBatalla94
-- Ariel Gonzales Vargas (pipo411) - https://github.com/pipo411
-- Manuel Valdez Valda (manu863018) - https://github.com/manu863018
-- Omar Huanca Sanchez (omar-limbert) - https://github.com/omar-limbert
-- Carlos Gonzales (carledriss) - https://github.com/carledriss
