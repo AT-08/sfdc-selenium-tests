@@ -2,10 +2,11 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import org.fundacionjala.core.selenium.CommonWebActions;
-import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
+
+import org.fundacionjala.core.ui.CommonWebActions;
+import org.fundacionjala.sfdc.pages.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pages.common.SalesForceEnums;
+import org.fundacionjala.sfdc.pages.common.SalesForceSection;
 import org.fundacionjala.sfdc.util.CommonActions;
 
 /**

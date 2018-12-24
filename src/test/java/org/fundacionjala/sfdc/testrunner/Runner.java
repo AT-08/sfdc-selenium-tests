@@ -7,10 +7,15 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  * Initial configurations.
  */
 @CucumberOptions(
-        format = {"pretty"},
         features = {"src/test/resources/features"},
-        plugin = {"io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm"},
-        glue = {"org.fundacionjala.sfdc"})
+        glue = {"org.fundacionjala.sfdc"},
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/cucumber-pretty",
+                "json:target/cucumber-reports/CucumberTestReport.json",
+                "rerun:target/cucumber-reports/rerun.txt",
+                "io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm"
+        })
 /**
  * Runner.java
  * Class to run tests.

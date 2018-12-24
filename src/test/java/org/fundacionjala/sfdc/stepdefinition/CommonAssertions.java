@@ -1,11 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Then;
-import org.fundacionjala.core.selenium.CommonWebActions;
-import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
+
+import org.fundacionjala.core.ui.CommonWebActions;
+import org.fundacionjala.sfdc.pages.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pages.common.SalesForceEnums;
+import org.fundacionjala.sfdc.util.CommonActions;
 
 /**
  * Common Assertions.

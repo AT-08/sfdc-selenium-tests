@@ -1,11 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.java.en.And;
-import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
-import org.fundacionjala.sfdc.pageobjects.opportunities.SFONewModifyPage;
-
 import java.util.Map;
+
+import cucumber.api.java.en.And;
+
+import org.fundacionjala.sfdc.entities.Helper;
+import org.fundacionjala.sfdc.pages.opportunities.OpportInputs;
+import org.fundacionjala.sfdc.pages.opportunities.SFONewModifyPage;
 
 /**
  * OpportunitySteps.
