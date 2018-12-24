@@ -1,8 +1,8 @@
 Feature: Create a new account
 
-#  Background: User is logged in the application
-#    Given I login as a User
-#    Then Home Page should be displayed
+  Background: User is logged in the application
+    Given I login as a User
+    Then Home Page should be displayed
 
   @deleteAccount
   Scenario: Create a new account with only obligatory fields filled
@@ -35,9 +35,3 @@ Feature: Create a new account
       | SIC_CODE       | 200200200                      |
     And I go to "ACCOUNT" Section
     Then I verify if "Account with all fields filled" "ACCOUNT" was created/modified on Detail Page
-
-
-  Scenario: Create a new Account trough API
-    Given I post a new Account to "/Account" endpoint
-      | ACCOUNT_NAME | Account EX2 |
-    And save the response as "Project"

@@ -4,8 +4,6 @@ import java.util.Map;
 
 import cucumber.api.java.en.And;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.api.APICommons;
 import org.fundacionjala.sfdc.api.APIRequestManager;
 import org.fundacionjala.sfdc.entities.Helper;
@@ -42,16 +40,6 @@ public class AccountSteps {
     }
 
     /**
-     * @param endPoint is the endpoint.
-     * @param values   are the map values.
-     */
-    @Given("^I post a new Account to \"([^\"]*)\" endpoint$")
-    public void iPostANewAccountToEndpoint(final String endPoint, final Map<String, String> values) {
-//        APIRequestManager.post(values, APICommons.buildEndPoint(endPoint));
-        APIRequestManager.post(values, endPoint);
-    }
-
-    /**
      * Method to save response.
      *
      * @param variableName the key to save.
@@ -59,14 +47,5 @@ public class AccountSteps {
     @And("^save the response as \"([^\"]*)\"$")
     public void saveTheResponseAs(final String variableName) {
         APICommons.saveResponse(variableName, APIRequestManager.getResponse());
-    }
-
-    /**
-     * @param endPoint is the endpoint.
-     */
-    @When("^I delete an Account with \"([^\"]*)\" endpoint$")
-    public void iDeleteAnWithEndpoint(final String endPoint) {
-        //APIRequestManager.delete(APICommons.buildEndPoint(endPoint));
-        APIRequestManager.delete("Account/");
     }
 }
