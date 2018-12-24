@@ -4,6 +4,8 @@ import java.util.Map;
 
 import cucumber.api.java.en.And;
 
+import org.fundacionjala.sfdc.api.APICommons;
+import org.fundacionjala.sfdc.api.APIRequestManager;
 import org.fundacionjala.sfdc.entities.Helper;
 import org.fundacionjala.sfdc.pages.accounts.AccountInputs;
 import org.fundacionjala.sfdc.pages.accounts.SFANewModifyPage;
@@ -27,8 +29,6 @@ public class AccountSteps {
         this.helperToHook = helperToHook;
     }
 
-
-
     /**
      * @param values iFillTheFieldsAndPressTheSaveButton.
      */
@@ -37,5 +37,15 @@ public class AccountSteps {
         helperToHook.setAccountName(values.get(AccountInputs.ACCOUNT_NAME));
         values.keySet().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
+    }
+
+    /**
+     * Method to save response.
+     *
+     * @param variableName the key to save.
+     */
+    @And("^save the response as \"([^\"]*)\"$")
+    public void saveTheResponseAs(final String variableName) {
+        APICommons.saveResponse(variableName, APIRequestManager.getResponse());
     }
 }
