@@ -1,11 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.java.en.And;
-import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.campaigns.CampaignInputs;
-import org.fundacionjala.sfdc.pageobjects.campaigns.SFCampNewModifyPage;
-
 import java.util.Map;
+
+import cucumber.api.java.en.And;
+
+import org.fundacionjala.sfdc.entities.Helper;
+import org.fundacionjala.sfdc.pages.campaigns.CampaignInputs;
+import org.fundacionjala.sfdc.pages.campaigns.SFCampNewModifyPage;
 
 /**
  * OpportunitySteps.
@@ -35,6 +36,7 @@ public class CampaignSteps {
         values.keySet().forEach(step
                 -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
+
     }
 
 }

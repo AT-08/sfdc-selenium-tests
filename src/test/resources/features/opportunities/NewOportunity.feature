@@ -7,13 +7,15 @@ Feature: Create a new account
     And I click on New button
     And I fill the fields of Account and press the save button
       | ACCOUNT_NAME | AccountOpp |
+    And I go to "ACCOUNT" Section
     Then I verify if "AccountOpp" "ACCOUNT" was created/modified on Detail Page
     And I go to "CAMPAIGN" Section
     And I click on New button
     And I create or modify a campaign fill the fields and press the save button
       | CAMPAIGN_NAME   | CampaignOpp |
       | CAMPAIGN_ACTIVE | true        |
-    Then I verify if "CampaignTest" "CAMPAIGN" was created/modified on Detail Page
+    And I go to "CAMPAIGN" Section
+    Then I verify if "CampaignOpp" "CAMPAIGN" was created/modified on Detail Page
 
   @deleteAccount @deleteCampaign @deleteOpportunity
   Scenario: Create a new opportunity with all fields filled

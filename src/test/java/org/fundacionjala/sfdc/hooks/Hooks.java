@@ -1,12 +1,11 @@
 package org.fundacionjala.sfdc.hooks;
 
-
 import cucumber.api.java.After;
-import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceSection;
 
+import org.fundacionjala.sfdc.entities.Helper;
+import org.fundacionjala.sfdc.pages.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pages.common.SalesForceEnums;
+import org.fundacionjala.sfdc.pages.common.SalesForceSection;
 
 /**
  * Hooks Class for actions to run before and after Scenarios.
@@ -29,6 +28,7 @@ public class Hooks {
         this.tabSalesForce = tabSalesForce;
         this.detailsPage = detailsPage;
     }
+
 
     /**
      * Delete Account.

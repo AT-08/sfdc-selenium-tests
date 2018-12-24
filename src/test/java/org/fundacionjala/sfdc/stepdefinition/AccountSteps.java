@@ -1,15 +1,16 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
+import java.util.Map;
+
 import cucumber.api.java.en.And;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.fundacionjala.sfdc.api.APICommons;
 import org.fundacionjala.sfdc.api.APIRequestManager;
 import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.accounts.AccountInputs;
-import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
-
-import java.util.Map;
+import org.fundacionjala.sfdc.pages.accounts.AccountInputs;
+import org.fundacionjala.sfdc.pages.accounts.SFANewModifyPage;
 
 /**
  * AccountSteps.
@@ -21,7 +22,7 @@ public class AccountSteps {
     /**
      * AccountSteps.
      *
-     * @param modifyPage   modifyPage menu.
+     * @param modifyPage modifyPage menu.
      * @param helperToHook helper.
      */
     public AccountSteps(final SFANewModifyPage modifyPage, final Helper helperToHook) {

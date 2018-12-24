@@ -1,20 +1,22 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Then;
-import org.fundacionjala.sfdc.pageobjects.common.SFCommonObjects;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
-import org.fundacionjala.sfdc.util.CommonActions;
 import org.testng.Assert;
+
+import org.fundacionjala.core.ui.CommonWebActions;
+import org.fundacionjala.sfdc.pages.common.SFCommonObjects;
+import org.fundacionjala.sfdc.pages.common.SalesForceEnums;
+import org.fundacionjala.sfdc.util.CommonActions;
 
 /**
  * Common Assertions.
  */
 public class CommonAssertions {
     private SFCommonObjects commonPage;
+    public static final int THREE = 3;
 
     /**
      * Constructor of common Assertions.
-     *
      * @param commonPage mainPage menu.
      */
     public CommonAssertions(final SFCommonObjects commonPage) {
@@ -28,9 +30,10 @@ public class CommonAssertions {
     @Then("^I verify if \"([^\"]*)\" \"([^\"]*)\" was created/modified on Detail Page$")
     public void iVerifyIfWasCreatedModifiedOnDetailPage(final String nameOfObject,
                                                         final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
+        CommonWebActions.waitTime(1);
         Assert.assertTrue(commonPage.isWebElementPresentOnList(
                 CommonActions.getNameOfObject(nameOfObject, section)));
+        CommonWebActions.waitTime(THREE);
     }
 
     /**
@@ -39,8 +42,8 @@ public class CommonAssertions {
      */
     @Then("^I verify that \"([^\"]*)\" \"([^\"]*)\" was deleted$")
     public void iVerifyThatWasDeleted(final String elementDeleted, final SalesForceEnums.EnumLocator section) {
-        CommonActions.waitTime(2);
         Assert.assertFalse(commonPage.isWebElementPresentOnList(
-                CommonActions.getNameOfObject(elementDeleted, section)));
+        CommonActions.getNameOfObject(elementDeleted, section)));
+        CommonWebActions.waitTime(THREE);
     }
 }

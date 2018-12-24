@@ -1,11 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.java.en.And;
-import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.contacts.ContactInputs;
-import org.fundacionjala.sfdc.pageobjects.contacts.SFCNewModifyPage;
-
 import java.util.Map;
+
+import cucumber.api.java.en.And;
+
+import org.fundacionjala.sfdc.entities.Helper;
+import org.fundacionjala.sfdc.pages.contacts.ContactInputs;
+import org.fundacionjala.sfdc.pages.contacts.SFCNewModifyPage;
 
 /**
  * ContactSteps.
@@ -32,7 +33,7 @@ public class ContactSteps {
     @And("^I fill the fields of Contact and press the save button")
     public void iCreateANewContactFillTheFieldsAndPressTheSaveButton(final Map<ContactInputs, String> values) {
         helperToHook.setContactName(values.get(ContactInputs.CONTACT_LAST_NAME));
-        values.keySet().stream().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
+        values.keySet().forEach(step -> modifyPage.getStrategyStepMap(values).get(step).fillField());
         modifyPage.getSaveNewAccountButton();
     }
 
