@@ -1,11 +1,10 @@
 package org.fundacionjala.sfdc.entities;
 
-
-import org.fundacionjala.sfdc.pageobjects.campaigns.CampaignInputs;
-import org.fundacionjala.sfdc.pageobjects.opportunities.OpportInputs;
-
 import java.util.EnumMap;
 import java.util.Map;
+
+import org.fundacionjala.sfdc.pages.campaigns.CampaignInputs;
+import org.fundacionjala.sfdc.pages.opportunities.OpportInputs;
 
 /**
  * Helper class with Dependency Injection for all Steps.

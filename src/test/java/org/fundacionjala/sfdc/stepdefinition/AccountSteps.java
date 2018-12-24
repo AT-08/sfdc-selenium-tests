@@ -1,11 +1,12 @@
 package org.fundacionjala.sfdc.stepdefinition;
 
-import cucumber.api.java.en.And;
-import org.fundacionjala.sfdc.entities.Helper;
-import org.fundacionjala.sfdc.pageobjects.accounts.AccountInputs;
-import org.fundacionjala.sfdc.pageobjects.accounts.SFANewModifyPage;
-
 import java.util.Map;
+
+import cucumber.api.java.en.And;
+
+import org.fundacionjala.sfdc.entities.Helper;
+import org.fundacionjala.sfdc.pages.accounts.AccountInputs;
+import org.fundacionjala.sfdc.pages.accounts.SFANewModifyPage;
 
 /**
  * AccountSteps.

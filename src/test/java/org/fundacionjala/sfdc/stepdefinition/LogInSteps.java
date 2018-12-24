@@ -2,13 +2,13 @@ package org.fundacionjala.sfdc.stepdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.core.selenium.CommonWebActions;
+import org.testng.Assert;
+
+import org.fundacionjala.core.ui.CommonWebActions;
 import org.fundacionjala.core.util.PropertiesInput;
 import org.fundacionjala.core.util.PropertiesManager;
+import org.fundacionjala.sfdc.pages.login.SalesForceLogIn;
 import org.fundacionjala.sfdc.util.PropertiesSalesForce;
-import org.fundacionjala.sfdc.pageobjects.login.SalesForceLogIn;
-
-import org.testng.Assert;
 
 /**
  * LogInSteps.java.

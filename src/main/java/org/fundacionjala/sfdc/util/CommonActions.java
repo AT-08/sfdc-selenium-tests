@@ -1,25 +1,20 @@
 package org.fundacionjala.sfdc.util;
 
-
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fundacionjala.core.driver.DriverManager;
-import org.fundacionjala.core.selenium.CommonWebActions;
-import org.fundacionjala.sfdc.pageobjects.common.SalesForceEnums;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Iterator;
-
-import org.openqa.selenium.NoSuchElementException;
-import java.util.Set;
-
-
-
+import org.fundacionjala.core.ui.CommonWebActions;
+import org.fundacionjala.core.ui.driver.DriverManager;
+import org.fundacionjala.sfdc.pages.common.SalesForceEnums;
 
 /**
  * CommonActions.java
@@ -81,7 +76,7 @@ public final class CommonActions {
 
         String css = String.format("//a[text()='%s']", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(css)));
-        CommonWebActions.clickElement(WEB_DRIVER.findElement(By.xpath(css)));
+        CommonWebActions.click(WEB_DRIVER.findElement(By.xpath(css)));
 
         WEB_DRIVER.switchTo().window(currentWindows);
     }
@@ -92,7 +87,7 @@ public final class CommonActions {
     public static void autoCompleterLightTheme(final String textToSelect) {
         String selector = String.format("//div[@title='%s']/parent::div/preceding-sibling::div", textToSelect);
         WAITER.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
-        CommonWebActions.clickElement(WEB_DRIVER.findElement(By.xpath(selector)));
+        CommonWebActions.click(WEB_DRIVER.findElement(By.xpath(selector)));
     }
 
 
@@ -120,9 +115,9 @@ public final class CommonActions {
      */
     public static void closeMessageLighting() {
         try {
-                CommonWebActions.waitWebElementVisible(WEB_DRIVER.findElement(By.id("lexNoThanks")));
+                CommonWebActions.waitVisibleOf(WEB_DRIVER.findElement(By.id("lexNoThanks")));
                 WEB_DRIVER.findElement(By.id("lexNoThanks")).click();
-                CommonWebActions.waitWebElementVisible(WEB_DRIVER.findElement(By.id("tryLexDialogX")));
+                CommonWebActions.waitVisibleOf(WEB_DRIVER.findElement(By.id("tryLexDialogX")));
                 WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
         } catch (NoSuchElementException e) {
             LOGGER.error("error", e.getMessage());
